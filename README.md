@@ -18,6 +18,6 @@ Olet lämpimästi tervetullut tutustumaan sääntöihin, kokeilemaan peliä ja o
 
 ### Pika-aloitus
 
-* **[Lue täydet säännöt täältä](https://taistelukentta.github.io/)**
-* **[Tutustu kehityksen roadmappiin](https://github.com/AkseliLarikka/taistelukentta.github.io/blob/main/roadmap.md)**
+* **[Lue täydet säännöt täältä](https://akselilarikka.github.io/taistelukentta)**
+* **[Tutustu kehityksen roadmappiin](https://github.com/AkseliLarikka/akselilarikka.github.io/blob/main/roadmap.md)**
 * **[Lataa uusimmat skenaariot ja materiaalit](linkki-materiaaleihin/)**
