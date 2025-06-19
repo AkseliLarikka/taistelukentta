@@ -534,18 +534,51 @@ a:has(> .lisenssi-kuvake-yksi):hover {
 /* ==================================================================== */
 
 .pdf-container {
-    overflow-x: auto;
+    /* Muutettu: Sallii nyt sekä pysty- että vaakavierityksen. */
+    overflow: auto;
+
+    /* Parantaa vierityskokemusta iOS-laitteilla. */
     -webkit-overflow-scrolling: touch;
+
+    /* Asetetaan säiliölle kiinteä korkeus, jotta vieritys toimii. */
+    height: 800px;
     max-width: 100%;
+
+    /* Valinnainen: reunaviiva auttaa hahmottamaan säiliön koon. */
+    border: 1px solid #e7e5e4;
+    /* stone-200 */
 }
+
+.pdf-container iframe {
+    min-width: 650px;  /* Pakottaa leveyden mobiilissa, jotta vieritys toimii */
+    width: 100%;       /* Käyttää koko leveyden isommilla näytöillä */
+    height: 800px;     /* Asettaa iframe-elementille selkeän korkeuden */
+    border: none;      /* Varmistaa, että elementillä ei ole reunoja */
+}
+
 
 .mobile-pdf-link {
     display: none;
-    /* Piilotettu oletuksena, näytetään vain mobiilissa */
+    /* Piilotettu oletuksena */
     padding: 0.5rem 1rem;
     text-align: center;
     background-color: #fafaf9;
     /* stone-50 */
+}
+
+/* Media-kysely: Nämä tyylit astuvat voimaan, kun näytön leveys
+   on 768px tai vähemmän (tyypillinen mobiililaitteen raja). */
+@media (max-width: 768px) {
+    .mobile-pdf-link {
+        /* Tuodaan linkki näkyviin mobiilissa. */
+        display: block;
+    }
+
+    .pdf-container {
+        /* Käytetään suhteellista korkeutta mobiilissa,
+           esim. 75% näkymän korkeudesta. */
+        height: 75vh;
+    }
 }
 
 /* ==================================================================== */
