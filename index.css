@@ -541,7 +541,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     -webkit-overflow-scrolling: touch;
 
     /* Asetetaan säiliölle kiinteä korkeus, jotta vieritys toimii. */
-    height: 800px;
+    height: fit-content;
     max-width: 100%;
 
     /* Valinnainen: reunaviiva auttaa hahmottamaan säiliön koon. */
@@ -552,8 +552,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
 .pdf-container iframe {
     min-width: 650px;  /* Pakottaa leveyden mobiilissa, jotta vieritys toimii */
     width: 100%;       /* Käyttää koko leveyden isommilla näytöillä */
-    height: fit-content;
-    min-height: 800px;     /* Asettaa iframe-elementille selkeän korkeuden */
+    height: 1170px;    /* Asettaa iframe-elementille selkeän korkeuden */
     border: none;      /* Varmistaa, että elementillä ei ole reunoja */
 }
 
