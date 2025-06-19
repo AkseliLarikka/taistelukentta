@@ -387,7 +387,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
 }
 
 .yhteystiedot-lista {
-    list-style-type: none;
+    list-style-type: none !important;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
