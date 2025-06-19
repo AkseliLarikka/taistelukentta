@@ -1,4 +1,22 @@
-/* Chosen Palette: Warm Neutral Harmony */
+/**
+ * Taistelukenttä d20 -projektin päätyylitiedosto.
+ *
+ * Tämä tiedosto sisältää kaikki sivuston ulkoasuun liittyvät määritykset,
+ * mukaan lukien perus- ja typografiatyylit, komponenttien muotoilut
+ * sekä responsiiviset säännöt eri näyttöko'oille.
+ *
+ * Rakenne:
+ * 1. Perustyylit ja Teeman ylikirjoitukset
+ * 2. Typografia (Prose)
+ * 3. Komponenttikohtaiset tyylit (Sivupalkki, Kortit, Napit jne.)
+ * 4. Apuohjelma- ja erikoistyylit
+ * 5. Responsiiviset tyylit (Media Queries)
+ */
+
+/* ==================================================================== */
+/* 1. PERUSTYYLIT JA TEEMAN YLIKIRJOITUKSET                             */
+/* ==================================================================== */
+
 html {
     scroll-behavior: smooth;
 }
@@ -11,7 +29,9 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* Omat aggressiiviset tyylit, jotka ylikirjoittavat Tailwindin */
+/* --- Teeman ylikirjoitukset --- */
+/* Nämä säännöt on tarkoitettu yliajamaan Tailwindin oletusarvot */
+/* ja luomaan yhtenäisen, maanläheisen visuaalisen teeman. */
 
 /* Päävärit otsikoille */
 .prose h1,
@@ -83,6 +103,8 @@ body {
     /* Tummempi oliivi */
 }
 
+/* Vanhat teemavärit, joita saatetaan vielä käyttää tai jotka voidaan siivota myöhemmin */
+/* Esimerkiksi .prose-määritykset alla käyttävät näitä vielä osittain. */
 .prose {
     color: #44403C;
     /* stone-700 */
@@ -91,13 +113,17 @@ body {
 .prose h1,
 .prose h2,
 .prose h3,
-.prose h4 {
-    color: #A855F7;
-    /* purple-500 */
+.prose h4,
+.prose h5 {
     border-bottom: 2px solid #E5E7EB;
     /* gray-200 */
     padding-bottom: 0.3em;
 }
+
+
+/* ==================================================================== */
+/* 2. TYPOGRAFIA (PROSE-LUOKAN MÄÄRITYKSET)                            */
+/* ==================================================================== */
 
 .prose h1 {
     font-size: 2.25rem;
@@ -125,39 +151,34 @@ body {
     border-bottom: 2px dotted #E5E7EB;
 }
 
-.prose a {
-    color: #6D28D9;
-    /* purple-700 */
-}
-
 .prose strong {
     color: #44403C;
+    /* stone-700 */
 }
 
-/* stone-700 */
-.prose blockquote {
-    border-left-color: #A855F7;
-    /* purple-500 */
-    background-color: #FAFAF9;
-    /* stone-50 */
-    color: #57534E;
-    /* stone-600 */
+.prose ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
 }
 
-.prose .yhteystiedot-lista {
-    list-style-type: none;
-    /* Poistaa listapallerot */
-    padding: 0;
-    /* Poistaa oletussisennyksen */
-    display: flex;
-    /* ASETTAA LISTAN ELEMENTIT VIEREKKÄIN */
-    flex-wrap: wrap;
-    /* Sallii linkkien rivittyä, jos tila loppuu (esim. mobiilissa) */
-    gap: 1.5rem;
-    /* Lisää välin linkkien väliin (sekä vaaka- että pystysuunnassa, jos rivittyvät) */
-    margin-top: 1rem;
-    /* Lisätään hieman ilmaa otsikon ja listan väliin */
-    padding-bottom: 1.5rem;
+.prose ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+}
+
+/* --- Taulukot --- */
+.table-container {
+    overflow-x: auto;
+    /* Sallii vaakavierityksen kapeilla näytöillä */
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    -webkit-overflow-scrolling: touch;
+    /* Parantaa vierityskokemusta iOS-laitteilla */
+}
+
+.prose table {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .prose th,
@@ -172,18 +193,83 @@ body {
     /* stone-50 */
 }
 
-.prose ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-    /* Tärkeä! Antaa tilaa listamerkeille */
+/* --- Sanaston erikoistyylit --- */
+.glossary-index-header {
+    width: 1%;
+    /* Mahdollisimman kapea sarake */
+    text-align: center;
 }
 
-.prose ol {
-    list-style-type: decimal;
-    padding-left: 1.5rem;
-    /* Tärkeä! Antaa tilaa numeroille */
+.glossary-index-letter {
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+    color: #6D28D9;
+    /* purple-700 */
+    font-size: 1.1em;
+    padding: 0.5rem 0.2rem;
 }
 
+/* ==================================================================== */
+/* 3. KOMPONENTIT                                                     */
+/* ==================================================================== */
+
+/* --- Sivupalkki (Sidebar) --- */
+#sidebar {
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-hidden {
+    transform: translateX(-100%);
+}
+
+.nav-link {
+    transition: all 0.2s;
+    border-left: 4px solid transparent;
+    word-wrap: break-word;
+    /* Varmistaa yhteensopivuuden */
+    overflow-wrap: break-word;
+    /* Moderni standardi pitkien sanojen rivitykseen */
+    hyphens: auto;
+    /* Automaattinen tavutus */
+}
+
+/* --- Logo --- */
+#logo-link img {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-radius: 0.25rem;
+}
+
+#logo-link:hover img {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Banneri --- */
+.banner-title {
+    font-family: 'Black Ops One', sans-serif;
+    display: inline-block;
+    padding: 0.5em 1.5em;
+    margin: 0 1.5em;
+    color: #FDF6E3 !important;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    background-color: rgba(47, 54, 31, 0.75);
+    /* Huurrelasi-efekti */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(143, 151, 121, 0.3);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    text-decoration: none !important;
+
+    /* Korjauksia renderöintiongelmiin (esim. Safarin valkoinen viiva) */
+    isolation: isolate;
+    will-change: transform;
+    transform: translateZ(0);
+    border-bottom: 1px solid rgba(143, 151, 121, 0.3) !important;
+}
+
+/* --- Yksikkökortti (Unit Card) --- */
 .unit-card {
     background-color: #FFFFFF;
     border: 1px solid #E7E5E4;
@@ -196,15 +282,8 @@ body {
 }
 
 .unit-card h4 {
-    background-color: #F3E8FF;
-    /* purple-100 */
-    color: #581C87;
-    /* purple-900 */
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid #E5E7EB;
     margin-top: 0;
-    border-bottom-color: #D8B4FE;
-    /* purple-300 */
 }
 
 .unit-card-content {
@@ -220,200 +299,26 @@ body {
     padding-bottom: 0.5rem;
 }
 
-#sidebar {
-    transition: transform 0.3s ease-in-out;
-}
-
-.sidebar-hidden {
-    transform: translateX(-100%);
-}
-
-.nav-link {
-    transition: all 0.2s;
-    border-left: 4px solid transparent;
-    word-wrap: break-word;
-    /* Varmistaa yhteensopivuuden vanhempien selainten kanssa */
-    overflow-wrap: break-word;
-    /* Moderni standardi: pakottaa liian pitkän sanan rivittymään */
-    hyphens: auto;
-    /* Lisää automaattisen tavutuksen suomen kielen sääntöjen mukaan */
-}
-
-.nav-link:hover,
-.nav-link.active {
-    background-color: #F3E8FF;
-    /* purple-100 */
-    border-left-color: #A855F7;
-    /* purple-500 */
-    color: #581C87;
-    /* purple-900 */
-}
-
-.lisenssi-container {
-    /* Asettaa säiliön käyttämään Flexbox-asettelua */
-    align-items: center;
-    /* Tasaa tekstin ja kuvat pystysuunnassa keskelle */
-    flex-wrap: wrap;
-    /* Sallii elementtien rivittyä, jos tila loppuu (esim. mobiililaitteilla) */
-    gap: 0.5rem;
-    /* Lisää pienen välin teksti- ja kuvaosioiden väliin */
-    justify-content: center;
-    /* Keskittää sisällön, jos haluat */
-    padding: 1rem 0rem;
-    /* Lisää hieman ilmavuutta reunohin */
-    border-top: 1px solid #e5e7eb;
-    /* Esimerkki: lisää siistin yläreunan */
-}
-
-.lisenssi-kuvake-yksi {
-    height: 7rem;
-    /* Hieman suurempi korkeus, koska se on nyt yksi kuva. Muokkaa tarvittaessa. */
-    vertical-align: middle;
-    /* Tasaa kuvan kauniisti ympäröivän tekstin kanssa. */
-    transition: opacity 0.2s ease-in-out;
-    /* Pehmeä tehoste hiiren liikkeille. */
-}
-
-/* Lisätään pieni tehoste, kun hiiri on kuvan päällä */
-a:has(> .lisenssi-kuvake-yksi):hover {
-    opacity: 0.8;
-}
-
-.yhteystiedot-lista a {
-    display: inline-flex;
-    /* Asettaa kuvakkeen ja tekstin vierekkäin */
-    align-items: center;
-    /* Tasaa kuvakkeen ja tekstin pystysuunnassa */
-    gap: 0.5rem;
-    /* Lisää välin kuvakkeen ja tekstin väliin */
-    text-decoration: none;
-    color: #3b82f6;
-    /* Esimerkki linkin väriksi */
-}
-
-.yhteystiedot-lista a:hover {
-    text-decoration: underline;
-    /* Korostaa linkin, kun hiiri on sen päällä */
-}
-
-#logo-link img {
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    border-radius: 0.25rem;
-    /* Lisätään pieni pyöristys tehostetta varten */
-}
-
-#logo-link:hover img {
-    transform: scale(1.03);
-    /* Suurentaa logoa hieman, kun hiiri on päällä */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.banner-title {
-    font-family: 'Black Ops One', sans-serif;
-    display: inline-block;
-    padding: 0.5em 1.5em;
-    margin: 0 1.5em;
-
-    /* Asetetaan teemaan sopiva, pehmeä vaalea väri tekstille */
-    color: #FDF6E3 !important;
-    /* theme-sand-light */
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-
-    /* Tausta toiveesi mukaan. Nostin hieman peittävyyttä, koska poistimme toisen peittokuvan. */
-    background-color: rgba(47, 54, 31, 0.75);
-    /* theme-olive-dark, 75% peittävyys */
-
-    /* Huurrelasi-efekti ja sen etuliite vanhemmille Safari-versioille */
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-
-    /* SIIVOTTU REUNUSMÄÄRITYS: Yksi sääntö kaikille reunoille poistaa ristiriidat */
-    border: 1px solid rgba(143, 151, 121, 0.3);
-
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    text-decoration: none !important;
-
-    /* === KORJAUS MOBIILIN RENDERÖINTIONGELMIIN === */
-    /* Varmistaa, että elementti on omassa pinoamiskontekstissaan */
-    isolation: isolate;
-    /* Vihje selaimelle, että tämä elementti voi muuttua, joten kannattaa varautua */
-    will-change: transform;
-    /* "Taikatemppu", joka pakottaa laitteistokiihdytyksen päälle Webkit-selaimissa (Safari) */
-    transform: translateZ(0);
-
-
-    /* LOPULLINEN KORJAUS VALKOISEEN VIIVAAN: Varmistetaan, ettei alareunusta ole */
-    border-bottom: 1px solid rgba(143, 151, 121, 0.3) !important;
-}
-
-@media (max-width: 768px) {
-    .banner-title {
-        text-decoration: none !important;
-    }
-}
-
-/* Taulukon vierityssäiliö */
-.table-container {
-    overflow-x: auto;
-    /* Sallii vierityksen vain X-akselilla (vaakasuunnassa) */
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    -webkit-overflow-scrolling: touch;
-    /* Parantaa vierityskokemusta iOS-laitteilla */
-}
-
-/* Poistetaan marginaalit suoraan taulukolta, jotta ne eivät tuplaannu */
-.prose table {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-/* Sanaston indeksisarakkeen tyylit */
-.glossary-index-header {
-    width: 1%;
-    /* Tekee sarakkeesta mahdollisimman kapean */
-    text-align: center;
-}
-
-.glossary-index-letter {
-    text-align: center;
-    /* Keskittää kirjaimen vaakatasossa */
+/* Erityistila yksikkökortissa, esim. tappioiden kuvaamiseen. */
+.vaurioitunut-tila {
+    color: crimson;
     font-weight: bold;
-    /* Lihavoi kirjaimen */
-    vertical-align: middle;
-    /* Keskittää kirjaimen pystysuunnassa, jos rivi on korkea */
-    color: #6D28D9;
-    /* Käyttää violettia teemaväriäsi (purple-700) */
-    font-size: 1.1em;
-    /* Hieman isompi fonttikoko */
-    padding: 0.5rem 0.2rem;
-    /* Pieni pehmuste sivuilla */
 }
 
-
-/* ==================================================================== */
-/* UKK-OSION TYYLIT (<details> ja <summary>)                           */
-/* ==================================================================== */
-
-/* Säiliö jokaiselle kysymykselle ja vastaukselle */
+/* --- UKK-osio (FAQ / details & summary) --- */
 #ukk details {
     background-color: #FFFFFF;
     border: 1px solid #E7E5E4;
-    /* stone-200 */
     border-radius: 0.375rem;
-    /* 6px */
     margin-bottom: 0.75rem;
     transition: background-color 0.2s ease-in-out;
 }
 
-/* Kysymys (otsikko, jota klikataan) */
 #ukk summary {
     cursor: pointer;
     padding: 1rem;
     font-weight: 600;
     color: #44403C;
-    /* stone-700 */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -421,43 +326,35 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     /* Poistaa oletusnuolen/kolmion */
 }
 
-/* Poistetaan oletusnuoli myös Webkit-selaimista */
 #ukk summary::-webkit-details-marker {
     display: none;
+    /* Poistaa oletusnuolen myös Webkit-selaimista */
 }
 
-/* Hover-tehoste kysymykselle */
 #ukk summary:hover {
     background-color: #FAFAF9;
     /* stone-50 */
 }
 
-/* Oma nuoli-ikoni, joka pyörii */
+/* Oma nuoli-ikoni, joka pyörii animaation avulla. */
 #ukk summary::after {
     content: '❯';
-    /* Nuolimerkki */
     font-size: 1.25rem;
-    color: #A855F7;
-    /* purple-500 */
     transform: rotate(0deg);
     transition: transform 0.2s ease-in-out;
     margin-left: 1rem;
 }
 
-/* Kun osio on auki, käännetään nuolta */
 #ukk details[open]>summary::after {
     transform: rotate(90deg);
 }
 
-/* Vastaus-alueen tyylit (sisältö, joka tulee näkyviin) */
 #ukk details>div {
     padding: 0 1.25rem 1.25rem 1.25rem;
     border-top: 1px solid #E7E5E4;
-    /* stone-200 */
     line-height: 1.6;
 }
 
-/* Varmistetaan, että listat vastausten sisällä näyttävät hyviltä */
 #ukk details ul,
 #ukk details ol {
     padding-left: 1.5rem;
@@ -468,16 +365,53 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     padding-left: 1rem;
 }
 
-.vaurioitunut-tila {
-    color: crimson;
-    font-weight: bold;
+
+/* --- Yhteystiedot ja Lisenssi (Footer) --- */
+.lisenssi-container {
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    padding: 1rem 0rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.lisenssi-kuvake-yksi {
+    height: 7rem;
+    vertical-align: middle;
+    transition: opacity 0.2s ease-in-out;
+}
+
+a:has(> .lisenssi-kuvake-yksi):hover {
+    opacity: 0.8;
+}
+
+.yhteystiedot-lista {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding-bottom: 1.5rem;
+}
+
+.yhteystiedot-lista a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.yhteystiedot-lista a:hover {
+    text-decoration: underline;
 }
 
 /* ==================================================================== */
-/* VIERITYSNAPIT JA SELITE (Uusi ruudukkoasettelu)                      */
+/* 4. VIERITYSNAPIT (SCROLL BUTTONS)                                  */
 /* ==================================================================== */
 
-/* Pääsäiliö: Nyt pystysuuntainen flexbox, joka järjestää rivit allekkain */
+/* Pääsäiliö: Kiinnitetty oikeaan alakulmaan. */
 .scroll-buttons {
     position: fixed;
     bottom: 1.5rem;
@@ -485,32 +419,27 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     z-index: 50;
     display: flex;
     flex-direction: column;
-    /* Järjestää rivit päällekkäin */
     align-items: center;
-    /* Keskittää elementit vaakasuunnassa */
     gap: 0.5rem;
     opacity: 1;
     visibility: visible;
     transition: opacity 0.7s ease-out, visibility 0.5s ease-out;
 }
 
-/* Yksittäinen rivi nappisäiliön sisällä */
+/* Asettelun apuluokat napeille */
 .scroll-row {
     display: flex;
     gap: 0.5rem;
 }
 
-/* Sarake ylös- ja alas-nappien ryhmittelyyn */
 .scroll-column {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-/* Yhteiset tyylit kaikille napeille */
+/* --- Yksittäiset napit --- */
 .scroll-button {
-    background-color: #6D28D9;
-    /* purple-700 */
     color: white;
     border: none;
     width: 3rem;
@@ -527,8 +456,6 @@ a:has(> .lisenssi-kuvake-yksi):hover {
 }
 
 .scroll-button:hover:not(:disabled) {
-    background-color: #581C87;
-    /* purple-900 */
     transform: scale(1.1);
 }
 
@@ -538,36 +465,25 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     transform: none;
 }
 
-/* Muotoillaan kuvakkeet napin sisälle sopiviksi */
 .scroll-button img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-/* Kääntää kuvan ylösalaisin */
 .invert-icon {
     transform: rotate(180deg);
 }
 
-/* PÄIVITETTY: Info-napin leveys ja tyyli */
 .info-button {
-    background-color: #7E22CE;
-    /* purple-600 */
-    /* Asetetaan leveys vastaamaan kahta nappia ja niiden väliä (3rem + 3rem + 0.5rem) */
     width: 6.5rem;
+    /* Leveys vastaa kahta nappia ja niiden väliä */
     height: 3rem;
-    /* Normaali korkeus */
     border-radius: 9999px;
     /* Pillarin muoto */
 }
 
-.info-button:hover:not(:disabled) {
-    background-color: #581C87;
-    /* purple-900 */
-}
-
-/* PÄIVITETTY: Selitepaneelin sijainti nappien yläpuolella */
+/* --- Nappien selitepaneeli --- */
 .scroll-legend-panel {
     position: absolute;
     bottom: calc(100% + 1rem);
@@ -594,7 +510,6 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     visibility: visible;
 }
 
-/* Selitepaneelin listan ja kuvakkeiden tyylit */
 .scroll-legend-panel ul {
     list-style-type: none;
     padding: 0;
@@ -612,79 +527,73 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
-    /* Estää kuvaketta kutistumasta */
 }
 
-/* Nappien häivytys footerin kohdalla mobiilissa */
+/* ==================================================================== */
+/* 5. ERIKOISSÄILIÖT (PDF, jne.)                                      */
+/* ==================================================================== */
+
+.pdf-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+}
+
+.mobile-pdf-link {
+    display: none;
+    /* Piilotettu oletuksena, näytetään vain mobiilissa */
+    padding: 0.5rem 1rem;
+    text-align: center;
+    background-color: #fafaf9;
+    /* stone-50 */
+}
+
+/* ==================================================================== */
+/* 6. RESPONSIIVISET TYYLIT (MEDIA QUERIES)                           */
+/* ==================================================================== */
+
+/* --- TABLET JA ALLE (max-width: 768px) --- */
 @media (max-width: 768px) {
+
+    /* Piilottaa vieritysnapit, kun footer tulee näkyviin mobiilissa. */
     #scroll-buttons-container.is-docked {
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
     }
 
+    /* Näyttää suoran linkin PDF-tiedostoon mobiilissa. */
     .mobile-pdf-link {
         display: block;
     }
-}
 
-/* ==================================================================== */
-/* PDF-SÄILIÖN TYYLIT MOBIILIVIERITYSTÄ VARTEN                    */
-/* ==================================================================== */
+    /* Muuttaa bannerin otsikon tyyliä (poistaa turhat koristelut). */
+    .banner-title {
+        text-decoration: none !important;
+    }
 
-.pdf-container {
-    overflow-x: auto;
-    /* Mahdollistaa vaakatason vierityksen, jos sisältö on leveämpi */
-    -webkit-overflow-scrolling: touch;
-    /* Parantaa vierityskokemusta iOS-laitteilla */
-    max-width: 100%;
-}
-
-.mobile-pdf-link {
-    display: none;
-    /* Piilotettu oletuksena */
-    padding: 0.5rem 1rem;
-    text-align: center;
-    background-color: #fafaf9;
-    /* Esimerkiksi stone-50 */
-}
-
-/* ==================================================================== */
-/* TURVALLINEN MOBIILINAVIGAATIO (Ei riko työpöytänäkymää)           */
-/* ==================================================================== */
-
-/* Säännöt astuvat voimaan VAIN pienillä näytöillä (alle 769px) */
-@media (max-width: 768px) {
-
-    /* 1. Muutetaan pääsäiliö oikean alanurkan sijaan koko näytön
-          levyiseksi palkiksi alareunaan. */
+    /* --- Mobiilin vieritysnapit: monimutkainen ruudukkoasettelu --- */
+    /* Muutetaan pääsäiliö koko näytön levyiseksi palkiksi alareunaan. */
     #scroll-buttons-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        /* 4 saraketta */
         grid-template-rows: repeat(2, 1fr);
-        /* 2 riviä */
-
-        /* Asetetaan palkki alareunaan */
         width: 50%;
         bottom: 0;
         right: 0;
         padding: 8px;
         border-radius: 0;
-        /* Ei pyöristyksiä reunassa */
         background-color: rgba(245, 245, 244, 0.0);
     }
 
-    /* 2. Käytetään "display: contents" -tekniikkaa, jotta voimme
-          kohdistaa napit suoraan ruudukkoon HTML-rakenteesta välittämättä. */
+    /* Käytetään "display: contents", jotta voimme kohdistaa napit suoraan
+       ruudukkoon HTML-rakenteesta välittämättä. */
     #scroll-buttons-container .scroll-row,
     #scroll-buttons-container .scroll-column {
         display: contents;
     }
 
-    /* 3. Asetellaan jokainen nappi ID:n perusteella omaan ruutuunsa. */
-
-    /* Info-nappi: sarake 1, rivit 1 & 2 */
+    /* Asetellaan jokainen nappi ID:n perusteella omaan ruutuunsa. */
     #scroll-info-toggle {
         grid-column: 1 / 2;
         grid-row: 1 / 3;
@@ -722,41 +631,33 @@ a:has(> .lisenssi-kuvake-yksi):hover {
         grid-row: 2 / 3;
     }
 
-    /* 4. Viimeistellään nappien ulkoasu ruudukossa. */
+    /* Viimeistellään nappien ulkoasu ruudukossa. */
     .scroll-button {
         width: auto;
         /* Annetaan ruudukon määrittää koko */
         height: 100%;
         border-radius: 6px;
-        /* Hieman pehmeyttä kulmiin */
     }
 
+    /* Säädetään selitepaneelin sijaintia ja kokoa mobiilissa. */
     #scroll-legend {
         position: absolute;
         bottom: calc(100% + 8px);
-
-        /* UUDET, MUKAUTUVAT SIJAINTISÄÄNNÖT */
         right: 8px;
-        /* Kohdistaa ruudun oikean reunan siististi nappien kanssa (joilla on 8px padding) */
+        /* Kohdistaa paneelin oikean reunan siististi */
         width: auto;
-        /* Nollataan aiempi leveys, jotta max-width toimii */
         max-width: calc(100vw - 16px);
-        /* TÄRKEIN SÄÄNTÖ: Leveys on enintään näytön leveys miinus 8px pehmuste molemmilta puolilta */
-
-        /* Vanhat, toimivat säännöt säilytetään */
+        /* Leveys on enintään näytön leveys miinus pehmusteet */
         background-color: white;
         padding: 1rem;
         border-radius: 0.5rem;
         border: 1px solid #E7E5E4;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        /* Lisäsin pienen varjon takaisin selkeyden vuoksi */
-
         opacity: 0;
         visibility: hidden;
         transform: translateY(10px);
         transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
         color: #1C1917;
-        /* Käytetään selkeää tummaa väriä vaalealla pohjalla */
     }
 
     #scroll-legend.is-visible {
@@ -766,25 +667,18 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     }
 }
 
-/* ==================================================================== */
-/* BANNERIN TAUSTAN POISTO MOBIILISSA                                   */
-/* ==================================================================== */
 
-/* Säännöt astuvat voimaan VAIN, kun näytön leveys on 459px tai alle. */
+/* --- PIENET MOBIILILAITTEET (max-width: 459px) --- */
 @media (max-width: 459px) {
-    .banner-title {
-        /* Poistetaan taustaväri kokonaan tekemällä siitä läpinäkyvä */
-        background-color: transparent;
 
-        /* Poistetaan huurrelasi-efekti */
+    /* Poistetaan bannerin tausta ja tehosteet kokonaan pienimmillä näytöillä, */
+    /* jotta teksti on luettavampi ja ulkoasu siistimpi. */
+    .banner-title {
+        background-color: transparent;
         -webkit-backdrop-filter: none;
         backdrop-filter: none;
-
-        /* Poistetaan reunus ja varjo */
         border: none;
         box-shadow: none;
-
-        /* Pienennetään tekstin ympärillä olevaa tyhjää tilaa, koska taustaa ei enää ole */
         padding: 0.2em;
         text-decoration: none !important;
         border-bottom: 1px solid rgba(143, 151, 121, 0) !important;
