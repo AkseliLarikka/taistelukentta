@@ -1,4 +1,0 @@
-# Estä tunnetut AI-skreippausbotit User-Agentin perusteella
-RewriteEngine On
-RewriteCond %{HTTP_USER_AGENT} (GPTBot|ChatGPT-User|Google-Extended|CCBot|Anthropic-ai|Omgilibot) [NC]
-RewriteRule .* - [F,L]
