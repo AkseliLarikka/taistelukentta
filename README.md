@@ -16,7 +16,11 @@ Peli on aktiivisessa kehitysvaiheessa. Tällä hetkellä sen **taktinen taso** o
 
 Olet lämpimästi tervetullut tutustumaan sääntöihin, kokeilemaan peliä ja osallistumaan sen kehitykseen!
 
-Sääntösivun lopusta löydät yhteystietoni, millä voit ottaa minunu yhteyttä palautteiden kanssa.
+**Kehitystilanne:** Säännöt odottavat pelitestausta. Koodi on kommentoitu ja palautekanavat auki.
+
+Suullinen palaute on ollut hyvää. Suurin "negatiivinen" palaute ollut, että ei-intin käyneille tai siten orientoituneille säännöt sisältävät haastavia termejä. Tämä on valitettavaa, mutta selittyy sillä, että tälläiset ihmiset eivät kuulu pelin kohderyhmään.
+
+Sääntösivun lopusta löydät yhteystietoni sekä palautelomakkeen, millä voit ottaa minuun yhteyttä palautteiden kanssa.
 
 ### Pika-aloitus
 
