@@ -552,7 +552,8 @@ a:has(> .lisenssi-kuvake-yksi):hover {
 .pdf-container iframe {
     min-width: 650px;  /* Pakottaa leveyden mobiilissa, jotta vieritys toimii */
     width: 100%;       /* Käyttää koko leveyden isommilla näytöillä */
-    height: 800px;     /* Asettaa iframe-elementille selkeän korkeuden */
+    height: fit-content;
+    min-height: 800px;     /* Asettaa iframe-elementille selkeän korkeuden */
     border: none;      /* Varmistaa, että elementillä ei ole reunoja */
 }
 
