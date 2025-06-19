@@ -423,7 +423,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     gap: 0.5rem;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.7s ease-out, visibility 0.5s ease-out;
+    /*transition: opacity 0.7s ease-out, visibility 0.5s ease-out;*/
 }
 
 /* Asettelun apuluokat napeille */
@@ -590,7 +590,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
 
     /* Piilottaa vieritysnapit, kun footer tulee näkyviin mobiilissa. */
     #scroll-buttons-container.is-docked {
-        opacity: 0;
+        opacity: 1;
         visibility: hidden;
         pointer-events: none;
     }
