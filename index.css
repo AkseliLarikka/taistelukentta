@@ -577,7 +577,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     .pdf-container {
         /* Käytetään suhteellista korkeutta mobiilissa,
            esim. 75% näkymän korkeudesta. */
-        height: 75vh;
+        height: fit-content;
     }
 }
 
