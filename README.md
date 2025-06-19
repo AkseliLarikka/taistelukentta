@@ -1,8 +1,8 @@
-# Taistelukenttä D20
+# Taistelukenttä d20
 
 **Enemmän kuin sotapeli – Komentajan simulaattori.**
 
-Tervetuloa Taistelukenttä D20 -projektin pariin! Tämä on moderniin sodankäyntiin keskittyvä strateginen sotapeli, joka käyttää tuttua D20-järjestelmää, mutta keskittyy yksittäisen sotilaan sijaan **johtamiseen, päätöksentekoon ja sodan sumuun.** Pelissä et ohjaa yhtä hahmoa, vaan olet komentaja, jonka päätökset ratkaisevat alaistesi ja tehtäväsi kohtalon.
+Tervetuloa Taistelukenttä d20 -projektin pariin! Tämä on moderniin sodankäyntiin keskittyvä strateginen sotapeli, joka käyttää tuttua d20-järjestelmää, mutta keskittyy yksittäisen sotilaan sijaan **johtamiseen, päätöksentekoon ja sodan sumuun.** Pelissä et ohjaa yhtä hahmoa, vaan olet komentaja, jonka päätökset ratkaisevat alaistesi ja tehtäväsi kohtalon.
 
 Pelin visiona on luoda yhtenäinen kokemus, joka kattaa sodankäynnin kaikki tasot:
 
@@ -28,7 +28,7 @@ Sääntösivun lopusta löydät yhteystietoni sekä palautelomakkeen, millä voi
 
 (Huom. aukeaa samaan ikkunaan.)
 
-# Taistelukenttä D20: Kehitysroadmap
+# Taistelukenttä d20: Kehitysroadmap
 
 > **Päämäärä:** Luoda monitasoinen sotapelikokemus, jossa pelaajat voivat osallistua konfliktiin niin yksittäisen joukkueen johtajana, operatiivisena komentajana kuin strategisena sodanjohtajanakin.
 
@@ -39,7 +39,7 @@ Sääntösivun lopusta löydät yhteystietoni sekä palautelomakkeen, millä voi
 *Tavoite: Varmistaa, että pelin ydin – taktinen taistelu – on mahdollisimman viimeistelty, monipuolinen ja nautittava ennen uusien tasojen lisäämistä.*
 
 * **Kehitysaskel 1.1: Sääntöjen Vahvistaminen**
-    * **Kuvaus:** Nykyisten D20-perussääntöjen (liike, tuli, suoja, moraali) viimeistely kerätyn palautteen pohjalta. Tavoitteena on selkeä ja johdonmukainen sääntökirja (versio 1.0).
+    * **Kuvaus:** Nykyisten d20-perussääntöjen (liike, tuli, suoja, moraali) viimeistely kerätyn palautteen pohjalta. Tavoitteena on selkeä ja johdonmukainen sääntökirja (versio 1.0).
     * **Lopputulos:** Lukittu sääntöversio, joka toimii perustana kaikelle tulevalle kehitykselle.
 
 * **Kehitysaskel 1.2: Yksikkölaajennus**
@@ -94,7 +94,7 @@ Sääntösivun lopusta löydät yhteystietoni sekä palautelomakkeen, millä voi
     * **Kuvaus:** Säännöt pitkäkestoiselle kampanjalle. Miten yksiköt saavat kokemusta? Miten tappiot korvataan? Miten teknologia kehittyy? Mitkä ovat sodan voittamiseen vaadittavat ehdot?
     * **Lopputulos:** Runko, joka mahdollistaa eeppisten, useita peli-iltoja kestävien sotien pelaamisen.
 
-* **Kehitysaskel 3.4: Direktiivijärjestelmä**
+* **Kehitysaskel 3.4: direktiivijärjestelmä**
     * **Kuvaus:** Miten strateginen pelaaja antaa käskyjä operatiivisille pelaajille? Luodaan järjestelmä, jossa strateginen johto asettaa tavoitteita (esim. "Vallatkaa kaupunki X kahdessa viikossa"), ja operatiiviset komentajat suunnittelevat, miten tavoite saavutetaan taktisella tasolla.
     * **Lopputulos:** Selkeä yhteys strategisen suunnitelman ja operatiivisen toteutuksen välillä.
 
@@ -106,7 +106,7 @@ Sääntösivun lopusta löydät yhteystietoni sekä palautelomakkeen, millä voi
 
 * **Kehitysaskel 4.1: Täysi Integraatio**
     * **Kuvaus:** Varmistetaan, että tiedonkulku ja seuraamukset toimivat kaikkien tasojen välillä. Strateginen päätös johtaa operatiiviseen tehtävään, jonka tulos ratkaistaan taktisilla taisteluilla. Taktisen taistelun lopputulos (tappiot, resurssien kulutus) raportoidaan takaisin strategiselle tasolle.
-    * **Lopputulos:** Dynaaminen pelikokemus, jossa jokaisen pelaajan rooli on aidosti merkityksellinen koko sodan kannalta.
+    * **Lopputulos:** dynaaminen pelikokemus, jossa jokaisen pelaajan rooli on aidosti merkityksellinen koko sodan kannalta.
 
 * **Kehitysaskel 4.2: Yhteisötyökalut ja Sisältö**
     * **Kuvaus:** Luodaan työkaluja ja ohjeita, joiden avulla yhteisö voi luoda omia yksiköitään, skenaarioitaan ja jopa kampanjoitaan.
@@ -114,4 +114,4 @@ Sääntösivun lopusta löydät yhteystietoni sekä palautelomakkeen, millä voi
 
 * **Kehitysaskel 4.3: Jatkuva Kehitys**
     * **Kuvaus:** Säännölliset päivitykset, jotka voivat sisältää uusia historiallisia aikakausia, kuvitteellisia konflikteja, yksiköitä tai sääntötarkennuksia palautteen mukaan.
-    * **Lopputulos:** "Taistelukenttä D20" on elävä järjestelmä, ei staattinen tuote.
+    * **Lopputulos:** "Taistelukenttä d20" on elävä järjestelmä, ei staattinen tuote.
