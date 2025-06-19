@@ -18,52 +18,69 @@ body {
 .prose h2,
 .prose h3,
 .prose h4 {
-    color: #556B2F !important; /* Oliivinvihreä */
+    color: #556B2F !important;
+    /* Oliivinvihreä */
 }
 
 /* Linkkien väri */
 .prose a {
-    color: #6B8E23 !important; /* Kirkkaampi oliivi */
+    color: #6B8E23 !important;
+    /* Kirkkaampi oliivi */
 }
 
 /* Lainaukset */
 .prose blockquote {
-    border-left-color: #8F9779 !important;  /* Mieto oliivi */
-    background-color: #FDF6E3 !important; /* Hiekan sävy */
+    border-left-color: #8F9779 !important;
+    /* Mieto oliivi */
+    background-color: #FDF6E3 !important;
+    /* Hiekan sävy */
 }
 
 /* Yksikkökortin otsikko */
 .unit-card h4 {
-    background-color: #C2B280 !important; /* Khaki/Hiekka */
-    color: #2F361F !important;           /* Tumma oliiviteksti */
+    background-color: #C2B280 !important;
+    /* Khaki/Hiekka */
+    color: #2F361F !important;
+    /* Tumma oliiviteksti */
     border-bottom-color: #A89C7B !important;
 }
 
 /* Sivupalkin aktiivinen linkki */
 .nav-link:hover,
 .nav-link.active {
-    background-color: #F5E8C7 !important; /* Vaalea hiekka */
-    border-left-color: #556B2F !important; /* Oliivinvihreä */
-    color: #2F361F !important;            /* Tumma oliiviteksti */
+    background-color: #F5E8C7 !important;
+    /* Vaalea hiekka */
+    border-left-color: #556B2F !important;
+    /* Oliivinvihreä */
+    color: #2F361F !important;
+    /* Tumma oliiviteksti */
 }
 
 /* UKK-osion nuoli */
 #ukk summary::after {
-    color: #556B2F !important; /* Oliivinvihreä */
+    color: #556B2F !important;
+    /* Oliivinvihreä */
 }
 
 /* Vieritysnapit */
 .scroll-button {
-    background-color: #556B2F !important; /* Oliivinvihreä */
+    background-color: #556B2F !important;
+    /* Oliivinvihreä */
 }
+
 .scroll-button:hover:not(:disabled) {
-    background-color: #4A5D23 !important; /* Tummempi oliivi */
+    background-color: #4A5D23 !important;
+    /* Tummempi oliivi */
 }
+
 .info-button {
-    background-color: #6B8E23 !important; /* Kirkkaampi oliivi */
+    background-color: #6B8E23 !important;
+    /* Kirkkaampi oliivi */
 }
+
 .info-button:hover:not(:disabled) {
-    background-color: #4A5D23 !important; /* Tummempi oliivi */
+    background-color: #4A5D23 !important;
+    /* Tummempi oliivi */
 }
 
 .prose {
@@ -306,13 +323,13 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     background-color: rgba(47, 54, 31, 0.75);
     /* theme-olive-dark, 75% peittävyys */
 
-     /* Huurrelasi-efekti ja sen etuliite vanhemmille Safari-versioille */
+    /* Huurrelasi-efekti ja sen etuliite vanhemmille Safari-versioille */
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 
     /* SIIVOTTU REUNUSMÄÄRITYS: Yksi sääntö kaikille reunoille poistaa ristiriidat */
     border: 1px solid rgba(143, 151, 121, 0.3);
-    
+
     border-radius: 0.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     text-decoration: none !important;
@@ -325,7 +342,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     /* "Taikatemppu", joka pakottaa laitteistokiihdytyksen päälle Webkit-selaimissa (Safari) */
     transform: translateZ(0);
 
-    
+
     /* LOPULLINEN KORJAUS VALKOISEEN VIIVAAN: Varmistetaan, ettei alareunusta ole */
     border-bottom: 1px solid rgba(143, 151, 121, 0.3) !important;
 }
@@ -747,5 +764,30 @@ a:has(> .lisenssi-kuvake-yksi):hover {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
+    }
+}
+
+/* ==================================================================== */
+/* BANNERIN TAUSTAN POISTO MOBIILISSA                                   */
+/* ==================================================================== */
+
+/* Säännöt astuvat voimaan VAIN, kun näytön leveys on 459px tai alle. */
+@media (max-width: 459px) {
+    .banner-title {
+        /* Poistetaan taustaväri kokonaan tekemällä siitä läpinäkyvä */
+        background-color: transparent;
+
+        /* Poistetaan huurrelasi-efekti */
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+
+        /* Poistetaan reunus ja varjo */
+        border: none;
+        box-shadow: none;
+
+        /* Pienennetään tekstin ympärillä olevaa tyhjää tilaa, koska taustaa ei enää ole */
+        padding: 0.2em;
+        text-decoration: none !important;
+        border-bottom: 1px solid rgba(143, 151, 121, 0) !important;
     }
 }
