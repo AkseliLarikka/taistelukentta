@@ -16,9 +16,13 @@ Peli on aktiivisessa kehitysvaiheessa. Tällä hetkellä sen **taktinen taso** o
 
 Olet lämpimästi tervetullut tutustumaan sääntöihin, kokeilemaan peliä ja osallistumaan sen kehitykseen!
 
+Sääntösivun lopusta löydät yhteystietoni, millä voit ottaa minunu yhteyttä palautteiden kanssa.
+
 ### Pika-aloitus
 
-* **[Lue täydet säännöt täältä](https://akselilarikka.github.io/taistelukentta)** (Huom. aukeaa samaan ikkunaan.)
+* **[Lue täydet säännöt täältä](https://akselilarikka.github.io/taistelukentta)**
+
+(Huom. aukeaa samaan ikkunaan.)
 
 # Taistelukenttä D20: Kehitysroadmap
 
