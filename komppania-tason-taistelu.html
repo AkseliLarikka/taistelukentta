@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <!--
+    ====================================================================
+    METATIEDOT JA SIVUN ASETUKSET
+    ====================================================================
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, noarchive">
+    <!--
+    HUOM: Ohje hakukoneroboteille. Kehitysvaiheessa 'noindex' estää sivun indeksoitumisen.
+    Kun sivu on valmis julkaistavaksi, muuta content-arvoksi "index, follow".
+    -->
+    <meta name="description"
+        content="Taistelukenttä d20 on ilmainen, suomenkielinen taktinen sotapeli, joka käyttää d20-noppajärjestelmää. Lataa säännöt, johda joukkojasi ja koe modernin sodankäynnin haasteet kampanjapelissä.">
+    <meta name="keywords"
+        content="sotapeli, strategiapeli, lautapeli, Taistelukenttä d20, d20 system, ilmaiset säännöt, suomalainen sotapeli, taktinen peli, noppapeli, miniatyyripeli, kampanjapeli, moderni sodankäynti, pelinjohtaja, suomi, jääkäri, puolustusvoimat">
+    <meta name="keywords" lang="en"
+        content="wargame, strategy game, board game, Taistelukenttä d20, d20 system, free wargame rules, Finnish wargame, tactical game, dice game, miniatures game, campaign game, modern warfare, game master, GM, Finland">
+    <title>Taistelukenttä d20 - strateginen sotapeli</title>
+    <!--
+    ====================================================================
+    TYYLITIEDOSTOT JA FONTIT
+    ====================================================================
+    -->
+    <link rel="icon" type="image/x-icon" href="images/tkd20ikoni.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Styles/rules.css">
+</head>
+
+<body class="text-stone-900">
+    <header id="main-navbar">
+        <div class="container mx-auto flex items-center">
+            <div class="header-left-spacer md:hidden"></div>
+
+            <div id="navbar-dropdown-container" class="relative">
+                <a href="#" id="current-page-name" class="home-link">Komppaniatason taistelu</a>
+                <nav id="main-navbar-content">
+                    <ul class="top-nav-list">
+                        <li><a href="index.html" class="nav-link-top">Etusivu</a></li>
+                        <li><a href="ydinsaannot.html" class="nav-link-top">Ydinsäännöt</a></li>
+                        <li><a href="komppania-tason-taistelu.html" class="nav-link-top" style="color:#C2B280;">Komppaniatason taistelu</a></li>
+                        <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
+                        <li><a href="siniset-yksiköt.html" class="nav-link-top">Siniset yksiköt</a></li>
+                        <li><a href="punaiset-yksiköt.html" class="nav-link-top">Punaiset yksiköt</a></li>
+                        <li><a href="skenaariot.html" class="nav-link-top">Skenaariot</a></li>
+                        <li><a href="pelinjohtajan-opas.html" class="nav-link-top">Pelinjohtajan opas</a></li>
+                        <li><a href="sanasto-ja-ukk.html" class="nav-link-top">Sanasto ja UKK</a></li>
+                        <li><a href="tietoja.html" class="nav-link-top">Tietoa & Muutoshistoria</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="header-right-spacer md:hidden"></div>
+        </div>
+    </header>
+    <div id="sidebar"
+        class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-20 p-4 overflow-y-auto sidebar-hidden md:sidebar-visible md:translate-x-0">
+        <h1 class="sidebar-title">Sisällysluettelo</h1>
+        <nav id="nav-menu" class="space-y-1"></nav>
+    </div>
+
+
+    <button id="menu-toggle" class="md:hidden fixed top-4 left-4 z-55 p-2 bg-white rounded-md shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <!--
+    ====================================================================
+    PÄÄSISÄLTÖ (MAIN CONTENT)
+    ====================================================================
+    -->
+    <main id="main-content">
+        <div class="prose max-w-none">
+            <div class="main-banner" style="background-image: url('images/bannertkd.jpg');">
+                <div class="relative z-10 flex h-full items-center justify-center">
+                    <h1 class="banner-title text-4xl md:text-6xl font-bold text-center">
+                        Taistelukenttä d20 – Strateginen sotapeli <br> v. Alpha
+                    </h1>
+                </div>
+            </div>
+
+        <!--SECTION: Komppaniatason taistelu-->
+        <section id="komppania-tason-taistelu">
+            <h2>Komppaniatason taistelu</h2>
+
+            <h3>Komppaniatason Komentaminen</h3>
+            <h4>Komppanian&shy;päällikön taktiset kyvyt (5KP/vuoro)</h4>
+            <p>
+                Komppanianpäällikön taktiset kyvyt jaetaan kahteen luokkaan:
+                Globaaleihin kykyihin, jotka edustavat päällikön omaa strategista
+                suunnittelua tai kommunikointia ylemmän portaan kanssa, ja
+                Kohdennettuihin kykyihin, jotka vaativat toimivan komentoyhteyden
+                kohteena olevaan alaiseen. Lisäksi Komppanianpäällikkö voi siirtää
+                omia Komentopisteitään alaisilleen Joukkueenjohtajille
+                vahvistaakseen heidän toimintakykyään. Nämä ovat laajempia,
+                strategisia käskyjä, joita vain Komppanianpäällikön roolissa oleva
+                pelaaja voi käyttää. Ne maksavat päällikön omasta, isommasta
+                KP-poolista (5 KP/vuoro). <strong>Kyvyt, joiden kohdalla "Vaatii komentoyhteyden?" on merkitty
+                    "Ei", edustavat päällikön omaa strategista päätöksentekoa tai yhteyttä ylempiin portaisiin,
+                    eivätkä ne vaadi näkö- tai komentoyhteyttä alaisiin.</strong>
+            </p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Toiminto</th>
+                            <th>Hinta (KP)</th>
+                            <th>Kuvaus</th>
+                            <th>Vaatii komentoyhteyden?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tulitukipyyntö (Epäorgaaninen)</strong></td>
+                            <td>3 KP</td>
+                            <td>
+                                Kutsu pelilaudan ulkopuolista tulitukea (esim. pataljoonan
+                                tykistö tai rskrh).
+                            </td>
+                            <td>Ei</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mottitaktiikka</strong></td>
+                            <td>5 KP</td>
+                            <td>
+                                Valitse 10 cm säde. Vihollisyksiköt alueella tekevät
+                                Moraalitestin (DC 15) tai vetäytyvät. Vain kerran taistelussa.
+                            </td>
+                            <td>Ei</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Painopisteen Muodostaminen</strong></td>
+                            <td>3 KP</td>
+                            <td>
+                                Nimeä yksi joukkue. Kaikki sen yksiköt saavat
+                                <strong>+5 cm</strong> liikkumista hyökätessään tällä
+                                vuorolla.
+                            </td>
+                            <td>Kyllä (nimettyyn joukkueeseen)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sitova Tuli</strong></td>
+                            <td>2 KP</td>
+                            <td>
+                                Nimeä yksi joukkue. Sen onnistuneet hyökkäykset antavat
+                                kohteelle <strong>-1</strong> seuraavaan Moraalitestiin
+                                (kasautuva).
+                            </td>
+                            <td>Kyllä (nimettyyn joukkueeseen)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Järjestäytynyt Vetäytyminen</strong></td>
+                            <td>3 KP</td>
+                            <td>
+                                Valitse enintään 3 omaa yksikköä. Ne voivat vetäytyä ja silti
+                                ampua tällä vuorolla.
+                            </td>
+                            <td>
+                                Kyllä (valittuihin yksiköihin, lisäksi max 30 cm etäisyys
+                                päälliköstä)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vahvistettu Maali</strong></td>
+                            <td>1 KP</td>
+                            <td>
+                                Jos kaksi omaa yksikköä eri joukkueista näkee saman
+                                vihollisen, seuraava hyökkäys sitä vastaan saa
+                                <strong>+2</strong> bonuksen.
+                            </td>
+                            <td>
+                                Kyllä (molempien havaitsevien yksiköiden on oltava
+                                komentoyhteydessä)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tulen Siirto</strong></td>
+                            <td>1 KP</td>
+                            <td>
+                                Siirrä jo pyydetyn epäsuoran tulen maalipistettä. Hajonta
+                                kasvaa <strong>+1d4 cm</strong>.
+                            </td>
+                            <td>Ei</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Komento&shy;pisteiden siirto:</h4>
+            <p>
+                <strong>Komentopisteiden siirto alaisille:</strong>
+                Komppanianpäällikkö voi vahvistaa alaisiaan Joukkueenjohtajia
+                siirtämällä heille omia Komentopisteitään. Tämä tapahtuu
+                Komentovaiheessa seuraavasti:
+            </p>
+            <ul>
+                <li>
+                    <strong>Kustannus:</strong> Komppanianpäällikkö
+                    <strong>kuluttaa 1 KP</strong> omasta 5 KP:n poolistaan.
+                </li>
+                <li>
+                    <strong>Siirto:</strong> Valittu Joukkueenjohtaja (johon on oltava
+                    Komentoyhteys) <strong>saa +1 KP</strong> omaan pooliinsa
+                    kyseiseksi vuoroksi.
+                </li>
+            </ul>
+            <p>
+                <em>Esimerkki: Komppanianpäälliköllä on 5 KP. Hän päättää tukea
+                    JJ1:tä. Hän kuluttaa 1 KP, jolloin hänen pooliinsa jää 4 KP. JJ1:n
+                    pooli kasvaa 3 KP -> 4 KP kyseiseksi vuoroksi.</em>
+            </p>
+            <p>
+                Päällikkö voi tehdä tämän useita kertoja vuorossa eri
+                Joukkueenjohtajille, kunhan hänen omat pisteensä riittävät.
+            </p>
+
+            <h4>Komento&shy;rakenne ja Kommunikaatio</h4>
+            <p>
+                Perussääntöjen mukaan Komppanianpäälliköllä on alaisiaan
+                Joukkueenjohtajia. Laajennetaan tätä seuraavasti:
+            </p>
+            <ul>
+                <li>
+                    <strong>Komentoyhteys (Command Link):</strong> Jotta
+                    Komppanianpäällikkö voi vapaasti jakaa Komentopisteitään (KP) ja
+                    käyttää kykyjään alaisiinsa, Joukkueenjohtajan yksikön on oltava
+                    <strong>komentoyhteydessä</strong>. Yksikkö on komentoyhteydessä,
+                    jos se on (kartalla) 60 cm säteellä Komppanianpäällikkö-yksiköstä,
+                    eikä heidän välissään ole taistelussa olevaa vihollisyksikköä.
+                    <ul>
+                        <li>
+                            Jotkin Komppanianpäällikön kyvyt voivat vaatia Komentoyhteyden
+                            lisäksi muita, tiukempia etäisyys- tai näköyhteysvaatimuksia,
+                            jotka on eritelty kyvyn kuvauksessa.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Kommunikaatiokatkos:</strong> Jos Joukkueenjohtaja on
+                    komentoyhteyden ulkopuolella, hän saa vuoronsa alussa vain 2 KP
+                    (normaalin 3 KP sijaan) eikä voi vastaanottaa lisäpisteitä
+                    päälliköltä. Tämä kuvaa radiohäirintää, etäisyyttä ja
+                    taistelukentän kaaosta. Komppanianpäällikkö voi yrittää palauttaa
+                    yhteyden käyttämällä toiminnon ja tekemällä Taitotason (TT) testin
+                    (DC 13).
+                </li>
+            </ul>
+
+            <h4>Komppanian Taktiikat (yksityiskohtaisesti)</h4>
+            <p>
+                Nämä ovat strategisia käskyjä, jotka vaikuttavat laajasti ja
+                maksavat Komppanianpäällikön Komentopisteitä. Komppanianpäällikkö
+                voi käyttää vuorossa <strong>vain yhden</strong> seuraavista
+                taktisista kyvyistä: <em>Mottitaktiikka</em>,
+                <em>Painopisteen Muodostaminen</em>, <em>Sitova Tuli</em> tai
+                <em>Järjestäytynyt Vetäytyminen</em>. Muiden KP:lla aktivoitavien
+                toimintojen (kuten Tulitukipyyntö tai KP:n siirto) käyttöä tämä ei
+                rajoita.
+            </p>
+            <ul>
+                <li>
+                    <strong>Mottitaktiikka (5 KP):</strong> Valitse 10cm säde.
+                    Jokainen vihollisyksikkö alueella tekee Moraalitestin DC 15. Jos
+                    epäonnistuu, se "Vetäytyy" lähintä suojaa kohti. Vain kerran
+                    taistelussa.
+                </li>
+                <li>
+                    <strong>Painopisteen Muodostaminen (3 KP):</strong> Päällikkö
+                    nimeää yhden joukkueistaan hyökkäyksen painopisteeksi. Tämän
+                    vuoron ajan kaikki kyseisen joukkueen yksiköt saavat +5 cm lisää
+                    liikkumista, <strong>kun niille annetaan Hyökkäyskäsky</strong>.
+                </li>
+                <li>
+                    <strong>Sitova Tuli (2 KP):</strong> Päällikkö käskee yhden
+                    joukkueen keskittämään tulensa vihollisen sitomiseen. Kyseisen
+                    joukkueen yksiköiden onnistuneet hyökkäykset aiheuttavat kohteelle
+                    -1 bonuksen sen seuraavaan Moraalitestiin (vaikutus kasautuu).
+                </li>
+                <li>
+                    <strong>Järjestäytynyt Vetäytyminen (3 KP):</strong> Valitse
+                    enintään kolme ystävällistä yksikköä 30 cm säteeltä päälliköstä.
+                    Nämä yksiköt voivat käyttää "Vetäytyminen"-toiminnon, mutta saavat
+                    silti ampua (normaalisti vetäytyminen estää ampumisen). Tämä on
+                    elintärkeää, kun rintama on murtumassa.
+                </li>
+                <li>
+                    <strong>Tulitukipyyntö (3 KP):</strong> Komppanianpäällikkö kutsuu
+                    pelilaudan ulkopuolista tulitukea. Ks. kohta 4.4.
+                </li>
+            </ul>
+
+            <h4>Tilannekuva ja Tiedustelu</h4>
+            <p>
+                Komppanianpäälliköllä on pääsy laajempaan tietoon kuin yksittäisellä
+                ryhmällä tai joukkueella.
+            </p>
+            <ul>
+                <li>
+                    <strong>Pelin Alun Tiedusteluraportti:</strong> Ennen ensimmäisen
+                    vuoron alkua Komppanianpäällikkö voi tehdä Taitotason (TT) testin
+                    (DC 14). Onnistuessaan saat asettaa yhden "Tiedusteltu"-merkin
+                    mille tahansa vihollisen yksikölle pelilaudalla. Tähän yksikköön
+                    ammuttaessa ensimmäinen ohi mennyt laukaus saa yhden
+                    uusintaheiton.
+                </li>
+                <li>
+                    <strong>Vahvistettu Maali:</strong> Jos kaksi omaa yksikköä eri
+                    joukkueista näkee saman vihollisyksikön, Komppanianpäällikkö voi
+                    käyttää 1 KP "vahvistaakseen maalin". Seuraava hyökkäys kyseistä
+                    vihollista vastaan saa +2 bonuksen osumiseen.
+                </li>
+            </ul>
+
+            <h4>Komentoketjun Katkeaminen</h4>
+            <h5>Mitä tapahtuu, jos Komppanianpäällikkö-yksikkö eliminoidaan?</h5>
+
+            <p>
+                <strong>Välitön vaikutus:</strong> Heti Komppanianpäällikön eliminoituessa hänen antamansa
+                passiiviset edut (kuten komentoalueen sisällä olevien yksiköiden uusintaheitot) poistuvat
+                välittömästi käytöstä. Komppania on "ilman johtoa", kunnes uusi komentaja on nimitetty.
+            </p>
+
+            <p>
+                <strong>Kenttäylennys ja komennon siirto:</strong> Seuraavan oman komentovaiheen alussa
+                pelaajien on nimitettävä uusi komppanianpäällikkö.
+                Uudeksi komppanianpäälliköksi voidaan ylentää mikä tahansa jäljellä oleva
+                Joukkueenjohtaja. Tämän myötä myös komppanianpäällikön roolia pelannut pelaaja vaihtuu.
+                Ylennetyn yksikön ohjaajasta tulee pelin uusi komppanianpäällikkö. Tämä ei kuitenkaan
+                tarkoita, että pelaaja, jonka johtama komppanianpäällikkö kaatui, menettäisi joukkueenjohtajan
+                kykynsä.
+            </p>
+
+            <p>
+                <strong>Uuden päällikön ominaisuudet:</strong> Ylennetty Joukkueenjohtaja-yksikkö saa
+                välittömästi kaikki Komppanianpäällikkö-yksikön säännöissä mainitut erikoisominaisuudet ja
+                kyvyt. Sen alkuperäiset Joukkueenjohtaja-rooliin liittyvät säännöt korvautuvat, mutta sen
+                fyysiset arvot (kuten liikkuminen, panssarointi ja aseistus) säilyvät ennallaan.
+            </p>
+
+            <p>
+                <strong>Uuden päällikön Komentopisteet:</strong> Kuvaamaan lisääntynyttä vastuuta ja
+                kokemattomuutta uudessa roolissa, komennon ottanut Joukkueenjohtaja hallinnoi jatkossa kahta
+                erillistä pistepoolia:
+            </p>
+            <ol>
+                <li>
+                    <strong>Komppaniapooli:</strong> Hän saa <strong>4 KP</strong> per vuoro. Näitä pisteitä voi
+                    käyttää <em>ainoastaan komppaniatason taktiikoihin</em> (esim. Tulitukipyyntö,
+                    Mottitaktiikka).
+                </li>
+                <li>
+                    <strong>Joukkuepooli:</strong> Hän saa edelleen normaalit <strong>3 KP</strong> per vuoro.
+                    Näitä pisteitä voi käyttää <em>ainoastaan hänen oman alkuperäisen joukkueensa</em>
+                    johtamiseen (esim. Hyökkäyskäsky, Irtautuminen).
+                </li>
+            </ol>
+            <p>
+                Nämä kaksi pistepoolia ovat täysin erillisiä eikä pisteitä voi siirtää niiden välillä.
+            </p>
+            <p>
+                <strong>Kaaos ja Hämmennys:</strong> Siihen asti, kunnes uusi
+                päällikkö on ottanut komennon, kaikki ystävälliset yksiköt saavat -1
+                rangaistuksen kaikkiin Moraalitesteihin.
+            </p>
+
+            <h3>Strategiset resurssit</h3>
+            <h4>Epäsuora tulituki - Pelilaudan ulkopuolinen tuki</h4>
+            <p>
+                Tulituki on työkalu, jolla hallitaan taistelukenttää pakottamalla
+                vihollinen valitsemaan paikallaan pysymisen riskin ja liikkumisen
+                tuoman aloitteen menetyksen välillä. Vain komppanianpäällikkö voi
+                kutstua pelilaudan ulkopuolista tulitukea.
+            </p>
+            <ol>
+                <li>
+                    <strong>Pyyntö:</strong> Komppanianpäällikkö käyttää
+                    <strong>Tulitukipyyntö</strong>-komennon (3 KP). Hän nimeää
+                    maalipisteen kartalla ja ilmoittaa pyytämänsä tuen tyypin.
+                </li>
+                <li>
+                    <strong>Saapuminen ja Viive:</strong> Eri tulitukivälineet
+                    vastaavat eri nopeudella. Skenaario määrittää, minkä kokoista
+                    tulitukea on saatavilla. Pyynnön jälkeen GM heittää salassa
+                    viiveen:
+                    <ul>
+                        <li>
+                            <strong>Raskas kranaatinheitin (120mm):</strong> Viive on d4
+                            vuoroa.
+                        </li>
+                        <li>
+                            <strong>Kenttätykistö (155mm):</strong> Viive on d4+1 vuoroa.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Reagointi ja Tulen Siirto:</strong> Jos kohde liikkuu
+                    tulitukipyynnön jälkeen, tulenjohtaja voi omassa
+                    Komentovaiheessaan reagoida:
+                </li>
+                <li>
+                    <strong>Tulen Siirto (1 KP):</strong> Komentaja voi nimetä uuden
+                    maalipisteen
+                    <strong>pelilaudan ulkopuoliselle (epäorgaaniselle) tulelle</strong>.
+                </li>
+            </ol>
+
+            <h4>Isku ja Vaikutus</h4>
+            <p>
+                Kun viive on kulunut, tuki iskee Tulitoimintavaiheessa. Osumapiste
+                määritetään heittämällä hajonta alkuperäisestä (tai siirretystä)
+                maalipisteestä.
+            </p>
+            <ul>
+                <li>
+                    <strong>Iskun Tarkkuus ja Hajonta:</strong> Kun viive on kulunut,
+                    tuki iskee Tulitoimintavaiheessa. Iskun tarkka osumapiste
+                    määritetään seuraavasti:
+                    <ul>
+                        <li>
+                            <strong>Heitä hajontanopat:</strong> Heitä yksikön
+                            perushajonta (yleensä 2d4 cm epäorgaaniselle tulelle, 1d4 cm
+                            orgaaniselle tulelle).
+                        </li>
+                        <li>
+                            <strong>Tarkista Napakymppi:</strong> Jos hajontanopat
+                            näyttävät samaa lukua (esim. 1&1, 2&2, 3&3 tai 4&4), isku on
+                            <strong>Napakymppi</strong>. Se osuu täsmälleen nimettyyn
+                            maalipisteeseen ilman hajontaa.
+                        </li>
+                        <li>
+                            <strong>Määritä Hajonnan Suunta:</strong> Jos isku ei ollut
+                            Napakymppi, heitä d8-noppa määrittääksesi hajonnan suunnan
+                            kompassiruusun mukaisesti (1=Pohjoinen, 2=Koillinen, 3=Itä
+                            jne.).
+                        </li>
+                        <li>
+                            <strong>Laske Hajonnan Pituus:</strong> Hajonnan pituus
+                            senttimetreinä on hajontanoppien summa.
+                        </li>
+                        <li>
+                            <strong>Siirrä Osumapistettä:</strong> Siirrä iskun
+                            keskipistettä kartalla hajonnan suunnan ja pituuden
+                            mukaisesti. Tämä on lopullinen osumapiste.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Vaikutus:</strong> Tuli-isku vaikuttaa lopullisen
+                    osumapisteen ympärillä olevalle alueelle (esim. 5 cm säde). Kaikki
+                    yksiköt, jotka ovat kokonaan tai osittain vaikutusalueella,
+                    kärsivät iskun vahingon ja tekevät vaaditun Moraalitestin.
+                </li>
+                <li>
+                    <strong>Taitava tulenjohtaja:</strong> Tulituen tarkkuus riippuu
+                    sitä johtavan yksikön osaamisesta. Kun tulitukipyyntö tehdään,
+                    pelaajan on nimettävä yksi ystävällinen yksikkö, jolla on suora
+                    näköyhteys maalipisteeseen, toimimaan tulenjohtajana kyseiselle
+                    iskulle.
+                    <ul>
+                        <li>
+                            Jos tämän nimeämisen
+                            <strong>tulenjohtaja-yksikön Taitotaso (TT) on +4 tai
+                                korkeampi</strong>, pelaaja saa heittää yhden hajontanopan uudelleen. Uusi
+                            tulos on otettava käyttöön. Tämä kuvaa kokeneen yksikön kykyä
+                            antaa tarkkoja koordinaatteja ja korjata tulta tehokkaasti.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>
+                Komppanian&shy;päällikkö on avainasemassa raskaamman tuen kutsumisessa.
+            </h4>
+            <ul>
+                <li>
+                    <strong>Epäorgaaninen Tulituki (esim. pataljoonan
+                        kranaatinheitinkeskitys (tarkennettu skenaarion
+                        kuvauksessa):</strong>
+                    Vain Komppanianpäällikkö voi kutsua pelilaudan ulkopuolista
+                    tulitukea.
+                    <ul>
+                        <li>
+                            <strong>Mekaniikka:</strong> Päällikkö käyttää toimintonsa
+                            "Tulitukipyyntöön". Heitä d4-noppaa. Tulos määrittää, monenko
+                            vuoron päästä tuki saapuu.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Orgaanisen Tuen Tehostaminen:</strong> Komppanianpäällikkö
+                    voi parantaa oman orgaanisen tulitukiyksikön (esim.
+                    Kranaatinheitinryhmä) tarkkuutta. Tämä tapahtuu seuraavasti:
+                    <ol>
+                        <li>
+                            Joukkueenjohtaja ilmoittaa Komentovaiheessa käyttävänsä 1 KP
+                            <em>Tulitukipyyntöön (orgaaninen)</em>, kuten normaalisti.
+                        </li>
+                        <li>
+                            Samassa Komentovaiheessa Komppanianpäällikkö voi ilmoittaa
+                            tehostavansa tätä iskua. Hän maksaa omasta pistepoolistaan
+                            <strong>1 KP</strong>.
+                        </li>
+                        <li>
+                            Kun tehostettu isku saapuu seuraavalla vuorolla, sen
+                            hyökkäysheittoon lisätään <strong>+1 bonus</strong>. Tämä
+                            bonus voi kasautua muiden bonusten, kuten
+                            <em>Tulen Keskittämisen</em>, kanssa.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+
+
+        </section>
+        <!--/SECTION: Komppaniatason taistelu-->
+
+    </main>
+    <!--
+    ====================================================================
+    KELLUVAT VIERITYSNAPIT (SCROLL BUTTONS)
+    ====================================================================
+    -->
+    <div id="scroll-buttons-container" class="scroll-buttons">
+
+        <div id="scroll-legend" class="scroll-legend-panel">
+            <p>Nappien selitteet:</p>
+            <ul>
+                <li><img src="images/Kersantti_hihalaatta.svg.png" alt="Kersantti" class="legend-icon"> Sivun
+                    alkuun /
+                    Loppuun</li>
+                <li><img src="images/Alikersantti_hihalaatta.svg.png" alt="Alikersantti" class="legend-icon">
+                    Edellinen
+                    / Seuraava pääotsikko (H2)</li>
+                <li><img src="images/Korpraali_hihalaatta.svg.png" alt="Korpraali" class="legend-icon">
+                    Edellinen /
+                    Seuraava otsikko (H2/H3)</li>
+            </ul>
+        </div>
+
+        <div class="scroll-row">
+            <button id="scroll-info-toggle" title="Näytä ohjeet" class="scroll-button info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="scroll-row">
+            <div class="scroll-column">
+                <button id="scroll-top" title="Sivun alkuun (Kersantti)" class="scroll-button">
+                    <img src="images/Kersantti_hihalaatta.svg.png" alt="Sivun alkuun">
+                </button>
+                <button id="scroll-h2-up" title="Edellinen pääotsikko (Alikersantti)" class="scroll-button">
+                    <img src="images/Alikersantti_hihalaatta.svg.png" alt="Edellinen pääotsikko">
+                </button>
+                <button id="scroll-h3-up" title="Edellinen otsikko (Korpraali)" class="scroll-button">
+                    <img src="images/Korpraali_hihalaatta.svg.png" alt="Edellinen otsikko">
+                </button>
+            </div>
+            <div class="scroll-column">
+                <button id="scroll-bottom" title="Sivun loppuun (Kersantti)" class="scroll-button">
+                    <img src="images/Kersantti_hihalaatta.svg.png" alt="Sivun loppuun" class="invert-icon">
+                </button>
+                <button id="scroll-h2-down" title="Seuraava pääotsikko (Alikersantti)" class="scroll-button">
+                    <img src="images/Alikersantti_hihalaatta.svg.png" alt="Seuraava pääotsikko" class="invert-icon">
+                </button>
+                <button id="scroll-h3-down" title="Seuraava otsikko (Korpraali)" class="scroll-button">
+                    <img src="images/Korpraali_hihalaatta.svg.png" alt="Seuraava otsikko" class="invert-icon">
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--
+    ====================================================================
+    JAVASCRIPT-TIEDOSTOT
+    ====================================================================
+    -->
+    <script src="Scripts/rules.js"></script>
+</body>
+
+</html>

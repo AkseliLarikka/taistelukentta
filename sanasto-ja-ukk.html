@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <!--
+    ====================================================================
+    METATIEDOT JA SIVUN ASETUKSET
+    ====================================================================
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, noarchive">
+    <!--
+    HUOM: Ohje hakukoneroboteille. Kehitysvaiheessa 'noindex' estää sivun indeksoitumisen.
+    Kun sivu on valmis julkaistavaksi, muuta content-arvoksi "index, follow".
+    -->
+    <meta name="description"
+        content="Taistelukenttä d20 on ilmainen, suomenkielinen taktinen sotapeli, joka käyttää d20-noppajärjestelmää. Lataa säännöt, johda joukkojasi ja koe modernin sodankäynnin haasteet kampanjapelissä.">
+    <meta name="keywords"
+        content="sotapeli, strategiapeli, lautapeli, Taistelukenttä d20, d20 system, ilmaiset säännöt, suomalainen sotapeli, taktinen peli, noppapeli, miniatyyripeli, kampanjapeli, moderni sodankäynti, pelinjohtaja, suomi, jääkäri, puolustusvoimat">
+    <!--
+    KEHITYS: Alla englanninkieliset metatiedot, jotka voidaan ottaa käyttöön myöhemmin.
+    <meta name="description" lang="en" content="Taistelukenttä d20 is a free Finnish tactical wargame using the d20 system. Download the rules, command your troops, and experience the challenges of modern warfare in a campaign-driven strategy game.">
+    -->
+    <meta name="keywords" lang="en"
+        content="wargame, strategy game, board game, Taistelukenttä d20, d20 system, free wargame rules, Finnish wargame, tactical game, dice game, miniatures game, campaign game, modern warfare, game master, GM, Finland">
+    <title>Taistelukenttä d20 - strateginen sotapeli</title>
+    <!--
+    ====================================================================
+    TYYLITIEDOSTOT JA FONTIT
+    ====================================================================
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="images/tkd20ikoni.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Styles/rules.css">
+</head>
+
+<body class="text-stone-900">
+    <header id="main-navbar">
+        <div class="container mx-auto flex items-center">
+            <div class="header-left-spacer md:hidden"></div>
+
+            <div id="navbar-dropdown-container" class="relative">
+                <a href="#" id="current-page-name" class="home-link">Sanasto ja UKK</a>
+                <nav id="main-navbar-content">
+                    <ul class="top-nav-list">
+                        <li><a href="index.html" class="nav-link-top">Etusivu</a></li>
+                        <li><a href="ydinsaannot.html" class="nav-link-top">Ydinsäännöt</a></li>
+                        <li><a href="komppania-tason-taistelu.html" class="nav-link-top">Komppaniatason taistelu</a></li>
+                        <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
+                        <li><a href="siniset-yksiköt.html" class="nav-link-top">Siniset yksiköt</a></li>
+                        <li><a href="punaiset-yksiköt.html" class="nav-link-top">Punaiset yksiköt</a></li>
+                        <li><a href="skenaariot.html" class="nav-link-top">Skenaariot</a></li>
+                        <li><a href="pelinjohtajan-opas.html" class="nav-link-top">Pelinjohtajan opas</a></li>
+                        <li><a href="sanasto-ja-ukk.html" class="nav-link-top" style="color:#C2B280;">Sanasto ja UKK</a></li>
+                        <li><a href="tietoja.html" class="nav-link-top">Tietoa & Muutoshistoria</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="header-right-spacer md:hidden"></div>
+        </div>
+    </header>
+    <div id="sidebar"
+        class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-20 p-4 overflow-y-auto sidebar-hidden md:sidebar-visible md:translate-x-0">
+        <h1 class="sidebar-title">Sisällysluettelo</h1>
+        <nav id="nav-menu" class="space-y-1"></nav>
+    </div>
+
+
+    <button id="menu-toggle" class="md:hidden fixed top-4 left-4 z-55 p-2 bg-white rounded-md shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <!--
+    ====================================================================
+    PÄÄSISÄLTÖ (MAIN CONTENT)
+    ====================================================================
+    -->
+    <main id="main-content" class="md:ml-64 p-4 md:p-8">
+        <div class="prose max-w-none">
+
+            <div class="relative h-96 w-full bg-cover bg-center mb-8"
+                style="background-image: url('images/bannertkd.jpg');">
+
+                <div class="relative z-10 flex h-full items-center justify-center">
+                    <h1 class="banner-title text-4xl md:text-6xl font-bold text-center">
+                        Taistelukenttä d20 – Strateginen sotapeli <br> v. Alpha
+                    </h1>
+                </div>
+
+            </div>
+            <!--SECTION: Sanasto alkaa-->
+            <section id="sanasto">
+                <h2>Sanasto</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="glossary-index-header">#</th>
+                                <th>Lyhenne / Termi</th>
+                                <th>Selitys</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="glossary-index-letter">A</td>
+                                <td><strong>Ansat ja Sulutteet</strong></td>
+                                <td>Pelaajien salaa asettamia vaaroja, kuten miinakenttiä, jotka laukeavat vihollisen
+                                    liikkeestä.</td>
+                            </tr>
+                            <tr>
+                                <td class="glossary-index-letter">E</td>
+                                <td>Epäorgaaninen tulituki</td>
+                                <td>Kartan ulkopuolinen tulituki, kuten pataljoonan tykistö.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><strong>Etu ja Haitta</strong></td>
+                                <td>Noppamekaniikat, jotka muokkaavat heittoja:
+                                    <ul>
+                                        <li><strong>Etu (Advantage):</strong> Heitetään kaksi d20-noppaa ja käytetään
+                                            korkeampaa tulosta.</li>
+                                        <li><strong>Haitta (Disadvantage):</strong> Heitetään kaksi d20-noppaa ja
+                                            käytetään matalampaa tulosta.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="glossary-index-letter">G</td>
+                                <td>GM (Pelinjohtaja)</td>
+                                <td>Toimii Red Teamin komentajana ja tuomarina.</td>
+                            </tr>
+                            <tr>
+                                <td class="glossary-index-letter">H</td>
+                                <td>Hallintavyöhyke (ZoC)</td>
+                                <td>Yksikön ympärillä oleva 2 cm säteinen vyöhyke, joka vaikeuttaa vihollisen
+                                    liikkumista.</td>
+                            </tr>
+                            <tr>
+                                <td class="glossary-index-letter">K</td>
+                                <td>K (Koulutus)</td>
+                                <td>Yksikön peruskoulutuksen laatu. Pysyvä arvo, joka vaikuttaa Taitotasoon (TT).</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Komentoyhteys</td>
+                                <td>Komppanianpäällikön ja Joukkueenjohtajan välinen yhteys, joka vaaditaan
+                                    Komentopisteiden siirtoon ja tiettyihin käskyihin.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><strong>Komppaniatason taktiikat</strong></td>
+                                <td>Komppanianpäällikön käyttämiä strategisia käskyjä.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>KP (Komentopisteet)</td>
+                                <td>Pelaajan komentajan kyky vaikuttaa yksiköihin. Käytetään erikoistoimintoihin.</td>
+                            </tr>
+                            <tr>
+                                <td class="glossary-index-letter">L</td>
+                                <td>L (Liike)</td>
+                                <td>Yksikön liikkumisnopeus eri maastotyypeissä senttimetreinä.</td>
+                            </tr>
+                            <tr>
+                                <td class="glossary-index-letter">M</td>
+                                <td>M (Moraali)</td>
+                                <td>Moraalitestin bonus. Korkeampi tarkoittaa parempaa henkistä kestävyyttä.</td>
+                            </tr>
+                            <tr>
+                                <td class="glossary-index-letter">O</td>
+                                <td>Orgaaninen tulituki</td>
+                                <td>Pelaajan suoraan ohjaama tulitukiyksikkö pelilaudalla.</td>
+                            </tr>
+                            <tr>
+                                <td class="glossary-index-letter">P</td>
+                                <td><strong>Pelitasot</strong></td>
+                                <td>Kuvaavat pelin laajuutta (Joukkuepeli, Komppaniapeli).</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><strong>Pelivuoron Vaiheet</strong></td>
+                                <td>Pelin ydinmekaniikka, joka jakaantuu viiteen vaiheeseen.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><strong>Piiloutunut</strong></td>
+                                <td>Erityinen tilaefekti, joka estää yksikön joutumasta kohteeksi, ellei vihollinen ole
+                                    hyvin lähellä.</td>
+                            </tr>
+                            <tr>
+                                <td class="glossary-index-letter">S</td>
+                                <td>S (Suoja)</td>
+                                <td>Vastaa "Armor Classia". Kuinka vaikea yksikkö on osua.</td>
+                            </tr>
+                            <tr>
+                                <td class="glossary-index-letter">T</td>
+                                <td>TI (Tuli-isku)</td>
+                                <td>Vahinkoarvo, jota käytetään osumien jälkeen.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><strong>Tilaefektit</strong></td>
+                                <td>Yksiköiden toimintakykyyn vaikuttavat tilat (Vaurioitunut, Lamautunut, Vetäytyy).
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>TK (Taistelukunto)</td>
+                                <td>Yksikön elinvoima. Vahingot vähentävät tätä.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>TT (Taitotaso)</td>
+                                <td>Yksikön osaaminen. Lasketaan: Koulutus + Kokemus.</td>
+                            </tr>
+                            <tr>
+                                <td class="glossary-index-letter">V</td>
+                                <td>VP (Voittopisteet)</td>
+                                <td>Mittaa taistelun tai kampanjan menestystä.</td>
+                            </tr>
+                            <tr>
+                                <td class="glossary-index-letter">X</td>
+                                <td>XP (Kokemus)</td>
+                                <td>Yksikön taistelukokemusta. Lisää yksikön tehokkuutta kampanjapelissä.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <!--/SECTION: Sanasto loppuu-->
+            <!--SECTION: UKK alkaa-->
+            <section id="ukk">
+                <h2>Usein Kysytyt Kysymykset</h2>
+
+                <h3>Pelin Perusteet ja Johtaminen</h3>
+                <details>
+                    <summary><strong>Mitä eroa on komppania ja pataljoonatason pelillä?</strong></summary>
+                    <p>
+                        Ero on pelin laajuudessa, mittakaavassa ja pelaajien rooleissa.
+                    </p>
+                    <ul>
+                        <li><strong>Komppaniapelissä</strong> yksiköt ovat ryhmätasoisia (esim. Jääkäriryhmä),
+                            kartan mittakaava on tyypillisesti 1:10 000 (1cm = 100m), ja pelaajat toimivat joko
+                            Komppanianpäällikkönä tai Joukkueenjohtajina.</li>
+                        <li><strong>Pataljoonapelissä</strong> yksiköt edustavat kokonaisia joukkueita, ja kartan
+                            mittakaava on suurempi, 1:10 000 (1cm = 100m). Komentorakenne ja resurssit skaalautuvat
+                            vastaavasti.</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>Mitä Komentopisteet (KP) ovat ja mihin niitä käytetään?</strong></summary>
+                    <p>
+                        Komentopisteet (KP) kuvaavat komentajan johtamiskykyä ja ovat pelin keskeisin resurssi.
+                        Niitä käytetään yksiköiden erikoistoimintojen ja taktisten kykyjen aktivoimiseen.
+                        Perustoiminnot, kuten asemissa puolustaminen, eivät maksa pisteitä.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miksi käyttämättömät Komentopisteet nollautuvat jokaisen vuoron
+                            lopussa?</strong></summary>
+                    <p>
+                        Sääntöjen mukaan käyttämättömät Komentopisteet nollautuvat aina vuoron lopussa. Tämä sääntö
+                        kannustaa aktiiviseen johtamiseen ja resurssien tehokkaaseen käyttöön joka vuoro, simuloiden
+                        taistelun jatkuvaa painetta.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Mitä perustoimintoja, jotka eivät maksa Komentopisteitä, joukkueenjohtaja voi
+                            tehdä?</strong></summary>
+                    <p>
+                        Yksiköt voivat suorittaa vuorollaan yhden ilmaisen perustoiminnon ilman Komentopisteiden
+                        käyttöä. Nämä ovat:
+                    </p>
+                    <ul>
+                        <li><strong>Asemapuolustus:</strong> Yksikkö pysyy paikallaan ja valmistautuu puolustukseen.
+                            Se voi ampua normaalisti Tulitoimintavaiheessa. Tämä on yksikön oletustoiminto, jos
+                            sille ei anneta muuta käskyä.</li>
+                        <li><strong>Perusliike:</strong> Yksikkö liikkuu normaalisti oman Liike-arvonsa verran,
+                            kunhan se ei aloita vuoroaan vihollisen Hallintavyöhykkeellä.</li>
+                    </ul>
+                    <p>
+                        Kaikki monimutkaisemmat tai reaktiiviset toiminnot, kuten hyökkäyskäskyt tai erikoiskyvyt,
+                        vaativat KP:n käyttöä.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Voiko pelinjohtaja (GM) siirtää Komentopisteitä Punaisen puolen eri komentajien
+                            välillä?</strong></summary>
+                    <p>
+                        Ei voi. Tämä on keskeinen ero pelaajien ja GM:n välillä ja simuloi Punaisen puolen jäykempää
+                        komentorakennetta.
+                    </p>
+                    <p>
+                        GM jakaa joukkonsa <strong>Taisteluryhmiin</strong> (esim. jalkaväkijoukkue, panssarikiila),
+                        ja jokainen ryhmä tuottaa oman erillisen 3 KP:n pistepoolin. Yhden Taisteluryhmän pisteitä
+                        ei voi koskaan käyttää toisen ryhmän yksiköiden komentamiseen.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Mitä tapahtuu, jos Komppanianpäällikkö-yksikkö eliminoidaan?</strong></summary>
+                    <p>
+                        Jos Komppanianpäällikkö-yksikkö eliminoidaan, seuraa useita asioita:
+                    </p>
+                    <ul>
+                        <li><strong>Välitön vaikutus:</strong> Kaikki päällikön antamat passiiviset edut poistuvat.
+                        </li>
+                        <li><strong>Kaaos ja Hämmennys:</strong> Kaikki ystävälliset yksiköt saavat -1 rangaistuksen
+                            Moraalitesteihin, kunnes uusi päällikkö on nimitetty.</li>
+                        <li><strong>Kenttäylennys:</strong> Seuraavan komentovaiheen alussa pelaajien on nimitettävä
+                            uusi Komppanianpäällikkö jäljellä olevista Joukkueenjohtajista.</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>Miten uusi Komppanianpäällikkö nimitetään ja mitkä ovat hänen
+                            KP-poolinsa?</strong></summary>
+                    <p>
+                        Uudeksi päälliköksi ylennetään joku elossa olevista Joukkueenjohtajista. Tämä uusi päällikkö
+                        saa kaksi erillistä Komentopistepoolia:
+                    </p>
+                    <ul>
+                        <li><strong>Komppaniapooli: 4 KP</strong>, joita voi käyttää vain komppaniatason
+                            taktiikoihin.</li>
+                        <li><strong>Joukkuepooli: 3 KP</strong>, joita voi käyttää vain hänen oman alkuperäisen
+                            joukkueensa johtamiseen.</li>
+                    </ul>
+                    <p>Näitä kahta pistepoolia ei voi yhdistää tai siirtää niiden välillä.</p>
+                </details>
+
+                <details>
+                    <summary><strong>Mitä on Komentoyhteys ja miten se vaikuttaa pelaajien toimintaan?</strong>
+                    </summary>
+                    <p>
+                        Komentoyhteys kuvaa toimivaa kommunikaatiota Komppanianpäällikön ja Joukkueenjohtajan
+                        välillä. Yksikkö on komentoyhteydessä, jos se on 60 cm säteellä päälliköstä, eikä välissä
+                        ole vihollista. Komentoyhteys vaaditaan, jotta Komppanianpäällikkö voi siirtää KP:itä
+                        Joukkueenjohtajalle tai käyttää useimpia kohdennettuja taktisia kykyjään.
+                    </p>
+                    <p>
+                        <strong>Punaisen puolen osalta:</strong> On tärkeää huomata, että pelinjohtajan ohjaama
+                        Punainen puoli ei käytä tätä etäisyyteen perustuvaa komentoyhteyssääntöä. Sen komentamisen
+                        rajoitukset tulevat erillisistä, toisistaan riippumattomista Taisteluryhmien KP-pooleista.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Mitä tapahtuu, jos Joukkueenjohtaja on komentoyhteyden ulkopuolella?</strong>
+                    </summary>
+                    <p>
+                        Jos Joukkueenjohtaja on komentoyhteyden ulkopuolella (kommunikaatiokatkos), hän saa vuoronsa
+                        alussa vain <strong>2 KP</strong> normaalin 3 KP:n sijaan, eikä hän voi vastaanottaa
+                        lisäpisteitä päälliköltä.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Voiko Komppanianpäällikkö siirtää KP:itä Joukkueenjohtajille? Miten se
+                            toimii?</strong></summary>
+                    <p>
+                        Kyllä voi. Komppanianpäällikkö voi kuluttaa yhden oman KP:nsä (1 KP) antaakseen yhdelle
+                        komentoyhteydessä olevalle Joukkueenjohtajalle yhden ylimääräisen KP:n (+1 KP) kyseiseksi
+                        vuoroksi.
+                    </p>
+                </details>
+
+                <h3>Yksiköt ja Ominaisuudet</h3>
+                <details>
+                    <summary><strong>Mitä tarkoittavat yksiköiden ominaisuudet TK, M, K, XP, TT, L, S ja
+                            TI?</strong></summary>
+                    <ul>
+                        <li><strong>TK (Taistelukunto):</strong> Yksikön vahvuus ja elinvoima.</li>
+                        <li><strong>M (Moraali):</strong> Bonus moraalitesteihin, kuvaa taistelutahtoa.</li>
+                        <li><strong>K (Koulutus):</strong> Yksikön peruskoulutuksen laatu, pysyvä arvo.</li>
+                        <li><strong>XP (Kokemus):</strong> Yksikön taistelukokemus, kasvaa kampanjassa.</li>
+                        <li><strong>TT (Taitotaso):</strong> Yksikön yleinen tehokkuus. Lisätään useimpiin
+                            heittoihin.</li>
+                        <li><strong>L (Liike):</strong> Yksikön liikkumisnopeus.</li>
+                        <li><strong>S (Suoja):</strong> Kuinka vaikea yksikköön on osua. Toimii kuten "Armor Class".
+                        </li>
+                        <li><strong>TI (Tuli-isku):</strong> Yksikön aiheuttaman vahingon määrä osuessaan.</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>Miten yksikön Taitotaso (TT) lasketaan?</strong></summary>
+                    <p>
+                        Taitotaso (TT) lasketaan kaavalla: <strong>TT = Koulutus (K) + Kokemus (XP)</strong>.
+                        Kampanjassa XP-bonus kasvaa +1 jokaista 10 kerättyä kokemuspistettä kohden.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Milloin yksikön erikoisaseistusta (esim. konekivääri, PST-ase)
+                            käytetään?</strong></summary>
+                    <p>
+                        Yksikön erikoisaseita ja niiden vahinkoarvoja käytetään ainoastaan silloin, kun jokin
+                        yksikön <strong>erityinen kyky</strong> (esim. "Lamauttava Tuli") tai pelitilanne (esim.
+                        panssarintorjunta) nimenomaisesti niin määrää. Normaalissa tulitoiminnassa käytetään
+                        perushyökkäystä (esim. "Jalkaväkiaseistus").
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten kokemus (XP) vaikuttaa yksikön Taitotasoon kampanjan aikana?</strong>
+                    </summary>
+                    <p>
+                        Kampanjan aikana yksiköt keräävät Voittopisteitä, jotka muunnetaan Kokemuspisteiksi (XP).
+                        Jokaista täyttä 10 kerättyä XP:tä kohden yksikön Taitotaso (TT) kasvaa pysyvästi yhdellä
+                        (+1).
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten "Vaurioitunut"-tila vaikuttaa yksikön saamaan kokemukseen?</strong>
+                    </summary>
+                    <p>
+                        Jos yksikkö on taistelun lopussa "Vaurioitunut"-tilassa (TK alle 50 %), sen osuus
+                        jaettavasta kokemuksesta <strong>puolittuu</strong>. Tämä kuvaa kokeneiden taistelijoiden
+                        menettämistä.
+                    </p>
+                </details>
+
+                <h3>Tilaefektit ja Taistelumekaniikat</h3>
+                <details>
+                    <summary><strong>Mitä eroa on "Vaurioitunut", "Lamautunut" ja "Vetäytyy"
+                            -tilaefekteillä?</strong></summary>
+                    <ul>
+                        <li><strong>Vaurioitunut:</strong> Yksikön TK on alle puolessa maksimista. Sen Liike ja
+                            Tuli-isku puolittuvat.</li>
+                        <li><strong>Lamautunut:</strong> Epäonnistuneen moraalitestin seuraus. Yksikkö ei voi
+                            liikkua tai käyttää toimintoja. Sitä vastaan tehdyt hyökkäykset saavat Edun (Advantage).
+                        </li>
+                        <li><strong>Vetäytyy:</strong> Kriittisesti epäonnistuneen moraalitestin seuraus. Yksikkö
+                            pakenee hallitsemattomasti täyden liikkeensä verran poispäin taistelusta.</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>Miten "Lamautunut"-tila poistetaan?</strong></summary>
+                    <p>
+                        Tila poistuu joko onnistuneella moraalitestillä vuoron lopussa tai jos komentaja käyttää
+                        siihen <strong>"Moraalin Kohotus"</strong> -komentoa (2 KP).
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten "Piiloutunut"-tila toimii ja milloin yksikkö menettää sen?</strong>
+                    </summary>
+                    <p>
+                        Piiloutunutta yksikköä ei voi valita kohteeksi, ellei hyökkääjä ole 5 cm tai lähempänä. Tila
+                        poistuu välittömästi, jos yksikkö liikkuu, hyökkää tai käyttää toimintoa, TAI jos
+                        vihollisyksikkö liikkuu 5 cm etäisyydelle siitä. Tilaan voi päästä vain erikoiskyvyllä.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Mitä "Etu (Advantage)" ja "Haitta (Disadvantage)" tarkoittavat
+                            nopanheitoissa?</strong></summary>
+                    <p>Ne ovat nopanheittoon vaikuttavia tiloja:</p>
+                    <ul>
+                        <li><strong>Etu (Advantage):</strong> Heitä kaksi d20-noppaa ja valitse korkeampi tulos.
+                        </li>
+                        <li><strong>Haitta (Disadvantage):</strong> Heitä kaksi d20-noppaa ja valitse matalampi
+                            tulos.</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>Millaisissa tilanteissa hyökkäys saa Edun tai Haitan?</strong></summary>
+                    <p>Hyökkäys saa <strong>Edun</strong>, jos kohde on sivustassa/selustassa,
+                        <em>Lamautunut</em>-tilassa tai täysin avoimella maastolla. Hyökkäys saa
+                        <strong>Haitan</strong>, jos kohde on linnoittautunut tai näkyvyys on erittäin huono (esim.
+                        savu).
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten sarjatuli- tai aluevaikutusaseet toimivat useampaa kohdetta
+                            vastaan?</strong></summary>
+                    <p>
+                        Hyökkääjä nimeää vaikutusalueen ja heittää yhden hyökkäysheiton. Tätä tulosta verrataan
+                        erikseen jokaiseen alueella olevaan vihollisyksikköön. Jokainen yksikkö, jonka Suoja-arvo
+                        alittuu, kärsii normaalin vahingon.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Milloin yksikön on tehtävä Moraalitesti ja mikä on kriittinen
+                            epäonnistuminen?</strong></summary>
+                    <p>
+                        Moraalitesti tehdään esimerkiksi, kun yksikkö kärsii ensi kertaa vahinkoa, sen TK putoaa
+                        alle puoleen, se joutuu epäsuoran tulen alle tai viereinen yksikkö tuhoutuu. Kriittinen
+                        epäonnistuminen tapahtuu, jos testin tulos on <strong>vähintään 5 pistettä alle vaaditun
+                            DC-arvon</strong>, mikä johtaa "Vetäytyy"-tilaan.
+                    </p>
+                </details>
+
+                <h3>Tiedustelu ja Tulituki</h3>
+                <details>
+                    <summary><strong>Miten tiedusteluheitto tehdään ja mitä tarkoittavat eri havainnon tasot
+                            ("Epäily", "Tiedossa", "Havaittu")?</strong></summary>
+                    <p>
+                        Tiedustelu on vastakkainen heitto: tiedustelijan <strong>d20 + TT</strong> vastaan kohteen
+                        <strong>d20 + maaston suojausbonus</strong>. Havainnon tasot ovat:
+                    </p>
+                    <ul>
+                        <li><strong>Epäily:</strong> Tiedät, että alueella on <em>jotain</em>. GM merkitsee "?".
+                        </li>
+                        <li><strong>Tiedossa:</strong> Tiedät yksikön tyypin ja summittaisen sijainnin. Voit ampua
+                            epäsuoralla tulella.</li>
+                        <li><strong>Havaittu:</strong> Tiedät tarkan sijainnin. Voit ampua suoralla tulella.</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>Voiko Piiloutunut-tilassa olevaa yksikköä havaita tiedusteluheitolla?</strong>
+                    </summary>
+                    <p>
+                        Ei voi. Piiloutunut-tila on erityiskyky, joka estää havaitsemisen kauempaa. Yksikkö pitää
+                        paljastaa liikkumalla sen lähelle (yleensä 5 cm päähän), jolloin se paljastuu
+                        automaattisesti.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Kuka voi kutsua pelilaudan ulkopuolista (epäorgaanista) tulitukea?</strong>
+                    </summary>
+                    <p>
+                        Vain <strong>Komppanianpäällikkö</strong> voi kutsua pelilaudan ulkopuolista (epäorgaanista)
+                        tulitukea, kuten pataljoonan tykistöä.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Mitä eri viiveitä on epäorgaanisen tulituen saapumisessa?</strong></summary>
+                    <p>
+                        Viive on satunnainen ja riippuu tuen tyypistä. GM heittää sen salassa.
+                    </p>
+                    <ul>
+                        <li><strong>Raskas kranaatinheitin (120mm):</strong> Viive on d4 vuoroa.</li>
+                        <li><strong>Kenttätykistö (155mm):</strong> Viive on d4+1 vuoroa.</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>Miten tulituen iskun osumapiste määräytyy hajontanoppien ja suunnan
+                            perusteella?</strong></summary>
+                    <p>
+                        Kun tuki saapuu, heitetään hajontanopat (esim. 2d4). Tulosten summa on hajonnan etäisyys
+                        senttimetreinä. Sitten heitetään d8 määrittämään suunta kompassiruusun mukaan. Osumapistettä
+                        siirretään maalipisteestä tämän verran.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Mitä "Napakymppi" tarkoittaa tulituki-iskussa?</strong></summary>
+                    <p>
+                        Jos hajontanoppien tulokset ovat samat (esim. 1&1, 2&2), isku on Napakymppi. Tällöin se osuu
+                        täsmälleen nimettyyn maalipisteeseen ilman hajontaa.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten Taitotaso (TT+4 tai korkeampi) vaikuttaa tulituen tarkkuuteen?</strong>
+                    </summary>
+                    <p>
+                        Jos tulta johtavan yksikön Taitotaso on +4 tai korkeampi, pelaaja saa heittää yhden
+                        hajontanopan uudelleen. Tämä kuvaa kokeneen yksikön kykyä antaa tarkkoja koordinaatteja.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Voiko Komppanianpäällikkö tehostaa orgaanisen tulitukiyksikön iskua?
+                            Miten?</strong></summary>
+                    <p>
+                        Kyllä voi. Kun Joukkueenjohtaja pyytää orgaanista tulta (1 KP), Komppanianpäällikkö voi
+                        samassa Komentovaiheessa käyttää 1 KP:n omasta poolistaan tehostaakseen iskua. Tällöin iskun
+                        hyökkäysheitto saa <strong>+1 bonuksen</strong>.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Mitä "Vaara Lähellä" -käsky tarkoittaa orgaanisessa tulituessa?</strong>
+                    </summary>
+                    <p>
+                        "Vaara Lähellä" (Danger Close) on komentajan antama lupa ampua tulituki-isku, vaikka sen
+                        vaikutusalueella olisi omia yksiköitä. Jokaisesta omasta yksiköstä alueella heitetään
+                        d6-noppa: tuloksella 1-2 oma yksikkö kärsii puolet iskun normaalista vahingosta.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Mitkä yksiköt voivat toimia tulenjohtajina ja mitä se edellyttää?</strong>
+                    </summary>
+                    <p>
+                        Kaikki <strong>Jääkäriryhmät</strong> (ja muut yksiköt, joilla on Tulenjohto-kyky) voivat
+                        johtaa tulta. Tämä edellyttää vähintään <strong>Tiedustelukontaktia</strong> kohteeseen ja
+                        toimivaa kommunikaatioyhteyttä (joko suoraan orgaaniseen tukeen tai Komppanianpäällikön
+                        kautta epäorgaaniseen tukeen).
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten tulenjohtokyky heikkenee yksikön kärsiessä tappioita?</strong></summary>
+                    <p>
+                        Kun tulenjohtajana toimivan Jääkäriryhmän TK laskee alle 50 %, sen on onnistuttava
+                        d6-heitossa (tulos 4+) johtaakseen tulta. Jos ryhmän TK on 1 tai 2, se ei voi enää johtaa
+                        tulta lainkaan.
+                    </p>
+                </details>
+
+                <h3>Maasto ja Esteet</h3>
+                <details>
+                    <summary><strong>Miten Hallintavyöhyke (ZoC) vaikuttaa yksiköiden liikkumiseen?</strong>
+                    </summary>
+                    <p>
+                        Jokaisella yksiköllä on 2 cm säteinen Hallintavyöhyke (Zone of Control). Kun vihollisyksikkö
+                        liikkuu tälle vyöhykkeelle, sen liike päättyy välittömästi kyseisellä vuorolla.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten yksikkö pääsee pois vihollisen Hallintavyöhykkeeltä?</strong></summary>
+                    <p>
+                        Irtautuakseen vihollisen Hallintavyöhykkeeltä yksikön on käytettävä
+                        <strong>"Irtautuminen"</strong>-komentoa, joka maksaa 2 KP.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten maastotyypit vaikuttavat liikkeeseen ja suojaan?</strong></summary>
+                    <p>
+                        Eri maastotyypit vaikuttavat sekä liikkumisnopeuteen että Suoja-arvoon. Esimerkiksi metsä
+                        puolittaa liikkeen mutta antaa +4 bonuksen Suojaan. Rakennukset antavat parhaan suojan (+6)
+                        mutta estävät liikkumisen.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten ansoja tai sulutteita (kuten miinakenttiä) havaitaan tai ne
+                            laukeavat?</strong></summary>
+                    <p>
+                        Ansa laukeaa automaattisesti, kun vihollisyksikkö liikkuu sen vaikutusalueelle. Yksikkö,
+                        jonka TT on +3 tai korkeampi, voi yrittää havaita ansoja ennen liikkumista tekemällä
+                        TT-testin (DC 13). Onnistuessaan Pelinjohtaja paljastaa ansan sijainnin.
+                    </p>
+                </details>
+
+                <h3>Kampanja ja Voittopisteet</h3>
+                <details>
+                    <summary><strong>Mitä eri käyttötarkoituksia Voittopisteillä (VP) on kampanjapelissä?</strong>
+                    </summary>
+                    <p>
+                        Voittopisteillä (VP) on kolme tarkoitusta:
+                    </p>
+                    <ol>
+                        <li>Ne määrittävät yksittäisen skenaarion voittajan.</li>
+                        <li>Ne muunnetaan <strong>Kokemuspisteiksi (XP)</strong>, joilla yksiköt kehittyvät.</li>
+                        <li>Ne muunnetaan <strong>Täydennyspisteiksi (TP)</strong>, joilla ylläpidetään komppanian
+                            taisteluvalmiutta.</li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary><strong>Miten Voittopisteet muunnetaan Kokemuspisteiksi (XP) ja Täydennyspisteiksi
+                            (TP)?</strong></summary>
+                    <p>
+                        Taistelun jälkeen kerätty kokonais-VP-määrä muunnetaan suoraan sekä Kokemuspisteiksi että
+                        Täydennyspisteiksi suhteella 1 VP = 1 XP ja 1 VP = 1 TP. Komppania saa siis saman määrän
+                        molempia resursseja.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten Täydennyspisteitä (TP) käytetään yksiköiden Taistelukunnon (TK)
+                            palauttamiseen tai uusien yksiköiden ostamiseen?</strong></summary>
+                    <p>
+                        Pelaajat voivat käyttää kerättyjä Täydennyspisteitä (TP) taisteluiden välissä:
+                    </p>
+                    <ul>
+                        <li><strong>TK:n palautus:</strong> 1 TP palauttaa 2 menetettyä TK-pistettä.</li>
+                        <li><strong>Uudet yksiköt:</strong> TP:llä voi ostaa kokonaan uusia perusyksiköitä
+                            korvaamaan tuhoutuneita. Hinta riippuu yksikön tyypistä (esim. Jääkäriryhmä maksaa 15
+                            TP).</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>Miksi on tärkeää seurata yksiköiden tietoja "Komppanian Vahvuusluettelossa"
+                            (Kasarmi)?</strong></summary>
+                    <p>
+                        Vahvuusluettelo on välttämätön kampanjapelissä, jotta voidaan seurata kunkin yksilöidyn
+                        yksikön keräämää kokemusta (XP), nykyistä Taistelukuntoa (TK) ja tilaa taisteluiden välillä.
+                        Se mahdollistaa yksiköiden kehittymisen ja tappioiden hallinnoinnin.
+                    </p>
+                </details>
+
+                <h3>Erikoiskyvyt ja Komppanian Taktiikat</h3>
+                <details>
+                    <summary><strong>Mitkä ovat Komppanianpäällikön käyttämät komppaniatason taktiikat?</strong>
+                    </summary>
+                    <p>
+                        Komppanianpäälliköllä on useita strategisia taktiikoita, kuten <strong>Tulitukipyyntö
+                            (epäorgaaninen)</strong>, <strong>Mottitaktiikka</strong>, <strong>Painopisteen
+                            Muodostaminen</strong>, <strong>Sitova Tuli</strong>, <strong>Järjestäytynyt
+                            Vetäytyminen</strong> ja <strong>Vahvistettu Maali</strong>.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Voiko Komppanianpäällikkö käyttää useampaa komppaniatason taktista kykyä saman
+                            vuoron aikana?</strong></summary>
+                    <p>
+                        Ei. Komppanianpäällikkö voi käyttää vuorossa <strong>vain yhden</strong> seuraavista
+                        taktisista kyvyistä: <em>Mottitaktiikka, Painopisteen Muodostaminen, Sitova Tuli</em> tai
+                        <em>Järjestäytynyt Vetäytyminen</em>. Muiden KP:lla aktivoitavien toimintojen (kuten
+                        Tulitukipyyntö tai KP:n siirto) käyttöä tämä ei rajoita.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten "Mottitaktiikka" toimii ja milloin sitä voi käyttää?</strong></summary>
+                    <p>
+                        Mottitaktiikka maksaa 5 KP, ja sen voi käyttää kerran taistelussa. Päällikkö valitsee 10 cm
+                        säteen, ja kaikki vihollisyksiköt alueella joutuvat tekemään Moraalitestin (DC 15) tai
+                        joutuvat "Vetäytyy"-tilaan.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Mitä hyötyä "Sitova Tuli" -kyvystä on?</strong></summary>
+                    <p>
+                        Kun Komppanianpäällikkö aktivoi "Sitova Tuli" -kyvyn (2 KP) nimetylle joukkueelle, sen
+                        onnistuneet hyökkäykset aiheuttavat kohteelle <strong>-1 rangaistuksen</strong> sen
+                        seuraavaan Moraalitestiin. Vaikutus on kasautuva, mikä tekee vihollisesta haavoittuvaisemman
+                        lamaantumiselle.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten "Järjestäytynyt Vetäytyminen" eroaa hallitsemattomasta
+                            vetäytymisestä?</strong></summary>
+                    <p>
+                        "Järjestäytynyt Vetäytyminen" on Komppanianpäällikön komento (3 KP), jonka avulla enintään
+                        kolme yksikköä voi vetäytyä ja silti ampua samalla vuorolla. Hallitsematon vetäytyminen
+                        ("Vetäytyy"-tila) on seurausta epäonnistuneesta moraalitestistä, jolloin yksikkö pakenee
+                        hallitsemattomasti eikä voi ampua.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten "Vahvistettu Maali" -kyky parantaa hyökkäyksen osumatarkkuutta?</strong>
+                    </summary>
+                    <p>
+                        Jos kaksi omaa yksikköä eri joukkueista näkee saman vihollisen, Komppanianpäällikkö voi
+                        käyttää 1 KP aktivoidakseen kyvyn. Seuraava hyökkäys kyseistä vihollista vastaan saa
+                        <strong>+2 bonuksen osumiseen</strong>.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Voiko tarkkuuskiväärin osuessa valita, minkä erikoiskyvyn kohteelta
+                            lamauttaa?</strong></summary>
+                    <p>
+                        Kyllä. Esimerkiksi Sissi-jääkäreiden ja Erikoisjääkäri-osaston tarkkuuskiväärien säännöissä
+                        todetaan, että osuessaan hyökkääjä voi valita kohteen erikoiskyvyn, joka poistuu käytöstä
+                        yhden vuoron ajaksi.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Miten Punaisen puolen "Aaltohyökkäys" kyky toimii?</strong></summary>
+                    <p>
+                        "Aaltohyökkäys" on Motorisoitujen jalkaväkiryhmien passiivinen kyky, joka ei maksa
+                        Komentopisteitä. Jos vähintään kolme tällaista ryhmää hyökkää samaan kohteeseen samalla
+                        vuorolla, ne kaikki saavat +1 Moraaliin seuraavalla vuorollaan.
+                    </p>
+                </details>
+
+            </section>
+            <!--/SECTION: UKK loppuu-->
+
+        </div>
+    </main>
+
+    <!--
+    ====================================================================
+    KELLUVAT VIERITYSNAPIT (SCROLL BUTTONS)
+    ====================================================================
+    -->
+    <div id="scroll-buttons-container" class="scroll-buttons">
+
+        <div id="scroll-legend" class="scroll-legend-panel">
+            <p class="font-bold mb-2">Nappien selitteet:</p>
+            <ul>
+                <li><img src="images/Kersantti_hihalaatta.svg.png" alt="Kersantti" class="legend-icon"> Sivun alkuun /
+                    Loppuun</li>
+                <li><img src="images/Alikersantti_hihalaatta.svg.png" alt="Alikersantti" class="legend-icon"> Edellinen
+                    / Seuraava pääotsikko (H2)</li>
+                <li><img src="images/Korpraali_hihalaatta.svg.png" alt="Korpraali" class="legend-icon"> Edellinen /
+                    Seuraava otsikko (H2/H3)</li>
+            </ul>
+        </div>
+
+        <div class="scroll-row">
+            <button id="scroll-info-toggle" title="Näytä ohjeet" class="scroll-button info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="scroll-row">
+            <div class="scroll-column">
+                <button id="scroll-top" title="Sivun alkuun (Kersantti)" class="scroll-button">
+                    <img src="images/Kersantti_hihalaatta.svg.png" alt="Sivun alkuun">
+                </button>
+                <button id="scroll-h2-up" title="Edellinen pääotsikko (Alikersantti)" class="scroll-button">
+                    <img src="images/Alikersantti_hihalaatta.svg.png" alt="Edellinen pääotsikko">
+                </button>
+                <button id="scroll-h3-up" title="Edellinen otsikko (Korpraali)" class="scroll-button">
+                    <img src="images/Korpraali_hihalaatta.svg.png" alt="Edellinen otsikko">
+                </button>
+            </div>
+            <div class="scroll-column">
+                <button id="scroll-bottom" title="Sivun loppuun (Kersantti)" class="scroll-button">
+                    <img src="images/Kersantti_hihalaatta.svg.png" alt="Sivun loppuun" class="invert-icon">
+                </button>
+                <button id="scroll-h2-down" title="Seuraava pääotsikko (Alikersantti)" class="scroll-button">
+                    <img src="images/Alikersantti_hihalaatta.svg.png" alt="Seuraava pääotsikko" class="invert-icon">
+                </button>
+                <button id="scroll-h3-down" title="Seuraava otsikko (Korpraali)" class="scroll-button">
+                    <img src="images/Korpraali_hihalaatta.svg.png" alt="Seuraava otsikko" class="invert-icon">
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--
+    ====================================================================
+    JAVASCRIPT-TIEDOSTOT
+    ====================================================================
+    -->
+    <script src="Scripts/rules.js"></script>
+</body>
+
+</html>
