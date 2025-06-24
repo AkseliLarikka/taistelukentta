@@ -6,18 +6,25 @@ Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Tai
 
 ### Uudet ominaisuudet
 
-* **Automaattinen sanasto:** Sivustolle on lisätty merkittävä uusi ominaisuus, joka muuttaa sanaston termit automaattisesti klikattaviksi. Termiä klikkaamalla avautuu pieni ponnahdusikkuna, joka näyttää termin selityksen. Tämä on toteutettu Python-skriptillä, joka automatisoi termien lisäämisen HTML-sivuille.
+* **Liikelaskuri:** Pelaajan pikaoppaaseen on lisätty uusi interaktiivinen liikelaskuri helpottamaan yksiköiden liikuttelua.
+* **Havainnekuvat:** Esimerkkipeliin on lisätty runsaasti uusia havainnekuvia selkeyttämään pelin kulkua.
+* **Automaattinen sanasto:** Sivustolle on lisätty merkittävä uusi ominaisuus, joka muuttaa sanaston termit automaattisesti klikattaviksi. Termiä klikkaamalla avautuu pieni ponnahdusikkuna, joka näyttää termin selityksen.
+* **Uusi yksikkö:** Lisätty "Komppanianpäällikkö (esikunta)" -yksikkö sinisten joukkojen listaan.
 
 ### Parannukset ja korjaukset
 
-* **Sisältöpäivitykset:**
-  * Lisätty uusi "Komppanianpäällikkö (esikunta)" -yksikkö sinisten joukkojen listaan.
+* **Sääntöpäivitykset:**
+  * Tehty useita sääntötarkennuksia ja -päivityksiä eri osioihin.
+  * Parannettu sanaston automaattista tägäysjärjestelmää.
   * Laajennettu ja päivitetty merkittävästi "Pelaajan pikaopasta" pelitestauksesta saatujen havaintojen perusteella.
   * Tarkennettu sääntöjä koskien maaston vaikutuksia taistelussa.
   * Paranneltu ja laajennettu esimerkkipeliä `ydinsäännöt.html`-sivulla perustuen aitoon pelitilanteeseen.
   * Päivitetty "Sanasto ja UKK" -sivun sisältöä.
 * **Käyttöliittymä ja ulkoasu:**
-  * Korjattu sivuston navigointinappien toimintaa JavaScript-puolella.
+  * Korjattu etusivun ja sääntösivujen vierityspainikkeiden toimintaa.
+  * Päivitetty aloitussivun (`landing page`) sisältöä ja yhtenäistetty linkkien tyylejä.
+  * Yhtenäistetty otsikkotasojen käyttöä läpi sivuston rakenteen selkeyttämiseksi.
+  * Korjattu sivuston yleistä navigointia JavaScript-puolella.
   * Yhtenäistetty otsikoiden muotoilua ja päivitetty lisenssitiedot `tietoja.html`-sivulle.
 
 ## 2025-06-23
