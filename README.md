@@ -1,32 +1,46 @@
 # Taistelukenttä d20
 
-**Enemmän kuin sotapeli – Komentajan simulaattori.**
+> **Enemmän kuin sotapeli – Komentajan simulaattori.**
 
-Tervetuloa Taistelukenttä d20 -projektin pariin! Tämä on moderniin sodankäyntiin keskittyvä strateginen sotapeli, joka käyttää tuttua d20-järjestelmää, mutta keskittyy yksittäisen sotilaan sijaan **johtamiseen, päätöksentekoon ja sodan sumuun.** Pelissä et ohjaa yhtä hahmoa, vaan olet komentaja, jonka päätökset ratkaisevat alaistesi ja tehtäväsi kohtalon.
+Tämä on moderniin sodankäyntiin keskittyvä strateginen sotapeli, joka käyttää tuttua d20-järjestelmää, mutta keskittyy yksittäisen sotilaan sijaan **johtamiseen, päätöksentekoon ja sodan sumuun.**
 
-Pelin visiona on luoda yhtenäinen kokemus, joka kattaa sodankäynnin kaikki tasot:
+### Avainominaisuudet
 
-* **Taktinen taso:** Johda joukkuetta ja komppaniaa kiivaissa taisteluissa, joissa jokainen käsky ja resurssi on elintärkeä.
-* **Operatiivinen taso:** Toimi pataljoonan tai prikaatin komentajana, yhdistä taktiset voitot laajemmiksi kampanjoiksi ja hallitse useita taisteluita samanaikaisesti.
-* **Strateginen taso:** Ota vastuu koko rintamasta, hallinnoi resursseja, laadi sodan suuret linjat ja johda armeijasi voittoon.
+* **Johtamiskeskeisyys:** Et ole rivisotilas, vaan komentaja. Päätöksesi vaikuttavat koko yksikön toimintaan.
+* **Sota kaikilla tasoilla:** Koe konflikti taktisesta, operatiivisesta ja strategisesta näkökulmasta.
+* **Sodan sumu:** Toimi epätäydellisen ja viivästyneen tiedon varassa – aivan kuten oikeat komentajat.
+* **Tuttu d20-järjestelmä:** Hyödyntää tuttua noppamekaniikkaa, mutta soveltaa sitä joukkue- ja komppaniatasolle.
 
 ### Projektin nykytila
 
 Peli on aktiivisessa kehitysvaiheessa. Tällä hetkellä sen **taktinen taso** on pelattavissa ja testattavassa. Kehitämme peliä jatkuvasti kohti täyttä operatiivista ja strategista kokemusta.
 
-Olet lämpimästi tervetullut tutustumaan sääntöihin, kokeilemaan peliä ja osallistumaan sen kehitykseen!
+### Kenelle peli on suunnattu?
 
-**Kehitystilanne:** Säännöt odottavat pelitestausta. Koodi on kommentoitu ja palautekanavat auki.
+Taistelukenttä d20 on suunniteltu pelaajille, jotka nauttivat yksityiskohtaisesta simulaatiosta, strategisesta suunnittelusta ja realistisesta sotaterminologiasta. Vaikka peli on avoin kaikille, siitä saa eniten irti, jos modernin sodankäynnin konseptit ja johtamisen haasteet kiinnostavat.
 
-Suullinen palaute on ollut hyvää. Suurin "negatiivinen" palaute ollut, että ei-intin käyneille tai siten orientoituneille säännöt sisältävät haastavia termejä. Tämä on valitettavaa, mutta selittyy sillä, että tälläiset ihmiset eivät kuulu pelin kohderyhmään.
+### Tutustu peliin!
 
-Sääntösivun lopusta löydät yhteystietoni sekä palautelomakkeen, millä voit ottaa minuun yhteyttä palautteiden kanssa.
+Oletko valmis ottamaan komennon? Kaikki tarvittava löytyy pelin pääsivulta.
 
-### Pika-aloitus
+# [Avaa Taistelukenttä d20 -pääsivu tästä](https://akselilarikka.github.io/taistelukentta)
 
-* **[Lue täydet säännöt täältä](https://akselilarikka.github.io/taistelukentta)**
+Sivulta löydät täydet säännöt, yksikkölistat, skenaariot ja palautekanavat.
 
-(Huom. aukeaa samaan ikkunaan.)
+### Miten voit osallistua?
+
+Projekti elää yhteisön palautteesta ja osallistumisesta. Kaikenlainen apu on tervetullutta!
+
+* **Lue säännöt:** Tutustu sääntöihin ja kerro, mikä on epäselvää tai mitä voisi parantaa.
+* **Pelitestaa:** Kokeile peliä! Parhaat havainnot syntyvät pelaamalla. Raportoi bugeista, epätasapainosta tai hyvistä hetkistä.
+* **Anna palautetta:** Käytä sääntösivun lopusta löytyvää palautelomaketta tai ota suoraan yhteyttä.
+* **Kehitä koodia:** Jos löydät virheen sivuston toiminnallisuudessa tai haluat ehdottaa parannusta, voit tehdä "Issue" tai "Pull Request" -pyynnön suoraan GitHubissa.
+
+### Viimeisimmät päivitykset
+
+Projekti kehittyy jatkuvasti. Voit seurata yksityiskohtaista muutoshistoriaa [CHANGELOG.md-tiedostosta](CHANGELOG.md).
+
+---
 
 # Taistelukenttä d20: Kehitysroadmap
 
@@ -94,7 +108,7 @@ Sääntösivun lopusta löydät yhteystietoni sekä palautelomakkeen, millä voi
     * **Kuvaus:** Säännöt pitkäkestoiselle kampanjalle. Miten yksiköt saavat kokemusta? Miten tappiot korvataan? Miten teknologia kehittyy? Mitkä ovat sodan voittamiseen vaadittavat ehdot?
     * **Lopputulos:** Runko, joka mahdollistaa eeppisten, useita peli-iltoja kestävien sotien pelaamisen.
 
-* **Kehitysaskel 3.4: direktiivijärjestelmä**
+* **Kehitysaskel 3.4: Direktiivijärjestelmä**
     * **Kuvaus:** Miten strateginen pelaaja antaa käskyjä operatiivisille pelaajille? Luodaan järjestelmä, jossa strateginen johto asettaa tavoitteita (esim. "Vallatkaa kaupunki X kahdessa viikossa"), ja operatiiviset komentajat suunnittelevat, miten tavoite saavutetaan taktisella tasolla.
     * **Lopputulos:** Selkeä yhteys strategisen suunnitelman ja operatiivisen toteutuksen välillä.
 
@@ -106,7 +120,7 @@ Sääntösivun lopusta löydät yhteystietoni sekä palautelomakkeen, millä voi
 
 * **Kehitysaskel 4.1: Täysi Integraatio**
     * **Kuvaus:** Varmistetaan, että tiedonkulku ja seuraamukset toimivat kaikkien tasojen välillä. Strateginen päätös johtaa operatiiviseen tehtävään, jonka tulos ratkaistaan taktisilla taisteluilla. Taktisen taistelun lopputulos (tappiot, resurssien kulutus) raportoidaan takaisin strategiselle tasolle.
-    * **Lopputulos:** dynaaminen pelikokemus, jossa jokaisen pelaajan rooli on aidosti merkityksellinen koko sodan kannalta.
+    * **Lopputulos:** Dynaaminen pelikokemus, jossa jokaisen pelaajan rooli on aidosti merkityksellinen koko sodan kannalta.
 
 * **Kehitysaskel 4.2: Yhteisötyökalut ja Sisältö**
     * **Kuvaus:** Luodaan työkaluja ja ohjeita, joiden avulla yhteisö voi luoda omia yksiköitään, skenaarioitaan ja jopa kampanjoitaan.

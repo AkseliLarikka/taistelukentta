@@ -1393,3 +1393,23 @@ header {
         border-bottom: 1px solid rgba(143, 151, 121, 0) !important;
     }
 }
+
+/* ==================================================================== */
+/* 7. LINKKIEN TYYLIT                                                   */
+/* ==================================================================== */
+
+/* Tämä sääntö koskee kaikkia linkkejä leipätekstissä (.prose-luokan sisällä) */
+.prose a {
+  color: #556B2F;           /* Tumma oliivinvihreä, sama kuin otsikoissa */
+  font-weight: 600;          /* Puolilihavoitu, jotta linkki erottuu selvästi */
+  text-decoration: none;     /* Poistetaan selaimen oletusalleviivaus */
+  border-bottom: 1px solid #C2B280; /* Lisätään hienovarainen alleviivaus tehostevärillä (hiekka/kulta) */
+  transition: color 0.2s, border-bottom-color 0.2s; /* Pehmeä siirtymä hover-efektille */
+  padding-bottom: 1px;       /* Pieni tila tekstin ja alleviivauksen välille */
+}
+
+/* Kun hiiren kursori viedään linkin päälle */
+.prose a:hover {
+  color: #1C1917;             /* Tekstin väri muuttuu tummaksi perusleipätekstin väriseksi */
+  border-bottom-color: #556B2F; /* Alleviivaus muuttuu tummanvihreäksi tehostaen sitä */
+}
