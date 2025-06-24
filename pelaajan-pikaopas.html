@@ -126,7 +126,66 @@
                         päättyy.</li>
                 </ol>
 
-                <h3>Yleisimmät Toiminnot</h3>
+                <h3 style="margin-top: 2em;">Taistelun Perusteet</h3>
+                <ul>
+                    <li><strong>Hyökkäysheitto:</strong> <code>d20 + Taitotaso (TT) + bonukset</code> vs. Vihollisen
+                        <code>Suoja (S)</code>. Tulos pitää olla <strong>vähintään yhtä suuri</strong> kuin Suoja-arvo.
+                    </li>
+                    <li><strong>Etu (Advantage):</strong> Heitä 2 x d20, käytä parempi tulos. Saadaan esim. hyökätessä
+                        sivustaan/selustaan tai lamautunutta kohdetta vastaan.</li>
+                    <li><strong>Haitta (Disadvantage):</strong> Heitä 2 x d20, käytä huonompi tulos. Tulee esim.
+                        ammuttaessa linnoittautunutta kohdetta tai huonossa näkyvyydessä.</li>
+                    <li><strong>Vahinko:</strong> Onnistunut osuma aiheuttaa vahinkoa aseen <strong>Tuli-isku
+                            (TI)</strong> -nopan verran.</li>
+                    <li><strong>Tilaisuusisku:</strong> Jos vihollinen poistuu Hallintavyöhykkeeltäsi (2 cm säde) ilman
+                        <i>Irtautuminen</i>-komentoa, saat tehdä sitä vastaan yhden ilmaisen hyökkäyksen.</li>
+                </ul>
+
+                <h3 style="margin-top: 2em;">Moraalitestit</h3>
+                <p>Heitto: <code>d20 + Moraali (M)</code> vs. Vaikeusaste (DC). Epäonnistuminen johtaa
+                    <strong>Lamautunut</strong>-tilaan, kriittinen epäonnistuminen (5 alle DC:n)
+                    <strong>Vetäytyy</strong>-tilaan.</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tilanne</th>
+                                <th>Vaikeusaste (DC)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Kärsii vahinkoa ensimmäistä kertaa</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>TK putoaa alle 50%</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>Joutuu epäsuoran tulen alle</td>
+                                <td>13</td>
+                            </tr>
+                            <tr>
+                                <td>Vieressä oleva oma yksikkö tuhoutuu/vetäytyy</td>
+                                <td>12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="margin-top: 2em;">Tärkeimmät Tilaefektit</h3>
+                <ul>
+                    <li><strong>Vaurioitunut:</strong> TK alle 50%. Liike ja Tuli-isku puolitettu.</li>
+                    <li><strong>Lamautunut:</strong> Ei voi liikkua tai käyttää toimintoja. Vastaan tehdyt hyökkäykset
+                        saavat Edun. Poistuu onnistuneella moraalitestillä tai <i>Moraalin Kohotus</i> -komennolla.</li>
+                    <li><strong>Vetäytyy:</strong> Pakenee hallitsemattomasti. Poistuu <i>Moraalin Kohotus</i>
+                        -komennolla.</li>
+                    <li><strong>Piiloutunut:</strong> Ei voi ottaa kohteeksi, ellei vihollinen ole 5 cm tai lähempänä.
+                        Tilaan pääsee vain erikoiskyvyllä.</li>
+                </ul>
+
+                <h3 style="margin-top: 2em;">Yleisimmät Komentopiste&shy;toiminnot (KP)</h3>
                 <div class="table-container">
                     <table>
                         <thead>
@@ -138,11 +197,6 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Asemapuolustus / Perusliike</strong></td>
-                                <td>0 KP</td>
-                                <td>Pysy paikallaan tai liiku normaalisti (ei vihollisen ZoC:lla).</td>
-                            </tr>
-                            <tr>
                                 <td><strong>Hyökkäyskäsky</strong></td>
                                 <td>1 KP / ryhmä</td>
                                 <td>Käske ryhmää aktiivisesti hyökkäämään tai rynnäköimään.</td>
@@ -150,7 +204,8 @@
                             <tr>
                                 <td><strong>Tulen Keskittäminen</strong></td>
                                 <td>1 KP</td>
-                                <td>Ryhmäsi saa +1 bonuksen hyökkäysheittoonsa yhtä maalia vastaan.</td>
+                                <td>Yksi tai useampi ryhmäsi saa +1 bonuksen hyökkäysheittoonsa samaa maalia vastaan.
+                                </td>
                             </tr>
                             <tr>
                                 <td><strong>Irtautuminen</strong></td>
@@ -170,14 +225,66 @@
                         </tbody>
                     </table>
                 </div>
+
+                <h3 style="margin-top: 2em;">Maaston Vaikutukset Pelaajalle</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Maastotyyppi</th>
+                                <th>Liikevaikutus</th>
+                                <th>Suojabonus (S)</th>
+                                <th>Näkyvyys</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tie</strong></td>
+                                <td>+50% liike</td>
+                                <td>+0</td>
+                                <td>Ei estä</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pelto</strong></td>
+                                <td>Normaali</td>
+                                <td>+1</td>
+                                <td>Ei estä</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Metsä</strong></td>
+                                <td>-50% liike</td>
+                                <td>+4</td>
+                                <td>Estää näköyhteyden</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tiheä metsä</strong></td>
+                                <td>-75% liike</td>
+                                <td>+6</td>
+                                <td>Estää näköyhteyden</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rakennus/Asema</strong></td>
+                                <td>Ei voi liikkua läpi</td>
+                                <td>+6</td>
+                                <td>Estää näköyhteyden</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Korkea maasto</strong></td>
+                                <td>-</td>
+                                <td colspan="2">Saa +2 bonuksen hyökkäys- ja tiedusteluheittoihin alempana olevaa
+                                    kohdetta vastaan.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </section>
 
             <section id="yksikkosuodatin">
                 <h2>Valitse Omat Yksikkösi</h2>
                 <div class="unit-filter-container">
-                    <p>Valitse alla olevasta listasta ne yksiköt, jotka ovat mukanasi tässä skenaariossa. Vain
+                    <p style="margin-bottom: 1.5rem;">Valitse alla olevasta listasta ne yksiköt, jotka ovat mukanasi tässä skenaariossa. Vain
                         valittujen yksiköiden tiedot näytetään alla.</p>
-                    <h4 style="margin-top: 1em;">Siniset Yksiköt</h4>
                     <div id="blue-unit-checkboxes" class="unit-checkbox-group">
                     </div>
                 </div>
@@ -381,6 +488,60 @@
             </div>
         </div>
     </div>
+     <!--
+    ====================================================================
+    KELLUVAT VIERITYSNAPIT (SCROLL BUTTONS)
+    ====================================================================
+    -->
+    <div id="scroll-buttons-container" class="scroll-buttons">
+
+        <div id="scroll-legend" class="scroll-legend-panel">
+            <p class="font-bold mb-2">Nappien selitteet:</p>
+            <ul>
+                <li><img src="images/Kersantti_hihalaatta.svg.png" alt="Kersantti" class="legend-icon"> Sivun alkuun /
+                    Loppuun</li>
+                <li><img src="images/Alikersantti_hihalaatta.svg.png" alt="Alikersantti" class="legend-icon"> Edellinen
+                    / Seuraava pääotsikko (H2)</li>
+                <li><img src="images/Korpraali_hihalaatta.svg.png" alt="Korpraali" class="legend-icon"> Edellinen /
+                    Seuraava otsikko (H2/H3)</li>
+            </ul>
+        </div>
+
+        <div class="scroll-row">
+            <button id="scroll-info-toggle" title="Näytä ohjeet" class="scroll-button info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="scroll-row">
+            <div class="scroll-column">
+                <button id="scroll-top" title="Sivun alkuun (Kersantti)" class="scroll-button">
+                    <img src="images/Kersantti_hihalaatta.svg.png" alt="Sivun alkuun">
+                </button>
+                <button id="scroll-h2-up" title="Edellinen pääotsikko (Alikersantti)" class="scroll-button">
+                    <img src="images/Alikersantti_hihalaatta.svg.png" alt="Edellinen pääotsikko">
+                </button>
+                <button id="scroll-h3-up" title="Edellinen otsikko (Korpraali)" class="scroll-button">
+                    <img src="images/Korpraali_hihalaatta.svg.png" alt="Edellinen otsikko">
+                </button>
+            </div>
+            <div class="scroll-column">
+                <button id="scroll-bottom" title="Sivun loppuun (Kersantti)" class="scroll-button">
+                    <img src="images/Kersantti_hihalaatta.svg.png" alt="Sivun loppuun" class="invert-icon">
+                </button>
+                <button id="scroll-h2-down" title="Seuraava pääotsikko (Alikersantti)" class="scroll-button">
+                    <img src="images/Alikersantti_hihalaatta.svg.png" alt="Seuraava pääotsikko" class="invert-icon">
+                </button>
+                <button id="scroll-h3-down" title="Seuraava otsikko (Korpraali)" class="scroll-button">
+                    <img src="images/Korpraali_hihalaatta.svg.png" alt="Seuraava otsikko" class="invert-icon">
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="Scripts/rules.js"></script>
     <script>
@@ -447,11 +608,6 @@
                     updateDisplayedUnits();
                 }
             });
-
-            // Alusta muut sivun toiminnot (kuten sisällysluettelo)
-            if (typeof window.initializeContentAndSidebar === 'function') {
-                window.initializeContentAndSidebar();
-            }
         });
     </script>
 </body>
