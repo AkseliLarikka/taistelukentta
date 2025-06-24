@@ -746,74 +746,149 @@
                         yhden ilmaisen tilaisuusiskun (hyökkäyksen) sitä vastaan.
                     </li>
                 </ul>
-                <h4>Maaston Vaikutukset</h4>
-                <p>Maasto vaikuttaa sekä liikkumiseen, suojaan että näkyvyyteen. Ruudun maastotyyppi on se, jota
-                    ruudussa on eniten pinta-alasta. Jos ruudulla kulkee tie, yksikkö saa aina käyttää tien
-                    liikebonusta.</p>
+                <h3 style="margin-top: 2em;">Maaston Vaikutukset ja Hierarkia</h3>
+                <p>
+                    Koska yksi karttaruutu (1x1 cm) kuvaa laajaa, 100x100 metrin aluetta, se sisältää usein monenlaisia
+                    maastonpiirteitä. Ruudun vaikutusta yksikköön ei määritä enemmistöperiaate, vaan sen
+                    <strong>taktisesti merkittävin piirre</strong> kulloisenkin toiminnon kannalta. Seuraa alla olevaa
+                    hierarkiaa.
+                </p>
+
+                <h4>Vaikutus Liikkumiseen:</h4>
+                <p>Kun yksikkö liikkuu ruudun läpi, sen liikkumisnopeuteen vaikuttaa ruudun nopein mahdollinen reitti
+                    seuraavassa etusijajärjestyksessä:</p>
+                <ol>
+                    <li><strong>Tie:</strong> Jos ruudussa on tie, yksikkö saa aina tien liikebonuksen (+50% liike).
+                        Oletus on, että yksikkö seuraa tietä.</li>
+                    <li><strong>Avoin maasto (Pelto):</strong> Jos tiestöä ei ole, mutta ruudussa on avointa maastoa,
+                        yksikkö liikkuu normaalinopeudellaan.</li>
+                    <li><strong>Hidastava maasto (Metsä, Suo):</strong> Jos ruutu on pääasiassa metsää tai suota ilman
+                        selkeää tietä tai aukeaa, yksikön liike hidastuu maastotyypin mukaisesti (-50% tai -75%).</li>
+                </ol>
+                <p>
+                    Jokaisella yksiköllä on <strong>Liike-arvo (L)</strong>, joka kertoo sen liikkumispotentiaalin
+                    senttimetreinä. Eri maastotyypit kuluttavat tätä potentiaalia eri tavoin. Järjestelmä on suunniteltu
+                    niin, että vältetään desimaaleja ja murtolukuja.
+                </p>
+                <p>
+                    Laskeaksesi, kuinka pitkälle yksikkö pääsee, kerro kussakin maastossa liikuttu matka sen
+                    <strong>kustannuskertoimella</strong>. Jos reitti kulkee usean maastotyypin läpi, laske kustannukset
+                    yhteen.
+                </p>
+
                 <div class="table-container">
                     <table>
                         <thead>
                             <tr>
                                 <th>Maastotyyppi</th>
-                                <th>Karttaväri</th>
-                                <th>Liikevaikutus</th>
-                                <th>Suojabonus (S)</th>
-                                <th>Näkyvyysvaikutus</th>
+                                <th>Kustannuskerroin (per 1 cm liike)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>Tie</strong></td>
-                                <td>Musta viiva</td>
-                                <td>+50% liike</td>
-                                <td>+0</td>
-                                <td>Ei estä</td>
+                                <td>x 0.5</td>
                             </tr>
                             <tr>
-                                <td><strong>Pelto</strong></td>
-                                <td>Keltainen</td>
-                                <td>Normaali liike</td>
-                                <td>+1</td>
-                                <td>Ei estä</td>
+                                <td><strong>Pelto / Aukea</strong></td>
+                                <td>x 1</td>
                             </tr>
                             <tr>
-                                <td><strong>Metsä</strong></td>
-                                <td>Valkoinen</td>
-                                <td>-50% liike</td>
-                                <td>+4</td>
-                                <td>Estää näköyhteyden (LoS)</td>
+                                <td><strong>Metsä / Suo</strong></td>
+                                <td>x 2</td>
                             </tr>
                             <tr>
                                 <td><strong>Tiheä metsä</strong></td>
-                                <td>Vihreä</td>
-                                <td>-75% liike</td>
-                                <td>+6</td>
-                                <td>Estää näköyhteyden (LoS)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Suo</strong></td>
-                                <td>Sininen katkoviiva</td>
-                                <td>-50% liike (ei raskaita ajoneuvoja)</td>
-                                <td>+2</td>
-                                <td>Ei estä</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Järvi</strong></td>
-                                <td>Sininen</td>
-                                <td>Ylittämätön (paitsi silta)</td>
-                                <td>N/A</td>
-                                <td>Ei estä</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Rakennus/Asema</strong></td>
-                                <td>Harmaa neliö</td>
-                                <td>-</td>
-                                <td>+6</td>
-                                <td>Estää näköyhteyden (LoS)</td>
+                                <td>x 3</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
+                <h5 style="margin-top: 1.5em;">Pyöristyssääntö</h5>
+                <p>
+                    Jos liikkumisen lopussa laskutoimitus antaisi tulokseksi puolikkaan senttimetrin, tulos
+                    <strong>pyöristetään aina ylöspäin seuraavaan kokonaiseen senttimetriin pelaajan eduksi.</strong>
+                </p>
+
+                <h5 style="margin-top: 1em;">Esimerkki liikkumisesta:</h5>
+                <p>
+                    Jääkäriryhmälläsi on Liike-arvo <strong>7 cm</strong>. Se aloittaa liikkeensä ja kuluttaa
+                    potentiaaliaan seuraavasti:
+                </p>
+                <ol>
+                    <li>
+                        <strong>Osuus 1: Tie (2 cm)</strong><br>
+                        Kustannus: 2 cm &times; 0.5 = <strong>1 cm</strong>.<br>
+                        Jäljellä oleva liike: 7 cm - 1 cm = 6 cm.
+                    </li>
+                    <li>
+                        <strong>Osuus 2: Pelto (3 cm)</strong><br>
+                        Kustannus: 3 cm &times; 1 = <strong>3 cm</strong>.<br>
+                        Jäljellä oleva liike: 6 cm - 3 cm = 3 cm.
+                    </li>
+                    <li>
+                        <strong>Osuus 3: Suo</strong><br>
+                        Yksiköllä on jäljellä <strong>3 cm</strong> liikkumispotentiaalia. Suon kustannuskerroin on x2.
+                        <br>
+                        Laskutoimitus: 3 cm / 2 = 1.5 cm.
+                        <br>
+                        Sovelletaan pyöristyssääntöä: 1.5 cm pyöristetään ylöspäin <strong>2 cm</strong>:iin. Yksikkö
+                        voi siis liikkua suolla 2 cm.
+                    </li>
+                </ol>
+                <p>
+                    <strong>Lopputulos:</strong> Yksikkö liikkui yhteensä 2 cm (tie) + 3 cm (pelto) + 2 cm (suo) =
+                    <strong>7 cm</strong>.
+                </p>
+
+                <h4>Vaikutus Suojaan (Etsi paras suoja)</h4>
+                <p>Kun yksikköön ammutaan, sen saama suojabonus määräytyy ruudun parhaan tarjolla olevan suojan mukaan
+                    seuraavassa etusijajärjestyksessä:</p>
+                <ol>
+                    <li><strong>Rakennus/Asema:</strong> Jos ruudussa on rakennus, yksikkö saa aina rakennuksen
+                        suojabonuksen (+6). Oletus on, että yksikkö käyttää rakennusta hyväkseen.</li>
+                    <li><strong>Tiheä metsä:</strong> Jos rakennusta ei ole, mutta ruudussa on tiheää metsää, se antaa
+                        suojabonuksen (+6).</li>
+                    <li><strong>Metsä/Suo:</strong> Jos parempaa suojaa ei ole, normaali metsä tai suo antaa oman
+                        suojabonuksensa (+4 tai +2).</li>
+                    <li><strong>Pelto:</strong> Jos ruudussa on vain peltoa, se antaa matalan suojan (+1).</li>
+                    <li><strong>Aukea/Tie:</strong> Jos yksikkö on tiellä keskellä aukeaa, se ei saa maastosta lainkaan
+                        suojabonusta (+0).</li>
+                </ol>
+
+                <h4>Vaikutus Näköyhteyteen (Etsi este)</h4>
+                <p>Näköyhteys (Line of Sight, LoS) kahden yksikön välillä tarkistetaan vetämällä suora viiva niiden
+                    väliin. Näkyvyyteen vaikuttaa se, minkä tyyppisten ruutujen läpi viiva kulkee:</p>
+                <ul>
+                    <li><strong>Näköyhteys Estyy:</strong> Jos yksiköiden välinen viiva kulkee <strong>yhdenkin</strong>
+                        ruudun läpi, joka sisältää <strong>rakennuksen</strong> tai <strong>tiheää metsää</strong>,
+                        näköyhteys on täysin estynyt.</li>
+                    <li><strong>Näkyvyys Heikkenee:</strong> Jos viiva kulkee ruudun läpi, jossa on <strong>normaalia
+                            metsää</strong>, näköyhteys on olemassa, mutta kohteena oleva yksikkö saa kyseisen maaston
+                        suojabonuksen hyökkäystä vastaan.</li>
+                    <li><strong>Vapaa Näköyhteys:</strong> Jos viiva kulkee ainoastaan avoimen maaston (tie, pelto, suo,
+                        järvi) läpi, näköyhteys on vapaa.</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5em;">Esimerkki käytännössä:</h4>
+                <p>Yksikkösi on ruudussa, joka sisältää <strong>60% metsää</strong>, <strong>30% peltoa</strong> ja
+                    <strong>10% tietä</strong>. Ruudussa on myös <strong>yksi rakennus</strong>.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Liikkuminen:</strong> Koska ruudussa on tie, voit liikkua sen läpi ja saada <strong>tien
+                            liikebonuksen (+50%)</strong>.
+                    </li>
+                    <li>
+                        <strong>Suoja:</strong> Jos vihollinen ampuu yksikköäsi, saat parhaan mahdollisen suojan. Koska
+                        ruudussa on rakennus, saat <strong>rakennuksen suojabonuksen (+6 S)</strong>.
+                    </li>
+                    <li>
+                        <strong>Näkyvyys:</strong> Jos vihollinen yrittää tähdätä sinuun ruudun D5 läpi, näköyhteys on
+                        <strong>täysin estynyt</strong>, koska ruudussa on rakennus.
+                    </li>
+                </ul>
                 <h4>Korkeuserot</h4>
                 <p>Yksikkö, joka on selkeästi korkeammalla maastonkohdalla kuin kohde (esim. kukkulalla), saa <strong>+2
                         bonuksen</strong> sekä tiedustelu- että hyökkäysheittoihin kyseistä kohdetta vastaan.
