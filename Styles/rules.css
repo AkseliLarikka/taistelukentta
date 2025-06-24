@@ -1032,7 +1032,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
 .scroll-legend-panel {
     position: absolute;
     bottom: calc(100% + 1rem);
-    left: 50%; /* */
+    left: -50%; /* */
     /* Keskitys alussa */
     transform: translateX(-50%); /* */
     width: 280px;
@@ -1222,7 +1222,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     #scroll-legend { /* */
         bottom: calc(100% + 1rem); /* */
         /* Yläpuolelle */
-        left: 50%; /* */
+        left: -50%; /* */
         transform: translateX(-50%); /* */
         width: 280px; /* */
         /* Kiinteä leveys */
@@ -1493,6 +1493,9 @@ a:has(> .lisenssi-kuvake-yksi):hover {
         opacity: 1; /* */
         visibility: visible; /* */
         transform: translateY(0); /* */
+        left: -50%;
+        color: #E5E7EB;
+        background-color: rgba(30, 27, 47, 0.9);
     }
 }
 

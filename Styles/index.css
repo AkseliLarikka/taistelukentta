@@ -771,7 +771,6 @@ header {
     display: inline-block;
     padding: 0.5em 1.5em;
     margin: 0 1.5em;
-    color: #FDF6E3 !important;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
     background-color: rgba(47, 54, 31, 0.75);
     -webkit-backdrop-filter: blur(10px);
@@ -1080,7 +1079,7 @@ header {
     #scroll-legend {
         bottom: calc(100% + 1rem);
         /* Yläpuolelle */
-        left: 50%;
+        left: -50%;
         transform: translateX(-50%);
         width: 280px;
         /* Kiinteä leveys */
@@ -1347,6 +1346,9 @@ header {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
+        left: -50%;
+        color: #E5E7EB;
+        background-color: rgba(30, 27, 47, 0.9);
     }
 }
 
