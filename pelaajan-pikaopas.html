@@ -105,8 +105,8 @@
             <div class="relative h-96 w-full bg-cover bg-center mb-8"
                 style="background-image: url('images/bannertkd.jpg');">
                 <div class="relative z-10 flex h-full items-center justify-center">
-                    <h1 class="banner-title text-4xl md:text-6xl font-bold text-center">
-                        Pelaajan Pikaopas
+                    <h1 class="banner-title text-4xl md:text-6xl text-center">
+                        Taistelukenttä d20 – Pelaajan Pikaopas <br> v. Alpha
                     </h1>
                 </div>
             </div>
@@ -138,13 +138,15 @@
                     <li><strong>Vahinko:</strong> Onnistunut osuma aiheuttaa vahinkoa aseen <strong>Tuli-isku
                             (TI)</strong> -nopan verran.</li>
                     <li><strong>Tilaisuusisku:</strong> Jos vihollinen poistuu Hallintavyöhykkeeltäsi (2 cm säde) ilman
-                        <i>Irtautuminen</i>-komentoa, saat tehdä sitä vastaan yhden ilmaisen hyökkäyksen.</li>
+                        <i>Irtautuminen</i>-komentoa, saat tehdä sitä vastaan yhden ilmaisen hyökkäyksen.
+                    </li>
                 </ul>
 
                 <h3 style="margin-top: 2em;">Moraalitestit</h3>
                 <p>Heitto: <code>d20 + Moraali (M)</code> vs. Vaikeusaste (DC). Epäonnistuminen johtaa
                     <strong>Lamautunut</strong>-tilaan, kriittinen epäonnistuminen (5 alle DC:n)
-                    <strong>Vetäytyy</strong>-tilaan.</p>
+                    <strong>Vetäytyy</strong>-tilaan.
+                </p>
                 <div class="table-container">
                     <table>
                         <thead>
@@ -185,6 +187,42 @@
                         Tilaan pääsee vain erikoiskyvyllä.</li>
                 </ul>
 
+                <h3 style="margin-top: 2em;">Komppanianpäällikön Rooli</h3>
+                <p>Komppanianpäällikkönä (KP) olet koko komppanian strateginen aivot ja johtaja. Sinun päätöksesi
+                    muovaavat taistelun kulkua ja vaikuttavat suoraan muiden pelaajien (joukkueenjohtajien)
+                    onnistumiseen. Et ole vain yksi komentaja muiden joukossa – olet voimankerrain, joka ohjaa koko
+                    koneistoa.</p>
+
+                <h4>Päätehtävät ja vastuut</h4>
+                <ul>
+                    <li><strong>Strateginen johtaminen:</strong> Sinä näet taistelukentän kokonaiskuvan. Määrität
+                        komppanian päätavoitteet, päätät missä ja milloin puolustetaan, hyökätään tai vetäydytään.
+                        Vastuullasi on sijoittaa joukkueet (A, B, C, D) kartalle siten, että ne tukevat toisiaan ja
+                        yleistä suunnitelmaa.</li>
+                    <li><strong>Komentopisteiden (KP) hallinta:</strong> Saat joka vuoro suurimman määrän
+                        komentopisteitä. Yksi tärkeimmistä tehtävistäsi on jakaa näitä pisteitä joukkueenjohtajille
+                        sinne, missä niitä eniten tarvitaan. Voit siirtää KP:tä yhdelle johtajalle vahvistaaksesi hänen
+                        kykyään toimia tai pitää ne itselläsi käyttääksesi komppanian tason käskyjä.</li>
+                    <li><strong>Komppanian erikoiskäskyjen antaminen:</strong> Sinulla on pääsy uniikkeihin ja
+                        voimakkaisiin käskyihin, joita joukkueenjohtajat eivät voi antaa. Nämä käskyt maksavat KP:tä,
+                        mutta voivat muuttaa taistelun suunnan, kuten <i>Vahvistettu maali</i> tai <i>Järjestäytynyt
+                            vetäytyminen</i>.</li>
+                    <li><strong>Tukivarojen käyttö:</strong> Hallinnoit komppanian "epäorgaanisia" tukielementtejä. Tämä
+                        tarkoittaa tyypillisesti kaikkein voimakkaimpia aseita, kuten pataljoonan raskasta tykistöä
+                        (esim. 155mm kenttätykistö). Muista, että näiden kutsumisessa on usein viive ja niiden
+                        käyttömäärä on rajallinen.</li>
+                </ul>
+
+                <h4>Vinkkejä menestykseen komppanianpäällikkönä</h4>
+                <ul>
+                    <li><strong>Kommunikoi:</strong> Jatkuva ja selkeä viestintä joukkueenjohtajien kanssa on
+                        elintärkeää. Kuuntele heidän raporttejaan ja tue heitä resursseillasi.</li>
+                    <li><strong>Ennakoi:</strong> Yritä ennakoida, mitä vihollinen tekee seuraavaksi, ja valmistele
+                        vastatoimet etukäteen. Hyvä tykistökeskitys ennakoidulle etenemisreitille on tuhoisampi kuin
+                        reaktiivinen isku.</li>
+                    <li><strong>Tunne joukkosi:</strong> Tiedä, mikä joukkue on varustettu parhaiten panssarintorjuntaan
+                        (PST) ja mikä tulitukeen (KRH, TR). Ohjaa tehtävät oikeille joukkueille.</li>
+                </ul>
                 <h3 style="margin-top: 2em;">Yleisimmät Komentopiste&shy;toiminnot (KP)</h3>
                 <div class="table-container">
                     <table>
@@ -283,7 +321,8 @@
             <section id="yksikkosuodatin">
                 <h2>Valitse Omat Yksikkösi</h2>
                 <div class="unit-filter-container">
-                    <p style="margin-bottom: 1.5rem;">Valitse alla olevasta listasta ne yksiköt, jotka ovat mukanasi tässä skenaariossa. Vain
+                    <p style="margin-bottom: 1.5rem;">Valitse alla olevasta listasta ne yksiköt, jotka ovat mukanasi
+                        tässä skenaariossa. Vain
                         valittujen yksiköiden tiedot näytetään alla.</p>
                     <div id="blue-unit-checkboxes" class="unit-checkbox-group">
                     </div>
@@ -487,12 +526,47 @@
                 </div>
             </div>
         </div>
+        <div id="unit-komppanianpäällikkö">
+            <div class="unit-card">
+                <h4>KOMPPANIANPÄÄLLIKKÖ (KP)</h4>
+                <div class="unit-card-content">
+                    <ul>
+                        <li><strong>Tyyppi:</strong> Komentoryhmä (3-5 sotilasta)</li>
+                        <li><strong>TK:</strong> 8</li>
+                        <li><strong>M:</strong> +5</li>
+                        <li><strong>S:</strong> 10</li>
+                        <li><strong>Liike:</strong> 5 cm</li>
+                        <li><strong>TT:</strong> +4</li>
+                        <li>
+                            <strong>Kyvyt:</strong>
+                            <ul>
+                                <li><strong>Komentajan Aura:</strong> Kaikki ystävälliset yksiköt 60 cm säteellä, jotka
+                                    ovat komentoyhteydessä, saavat +1 bonuksen kaikkiin Moraalitesteihin. Tämä kyky ei
+                                    ole kasautuva muiden vastaavien aurien kanssa.</li>
+                                <li><strong>Tilannekuva:</strong> Päälliköllä on aina pääsy laajempaan tilannekuvaan.
+                                    Kerran pelissä hän voi tehdä TT-testin (DC 14). Onnistuessaan hän voi poistaa yhden
+                                    "?"-merkin kartalta ja paljastaa yksikön tyypin (mutta ei tarkkaa sijaintia).</li>
+                                <li><strong>Johtaa edestä <span
+                                            class="vaurioitunut-tila">(Vaurioitunut)</span>:</strong> Jos päällikön
+                                    yksikkö on "Vaurioitunut", Komentajan Aura -kyvyn bonus putoaa arvoon +0 ja hän ei
+                                    voi enää käyttää Tilannekuva-kykyä. Komentopistetuotanto ja -siirto toimivat
+                                    kuitenkin normaalisti.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Varustus:</strong>
+                            <ul>
+                                <li><strong>Henkilökohtainen aseistus:</strong> +1 (Hyökkäys), d4 (Vahinko). Tämä
+                                    yksikkö ei ole tarkoitettu etulinjan taisteluun.</li>
+                                <li><strong>Tehokas viestivälineistö:</strong> Mahdollistaa Komentoyhteyden ja
+                                    Komentopisteiden siirron alaisille.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-     <!--
-    ====================================================================
-    KELLUVAT VIERITYSNAPIT (SCROLL BUTTONS)
-    ====================================================================
-    -->
     <div id="scroll-buttons-container" class="scroll-buttons">
 
         <div id="scroll-legend" class="scroll-legend-panel">
@@ -553,7 +627,8 @@
                 'unit-pst-ryhma': 'PST-ryhmä',
                 'unit-krh-ryhma': 'Krh-ryhmä (81mm)',
                 'unit-sissi-jaakarit': 'Sissi-Jääkärit',
-                'unit-erikoisjaakari-osasto': 'Erikoisjääkäri-osasto'
+                'unit-erikoisjaakari-osasto': 'Erikoisjääkäri-osasto',
+                'unit-komppanianpäällikkö': 'Komppanianpäällikkö'
             };
 
             const blueCheckboxContainer = document.getElementById('blue-unit-checkboxes');
