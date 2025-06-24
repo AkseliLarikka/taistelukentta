@@ -7,7 +7,7 @@
  * 3. Käyttöliittymän parannukset: Mobiilinavigaation ja pudotusvalikon hallinta, aktiivisen linkin korostus.
  * 4. Automaattinen tekijänoikeusvuoden päivitys.
  *
- * @version 1.0
+ * @version 1.1
  * @author Akseli Larikka
  */
 document.addEventListener('DOMContentLoaded', function () {
@@ -16,11 +16,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const mainContent = document.getElementById('main-content');
     const navMenu = document.getElementById('nav-menu');
     const sidebar = document.getElementById('sidebar');
-    const menuToggle = document.getElementById('menu-toggle'); // Sivupalkin toggle
+    const menuToggle = document.getElementById('menu-toggle');
+
+    // === KORJAUS TÄSSÄ ===
+    // Lisätty puuttuva viittaus ylänavigaatiopalkkiin.
+    const mainNavbar = document.getElementById('main-navbar');
 
     // Uudet elementit pudotusvalikon navigaatioon
-    const currentPageNameElement = document.getElementById('current-page-name'); // "Nykyisen sivun nimi" painike
-    const mainNavbarContent = document.getElementById('main-navbar-content'); // Varsinainen pudotusvalikon sisältö
+    const currentPageNameElement = document.getElementById('current-page-name');
+    const mainNavbarContent = document.getElementById('main-navbar-content');
 
     // Vianetsintä: Tarkista, että elementit löytyvät
     if (!currentPageNameElement) {
@@ -32,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Päivittää otsikoiden scrollMarginTop -arvon navbarin korkeuden mukaan.
     function updateScrollMargin() {
-        const mainNavbar = document.getElementById('main-navbar');
         if (mainNavbar) {
             const navbarHeightPx = mainNavbar.offsetHeight;
             const navbarHeightRem = (navbarHeightPx / 16) + 0.5;
@@ -121,24 +124,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // Muutettu toggleNavbarDropdown -funktio
-    const toggleNavbarDropdown = (forceHide = false) => { // Lisää oletusarvon ja nimeä selkeämmin
+    const toggleNavbarDropdown = (forceHide = false) => {
         const isCurrentlyOpen = mainNavbarContent.classList.contains('dropdown-open');
 
-        if (forceHide) { // Jos halutaan pakottaa sulkeminen (esim. toisen valikon avaamisen yhteydessä)
+        if (forceHide) {
             mainNavbarContent.classList.remove('dropdown-open');
             currentPageNameElement.classList.remove('dropdown-open');
-        } else if (isCurrentlyOpen) { // Jos on auki ja ei pakoteta sulkemaan, sulje
+        } else if (isCurrentlyOpen) {
             mainNavbarContent.classList.remove('dropdown-open');
             currentPageNameElement.classList.remove('dropdown-open');
-        } else { // Jos on kiinni ja ei pakoteta sulkemaan, avaa
+        } else {
             mainNavbarContent.classList.add('dropdown-open');
             currentPageNameElement.classList.add('dropdown-open');
-            toggleMobileSidebar(true); // Sulje sivupalkki, jos dropdown avataan
+            toggleMobileSidebar(true);
         }
     };
 
-    // Tapahtumakuuntelija sivupalkin toggle-painikkeelle
     if (menuToggle) {
         menuToggle.addEventListener('click', (event) => {
             event.stopPropagation();
@@ -148,7 +149,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Tapahtumakuuntelija "Nykyisen sivun nimi" -painikkeelle (dropdownin avaaja)
     if (currentPageNameElement && mainNavbarContent) {
         currentPageNameElement.addEventListener('click', (event) => {
             event.preventDefault();
@@ -242,31 +242,27 @@ document.addEventListener('DOMContentLoaded', function () {
         const scrollH2DownButton = document.getElementById('scroll-h2-down');
         const scrollH3DownButton = document.getElementById('scroll-h3-down');
 
-        const findNextNavigableHeader = (direction) => { //
-            const allNavigableHeaders = Array.from(mainContentForScroll.querySelectorAll('h2, h3')); //
-            const navbarHeight = mainNavbar?.offsetHeight || 0; // Haetaan yläpalkin korkeus
+        const findNextNavigableHeader = (direction) => {
+            const allNavigableHeaders = Array.from(mainContentForScroll.querySelectorAll('h2, h3'));
+            const navbarHeight = mainNavbar?.offsetHeight || 0;
 
-            if (direction === 'up') { //
-                // Etsitään kaikki otsikot, jotka ovat näkymän yläpuolella
-                const headersAbove = allNavigableHeaders.filter(h => h.getBoundingClientRect().top < -1); //
-                return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null; // Palautetaan niistä viimeinen (lähin)
+            if (direction === 'up') {
+                const headersAbove = allNavigableHeaders.filter(h => h.getBoundingClientRect().top < -1);
+                return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null;
             } else { // 'down'
-                // Etsitään seuraava otsikko, joka on selvästi nykyisen alapuolella (yläpalkin korkeus + 5px puskuri)
-                return allNavigableHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null; //
+                return allNavigableHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null;
             }
         };
 
-        const findNearestStrictHeader = (selector, direction) => { //
-            const allHeaders = Array.from(mainContentForScroll.querySelectorAll(selector)); //
-            const navbarHeight = mainNavbar?.offsetHeight || 0; // Haetaan yläpalkin korkeus
+        const findNearestStrictHeader = (selector, direction) => {
+            const allHeaders = Array.from(mainContentForScroll.querySelectorAll(selector));
+            const navbarHeight = mainNavbar?.offsetHeight || 0;
 
-            if (direction === 'up') { //
-                // Etsitään kaikki otsikot, jotka ovat näkymän yläpuolella
-                const headersAbove = allHeaders.filter(h => h.getBoundingClientRect().top < -1); //
-                return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null; // Palautetaan niistä viimeinen (lähin)
+            if (direction === 'up') {
+                const headersAbove = allHeaders.filter(h => h.getBoundingClientRect().top < -1);
+                return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null;
             } else { // 'down'
-                // Etsitään seuraava otsikko, joka on selvästi nykyisen alapuolella (yläpalkin korkeus + 5px puskuri)
-                return allHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null; //
+                return allHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null;
             }
         };
 
