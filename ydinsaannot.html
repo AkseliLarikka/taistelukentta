@@ -45,7 +45,7 @@
                     <ul class="top-nav-list">
                         <li><a href="index.html" class="nav-link-top">Etusivu</a></li>
                         <li><a href="ydinsaannot.html" class="nav-link-top" style="color:#C2B280;">Ydinsäännöt</a></li>
-                        <li><a href="komppania-tason-taistelu.html" class="nav-link-top">Komppaniatason taistelu</a>
+                        <li><a href="komppania-tason-taistelu.html" class="nav-link-top">Taktisen tason taistelu</a>
                         </li>
                         <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
                         <li><a href="siniset-yksiköt.html" class="nav-link-top">Siniset yksiköt</a></li>
@@ -292,7 +292,7 @@
                             <tr>
                                 <td><strong>Moraalin Kohotus</strong></td>
                                 <td>2 KP</td>
-                                <td>Poista "Lamautunut"-tila yhdeltä omalta yksiköltä.</td>
+                                <td>Poista "Lamautunut"- ja/tai "Vetäytyy"-tilan yhdeltä omalta yksiköltä.</td>
                             </tr>
                             <tr>
                                 <td><strong>Tulitukipyyntö (orgaaninen)</strong></td>
@@ -628,24 +628,45 @@
                 <p>
                     <strong>Huom:</strong> Normaali vastakkainen tiedusteluheitto koskee yksiköitä, jotka ovat
                     maaston suojassa. <em>Piiloutunut</em>-tila on kuitenkin voimakkaampi erikoiskyky, joka estää
-                    havaitsemisen kauempaa kokonaan. Piiloutunutta yksikköä ei voi paljastaa tiedusteluheitolla,
-                    vaan vihollisen on liikuttava sen lähelle (yleensä 5 cm päähän) paljastaakseen sen
-                    automaattisesti.
+                    havaitsemisen normaalein keinoin kauempaa kokonaan. Piiloutunutta yksikköä ei voi paljastaa
+                    tiedusteluheitolla, vaan vihollisen on liikuttava sen lähelle (yleensä 5 cm päähän) paljastaakseen
+                    sen automaattisesti.
                 </p>
                 <h5>Havainnon Tasot:</h5>
                 <ol>
-                    <li><strong>Ei Havaintoa:</strong> Vihollinen on piilossa.</li>
+                    <li>
+                        <strong>Ei Havaintoa:</strong> Vihollinen on piilossa.
+                    </li>
+                    <ul>
+                        <li>
+                            Tiedusteluheitto epäonnistuu vähintään viidellä pisteellä.
+                        </li>
+                    </ul>
                     <li>
                         <strong>Epäily:</strong> GM asettaa "?-merkin" kartalle. Tiedät,
                         että <em>jotain</em> siellä on.
                     </li>
+                    <ul>
+                        <li>
+                            Tiedusteluheitto epäonnistuu alle viidellä pisteellä.
+                        </li>
+                    </ul>
                     <li>
                         <strong>Tiedossa:</strong> Yksikön tyyppi ja summittainen sijainti
                         tiedetään. Voidaan ampua epäsuoralla tulella.
                     </li>
+                    <ul>
+                        <li>
+                            Tiedusteluheitto onnistuu alle viidellä pisteellä.
+                        </li>
+                    </ul>
                     <li>
                         <strong>Havaittu:</strong> Tarkka sijainti tiedossa. Voidaan ampua
                         suoralla tulella.
+                    </li>
+                    <li>
+                        <strong>Välitön Havainto:</strong> Jos tiedusteluheitto onnistuu vähintään 5 pisteellä yli kohteen suoja-arvon,
+                        yksikkö havaitaan välittömästi "Havaittu"-tasolle, ohittaen aiemmat tasot.
                     </li>
                 </ol>
 
@@ -665,7 +686,8 @@
                 <ul>
                     <li>Tulenjohtajana toimii <strong>Jääkäriryhmä</strong> (tai muu yksikkö, jolla on
                         Tulenjohto-kyky) yleisen säännön 1.4.6 (alla) mukaisesti.</li>
-                    <li>Tulta johtavalla ryhmällä on oltava vähintään Tiedustelukontakti kohteeseen, ja sen on onnistuttava
+                    <li>Tulta johtavalla ryhmällä on oltava vähintään Tiedustelukontakti kohteeseen, ja sen on
+                        onnistuttava
                         mahdollisessa tulenjohtokyvyn heikkenemistä mittaavassa testissä (TK alle 50 %).</li>
                 </ul>
                 <p>
@@ -676,7 +698,8 @@
                     <li><strong>Nopea Vaste:</strong><br> Viive ei ole satunnainen. Isku saapuu aina <strong>seuraavan
                             vuoron Tulitoimintavaiheessa</strong><br> (kiinteä 1 vuoron viive).</li>
                     <li><strong>Parannettu Tarkkuus:</strong><br> Koska tulenjohto on tehokkaampaa yksikön sisällä,
-                        <strong>perushajontaa ei ole</strong> ja isku osuu aina siihen ruutuun mihin se tilattiin.</li>
+                        <strong>perushajontaa ei ole</strong> ja isku osuu aina siihen ruutuun mihin se tilattiin.
+                    </li>
                     <li><strong>Rajoitetut Ammukset:</strong><br> Tukea antavalla yksiköllä (esim. Kranaatinheitinryhmä)
                         on skenaariokohtainen määrä ammuksia. Jokainen isku kuluttaa yhden ammuksen.</li>
                     <li><strong>Haavoittuvuus:</strong><br> Koska yksikkö on fyysisesti pelilaudalla, vihollinen voi

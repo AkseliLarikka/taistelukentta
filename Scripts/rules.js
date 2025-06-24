@@ -365,14 +365,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-    // ====================================================================
-    // OSA 5: JALKISANAT JA AUTOMAATTINEN VUOSILUVUN PÄIVITYS
-    // ====================================================================
-
-    const yearSpan = document.getElementById('copyright-year'); //
-    if (yearSpan) { //
-        yearSpan.textContent = new Date().getFullYear(); //
-    }
 
     window.initializeContentAndSidebar(); //
     setupIntersectionObserver(); //
