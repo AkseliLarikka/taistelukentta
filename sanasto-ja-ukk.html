@@ -2,18 +2,9 @@
 <html lang="fi">
 
 <head>
-    <!--
-    ====================================================================
-    METATIEDOT JA SIVUN ASETUKSET
-    ====================================================================
-    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, noarchive">
-    <!--
-    HUOM: Ohje hakukoneroboteille. Kehitysvaiheessa 'noindex' estää sivun indeksoitumisen.
-    Kun sivu on valmis julkaistavaksi, muuta content-arvoksi "index, follow".
-    -->
     <meta name="description"
         content="Taistelukenttä d20 -pelin kattava sanasto ja usein kysytyt kysymykset. Löydät selitykset pelin termeille, yksikköominaisuuksille, mekaniikoille ja tilaefekteille, sekä vastauksia yleisimpiin kysymyksiin komentopisteistä, taisteluista ja kampanjan hallinnasta.">
     <meta name="keywords"
@@ -21,11 +12,6 @@
     <meta name="keywords" lang="en"
         content="glossary, FAQ, frequently asked questions, Taistelukenttä d20, wargame, rules, terms, abbreviations, command points, CP, morale, combat readiness, reconnaissance, fire support, status effects, campaign game">
     <title>Taistelukenttä d20 - Sanasto ja UKK</title>
-    <!--
-    ====================================================================
-    TYYLITIEDOSTOT JA FONTIT
-    ====================================================================
-    -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/x-icon" href="images/tkd20ikoni.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,9 +39,10 @@
                         <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
                         <li><a href="skenaariot.html" class="nav-link-top">Skenaariot</a></li>
                         <li><a href="pelinjohtajan-opas.html" class="nav-link-top">Pelinjohtajan opas</a></li>
-                        <li><a href="sanasto-ja-ukk.html" class="nav-link-top" style="color:#C2B280;">Sanasto ja UKK</a></li>
+                        <li><a href="sanasto-ja-ukk.html" class="nav-link-top" style="color:#C2B280;">Sanasto ja UKK</a>
+                        </li>
                         <li><a href="tietoja.html" class="nav-link-top">Tietoa & Muutoshistoria</a></li>
-                        </ul>
+                    </ul>
                 </nav>
             </div>
 
@@ -75,11 +62,6 @@
         </svg>
     </button>
 
-    <!--
-    ====================================================================
-    PÄÄSISÄLTÖ (MAIN CONTENT)
-    ====================================================================
-    -->
     <main id="main-content" class="md:ml-64 p-4 md:p-8">
         <div class="prose max-w-none">
 
@@ -93,7 +75,6 @@
                 </div>
 
             </div>
-            <!--SECTION: Sanasto alkaa-->
             <section id="sanasto">
                 <h2>Sanasto</h2>
                 <div class="table-container">
@@ -111,6 +92,19 @@
                                 <td><strong>Ansat ja Sulutteet</strong></td>
                                 <td>Pelaajien salaa asettamia vaaroja, kuten miinakenttiä, jotka laukeavat vihollisen
                                     liikkeestä.</td>
+                            </tr>
+                            <tr>
+                                <td class="glossary-index-letter">D</td>
+                                <td><strong>d20-järjestelmä</strong></td>
+                                <td>Pelin ydinmekaniikka, joka perustuu 20-sivuisen nopan (d20) heittoon. Heittoon
+                                    lisätään bonuksia ja tulosta verrataan vaikeusasteeseen (DC) tai vastustajan
+                                    arvoon.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><strong>DC (Difficulty Class)</strong></td>
+                                <td>Vaikeusaste. Luku, joka nopanheiton on ylitettävä tai saavutettava onnistuakseen.
+                                    Esimerkiksi moraalitesti DC 12 vaatii heiton tulokseksi vähintään 12.</td>
                             </tr>
                             <tr>
                                 <td class="glossary-index-letter">E</td>
@@ -131,6 +125,13 @@
                             </tr>
                             <tr>
                                 <td class="glossary-index-letter">G</td>
+                                <td><strong>Globaalit/Kohdennetut kyvyt</strong></td>
+                                <td>Komppanianpäällikön kykyjen kaksi luokkaa. Globaalit kyvyt (esim. Tulitukipyyntö)
+                                    eivät vaadi yhteyttä alaisiin, kun taas kohdennetut kyvyt (esim. Painopisteen
+                                    muodostaminen) vaativat toimivan komentoyhteyden.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
                                 <td>GM (Pelinjohtaja)</td>
                                 <td>Toimii Red Teamin komentajana ja tuomarina.</td>
                             </tr>
@@ -144,6 +145,12 @@
                                 <td class="glossary-index-letter">K</td>
                                 <td>K (Koulutus)</td>
                                 <td>Yksikön peruskoulutuksen laatu. Pysyvä arvo, joka vaikuttaa Taitotasoon (TT).</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><strong>KK (Konekivääri)</strong></td>
+                                <td>Lyhenne konekiväärille. Yksiköt, kuten Tukiryhmä (KK), ovat erikoistuneet sen
+                                    käyttöön.</td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -165,6 +172,19 @@
                                 <td class="glossary-index-letter">L</td>
                                 <td>L (Liike)</td>
                                 <td>Yksikön liikkumisnopeus eri maastotyypeissä senttimetreinä.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><strong>Linnoittautuminen</strong></td>
+                                <td>Toiminto, jossa yksikkö parantaa puolustusasemaansa. Linnoittautunutta kohdetta
+                                    vastaan hyökätessä saa Haitan (Disadvantage).</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><strong>LoS (Line of Sight)</strong></td>
+                                <td>Näköyhteys. Suora, esteetön linja yksiköstä kohteeseen, joka mahdollistaa suoran
+                                    tulen. Tietyt maastot, kuten tiheä metsä tai rakennukset, estävät LoS:n.
+                                </td>
                             </tr>
                             <tr>
                                 <td class="glossary-index-letter">M</td>
@@ -193,9 +213,21 @@
                                     hyvin lähellä.</td>
                             </tr>
                             <tr>
+                                <td></td>
+                                <td><strong>PST (Panssarintorjunta)</strong></td>
+                                <td>Lyhenne panssarintorjunnalle. PST-ryhmät ja -aseet ovat erikoistuneet ajoneuvojen
+                                    tuhoamiseen.</td>
+                            </tr>
+                            <tr>
                                 <td class="glossary-index-letter">S</td>
                                 <td>S (Suoja)</td>
                                 <td>Vastaa "Armor Classia". Kuinka vaikea yksikkö on osua.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><strong>Sodan Sumu (Fog of War)</strong></td>
+                                <td>Pelin keskeinen teema, joka simuloi epätäydellistä tietoa vihollisen sijainnista ja
+                                    vahvuudesta. Tiedustelu on avain sen hälventämiseen.</td>
                             </tr>
                             <tr>
                                 <td class="glossary-index-letter">T</td>
@@ -220,6 +252,13 @@
                             </tr>
                             <tr>
                                 <td class="glossary-index-letter">V</td>
+                                <td><strong>Vastakkainen heitto</strong></td>
+                                <td>Tilanne, jossa kaksi osapuolta heittää noppaa, ja heittojen tuloksia verrataan
+                                    toisiinsa. Esimerkiksi tiedustelussa tiedustelijan heittoa verrataan kohteen
+                                    heittoon.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
                                 <td>VP (Voittopisteet)</td>
                                 <td>Mittaa taistelun tai kampanjan menestystä.</td>
                             </tr>
@@ -232,12 +271,61 @@
                     </table>
                 </div>
             </section>
-            <!--/SECTION: Sanasto loppuu-->
-            <!--SECTION: UKK alkaa-->
             <section id="ukk">
                 <h2>Usein Kysytyt Kysymykset</h2>
 
-                <h3>Pelin Perusteet ja Johtaminen</h3>
+                <h3>Pelin Perusmekaniikat</h3>
+                <details>
+                    <summary><strong>Mitä d20, d6, d4 jne. tarkoittavat?</strong></summary>
+                    <p>
+                        Nämä ovat noppamerkintöjä, jotka kertovat, monisivuista noppaa käytetään. Kirjain 'd' tulee
+                        sanan 'die' (noppa) englanninkielisestä sanasta. Numero sen perässä kertoo nopan sivujen
+                        määrän.
+                    </p>
+                    <ul>
+                        <li><strong>d20:</strong> 20-sivuinen noppa, jota käytetään useimmissa testeissä, kuten
+                            hyökkäyksissä ja moraalitesteissä.</li>
+                        <li><strong>d12, d10, d8, d6, d4:</strong> Käytetään tyypillisesti vahingon määrän
+                            arpomiseen osuman jälkeen. Esimerkiksi Jääkäriryhmän perusaseistus tekee d6-vahinkoa.</li>
+                        <li><strong>d2:</strong> Käytetään tyypillisesti epäorgaanisen epäsuoran tulen hajonnan
+                            arpomiseen.</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>Mikä on DC (Difficulty Class)?</strong></summary>
+                    <p>
+                        DC eli Vaikeusaste on luku, joka d20-heiton tuloksen (heitto + bonukset) on saavutettava tai
+                        ylitettävä, jotta toiminto onnistuu. Esimerkiksi, jos yksikkö joutuu epäsuoran tulen alle, sen
+                        on tehtävä Moraalitesti, jonka DC on 13. Pelaajan on heitettävä d20 + yksikön
+                        Moraalibonus, ja tuloksen on oltava 13 tai enemmän.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Voiko Edun (Advantage) ja Haitan (Disadvantage) saada samaan aikaan?</strong>
+                    </summary>
+                    <p>
+                        Kyllä, mutta ne kumoavat toisensa. Jos yksikkö saisi samanaikaisesti sekä Edun että Haitan, se
+                        suorittaa heiton normaalisti yhdellä d20-nopalla ilman kumpaakaan vaikutusta. Useampi Edun tai
+                        Haitan lähde ei myöskään kasaudu; yksi riittää antamaan vaikutuksen.
+                    </p>
+                </details>
+
+                <details>
+                    <summary><strong>Mitä "vastakkainen heitto" tarkoittaa käytännössä?</strong></summary>
+                    <p>
+                        Vastakkainen heitto on testi, jossa ei yritetä voittaa kiinteää DC-arvoa, vaan toisen hahmon
+                        tai yksikön heittoa. Molemmat osapuolet heittävät d20-noppaa ja lisäävät siihen omat
+                        bonuksensa. Korkeamman tuloksen saanut voittaa.
+                    </p>
+                    <p>
+                        Tätä käytetään esimerkiksi tiedustelussa: tiedusteleva yksikkö heittää d20 + TT, ja kohde
+                        "puolustautuu" heittämällä d20 + maastobonus.
+                    </p>
+                </details>
+
+                <h3>Johtaminen ja Komentaminen</h3>
                 <details>
                     <summary><strong>Mitä eroa on komppania ja pataljoonatason pelillä?</strong></summary>
                     <p>
@@ -313,6 +401,7 @@
                     </p>
                     <ul>
                         <li><strong>Välitön vaikutus:</strong> Kaikki päällikön antamat passiiviset edut poistuvat.
+
                         </li>
                         <li><strong>Kaaos ja Hämmennys:</strong> Kaikki ystävälliset yksiköt saavat -1 rangaistuksen
                             Moraalitesteihin, kunnes uusi päällikkö on nimitetty.</li>
@@ -350,6 +439,7 @@
                         <strong>Punaisen puolen osalta:</strong> On tärkeää huomata, että pelinjohtajan ohjaama
                         Punainen puoli ei käytä tätä etäisyyteen perustuvaa komentoyhteyssääntöä. Sen komentamisen
                         rajoitukset tulevat erillisistä, toisistaan riippumattomista Taisteluryhmien KP-pooleista.
+
                     </p>
                 </details>
 
@@ -439,6 +529,7 @@
                             Tuli-isku puolittuvat.</li>
                         <li><strong>Lamautunut:</strong> Epäonnistuneen moraalitestin seuraus. Yksikkö ei voi
                             liikkua tai käyttää toimintoja. Sitä vastaan tehdyt hyökkäykset saavat Edun (Advantage).
+
                         </li>
                         <li><strong>Vetäytyy:</strong> Kriittisesti epäonnistuneen moraalitestin seuraus. Yksikkö
                             pakenee hallitsemattomasti täyden liikkeensä verran poispäin taistelusta.</li>
@@ -469,6 +560,7 @@
                     <p>Ne ovat nopanheittoon vaikuttavia tiloja:</p>
                     <ul>
                         <li><strong>Etu (Advantage):</strong> Heitä kaksi d20-noppaa ja valitse korkeampi tulos.
+
                         </li>
                         <li><strong>Haitta (Disadvantage):</strong> Heitä kaksi d20-noppaa ja valitse matalampi
                             tulos.</li>
@@ -665,7 +757,8 @@
                     </p>
                     <ol>
                         <li>Ne määrittävät yksittäisen skenaarion voittajan.</li>
-                        <li>Ne muunnetaan <strong>Kokemuspisteiksi (XP)</strong>, joilla yksiköt kehittyvät.</li>
+                        <li>Ne muunnetaan <strong>Kokemuspisteiksi (XP)</strong>, joilla yksiköt kehittyvät.
+                        </li>
                         <li>Ne muunnetaan <strong>Täydennyspisteiksi (TP)</strong>, joilla ylläpidetään komppanian
                             taisteluvalmiutta.</li>
                     </ol>
@@ -788,16 +881,9 @@
                 </details>
 
             </section>
-            <!--/SECTION: UKK loppuu-->
-
         </div>
     </main>
 
-    <!--
-    ====================================================================
-    KELLUVAT VIERITYSNAPIT (SCROLL BUTTONS)
-    ====================================================================
-    -->
     <div id="scroll-buttons-container" class="scroll-buttons">
 
         <div id="scroll-legend" class="scroll-legend-panel">
@@ -847,11 +933,6 @@
             </div>
         </div>
     </div>
-    <!--
-    ====================================================================
-    JAVASCRIPT-TIEDOSTOT
-    ====================================================================
-    -->
     <script src="Scripts/rules.js"></script>
 </body>
 
