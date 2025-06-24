@@ -1868,16 +1868,78 @@ a:has(> .lisenssi-kuvake-yksi):hover {
 
 /* Tämä sääntö koskee kaikkia linkkejä leipätekstissä (.prose-luokan sisällä) */
 .prose a {
-  color: #556B2F;           /* Tumma oliivinvihreä, sama kuin otsikoissa */
-  font-weight: 600;          /* Puolilihavoitu, jotta linkki erottuu selvästi */
-  text-decoration: none;     /* Poistetaan selaimen oletusalleviivaus */
-  border-bottom: 1px solid #C2B280; /* Lisätään hienovarainen alleviivaus tehostevärillä (hiekka/kulta) */
-  transition: color 0.2s, border-bottom-color 0.2s; /* Pehmeä siirtymä hover-efektille */
-  padding-bottom: 1px;       /* Pieni tila tekstin ja alleviivauksen välille */
+    color: #556B2F;
+    /* Tumma oliivinvihreä, sama kuin otsikoissa */
+    font-weight: 600;
+    /* Puolilihavoitu, jotta linkki erottuu selvästi */
+    text-decoration: none;
+    /* Poistetaan selaimen oletusalleviivaus */
+    border-bottom: 1px solid #C2B280;
+    /* Lisätään hienovarainen alleviivaus tehostevärillä (hiekka/kulta) */
+    transition: color 0.2s, border-bottom-color 0.2s;
+    /* Pehmeä siirtymä hover-efektille */
+    padding-bottom: 1px;
+    /* Pieni tila tekstin ja alleviivauksen välille */
 }
 
 /* Kun hiiren kursori viedään linkin päälle */
 .prose a:hover {
-  color: #1C1917;             /* Tekstin väri muuttuu tummaksi perusleipätekstin väriseksi */
-  border-bottom-color: #556B2F; /* Alleviivaus muuttuu tummanvihreäksi tehostaen sitä */
+    color: #1C1917;
+    /* Tekstin väri muuttuu tummaksi perusleipätekstin väriseksi */
+    border-bottom-color: #556B2F;
+    /* Alleviivaus muuttuu tummanvihreäksi tehostaen sitä */
+}
+
+/* ==================================================================== */
+/* 8. SISÄLLÖN ERITYISELEMENTIT (ESIM. HAVAINNEKUVAT)                  */
+/* ==================================================================== */
+
+/* Säiliö havainnekuvalle ja sen kuvatekstille */
+.battle-image-container {
+    margin-top: 1.5rem;
+    /* Lisää tilaa yläpuolelle */
+    margin-bottom: 2rem;
+    /* Lisää tilaa alapuolelle */
+    max-width: 800px;
+    /* Kuvan enimmäisleveys työpöydällä */
+    margin-left: auto;
+    /* Keskittää kuvan horisontaalisesti */
+    margin-right: auto;
+    /* Keskittää kuvan horisontaalisesti */
+    background-color: #FFFFFF;
+    /* Valkoinen tausta */
+    border: 1px solid #E7E5E4;
+    /* stone-200, hienovarainen reuna */
+    border-radius: 0.5rem;
+    /* Pyöristetyt kulmat */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    /* Hienovarainen varjo */
+    overflow: hidden;
+    /* Varmistaa, että kuva pysyy säiliön kulmien sisällä */
+}
+
+/* Itse kuva */
+.battle-image-container img {
+    width: 100%;
+    /* Kuva täyttää säiliön leveyden */
+    height: auto;
+    /* Säilyttää kuvasuhteen */
+    display: block;
+    /* Poistaa ylimääräisen tilan kuvan alta */
+}
+
+/* Kuvateksti */
+.battle-image-container figcaption {
+    padding: 0.75rem 1rem;
+    /* Pehmustetta tekstille */
+    font-size: 0.9rem;
+    /* Hieman pienempi fonttikoko */
+    text-align: center;
+    /* Keskittää tekstin */
+    color: #44403C;
+    /* stone-700, tummanharmaa teksti */
+    background-color: #FAFAF9;
+    /* stone-50, hyvin vaalea tausta */
+    border-top: 1px solid #E7E5E4;
+    /* Reuna kuvan ja tekstin välissä */
 }
