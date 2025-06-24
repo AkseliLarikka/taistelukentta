@@ -20,7 +20,7 @@
         content="komppaniatason taistelu, Taistelukenttä d20, komentaminen, komentopisteet, KP, Komppanianpäällikkö, Joukkueenjohtaja, taktiset kyvyt, tulitukipyyntö, mottitaktiikka, sitova tuli, järjestäytynyt vetäytyminen, vahvistettu maali, sodan sumu, tiedustelu, tulenjohto, moraalitesti">
     <meta name="keywords" lang="en"
         content="company level combat, Taistelukenttä d20, commanding, command points, CP, Company Commander, Platoon Leader, tactical abilities, fire support request, encirclement tactic, suppressing fire, organized withdrawal, confirmed target, fog of war, reconnaissance, fire control, morale test">
-    <title>Taistelukenttä d20 - strateginen sotapeli</title>
+    <title>Taistelukenttä d20 - Taktisen tason taistelu</title>
     <!--
     ====================================================================
     TYYLITIEDOSTOT JA FONTIT
@@ -45,11 +45,11 @@
                     <ul class="top-nav-list">
                         <li><a href="index.html" class="nav-link-top">Etusivu</a></li>
                         <li><a href="ydinsaannot.html" class="nav-link-top">Ydinsäännöt</a></li>
-                        <li><a href="taktisen-tason-taistelu.html" class="nav-link-top" style="color:#C2B280;">Taktisen
-                                tason taistelu</a></li>
-                        <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
+                        <li><a href="taktisen-tason-taistelu.html" class="nav-link-top" style="color:#C2B280;">Taktisen tason taistelu</a></li>
+                        <li><a href="pelaajan-pikaopas.html" class="nav-link-top">Pelaajan pikaopas</a></li>
                         <li><a href="siniset-yksiköt.html" class="nav-link-top">Siniset yksiköt</a></li>
                         <li><a href="punaiset-yksiköt.html" class="nav-link-top">Punaiset yksiköt</a></li>
+                        <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
                         <li><a href="skenaariot.html" class="nav-link-top">Skenaariot</a></li>
                         <li><a href="pelinjohtajan-opas.html" class="nav-link-top">Pelinjohtajan opas</a></li>
                         <li><a href="sanasto-ja-ukk.html" class="nav-link-top">Sanasto ja UKK</a></li>
@@ -84,7 +84,7 @@
             <div class="main-banner" style="background-image: url('images/bannertkd.jpg');">
                 <div class="relative z-10 flex h-full items-center justify-center">
                     <h1 class="banner-title text-4xl md:text-6xl font-bold text-center">
-                        Taistelukenttä d20 – Strateginen sotapeli <br> v. Alpha
+                        Taistelukenttä d20 – Taktisen tason taistelu <br> v. Alpha
                     </h1>
                 </div>
             </div>
@@ -374,152 +374,82 @@
                 </p>
 
                 <h3>Strategiset resurssit</h3>
-                <h4>Epäsuora tulituki - Pelilaudan ulkopuolinen tuki</h4>
+                <h4>Epäsuora Tulituki</h4>
                 <p>
-                    Tulituki on työkalu, jolla hallitaan taistelukenttää pakottamalla
-                    vihollinen valitsemaan paikallaan pysymisen riskin ja liikkumisen
-                    tuoman aloitteen menetyksen välillä. Vain komppanianpäällikkö voi
-                    kutstua pelilaudan ulkopuolista tulitukea.
+                    Tulituki on työkalu, jolla hallitaan taistelukenttää. Se jaetaan yksikön omaan orgaaniseen tukeen ja
+                    ylemmältä portaalta pyydettävään epäorgaaniseen tukeen. Tehokas tulituki vaatii aina onnistuneen
+                    tulenjohdon.
                 </p>
-                <ol>
-                    <li>
-                        <strong>Pyyntö:</strong> Komppanianpäällikkö käyttää
-                        <strong>Tulitukipyyntö</strong>-komennon (3 KP). Hän nimeää
-                        maalipisteen kartalla ja ilmoittaa pyytämänsä tuen tyypin.
-                    </li>
-                    <li>
-                        <strong>Saapuminen ja Viive:</strong> Eri tulitukivälineet
-                        vastaavat eri nopeudella. Skenaario määrittää, minkä kokoista
-                        tulitukea on saatavilla. Pyynnön jälkeen GM heittää salassa
-                        viiveen:
+
+                <h5>Orgaaninen Tulituki (esim. 81mm Kranaatinheitin)</h5>
+                <ul>
+                    <li><strong>Kutsuminen:</strong> Joukkueenjohtaja voi käyttää 1 KP:n pyytääkseen tulta omalta,
+                        pelilaudalla olevalta tulitukiyksiköltään.</li>
+                    <li><strong>Osuma:</strong> Isku osuu automaattisesti tilattuun maaliruutuun seuraavan pelivuoron
+                        Tulitoimintavaiheen alussa. Hajontaa ei ole.</li>
+                    <li><strong>Vahinko:</strong> 81mm kranaatinheittimen vahinko on 2d6. Ammukset ovat rajalliset
+                        yksikön varustuksen mukaan.</li>
+                </ul>
+
+                <h5>Epäorgaaninen Tulituki (esim. 120mm Krh, 155mm Tykistö)</h5>
+                <ul>
+                    <li><strong>Kutsuminen:</strong> Vain Komppanianpäällikkö voi pyytää epäorgaanista tukea (hinta 3
+                        KP).</li>
+                    <li><strong>Viive:</strong>
                         <ul>
-                            <li>
-                                <strong>Raskas kranaatinheitin (120mm):</strong> Viive on d4
-                                vuoroa.
+                            <li><strong>Raskas Kranaatinheitin (120mm):</strong> Saapuu 1d2 vuoron kuluttua.</li>
+                            <li><strong>Kenttätykistö (155mm):</strong> Saapuu 1d2+1 vuoron kuluttua.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Hajonta ja Vaikutusalue:</strong> Isku vaikuttaa aina 2x2 ruudun (n. 200x200 metrin)
+                        alueelle.
+                        <ul>
+                            <li>Yksi näistä neljästä ruudusta on aina se, johon tuli alun perin tilattiin (maaliruutu).
                             </li>
-                            <li>
-                                <strong>Kenttätykistö (155mm):</strong> Viive on d4+1 vuoroa.
+                            <li>Muut kolme ruutua määräytyvät tämän maaliruudun ympäriltä 1d4-heitolla:
+                                <ul>
+                                    <li><strong>1:</strong> Maaliruutu on alueen lounaiskulma (isku peittää maaliruudun
+                                        ja siitä pohjoiseen, itään ja koilliseen olevat ruudut).</li>
+                                    <li><strong>2:</strong> Maaliruutu on alueen luoteiskulma (isku peittää maaliruudun
+                                        ja siitä etelään, itään ja kaakkoon).</li>
+                                    <li><strong>3:</strong> Maaliruutu on alueen kaakkoiskulma (isku peittää maaliruudun
+                                        ja siitä pohjoiseen, länteen ja luoteeseen).</li>
+                                    <li><strong>4:</strong> Maaliruutu on alueen koilliskulma (isku peittää maaliruudun
+                                        ja siitä etelään, länteen ja lounaaseen).</li>
+                                </ul>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <strong>Reagointi ja Tulen Siirto:</strong> Jos kohde liikkuu
-                        tulitukipyynnön jälkeen, tulenjohtaja voi omassa
-                        Komentovaiheessaan reagoida:
-                    </li>
-                    <li>
-                        <strong>Tulen Siirto (1 KP):</strong> Komentaja voi nimetä uuden
-                        maalipisteen
-                        <strong>pelilaudan ulkopuoliselle (epäorgaaniselle) tulelle</strong>.
-                    </li>
-                </ol>
+                    <li><strong>Vahinko:</strong> Kaikki alueen ruuduissa olevat yksiköt kärsivät 2d12 vahinkoa ja
+                        tekevät moraalitestin (DC 13).</li>
+                </ul>
 
-                <h4>Isku ja Vaikutus</h4>
+                <h4>Tulenjohto ja sen tehostaminen</h4>
                 <p>
-                    Kun viive on kulunut, tuki iskee Tulitoimintavaiheessa. Osumapiste
-                    määritetään heittämällä hajonta alkuperäisestä (tai siirretystä)
-                    maalipisteestä.
+                    Onnistunut tulenjohto on edellytys kaikelle epäsuoralle tulelle. Pelaajan on nimettävä yksi
+                    ystävällinen yksikkö (jolla on tulenjohtokyky, esim. Jääkäriryhmä), jolla on suora näköyhteys
+                    maaliruutuun.
                 </p>
                 <ul>
                     <li>
-                        <strong>Iskun Tarkkuus ja Hajonta:</strong> Kun viive on kulunut,
-                        tuki iskee Tulitoimintavaiheessa. Iskun tarkka osumapiste
-                        määritetään seuraavasti:
-                        <ul>
-                            <li>
-                                <strong>Heitä hajontanopat:</strong> Heitä yksikön
-                                perushajonta (yleensä 2d4 cm epäorgaaniselle tulelle, 1d4 cm
-                                orgaaniselle tulelle).
-                            </li>
-                            <li>
-                                <strong>Tarkista Napakymppi:</strong> Jos hajontanopat
-                                näyttävät samaa lukua (esim. 1&1, 2&2, 3&3 tai 4&4), isku on
-                                <strong>Napakymppi</strong>. Se osuu täsmälleen nimettyyn
-                                maalipisteeseen ilman hajontaa.
-                            </li>
-                            <li>
-                                <strong>Määritä Hajonnan Suunta:</strong> Jos isku ei ollut
-                                Napakymppi, heitä d8-noppa määrittääksesi hajonnan suunnan
-                                kompassiruusun mukaisesti (1=Pohjoinen, 2=Koillinen, 3=Itä
-                                jne.).
-                            </li>
-                            <li>
-                                <strong>Laske Hajonnan Pituus:</strong> Hajonnan pituus
-                                senttimetreinä on hajontanoppien summa.
-                            </li>
-                            <li>
-                                <strong>Siirrä Osumapistettä:</strong> Siirrä iskun
-                                keskipistettä kartalla hajonnan suunnan ja pituuden
-                                mukaisesti. Tämä on lopullinen osumapiste.
-                            </li>
-                        </ul>
+                        <strong>Tulenjohtokyvyn heikkeneminen:</strong> Jos tulta johtavan yksikön Taistelukunto (TK) on
+                        alle 50%, sen on onnistuttava d6-heitossa (tulos 4+) johtaakseen tulta onnistuneesti. Jos heitto
+                        epäonnistuu, pyyntöön käytetyt KP:t menetetään.
                     </li>
                     <li>
-                        <strong>Vaikutus:</strong> Tuli-isku vaikuttaa lopullisen
-                        osumapisteen ympärillä olevalle alueelle (esim. 5 cm säde). Kaikki
-                        yksiköt, jotka ovat kokonaan tai osittain vaikutusalueella,
-                        kärsivät iskun vahingon ja tekevät vaaditun Moraalitestin.
+                        <strong>Taitava tulenjohtaja:</strong> Jos tulta johtavan yksikön Taitotaso (TT) on +4 tai
+                        korkeampi, sen ammattitaito nopeuttaa prosessia. Pelaaja voi vähentää epäorgaanisen tulituen
+                        viiveestä yhden (1) vuoron (minimi viive on aina 1 vuoro).
                     </li>
                     <li>
-                        <strong>Taitava tulenjohtaja:</strong> Tulituen tarkkuus riippuu
-                        sitä johtavan yksikön osaamisesta. Kun tulitukipyyntö tehdään,
-                        pelaajan on nimettävä yksi ystävällinen yksikkö, jolla on suora
-                        näköyhteys maalipisteeseen, toimimaan tulenjohtajana kyseiselle
-                        iskulle.
-                        <ul>
-                            <li>
-                                Jos tämän nimeämisen
-                                <strong>tulenjohtaja-yksikön Taitotaso (TT) on +4 tai
-                                    korkeampi</strong>, pelaaja saa heittää yhden hajontanopan uudelleen. Uusi
-                                tulos on otettava käyttöön. Tämä kuvaa kokeneen yksikön kykyä
-                                antaa tarkkoja koordinaatteja ja korjata tulta tehokkaasti.
-                            </li>
-                        </ul>
+                        <strong>Orgaanisen Tuen Tehostaminen:</strong> Kun Joukkueenjohtaja pyytää orgaanista tulta (1
+                        KP), Komppanianpäällikkö voi samassa Komentovaiheessa käyttää 1 KP:n omasta poolistaan
+                        tehostaakseen iskua. Tällöin iskun vahinkoheittoon lisätään <strong>+2 bonus</strong>.
                     </li>
+                    <li><strong>'Vaara Lähellä' (Danger Close):</strong> Komentaja voi antaa luvan ampua tulituki-iskun,
+                        vaikka sen vaikutusalueella olisi omia yksiköitä. Jokaisesta omasta yksiköstä alueella heitetään
+                        d6-noppaa: tuloksella 1-2 oma yksikkö kärsii puolet iskun normaalista vahingosta.</li>
                 </ul>
-
-                <h4>
-                    Komppanian&shy;päällikkö on avainasemassa raskaamman tuen kutsumisessa.
-                </h4>
-                <ul>
-                    <li>
-                        <strong>Epäorgaaninen Tulituki (esim. pataljoonan
-                            kranaatinheitinkeskitys (tarkennettu skenaarion
-                            kuvauksessa):</strong>
-                        Vain Komppanianpäällikkö voi kutsua pelilaudan ulkopuolista
-                        tulitukea.
-                        <ul>
-                            <li>
-                                <strong>Mekaniikka:</strong> Päällikkö käyttää toimintonsa
-                                "Tulitukipyyntöön". Heitä d4-noppaa. Tulos määrittää, monenko
-                                vuoron päästä tuki saapuu.
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <strong>Orgaanisen Tuen Tehostaminen:</strong> Komppanianpäällikkö
-                        voi parantaa oman orgaanisen tulitukiyksikön (esim.
-                        Kranaatinheitinryhmä) tarkkuutta. Tämä tapahtuu seuraavasti:
-                        <ol>
-                            <li>
-                                Joukkueenjohtaja ilmoittaa Komentovaiheessa käyttävänsä 1 KP
-                                <em>Tulitukipyyntöön (orgaaninen)</em>, kuten normaalisti.
-                            </li>
-                            <li>
-                                Samassa Komentovaiheessa Komppanianpäällikkö voi ilmoittaa
-                                tehostavansa tätä iskua. Hän maksaa omasta pistepoolistaan
-                                <strong>1 KP</strong>.
-                            </li>
-                            <li>
-                                Kun tehostettu isku saapuu seuraavalla vuorolla, sen
-                                hyökkäysheittoon lisätään <strong>+1 bonus</strong>. Tämä
-                                bonus voi kasautua muiden bonusten, kuten
-                                <em>Tulen Keskittämisen</em>, kanssa.
-                            </li>
-                        </ol>
-                    </li>
-                </ul>
-
 
             </section>
             <!--/SECTION: Komppaniatason taistelu-->

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, noarchive">
+    <meta name="description"
+        content="Taistelukenttä d20 -pelin pikaopas pelaajalle. Sisältää vuoron vaiheet, komentopistetoiminnot ja suodattimen omien yksiköiden tietojen nopeaan tarkasteluun.">
+    <meta name="keywords"
+        content="pikaopas, pelaajan opas, Taistelukenttä d20, komentopisteet, KP, yksiköt, säännöt, nopea viite">
+    <title>Taistelukenttä d20 - Pelaajan Pikaopas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="images/tkd20ikoni.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Styles/rules.css">
+    <style>
+        /* Lisätyylit pikaopasta varten */
+        .unit-filter-container {
+            background-color: #f5f5f4;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e7e5e4;
+        }
+
+        .unit-checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .unit-checkbox-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            background-color: white;
+            border-radius: 9999px;
+            border: 1px solid #d6d3d1;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .unit-checkbox-label:hover {
+            background-color: #f5e8c7;
+        }
+
+        .unit-checkbox-label input {
+            margin-right: 0.5rem;
+        }
+
+        .unit-checkbox-label input:checked+span {
+            font-weight: bold;
+            color: #556B2F;
+        }
+    </style>
+</head>
+
+<body class="text-stone-900">
+    <header id="main-navbar">
+        <div class="container mx-auto flex items-center">
+            <div class="header-left-spacer md:hidden"></div>
+
+            <div id="navbar-dropdown-container" class="relative">
+                <a href="#" id="current-page-name" class="home-link">Pelaajan Pikaopas</a>
+                <nav id="main-navbar-content">
+                    <ul class="top-nav-list">
+                        <li><a href="index.html" class="nav-link-top">Etusivu</a></li>
+                        <li><a href="ydinsaannot.html" class="nav-link-top">Ydinsäännöt</a></li>
+                        <li><a href="taktisen-tason-taistelu.html" class="nav-link-top">Taktinen taistelu</a></li>
+                        <li><a href="pelaajan-pikaopas.html" class="nav-link-top" style="color:#C2B280;">Pelaajan
+                                Pikaopas</a></li>
+                        <li><a href="siniset-yksiköt.html" class="nav-link-top">Siniset yksiköt</a></li>
+                        <li><a href="punaiset-yksiköt.html" class="nav-link-top">Punaiset yksiköt</a></li>
+                        <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
+                        <li><a href="skenaariot.html" class="nav-link-top">Skenaariot</a></li>
+                        <li><a href="pelinjohtajan-opas.html" class="nav-link-top">Pelinjohtajan opas</a></li>
+                        <li><a href="sanasto-ja-ukk.html" class="nav-link-top">Sanasto ja UKK</a></li>
+                        <li><a href="tietoja.html" class="nav-link-top">Tietoa & Muutoshistoria</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right-spacer md:hidden"></div>
+        </div>
+    </header>
+    <div id="sidebar"
+        class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-20 p-4 overflow-y-auto sidebar-hidden md:sidebar-visible md:translate-x-0">
+        <h1 class="sidebar-title">Sisällysluettelo</h1>
+        <nav id="nav-menu" class="space-y-1"></nav>
+    </div>
+
+    <button id="menu-toggle" class="md:hidden fixed top-4 left-4 z-55 p-2 bg-white rounded-md shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <main id="main-content" class="md:ml-64 p-4 md:p-8">
+        <div class="prose max-w-none">
+
+            <div class="relative h-96 w-full bg-cover bg-center mb-8"
+                style="background-image: url('images/bannertkd.jpg');">
+                <div class="relative z-10 flex h-full items-center justify-center">
+                    <h1 class="banner-title text-4xl md:text-6xl font-bold text-center">
+                        Pelaajan Pikaopas
+                    </h1>
+                </div>
+            </div>
+
+            <section id="pikaohjeet">
+                <h2>Tärkeimmät Mekaniikat Pelaajalle</h2>
+
+                <h3>Pelivuoron Vaiheet</h3>
+                <ol>
+                    <li><strong>Liikevaihe:</strong> Yksiköt suorittavat ennalta määrätyt liikkeensä.</li>
+                    <li><strong>Tiedusteluvaihe:</strong> Tiedustelutoiminnot ja havaintoheitot tehdään.</li>
+                    <li><strong>Komentovaihe:</strong> Pelaajat käyttävät Komentopisteensä (KP) ja antavat kaikki käskyt
+                        (tuli, erikoistoiminnot) samanaikaisesti.</li>
+                    <li><strong>Tulitoimintavaihe:</strong> Kaikki Komentovaiheessa annetut tulikomennot ja iskut
+                        ratkaistaan.</li>
+                    <li><strong>Tilannevaihe:</strong> Moraalitestit suoritetaan, tilavaikutukset päivitetään ja vuoro
+                        päättyy.</li>
+                </ol>
+
+                <h3>Yleisimmät Toiminnot</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Toiminto</th>
+                                <th>Hinta (KP)</th>
+                                <th>Lyhyt Kuvaus</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Asemapuolustus / Perusliike</strong></td>
+                                <td>0 KP</td>
+                                <td>Pysy paikallaan tai liiku normaalisti (ei vihollisen ZoC:lla).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hyökkäyskäsky</strong></td>
+                                <td>1 KP / ryhmä</td>
+                                <td>Käske ryhmää aktiivisesti hyökkäämään tai rynnäköimään.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tulen Keskittäminen</strong></td>
+                                <td>1 KP</td>
+                                <td>Ryhmäsi saa +1 bonuksen hyökkäysheittoonsa yhtä maalia vastaan.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Irtautuminen</strong></td>
+                                <td>2 KP / ryhmä</td>
+                                <td>Vetäydy hallitusti vihollisen lähitaistelusta (ZoC) ilman tilaisuusiskua.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Moraalin Kohotus</strong></td>
+                                <td>2 KP</td>
+                                <td>Poista "Lamautunut" tai "Vetäytyy"-tila yhdeltä omalta yksiköltä.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tulitukipyyntö (orgaaninen)</strong></td>
+                                <td>1 KP</td>
+                                <td>Pyydä tulta omalta kranaatinheitinryhmältäsi. Vaatii tulenjohtajan.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="yksikkosuodatin">
+                <h2>Valitse Omat Yksikkösi</h2>
+                <div class="unit-filter-container">
+                    <p>Valitse alla olevasta listasta ne yksiköt, jotka ovat mukanasi tässä skenaariossa. Vain
+                        valittujen yksiköiden tiedot näytetään alla.</p>
+                    <h4 style="margin-top: 1em;">Siniset Yksiköt</h4>
+                    <div id="blue-unit-checkboxes" class="unit-checkbox-group">
+                    </div>
+                </div>
+
+                <div id="unit-display-area">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="all-unit-data" style="display: none;">
+        <div id="unit-jaakariryhma">
+            <div class="unit-card">
+                <h4>JÄÄKÄRIRYHMÄ</h4>
+                <div class="unit-card-content">
+                    <ul>
+                        <li><strong>Tyyppi:</strong> Jalkaväki (10 sotilasta)</li>
+                        <li><strong>TK:</strong> 10</li>
+                        <li><strong>M:</strong> +3</li>
+                        <li><strong>S:</strong> 11</li>
+                        <li><strong>Liike:</strong> 7 cm</li>
+                        <li><strong>TT:</strong> +3</li>
+                        <li><strong>Kyvyt:</strong>
+                            <ul>
+                                <li><strong>Sisu:</strong> Kun yksikkö on "Vaurioitunut", sen Moraali pysyy +3 (ei putoa
+                                    +1).</li>
+                                <li><strong>Maastoon Tottunut:</strong> Jättää huomiotta metsämaaston aiheuttaman
+                                    liikehidasteen.</li>
+                                <li><strong>Tulenjohto (Passiivinen) <span
+                                            class="vaurioitunut-tila">(Vaurioitunut)</span>:</strong> Voi johtaa
+                                    orgaanista ja epäorgaanista tulta. Yksikön ollessa vaurioitunut, kyvyn käyttö vaatii
+                                    onnistuneen d6-heiton (4+).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Varustus:</strong>
+                            <ul>
+                                <li><strong>Jalkaväkiaseistus:</strong> +3 (Hyökkäys), d6 (Vahinko)</li>
+                                <li><strong>Tiedustelulennokki:</strong> +5 (Tiedustelu)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="unit-tukiryhma">
+            <div class="unit-card">
+                <h4>TUKIRYHMÄ (KK)</h4>
+                <div class="unit-card-content">
+                    <ul>
+                        <li><strong>Tyyppi:</strong> Jalkaväki (Raskas konekivääri, 3 sotilasta)</li>
+                        <li><strong>TK:</strong> 8</li>
+                        <li><strong>M:</strong> +2</li>
+                        <li><strong>S:</strong> 10</li>
+                        <li><strong>Liike:</strong> 5 cm</li>
+                        <li><strong>TT:</strong> +1</li>
+                        <li><strong>Kyvyt:</strong>
+                            <ul>
+                                <li><strong>Lamauttava Tuli (2 KP):</strong> Valitse 5x1cm alue. Jokainen
+                                    vihollisyksikkö valitulla alueella tekee välittömästi Moraalitestin (DC 10). Tämä
+                                    kyky ei aiheuta TK-vahinkoa.</li>
+                                <li><strong>Tuliasema <span class="vaurioitunut-tila">(Vaurioitunut)</span>:</strong> +1
+                                    Hyökkäykseen, jos pysyy paikallaan vuoron ajan. Yksikön ollessa vaurioitunut, kykyä
+                                    ei voi käyttää.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Varustus:</strong>
+                            <ul>
+                                <li><strong>Konekivääri:</strong> +4 (Hyökkäys), d8 (Vahinko)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="unit-pst-ryhma">
+            <div class="unit-card">
+                <h4>PST-RYHMÄ</h4>
+                <div class="unit-card-content">
+                    <ul>
+                        <li><strong>Tyyppi:</strong> Jalkaväki (2 sotilasta + PST-ase)</li>
+                        <li><strong>TK:</strong> 6</li>
+                        <li><strong>M:</strong> +2</li>
+                        <li><strong>S:</strong> 10</li>
+                        <li><strong>Liike:</strong> 5 cm</li>
+                        <li><strong>TT:</strong> +1</li>
+                        <li><strong>Kyvyt:</strong>
+                            <ul>
+                                <li><strong>Panssarintuhoaja:</strong> +2 Hyökkäykseen ajoneuvoja vastaan.</li>
+                                <li><strong>Varustautuminen:</strong> PST-aseen voi ladata, mutta se kuluttaa koko
+                                    vuoron, eikä ryhmä voi liikkua. Ei kuluta Komentopisteitä.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Varustus:</strong>
+                            <ul>
+                                <li><strong>PST-ase:</strong> +2 (Hyökkäys), 2d12 (PST-Vahinko).</li>
+                                <li><strong>Ammukset:</strong> 3 kpl</li>
+                                <li><strong>Lämpökamera:</strong> +2 (Tiedustelu)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="unit-krh-ryhma">
+            <div class="unit-card">
+                <h4>KRANAATIN&shy;HEITIN&shy;RYHMÄ (81mm)</h4>
+                <div class="unit-card-content">
+                    <ul>
+                        <li><strong>Tyyppi:</strong> Jalkaväki (Kevyt kranaatinheitin, 3 sotilasta)</li>
+                        <li><strong>TK:</strong> 8</li>
+                        <li><strong>M:</strong> +2</li>
+                        <li><strong>S:</strong> 9</li>
+                        <li><strong>Liike:</strong> 4 cm</li>
+                        <li><strong>TT:</strong> +0</li>
+                        <li><strong>Ammukset:</strong> 10</li>
+                        <li><strong>Kyvyt:</strong>
+                            <ul>
+                                <li><strong>Orgaaninen Tulituki (Epäsuora Tuli):</strong> Voi antaa epäsuoraa tulta.
+                                    Vaatii onnistuneen tulenjohdon toiselta ystävälliseltä yksiköltä. Jokainen isku
+                                    kuluttaa yhden ammuksen.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Varustus:</strong>
+                            <ul>
+                                <li><strong>81mm Kranaatinheitin:</strong> +1 (Hyökkäys), 2d6 (Vahinko, vaikutusalue 5cm
+                                    säde)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="unit-sissi-jaakarit">
+            <div class="unit-card">
+                <h4>SISSI-JÄÄKÄRIT</h4>
+                <div class="unit-card-content">
+                    <ul>
+                        <li><strong>Tyyppi:</strong> Jalkaväki (Sissi, 7 sotilasta)</li>
+                        <li><strong>TK:</strong> 8</li>
+                        <li><strong>M:</strong> +3</li>
+                        <li><strong>S:</strong> 12</li>
+                        <li><strong>Liike:</strong> 9 cm</li>
+                        <li><strong>TT:</strong> +4</li>
+                        <li><strong>Kyvyt:</strong>
+                            <ul>
+                                <li><strong>Koukkaus :</strong> Hyökätessään vihollisen sivustaan tai selustaan, tämä
+                                    yksikkö saa Edun (Advantage) hyökkäysheittoonsa.</li>
+                                <li><strong>Metsänpeitto (1 KP):</strong> Voi käyttää koko vuoronsa asettuakseen asemiin
+                                    metsässä tai tiheässä suojassa, jolloin se muuttuu "Piiloutunut"-tilaan.</li>
+                                <li><strong>Murtosulute (2 KP):</strong> Voi käyttää koko vuoronsa asettaakseen 5cm
+                                    leveän miinakentän.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Varustus:</strong>
+                            <ul>
+                                <li><strong>Jääkäriaseistus:</strong> +3 (Hyökkäys), d6 (Vahinko)</li>
+                                <li><strong>Konekivääri:</strong> +4 (Hyökkäys), d8 (Vahinko)</li>
+                                <li><strong>Kevyt PST-ase:</strong> +2 (Hyökkäys), 2d12 (PST-Vahinko). Ammukset: 1 kpl.
+                                </li>
+                                <li><strong>Tarkkuuskivääri:</strong> +5 (Hyökkäys), d10 (Vahinko). Osuessaan hyökkääjä
+                                    voi valita kohteen aktiivisen erikoiskyvyn pois käytöstä yhden vuoron ajaksi.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="unit-erikoisjaakari-osasto">
+            <div class="unit-card">
+                <h4>ERIKOIS&shy;JÄÄKÄRI-OSASTO</h4>
+                <div class="unit-card-content">
+                    <ul>
+                        <li><strong>Tyyppi:</strong> Jalkaväki (Erikoisjoukko, 5 sotilasta)</li>
+                        <li><strong>TK:</strong> 10</li>
+                        <li><strong>M:</strong> +5</li>
+                        <li><strong>S:</strong> 13</li>
+                        <li><strong>Liike:</strong> 9 cm</li>
+                        <li><strong>TT:</strong> +5</li>
+                        <li><strong>Kyvyt:</strong>
+                            <ul>
+                                <li><strong>Toimintakyky (1 KP):</strong> Jos yksikkö epäonnistuu Moraalitestissä,
+                                    pelaaja voi välittömästi kuluttaa 1 KP:n, jolloin yksikkö läpäisee testin
+                                    automaattisesti.</li>
+                                <li><strong>Iskuosasto (3 KP):</strong> Yhden vuoron ajan yksikkö saa +2 Hyökkäykseen ja
+                                    sen iskut jättävät huomiotta kohteen suojan antaman puolustusbonuksen.</li>
+                                <li><strong>Tarkka Isku (Erikoiskyky, 4 KP):</strong> Voi kerran pelissä kutsua kartan
+                                    ulkopuolisen tarkan iskun (2d12 vahinkoa, ei hajontaa). Vaatii näköyhteyden ja
+                                    paikallaan pysymisen.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Varustus:</strong>
+                            <ul>
+                                <li><strong>Erikoisjoukkojen rynnäkkökivääri:</strong> +5 (Hyökkäys), d8 (Vahinko)</li>
+                                <li><strong>Raskas tarkkuuskivääri:</strong> +6 (Hyökkäys), d12 (Vahinko). Osuessaan
+                                    hyökkääjä voi valita kohteen aktiivisen erikoiskyvyn pois käytöstä yhden vuoron
+                                    ajaksi.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Scripts/rules.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Data VAIN sinisille yksiköille
+            const blueUnitData = {
+                'unit-jaakariryhma': 'Jääkäriryhmä',
+                'unit-tukiryhma': 'Tukiryhmä (KK)',
+                'unit-pst-ryhma': 'PST-ryhmä',
+                'unit-krh-ryhma': 'Krh-ryhmä (81mm)',
+                'unit-sissi-jaakarit': 'Sissi-Jääkärit',
+                'unit-erikoisjaakari-osasto': 'Erikoisjääkäri-osasto'
+            };
+
+            const blueCheckboxContainer = document.getElementById('blue-unit-checkboxes');
+            const displayArea = document.getElementById('unit-display-area');
+            const allUnitDataContainer = document.getElementById('all-unit-data');
+            const filterContainer = document.getElementById('yksikkosuodatin');
+
+            // Funktio, joka luo valintaruudut
+            function createCheckboxes(container, data) {
+                for (const id in data) {
+                    const label = document.createElement('label');
+                    label.className = 'unit-checkbox-label';
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.value = id;
+                    checkbox.className = 'unit-checkbox';
+
+                    const span = document.createElement('span');
+                    span.textContent = data[id];
+
+                    label.appendChild(checkbox);
+                    label.appendChild(span);
+                    container.appendChild(label);
+                }
+            }
+
+            // Luo valintaruudut VAIN sinisille yksiköille
+            createCheckboxes(blueCheckboxContainer, blueUnitData);
+
+            // Funktio, joka päivittää näytettävät yksiköt
+            function updateDisplayedUnits() {
+                displayArea.innerHTML = ''; // Tyhjennä näyttöalue
+
+                const selectedCheckboxes = filterContainer.querySelectorAll('.unit-checkbox:checked');
+
+                if (selectedCheckboxes.length > 0) {
+                    selectedCheckboxes.forEach(checkbox => {
+                        const unitId = checkbox.value;
+                        const unitElement = allUnitDataContainer.querySelector('#' + unitId);
+                        if (unitElement) {
+                            displayArea.appendChild(unitElement.cloneNode(true));
+                        }
+                    });
+                }
+            }
+
+            // Tehokkaampi tapahtumankuuntelija, joka on kiinnitetty ylempään elementtiin
+            filterContainer.addEventListener('change', function (event) {
+                // Tarkistetaan, että muutos tapahtui juuri valintaruudussa
+                if (event.target.classList.contains('unit-checkbox')) {
+                    updateDisplayedUnits();
+                }
+            });
+
+            // Alusta muut sivun toiminnot (kuten sisällysluettelo)
+            if (typeof window.initializeContentAndSidebar === 'function') {
+                window.initializeContentAndSidebar();
+            }
+        });
+    </script>
+</body>
+
+</html>

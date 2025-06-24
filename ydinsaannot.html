@@ -20,7 +20,7 @@
         content="ydinsäännöt, Taistelukenttä d20, pelimekaniikat, komentopisteet, KP, pelivuoro, yksiköt, taistelukunto, moraali, taitotaso, liike, suoja, tuli-isku, tilaefektit, vaurioitunut, lamautunut, vetäytyy, piiloutunut, taistelu, etu, haitta, sarjatuli, ansat, sulutteet, tiedustelu, tulituki, tulenjohto, maasto">
     <meta name="keywords" lang="en"
         content="core rules, Taistelukenttä d20, game mechanics, command points, CP, game turn, units, combat readiness, morale, skill level, movement, defense, fire attack, status effects, damaged, suppressed, retreating, hidden, combat, advantage, disadvantage, burst fire, traps, obstacles, reconnaissance, fire support, fire control, terrain">
-    <title>Taistelukenttä d20 - strateginen sotapeli</title>
+    <title>Taistelukenttä d20 - Ydinsäännöt</title>
     <!--
     ====================================================================
     TYYLITIEDOSTOT JA FONTIT
@@ -45,11 +45,11 @@
                     <ul class="top-nav-list">
                         <li><a href="index.html" class="nav-link-top">Etusivu</a></li>
                         <li><a href="ydinsaannot.html" class="nav-link-top" style="color:#C2B280;">Ydinsäännöt</a></li>
-                        <li><a href="taktisen-tason-taistelu.html" class="nav-link-top">Taktisen tason taistelu</a>
-                        </li>
-                        <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
+                        <li><a href="taktisen-tason-taistelu.html" class="nav-link-top">Taktisen tason taistelu</a></li>
+                        <li><a href="pelaajan-pikaopas.html" class="nav-link-top">Pelaajan pikaopas</a></li>
                         <li><a href="siniset-yksiköt.html" class="nav-link-top">Siniset yksiköt</a></li>
                         <li><a href="punaiset-yksiköt.html" class="nav-link-top">Punaiset yksiköt</a></li>
+                        <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
                         <li><a href="skenaariot.html" class="nav-link-top">Skenaariot</a></li>
                         <li><a href="pelinjohtajan-opas.html" class="nav-link-top">Pelinjohtajan opas</a></li>
                         <li><a href="sanasto-ja-ukk.html" class="nav-link-top">Sanasto ja UKK</a></li>
@@ -86,7 +86,7 @@
 
                 <div class="relative z-10 flex h-full items-center justify-center">
                     <h1 class="banner-title text-4xl md:text-6xl font-bold text-center">
-                        Taistelukenttä d20 – Strateginen sotapeli <br> v. Alpha
+                        Taistelukenttä d20 – Ydinsäännöt <br> v. Alpha
                     </h1>
                 </div>
 
@@ -119,7 +119,7 @@
                         tokeneita kuvaamaan joukkoja.
                     </li>
                     <li>
-                        <strong>Nopat:</strong> d20, d12, d10, d8, d6, d4 -noppia.
+                        <strong>Nopat:</strong> d20, d12, d10, d8, d6, d4, d2 -noppia.
                         <ul>
                             <li>
                                 <strong>Selvennys:</strong> Nopissa käytetty merkintä, kuten
@@ -139,57 +139,39 @@
                         kartta, GM-screeni (valinnainen), muistiinpanovälineet.
                     </li>
                 </ul>
-
-                <h4>Pikastartti</h4>
+                <h3>Pelivuoron Vaiheet</h3>
+                <p>
+                    Peli etenee vuoroissa, jotka suoritetaan samanaikaisesti kaikille
+                    osapuolille. Tämä luo dynaamisen ja arvaamattoman taistelukentän. Uusi järjestys on suunniteltu
+                    nopeuttamaan peliä ja tekemään siitä loogisemman.
+                </p>
                 <ol>
                     <li>
-                        <strong>Valmistelu:</strong>
-                        <ul>
-                            <li>Tulosta kartta (1:10 000, ruudut 10 mm).</li>
-                            <ul>
-                                <li>Itse käytin <a href="https://www.blocklayer.com/graph-paper"
-                                        target="_blank">blocklayer-verkkosivua</a>
-                                    sekä Maanmittauslaitoksen <a
-                                        href="https://asiointi.maanmittauslaitos.fi/karttapaikka/"
-                                        target="_blank">Kansalaisen
-                                        karttapaikkaa</a> kartan tekemiseen. Tulostin kartan kirjastossa. </li>
-                            </ul>
-                            <li>
-                                Aseta yksiköt kartalle, jokaisella pelaajalla 3–4 ryhmää
-                                (yksi pelaaja johtaa yhtä joukkuetta).
-                            </li>
-                            <li>
-                                Anna pelaajille 3 KP/vuoro, GM toimii vihollisjoukkojen
-                                komentajana.
-                            </li>
-                        </ul>
+                        <strong>Liikevaihe:</strong> Pelaajat siirtävät yksiköitänsä kartalla.
                     </li>
                     <li>
-                        <strong>Vuoron kulku:</strong>
-                        <ul>
-                            <li>
-                                <strong>Komentovaihe:</strong> Pelaajat käyttävät KP:t
-                                komentokäskyihin.
-                            </li>
-                            <li><strong>Liikevaihe:</strong> Siirrä yksiköt kartalla.</li>
-                            <li>
-                                <strong>Tiedustelu:</strong> TT vs. piiloutuneen yksikön
-                                suoja.
-                            </li>
-                            <li>
-                                <strong>Tulitoiminta:</strong> Kaikki ampuvat yhtä aikaa
-                                (osuma = d20 + TT + asebonus ≥ kohteen Suoja).
-                            </li>
-                            <li>
-                                <strong>Tilanne:</strong> TK:t vähenevät, tehdään
-                                moraalitestit (d20 + M).
-                            </li>
-                        </ul>
+                        <strong>Tiedusteluvaihe:</strong> Tiedustelua suorittavat yksiköt
+                        tekevät testinsä. GM paljastaa havaitut viholliset.
                     </li>
                     <li>
-                        <strong>Tavoite:</strong> Tuhota vihollista ja saavuttaa
-                        skenaarion tehtävät.
+                        <strong>Komentovaihe:</strong> Pelaajat päättävät,
+                        mitä yksiköt tekevät ja käyttävät tähän Komentopisteitä (KP). Kaikki valinnat tehdään
+                        samanaikaisesti ja paljastetaan yhtä aikaa.
                     </li>
+                    <li>
+                        <strong>Tulitoimintavaihe:</strong> Kaikki Komentovaiheessa
+                        annetut tulikomennot ovat samanaikaisia ja ne ratkaistaan yhtä
+                        aikaa. Vaikka yksikkö tuhoutuisi, se ehtii ampua oman laukauksensa tällä vuorolla.
+                    </li>
+                    <li>
+                        <strong>Tilannevaihe:</strong> Vahinkoa kärsineet yksiköt tekevät
+                        moraalitestit. Tilaefektit päivitetään. Vuoro päättyy.
+                    </li>
+                </ol>
+                <li>
+                    <strong>Tavoite:</strong> Tuhota vihollista ja saavuttaa
+                    skenaarion tehtävät.
+                </li>
                 </ol>
 
                 <h3>Komentajan Rooli ja Pelin Kulku</h3>
@@ -535,26 +517,20 @@
                 </ul>
 
                 <h4>Moraali</h4>
-                <p>
-                    Yksikön henkinen kestävyys on yhtä tärkeää kuin fyysinen. Yksikön on
-                    tehtävä <strong>Moraalitesti</strong> (d20 + Moraalibonus (M))
-                    seuraavissa tilanteissa:
-                </p>
+                <p>Yksikön henkinen kestävyys on yhtä tärkeää kuin fyysinen. Kaikilla yksiköillä, myös ajoneuvoilla, on
+                    moraaliarvo, joka edustaa miehistön kanttia. Yksikön on tehtävä <strong>Moraalitesti</strong> (d20 +
+                    Moraalibonus (M)) tietyissä tilanteissa.</p>
                 <ul>
+                    <li><strong>Epäonnistuminen:</strong> yksikkö on <strong>Lamautunut</strong>.</li>
                     <li>
-                        Kun se kärsii vahinkoa ensimmäistä kertaa taistelussa (DC 10).
-                    </li>
-                    <li>Kun sen TK putoaa alle puoleen (DC 12).</li>
-                    <li>Joutuessaan epäsuoran tulen alle (DC 13).</li>
-                    <li>
-                        Nähdessään vihollisen panssarivaunun ensimmäistä kertaa
-                        lähietäisyydellä (DC 10).
-                        <ul>
-                            <li>Lähietäisyys on 10cm säde</li>
-                        </ul>
+                        <strong>Kriittinen epäonnistuminen:</strong> Jos testin tulos on <strong>vähintään 5 pistettä
+                            alle vaaditun DC-arvon</strong>, yksikkö joutuu <strong>Vetäytyy</strong>-tilaan.
                     </li>
                     <li>
-                        Kun viereinen ystävällinen yksikkö tuhoutuu tai vetäytyy (DC 12).
+                        <strong>Taistelutahdon Nousu:</strong> Kun oma yksikkö tuhoaa vihollisyksikön tai pakottaa sen
+                        onnistuneesti "Vetäytyy"-tilaan, kaikki kyseiseen taisteluun osallistuneet omat yksiköt saavat
+                        pysyvän <strong>+1 kumulatiivisen bonuksen</strong> kaikkiin moraalitesteihinsä tämän taistelun
+                        loppuun asti.
                     </li>
                 </ul>
 
@@ -591,17 +567,6 @@
                         </tbody>
                     </table>
                 </div>
-                <ul>
-                    <li>Epäonnistuminen: yksikkö on <strong>Lamautunut</strong>.</li>
-                    <li>
-                        <strong>Kriittinen epäonnistuminen:</strong> Jos testin tulos (d20
-                        + M) on
-                        <strong>vähintään 5 pistettä alle vaaditun DC-arvon</strong>,
-                        yksikkö joutuu <strong>Vetäytyy</strong>-tilaan.
-                        <em>Esimerkki: DC on 12. Jos tulos on 7 tai alle, yksikkö
-                            vetäytyy.</em>
-                    </li>
-                </ul>
 
                 <h4>Ansat ja Sulutteet</h4>
                 <p>Tietyt yksiköt voivat asettaa taistelukentälle ansoja, kuten miinakenttiä. Näihin sovelletaan
@@ -665,7 +630,8 @@
                         suoralla tulella.
                     </li>
                     <li>
-                        <strong>Välitön Havainto:</strong> Jos tiedusteluheitto onnistuu vähintään 5 pisteellä yli kohteen suoja-arvon,
+                        <strong>Välitön Havainto:</strong> Jos tiedusteluheitto onnistuu vähintään 5 pisteellä yli
+                        kohteen suoja-arvon,
                         yksikkö havaitaan välittömästi "Havaittu"-tasolle, ohittaen aiemmat tasot.
                     </li>
                 </ol>
@@ -764,65 +730,94 @@
                         Toimintoon käytetyt Komentopisteet menetetään tältä vuorolta.</em>
                 </p>
 
-                <h4>Maaston Vaikutus</h4>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Maastotyyppi</th>
-                                <th>Liike</th>
-                                <th>Suojabonus (S)</th>
-                                <th>Piiloutumisbonus</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Tie/Aukea</strong></td>
-                                <td>+0cm</td>
-                                <td>+0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Matala maasto (kuten pelto)</strong></td>
-                                <td>-2cm</td>
-                                <td>+2</td>
-                                <td>+2</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Metsä</strong></td>
-                                <td>50%</td>
-                                <td>+4</td>
-                                <td>+4</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Rakennus/Asema</strong></td>
-                                <td>-</td>
-                                <td>+6</td>
-                                <td>+6</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <h3>Maasto ja Liike</h3>
                 <h4>Hallintavyöhyke (Zone of Control, ZoC)</h4>
                 <p>
-                    Jokaisella yksiköllä on näkymätön
-                    <strong>2 cm säteinen hallintavyöhyke</strong> ympärillään. Tämä
-                    vyöhyke kuvaa yksikön välitöntä vaikutusaluetta ja vaikeuttaa
-                    vihollisen liikkumista.
+                    Jokaisella yksiköllä on näkymätön <strong>2 cm säteinen hallintavyöhyke</strong> ympärillään.
                 </p>
                 <ul>
                     <li>
                         <strong>Liikkuminen ZoC:lle:</strong> Kun yksikkö liikutetaan
                         vihollisen hallintavyöhykkeelle, sen liike päättyy välittömästi.
-                        Se ei voi jatkaa liikettään saman vuoron aikana.
                     </li>
                     <li>
-                        <strong>Liikkuminen ZoC:n läpi:</strong> Yksikkö ei voi liikkua
-                        suoraan vihollisen hallintavyöhykkeen läpi. Sen on pysähdyttävä
-                        vyöhykkeelle. Irtautuakseen vyöhykkeeltä vaaditaan
-                        <strong>Irtautuminen</strong>-komento (2 KP).
+                        <strong>Tilaisuusisku:</strong> Jos yksikkö yrittää poistua vihollisen Hallintavyöhykkeeltä
+                        käyttämättä "Irtautuminen"-komentoa (2 KP), jokainen sen ZoC:lla oleva vihollisyksikkö saa tehdä
+                        yhden ilmaisen tilaisuusiskun (hyökkäyksen) sitä vastaan.
                     </li>
                 </ul>
+                <h4>Maaston Vaikutukset</h4>
+                <p>Maasto vaikuttaa sekä liikkumiseen, suojaan että näkyvyyteen. Ruudun maastotyyppi on se, jota
+                    ruudussa on eniten pinta-alasta. Jos ruudulla kulkee tie, yksikkö saa aina käyttää tien
+                    liikebonusta.</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Maastotyyppi</th>
+                                <th>Karttaväri</th>
+                                <th>Liikevaikutus</th>
+                                <th>Suojabonus (S)</th>
+                                <th>Näkyvyysvaikutus</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tie</strong></td>
+                                <td>Musta viiva</td>
+                                <td>+50% liike</td>
+                                <td>+0</td>
+                                <td>Ei estä</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pelto</strong></td>
+                                <td>Keltainen</td>
+                                <td>Normaali liike</td>
+                                <td>+1</td>
+                                <td>Ei estä</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Metsä</strong></td>
+                                <td>Valkoinen</td>
+                                <td>-50% liike</td>
+                                <td>+4</td>
+                                <td>Estää näköyhteyden (LoS)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tiheä metsä</strong></td>
+                                <td>Vihreä</td>
+                                <td>-75% liike</td>
+                                <td>+6</td>
+                                <td>Estää näköyhteyden (LoS)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Suo</strong></td>
+                                <td>Sininen katkoviiva</td>
+                                <td>-50% liike (ei raskaita ajoneuvoja)</td>
+                                <td>+2</td>
+                                <td>Ei estä</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Järvi</strong></td>
+                                <td>Sininen</td>
+                                <td>Ylittämätön (paitsi silta)</td>
+                                <td>N/A</td>
+                                <td>Ei estä</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rakennus/Asema</strong></td>
+                                <td>Harmaa neliö</td>
+                                <td>-</td>
+                                <td>+6</td>
+                                <td>Estää näköyhteyden (LoS)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h4>Korkeuserot</h4>
+                <p>Yksikkö, joka on selkeästi korkeammalla maastonkohdalla kuin kohde (esim. kukkulalla), saa <strong>+2
+                        bonuksen</strong> sekä tiedustelu- että hyökkäysheittoihin kyseistä kohdetta vastaan.
+                    Matalammalla oleva yksikkö kärsii vastaavasti <strong>-2 rangaistuksen</strong>.</p>
 
                 <h3>Esimerkkipeli: Operaatio Teräsvalli (Komppaniatason Taistelu)</h3>
                 <p>
