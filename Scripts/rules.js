@@ -269,21 +269,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const findNextNavigableHeader = (direction) => { //
             const allNavigableHeaders = Array.from(mainContentForScroll.querySelectorAll('h2, h3')); //
+            const navbarHeight = mainNavbar?.offsetHeight || 0; // Haetaan yläpalkin korkeus
+
             if (direction === 'up') { //
+                // Etsitään kaikki otsikot, jotka ovat näkymän yläpuolella
                 const headersAbove = allNavigableHeaders.filter(h => h.getBoundingClientRect().top < -1); //
-                return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null; //
-            } else { //
-                return allNavigableHeaders.find(h => h.getBoundingClientRect().top > 1) || null; //
+                return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null; // Palautetaan niistä viimeinen (lähin)
+            } else { // 'down'
+                // Etsitään seuraava otsikko, joka on selvästi nykyisen alapuolella (yläpalkin korkeus + 5px puskuri)
+                return allNavigableHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null; //
             }
         };
 
         const findNearestStrictHeader = (selector, direction) => { //
             const allHeaders = Array.from(mainContentForScroll.querySelectorAll(selector)); //
+            const navbarHeight = mainNavbar?.offsetHeight || 0; // Haetaan yläpalkin korkeus
+
             if (direction === 'up') { //
+                // Etsitään kaikki otsikot, jotka ovat näkymän yläpuolella
                 const headersAbove = allHeaders.filter(h => h.getBoundingClientRect().top < -1); //
-                return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null; //
-            } else { //
-                return allHeaders.find(h => h.getBoundingClientRect().top > 1) || null; //
+                return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null; // Palautetaan niistä viimeinen (lähin)
+            } else { // 'down'
+                // Etsitään seuraava otsikko, joka on selvästi nykyisen alapuolella (yläpalkin korkeus + 5px puskuri)
+                return allHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null; //
             }
         };
 
