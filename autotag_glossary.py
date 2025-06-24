@@ -24,6 +24,11 @@ GLOSSARY = {
     "TT": "taitotaso",
     "XP": "xp",
     "VP": "vp",
+    "JR": "jr",
+    "TR": "tr",
+    "KRH": "krh",
+    "M": "moraali",
+    "S": "suoja",
     
     # Käsitteet (lisää eri taivutusmuotoja tarvittaessa)
     "Ansat ja Sulutteet": "ansat ja sulutteet",

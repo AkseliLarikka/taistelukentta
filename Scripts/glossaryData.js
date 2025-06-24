@@ -27,7 +27,7 @@ const glossaryData = {
     "pelivuoron vaiheet": "Pelin ydinmekaniikka, joka jakaantuu viiteen vaiheeseen.",
     "piiloutunut": "Erityinen tilaefekti, joka estää yksikön joutumasta kohteeksi, ellei vihollinen ole hyvin lähellä.",
     "pst": "Lyhenne panssarintorjunnalle. PST-ryhmät ja -aseet ovat erikoistuneet ajoneuvojen tuhoamiseen.",
-    "suoja": "Vastaa \"Armor Classia\". Kuinka vaikea yksikkö on osua.",
+    "suoja": "Vastaa panssaroinnin tasoa. Kuinka vaikea yksikköön on osua.",
     "sodan sumu": "Pelin keskeinen teema, joka simuloi epätäydellistä tietoa vihollisen sijainnista ja vahvuudesta. Tiedustelu on avain sen hälventämiseen.",
     "tuli-isku": "Vahinkoarvo, jota käytetään osumien jälkeen.",
     "tilaefektit": "Yksiköiden toimintakykyyn vaikuttavat tilat (Vaurioitunut, Lamautunut, Vetäytyy).",
@@ -35,5 +35,8 @@ const glossaryData = {
     "taitotaso": "Yksikön osaaminen. Lasketaan: Koulutus + Kokemus.",
     "vastakkainen heitto": "Tilanne, jossa kaksi osapuolta heittää noppaa, ja heittojen tuloksia verrataan toisiinsa. Esimerkiksi tiedustelussa tiedustelijan heittoa verrataan kohteen heittoon.",
     "vp": "Mittaa taistelun tai kampanjan menestystä.",
-    "xp": "Yksikön taistelukokemusta. Lisää yksikön tehokkuutta kampanjapelissä."
+    "xp": "Yksikön taistelukokemusta. Lisää yksikön tehokkuutta kampanjapelissä.",
+    "jr": "Lyhenne jääkäriryhmälle. Jääkärit ovat suomalaisen sotilasdoktriinin selkäranka.",
+    "tr": "Lyhenne tukiryhmälle. Tukiryhmät ovat erikoistuneet konekiväärien ja lamauttavan tulen käyttöön.",
+    "krh": "Lyhenne kranaatinheittimelle. KRH-ryhmät ovat erikoistuneet tarkan orgaanisen epäsuorantulen käyttöön.",
 };
