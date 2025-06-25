@@ -332,6 +332,93 @@
                         kehitystyön alla.
                     </figcaption>
                 </figure>
+                <section id="gm-tool">
+                    <h2>Pelinjohtajan Työkalupakki</h2>
+                    <p>Tämä työkalu auttaa sinua hallinnoimaan peliä. Tiedot tallennetaan automaattisesti selaimeesi.
+                    </p>
+
+                    <div class="gm-tool-container">
+                        <div class="gm-tool-tabs">
+                            <button class="gm-tab-button active" data-tab="tab-overview">Yleiskatsaus</button>
+                            <button class="gm-tab-button" data-tab="tab-units">Yksiköt</button>
+                            <button class="gm-tab-button" data-tab="tab-firesupport">Tulituki</button>
+                            <button class="gm-tab-button" data-tab="tab-notes">Muistiinpanot</button>
+                        </div>
+
+                        <div class="gm-tool-content">
+                            <div id="tab-overview" class="gm-tab-pane active">
+                                <h3>Yleiskatsaus</h3>
+                                <div class="gm-overview-grid">
+                                    <div class="gm-tracker">
+                                        <label for="turn-counter-input">Pelivuoro</label>
+                                        <div class="gm-tracker-controls">
+                                            <button id="turn-decrement">-</button>
+                                            <input type="number" id="turn-counter-input" class="gm-tracker-display"
+                                                value="1" min="1">
+                                            <button id="turn-increment">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="gm-tracker">
+                                        <label for="kp-pool-input">Punaisen Komentopisteet (KP)</label>
+                                        <div class="gm-tracker-controls">
+                                            <button id="kp-decrement">-</button>
+                                            <input type="number" id="kp-pool-input" class="gm-tracker-display" value="0"
+                                                min="0">
+                                            <button id="kp-increment">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="gm-tracker">
+                                        <label for="blue-vp-input">Sinisen Voittopisteet (VP)</label>
+                                        <div class="gm-tracker-controls">
+                                            <button id="blue-vp-decrement">-</button>
+                                            <input type="number" id="blue-vp-input" class="gm-tracker-display" value="0"
+                                                min="0">
+                                            <button id="blue-vp-increment">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="gm-tracker">
+                                        <label for="red-vp-input">Punaisen Voittopisteet (VP)</label>
+                                        <div class="gm-tracker-controls">
+                                            <button id="red-vp-decrement">-</button>
+                                            <input type="number" id="red-vp-input" class="gm-tracker-display" value="0"
+                                                min="0">
+                                            <button id="red-vp-increment">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="tab-units" class="gm-tab-pane">
+                                <h3>Yksiköiden Hallinta</h3>
+                                <div class="gm-unit-form">
+                                    <input type="text" id="unit-name-input"
+                                        placeholder="Yksikön nimi (esim. T-72B3 'Ural')">
+                                    <button id="add-unit-button">Lisää Yksikkö</button>
+                                </div>
+                                <div id="unit-list">
+                                </div>
+                            </div>
+
+                            <div id="tab-firesupport" class="gm-tab-pane">
+                                <h3>Tulituen Seuranta</h3>
+                                <div class="gm-unit-form">
+                                    <input type="text" id="firesupport-desc-input"
+                                        placeholder="Tuen kuvaus (esim. 120mm KRH -> G7)">
+                                    <input type="number" id="firesupport-turn-input" placeholder="Saapumisvuoro">
+                                    <button id="add-firesupport-button">Lisää Tulituki</button>
+                                </div>
+                                <ul id="firesupport-list">
+                                </ul>
+                            </div>
+
+                            <div id="tab-notes" class="gm-tab-pane">
+                                <h3>Muistiinpanot</h3>
+                                <textarea id="gm-notes"
+                                    placeholder="Kirjoita salaiset muistiinpanosi tähän..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </section>
 
 
@@ -401,6 +488,7 @@
     <script src="Scripts/rules.js"></script>
     <script src="Scripts/glossaryData.js"></script>
     <script src="Scripts/popup.js"></script>
+    <script src="Scripts/gm-tool.js"></script>
 </body>
 
 </html>
