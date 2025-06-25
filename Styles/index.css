@@ -592,7 +592,7 @@ header {
     font-size: 2.25rem;
     color: #556B2F !important;
     line-height: 1;
-    /* Haettu väri rules.css:stä */
+    max-width: none;
 }
 
 .prose h2 {
@@ -666,7 +666,8 @@ header {
 /* --- Sanaston erikoistyylit --- */
 /* Tyyli sanastotermeille leipätekstissä */
 .glossary-term {
-    color: #556B2F; /* Pelin teemaväri */
+    color: #556B2F;
+    /* Pelin teemaväri */
     font-weight: bold;
     border-bottom: 1px dotted #556B2F;
     cursor: pointer;
@@ -681,15 +682,19 @@ header {
 /* Itse pop-up-ruudun tyyli */
 .glossary-popup {
     position: absolute;
-    display: none; /* Oletuksena piilossa */
+    display: none;
+    /* Oletuksena piilossa */
     background-color: #ffffff;
-    border: 1px solid #d6d3d1; /* stone-300 */
-    border-radius: 0.375rem; /* rounded-md */
+    border: 1px solid #d6d3d1;
+    /* stone-300 */
+    border-radius: 0.375rem;
+    /* rounded-md */
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     padding: 1rem;
     margin: 1rem;
     max-width: 350px;
-    z-index: 100; /* Varmistaa, että on muiden elementtien päällä */
+    z-index: 100;
+    /* Varmistaa, että on muiden elementtien päällä */
     font-size: 0.9rem;
     line-height: 1.5;
 }
@@ -811,6 +816,13 @@ header {
     text-align: center;
 }
 
+@media (min-width: 768px) {
+    .banner-title {
+        font-size: 3.75rem;
+        /* 6xl Tailwindissa */
+    }
+}
+
 /* ==================================================================== */
 /* 5. APUOHJELMA- JA ERIKOISTYYLIT (esim. PDF, vieritysnapit)         */
 /* ==================================================================== */
@@ -928,6 +940,8 @@ header {
     /* Piilotettu oletuksena */
     transform-origin: bottom center;
     transition: all 0.2s ease-in-out;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 
 .scroll-legend-panel.is-visible {
@@ -955,6 +969,11 @@ header {
     height: 24px;
     flex-shrink: 0;
     object-fit: contain;
+}
+
+#scroll-info-toggle svg {
+    width: 1.5rem; /* 24px */
+    height: 1.5rem; /* 24px */
 }
 
 /* --- Erikoissäiliöt (PDF, jne.) --- */
@@ -1141,9 +1160,12 @@ header {
         height: 1.5rem;
         padding: 0.05rem;
     }
+
     #menu-toggle svg {
-        width: 100%; /* Vie koko vanhemman leveys */
-        height: 100%; /* Vie koko vanhemman korkeus */
+        width: 100%;
+        /* Vie koko vanhemman leveys */
+        height: 100%;
+        /* Vie koko vanhemman korkeus */
     }
 
     /* Pudotusvalikon container mobiilissa */
@@ -1401,27 +1423,87 @@ header {
 
 /* Tämä sääntö koskee kaikkia linkkejä leipätekstissä (.prose-luokan sisällä) */
 .prose a {
-  color: #556B2F;           /* Tumma oliivinvihreä, sama kuin otsikoissa */
-  font-weight: 600;          /* Puolilihavoitu, jotta linkki erottuu selvästi */
-  text-decoration: none;     /* Poistetaan selaimen oletusalleviivaus */
-  border-bottom: 1px solid #C2B280; /* Lisätään hienovarainen alleviivaus tehostevärillä (hiekka/kulta) */
-  transition: color 0.2s, border-bottom-color 0.2s; /* Pehmeä siirtymä hover-efektille */
-  padding-bottom: 1px;       /* Pieni tila tekstin ja alleviivauksen välille */
+    color: #556B2F;
+    /* Tumma oliivinvihreä, sama kuin otsikoissa */
+    font-weight: 600;
+    /* Puolilihavoitu, jotta linkki erottuu selvästi */
+    text-decoration: none;
+    /* Poistetaan selaimen oletusalleviivaus */
+    border-bottom: 1px solid #C2B280;
+    /* Lisätään hienovarainen alleviivaus tehostevärillä (hiekka/kulta) */
+    transition: color 0.2s, border-bottom-color 0.2s;
+    /* Pehmeä siirtymä hover-efektille */
+    padding-bottom: 1px;
+    /* Pieni tila tekstin ja alleviivauksen välille */
 }
 
 /* Kun hiiren kursori viedään linkin päälle */
 .prose a:hover {
-  color: #1C1917;             /* Tekstin väri muuttuu tummaksi perusleipätekstin väriseksi */
-  border-bottom-color: #556B2F; /* Alleviivaus muuttuu tummanvihreäksi tehostaen sitä */
+    color: #1C1917;
+    /* Tekstin väri muuttuu tummaksi perusleipätekstin väriseksi */
+    border-bottom-color: #556B2F;
+    /* Alleviivaus muuttuu tummanvihreäksi tehostaen sitä */
 }
 
 /* Bannerin taustakuva, joka suosii WebP-formaattia */
 .main-banner {
-    background-image: url('../images/bannertkd.jpg'); /* Varakuva vanhoille selaimille */
+    background-image: url('../images/bannertkd.jpg');
+    /* Varakuva vanhoille selaimille */
 }
 
 @supports (background-image: url('../images/bannertkd.webp')) {
     .main-banner {
-        background-image: url('../images/bannertkd.webp'); /* Uudempi, tehokkaampi kuva */
+        background-image: url('../images/bannertkd.webp');
+        /* Uudempi, tehokkaampi kuva */
     }
+}
+
+/* -------------------------------------------------------------------- */
+/* UUSI KOMPONENTTI: Call-to-Action (CTA) -laatikko                     */
+/* Korvaa HTML:n div.cta-box                                            */
+/* -------------------------------------------------------------------- */
+.cta-box {
+    background-color: #F5E8C7;
+    /* Lämmin tehosteväri */
+    border-left: 4px solid #556B2F;
+    /* Teeman pääväri korostuksena */
+    padding: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0.375rem;
+}
+
+.cta-box h2 {
+    color: #556B2F;
+    margin-top: 0;
+    /* Nollaa oletusmarginaali */
+    font-size: 1.5rem;
+}
+
+.cta-box p {
+    margin-bottom: 1rem;
+}
+
+/* UUSI KOMPONENTTI: Call-to-Action (CTA) -nappi                       */
+/* Korvaa HTML:n a.cta-button                                         */
+.cta-button {
+    display: inline-block;
+    background-color: #556B2F;
+    /* Teeman pääväri */
+    color: #1C1917 !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: none;
+    /* Kumotaan yleinen linkin alleviivaus */
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #4A5D23;
+    /* Hieman tummempi sävy hoverilla */
+    color: #1C1917 !important;
+    transform: translateY(-2px);
+    border-bottom: none;
 }

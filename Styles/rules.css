@@ -1945,11 +1945,159 @@ a:has(> .lisenssi-kuvake-yksi):hover {
 
 /* Bannerin taustakuva, joka suosii WebP-formaattia */
 .main-banner {
-    background-image: url('../images/bannertkd.jpg'); /* Varakuva vanhoille selaimille */
+    background-image: url('../images/bannertkd.jpg');
+    /* Varakuva vanhoille selaimille */
 }
 
 @supports (background-image: url('../images/bannertkd.webp')) {
     .main-banner {
-        background-image: url('../images/bannertkd.webp'); /* Uudempi, tehokkaampi kuva */
+        background-image: url('../images/bannertkd.webp');
+        /* Uudempi, tehokkaampi kuva */
     }
+}
+
+/* ==================================================================== */
+/* LISÄYKSET TIEDOSTOISTA (siniset-yksiköt, pikaopas, jne.)             */
+/* ==================================================================== */
+
+/* -------------------------------------------------------------------- */
+/* Pelaajan Pikaopas: Yksikkösuodatin ja laskurit (siirretty <style>-blokista) */
+/* -------------------------------------------------------------------- */
+.unit-filter-container {
+    background-color: #f5f5f4;
+    /* stone-100 */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid #e7e5e4;
+    /* stone-200 */
+}
+
+.unit-checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.unit-checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border-radius: 9999px;
+    /* rounded-full */
+    border: 1px solid #d6d3d1;
+    /* stone-300 */
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.unit-checkbox-label:hover {
+    background-color: #f5e8c7;
+    /* Vaalea tehosteväri */
+}
+
+.unit-checkbox-label input {
+    margin-right: 0.5rem;
+}
+
+.unit-checkbox-label input:checked+span {
+    font-weight: bold;
+    color: #556B2F;
+    /* Teeman pääväri */
+}
+
+/* Pikaopas: Laskurien napit ja syötekentät */
+#distance-input,
+#liike-arvo,
+#matka-tie,
+#matka-pelto,
+#matka-metsa,
+#matka-tihea-metsa {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #d6d3d1;
+    width: 100%;
+}
+
+#calculate-distance,
+#calculate-liike {
+    padding: 0.5rem 1rem;
+    background-color: #556B2F;
+    color: white;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    border: none;
+}
+
+#calculate-liike {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+}
+
+#distance-output,
+#liike-output {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+#liike-output {
+    padding: 1rem;
+    background-color: #e7e5e4;
+    /* stone-200 */
+    border-radius: 0.25rem;
+    min-height: 50px;
+}
+
+/* -------------------------------------------------------------------- */
+/* Pelinjohtajan opas: Keskitetty kuvake ("Työn alla")                  */
+/* Korvaa: text-center, mx-auto, my-4, h-48                             */
+/* -------------------------------------------------------------------- */
+.figure-centered-icon {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.figure-centered-icon img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 12rem;
+    /* 12rem = 48 * 0.25rem */
+}
+
+/* -------------------------------------------------------------------- */
+/* Tietoja-sivu: Muutoshistoria-linkin ja lisenssien tyylit (siirretty inline-tyyleistä) */
+/* -------------------------------------------------------------------- */
+.changelog-links {
+    list-style-type: none !important;
+    padding-left: 0;
+}
+
+.changelog-links a {
+    text-decoration: underline;
+}
+
+/* Muokataan olemassa olevaa sääntöä poistamalla siitä justify-content, jotta inline-tyyli ei ole tarpeen */
+.lisenssi-container {
+    display: flex;
+    /* Varmistetaan flex, jos se puuttui */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid #e5e7eb;
+    justify-content: flex-start;
+    /* Uusi lisäys */
+}
+
+.lisenssi-kuvake-yksi {
+    height: 7rem;
+    /* Siirretty inline-tyylistä */
+    vertical-align: middle;
+    transition: opacity 0.2s ease-in-out;
 }

@@ -2,11 +2,6 @@
 <html lang="fi">
 
 <head>
-    <!--
-    ====================================================================
-    METATIEDOT JA SIVUN ASETUKSET
-    ====================================================================
-    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, noimageindex, noarchive">
@@ -17,11 +12,6 @@
     <meta name="keywords" lang="en"
         content="company level combat, Taistelukenttä d20, commanding, command points, CP, Company Commander, Platoon Leader, tactical abilities, fire support request, encirclement tactic, suppressing fire, organized withdrawal, confirmed target, fog of war, reconnaissance, fire control, morale test, wargame, strategy game, d20 system, D&D, dice game, rules, Finnish wargame">
     <title>Taistelukenttä d20 - Taktisen tason taistelu</title>
-    <!--
-    ====================================================================
-    TYYLITIEDOSTOT JA FONTIT
-    ====================================================================
-    -->
     <link rel="icon" type="image/x-icon" href="images/tkd20ikoni.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,12 +20,11 @@
     <link rel="stylesheet" type="text/css" href="Styles/rules.css">
 </head>
 
-<body class="text-stone-900">
+<body>
     <header id="main-navbar">
-        <div class="container mx-auto flex items-center">
-            <div class="header-left-spacer md:hidden"></div>
-
-            <div id="navbar-dropdown-container" class="relative">
+        <div class="container">
+            <div class="header-left-spacer"></div>
+            <div id="navbar-dropdown-container">
                 <a href="#" id="current-page-name" class="home-link">Taktisen tason taistelu</a>
                 <nav id="main-navbar-content">
                     <ul class="top-nav-list">
@@ -54,33 +43,26 @@
                     </ul>
                 </nav>
             </div>
-
-            <div class="header-right-spacer md:hidden"></div>
+            <div class="header-right-spacer"></div>
         </div>
     </header>
-    <div id="sidebar"
-        class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-20 p-4 overflow-y-auto sidebar-hidden md:sidebar-visible md:translate-x-0">
+
+    <div id="sidebar" class="sidebar-hidden">
         <h1 class="sidebar-title">Sisällysluettelo</h1>
-        <nav id="nav-menu" class="space-y-1"></nav>
+        <nav id="nav-menu"></nav>
     </div>
 
-
-    <button id="menu-toggle" class="md:hidden fixed top-4 left-4 z-55 p-2 bg-white rounded-md shadow-md" aria-label="Avaa Sisällysluettelo">
+    <button id="menu-toggle" aria-label="Avaa Sisällysluettelo">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
     </button>
 
-    <!--
-    ====================================================================
-    PÄÄSISÄLTÖ (MAIN CONTENT)
-    ====================================================================
-    -->
     <main id="main-content">
-        <div class="prose max-w-none">
+        <div class="prose">
             <div class="main-banner">
-                <div class="relative z-10 flex h-full items-center justify-center">
-                    <h1 class="banner-title text-4xl md:text-6xl text-center">
+                <div>
+                    <h1 class="banner-title">
                         Taistelukenttä d20 – Taktisen tason taistelu <br> v. Alpha
                     </h1>
                 </div>
