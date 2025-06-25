@@ -14,8 +14,8 @@
     <title>Taistelukenttä d20 - Strateginen sotapeli</title>
     <link rel="icon" type="image/x-icon" href="images/tkd20ikoni.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="Styles/index.css">
 </head>
@@ -54,7 +54,8 @@
     </div>
 
 
-    <button id="menu-toggle" class="md:hidden fixed top-4 left-4 z-55 p-2 bg-white rounded-md shadow-md">
+    <button id="menu-toggle" class="md:hidden fixed top-4 left-4 z-55 p-2 bg-white rounded-md shadow-md"
+        aria-label="Avaa Sisällysluettelo">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -63,7 +64,7 @@
     <main id="main-content" class="md:ml-64 p-4 md:p-8">
         <div class="prose max-w-none">
 
-            <div class="main-banner" style="background-image: url('images/bannertkd.jpg');">
+            <div class="main-banner">
                 <div class="relative z-10 flex h-full items-center justify-center">
                     <h1 class="banner-title text-4xl md:text-6xl text-center">
                         Taistelukenttä d20 – Strateginen sotapeli <br> v. Alpha
@@ -301,7 +302,8 @@
         </div>
 
         <div class="scroll-row">
-            <button id="scroll-info-toggle" title="Näytä ohjeet" class="scroll-button info-button">
+            <button id="scroll-info-toggle" title="Näytä ohjeet" class="scroll-button info-button"
+                aria-label="Navigointi nappien infonappi">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -312,24 +314,30 @@
 
         <div class="scroll-row">
             <div class="scroll-column">
-                <button id="scroll-top" title="Sivun alkuun (Kersantti)" class="scroll-button">
+                <button id="scroll-top" title="Sivun alkuun (Kersantti)" class="scroll-button"
+                    aria-label="Sivun alkuun">
                     <img src="images/Kersantti_hihalaatta.svg.png" alt="Sivun alkuun">
                 </button>
-                <button id="scroll-h2-up" title="Edellinen pääotsikko (Alikersantti)" class="scroll-button">
+                <button id="scroll-h2-up" title="Edellinen pääotsikko (Alikersantti)" class="scroll-button"
+                    aria-label="Edellinen pääotsikko">
                     <img src="images/Alikersantti_hihalaatta.svg.png" alt="Edellinen pääotsikko">
                 </button>
-                <button id="scroll-h3-up" title="Edellinen otsikko (Korpraali)" class="scroll-button">
+                <button id="scroll-h3-up" title="Edellinen otsikko (Korpraali)" class="scroll-button"
+                    aria-label="Edellinen otsikko">
                     <img src="images/Korpraali_hihalaatta.svg.png" alt="Edellinen otsikko">
                 </button>
             </div>
             <div class="scroll-column">
-                <button id="scroll-bottom" title="Sivun loppuun (Kersantti)" class="scroll-button">
+                <button id="scroll-bottom" title="Sivun loppuun (Kersantti)" class="scroll-button"
+                    aria-label="Sivun loppuun">
                     <img src="images/Kersantti_hihalaatta.svg.png" alt="Sivun loppuun" class="invert-icon">
                 </button>
-                <button id="scroll-h2-down" title="Seuraava pääotsikko (Alikersantti)" class="scroll-button">
+                <button id="scroll-h2-down" title="Seuraava pääotsikko (Alikersantti)" class="scroll-button"
+                    aria-label="Seuraava pääotsikko">
                     <img src="images/Alikersantti_hihalaatta.svg.png" alt="Seuraava pääotsikko" class="invert-icon">
                 </button>
-                <button id="scroll-h3-down" title="Seuraava otsikko (Korpraali)" class="scroll-button">
+                <button id="scroll-h3-down" title="Seuraava otsikko (Korpraali)" class="scroll-button"
+                    aria-label="Seuraava otsikko">
                     <img src="images/Korpraali_hihalaatta.svg.png" alt="Seuraava otsikko" class="invert-icon">
                 </button>
             </div>
@@ -344,7 +352,7 @@
             // ... (dynaamisen sisällön latauslogiikka ennallaan) ...
             if (currentFileName !== 'index.html') {
                 const baseFileName = currentFileName.replace('.html', '');
-                fetch(`content/${baseFileName}-content.html`)
+                fetch(`${baseFileName}-index.html`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error(`HTTP error! status: ${response.status}`);

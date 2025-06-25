@@ -954,6 +954,7 @@ header {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
+    object-fit: contain;
 }
 
 /* --- Erikoissäiliöt (PDF, jne.) --- */
@@ -1412,4 +1413,15 @@ header {
 .prose a:hover {
   color: #1C1917;             /* Tekstin väri muuttuu tummaksi perusleipätekstin väriseksi */
   border-bottom-color: #556B2F; /* Alleviivaus muuttuu tummanvihreäksi tehostaen sitä */
+}
+
+/* Bannerin taustakuva, joka suosii WebP-formaattia */
+.main-banner {
+    background-image: url('../images/bannertkd.jpg'); /* Varakuva vanhoille selaimille */
+}
+
+@supports (background-image: url('../images/bannertkd.webp')) {
+    .main-banner {
+        background-image: url('../images/bannertkd.webp'); /* Uudempi, tehokkaampi kuva */
+    }
 }

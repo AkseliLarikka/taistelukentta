@@ -917,8 +917,6 @@ header {
     /* */
     margin: 0 1.5em;
     /* */
-    color: #FDF6E3 !important;
-    /* */
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
     /* */
     background-color: rgba(47, 54, 31, 0.75);
@@ -1242,6 +1240,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
+    object-fit: contain;
 }
 
 /* --- Erikoissäiliöt (PDF, jne.) --- */
@@ -1942,4 +1941,15 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     /* stone-50, hyvin vaalea tausta */
     border-top: 1px solid #E7E5E4;
     /* Reuna kuvan ja tekstin välissä */
+}
+
+/* Bannerin taustakuva, joka suosii WebP-formaattia */
+.main-banner {
+    background-image: url('../images/bannertkd.jpg'); /* Varakuva vanhoille selaimille */
+}
+
+@supports (background-image: url('../images/bannertkd.webp')) {
+    .main-banner {
+        background-image: url('../images/bannertkd.webp'); /* Uudempi, tehokkaampi kuva */
+    }
 }
