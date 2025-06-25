@@ -1,25 +1,11 @@
 /*
- * Taistelukenttä d20 -projektin päätyylitiedosto.
- *
- * Tämä tiedosto sisältää kaikki sivuston ulkoasuun liittyvät määritykset,
- * mukaan lukien Tailwindin perusnollaukset (Preflight), perus- ja typografiatyylit,
- * komponenttien muotoilut sekä responsiiviset säännöt eri näyttöko'ille.
- *
- * Rakenne:
- * 1. Tailwind Preflight (Reset-tyylit)
- * 2. Perustyylit ja Teeman ylikirjoitukset
- * 3. Typografia (Prose)
- * 4. Komponenttikohtaiset tyylit (Sivupalkki, Kortit, Napit jne.)
- * 5. Apuohjelma- ja erikoistyylit
- * 6. Responsiiviset tyylit (Media Queries)
+ * Taistelukenttä d20 -projektin etusivun (index.html) tyylitiedosto.
+ * VERSIO 2: Palautettu alkuperäinen navigaation ja bannerin otsikon toiminnallisuus.
  */
 
 /* ==================================================================== */
-/* 1. TAILWIND PREFLIGHT (RESET-TYYLIT)                                 */
-/* Nämä tyylit nollaavat selaimen oletustyylejä. Ne vastaavat Tailwindin */
-/* perusnollausta.                                                      */
+/* 1. PERUSNOLLAUKSET (PREFLIGHT)                                       */
 /* ==================================================================== */
-
 *,
 ::before,
 ::after {
@@ -27,59 +13,6 @@
     border-width: 0;
     border-style: solid;
     border-color: #e5e7eb;
-    --tw-border-spacing-x: 0;
-    --tw-border-spacing-y: 0;
-    --tw-translate-x: 0;
-    --tw-translate-y: 0;
-    --tw-rotate: 0;
-    --tw-skew-x: 0;
-    --tw-skew-y: 0;
-    --tw-scale-x: 1;
-    --tw-scale-y: 1;
-    --tw-pan-x: ;
-    --tw-pan-y: ;
-    --tw-pinch-zoom: ;
-    --tw-scroll-snap-strictness: proximity;
-    --tw-gradient-from-position: ;
-    --tw-gradient-via-position: ;
-    --tw-gradient-to-position: ;
-    --tw-ordinal: ;
-    --tw-slashed-zero: ;
-    --tw-numeric-figure: ;
-    --tw-numeric-spacing: ;
-    --tw-numeric-fraction: ;
-    --tw-ring-inset: ;
-    --tw-ring-offset-width: 0px;
-    --tw-ring-offset-color: #fff;
-    --tw-ring-color: rgb(59 130 246 / 0.5);
-    --tw-ring-offset-shadow: 0 0 #0000;
-    --tw-ring-shadow: 0 0 #0000;
-    --tw-blur: ;
-    --tw-brightness: ;
-    --tw-contrast: ;
-    --tw-grayscale: ;
-    --tw-hue-rotate: ;
-    --tw-invert: ;
-    --tw-saturate: ;
-    --tw-sepia: ;
-    --tw-drop-shadow: ;
-    --tw-backdrop-blur: ;
-    --tw-backdrop-brightness: ;
-    --tw-backdrop-contrast: ;
-    --tw-backdrop-grayscale: ;
-    --tw-backdrop-hue-rotate: ;
-    --tw-backdrop-invert: ;
-    --tw-backdrop-opacity: ;
-    --tw-backdrop-saturate: ;
-    --tw-backdrop-sepia: ;
-    --tw-contain-size: ;
-    --tw-contain-layout: ;
-    --tw-contain-paint: ;
-}
-
-::before,
-::after {
-    --tw-content: '';
 }
 
 html {
@@ -87,25 +20,23 @@ html {
     -webkit-text-size-adjust: 100%;
     -moz-tab-size: 4;
     tab-size: 4;
-    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-feature-settings: normal;
-    font-variation-settings: normal;
+    font-family: ui-sans-serif, system-ui, sans-serif;
     -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     line-height: inherit;
+    background-color: #F5F5F4;
+    color: #1C1917;
+    font-family: 'Inter', sans-serif;
 }
 
 hr {
     height: 0;
     color: inherit;
     border-top-width: 1px;
-}
-
-abbr:where([title]) {
-    text-decoration: underline dotted;
 }
 
 h1,
@@ -128,245 +59,59 @@ strong {
     font-weight: bolder;
 }
 
-code,
-kbd,
-samp,
-pre {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    font-feature-settings: normal;
-    font-variation-settings: normal;
-    font-size: 1em;
-}
-
-small {
-    font-size: 80%;
-}
-
-sub,
-sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-}
-
-sub {
-    bottom: -0.25em;
-}
-
-sup {
-    top: -0.5em;
-}
-
-table {
-    text-indent: 0;
-    border-color: inherit;
-    border-collapse: collapse;
-}
-
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-    -webkit-appearance: button;
-    background-color: transparent;
-    background-image: none;
-}
-
-:-moz-focusring {
-    outline: auto;
-}
-
-:-moz-ui-invalid {
-    box-shadow: none;
-}
-
-progress {
-    vertical-align: baseline;
-}
-
-::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
-    height: auto;
-}
-
-[type='search'] {
-    -webkit-appearance: textfield;
-    outline-offset: -2px;
-}
-
-::-webkit-search-decoration {
-    -webkit-appearance: none;
-}
-
-::-webkit-file-upload-button {
-    -webkit-appearance: button;
-    font: inherit;
-}
-
-summary {
-    display: list-item;
-}
-
+p,
 blockquote,
-dl,
-dd,
+figure,
 h1,
 h2,
 h3,
 h4,
-h5,
-h6,
-hr,
-figure,
-p,
-pre {
+hr {
     margin: 0;
 }
 
-fieldset {
-    margin: 0;
-    padding: 0;
-}
-
-legend {
-    padding: 0;
-}
-
-ol,
-ul {
+ul,
+ol {
     list-style: unset;
     margin: 0;
     padding: 0;
 }
 
-menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-textarea {
-    resize: vertical;
-}
-
-input::placeholder,
-textarea::placeholder {
-    opacity: 1;
-    color: #9ca3af;
+img,
+svg,
+video,
+canvas {
+    display: block;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
 }
 
 button,
 [role="button"] {
     cursor: pointer;
+    background-color: transparent;
+    background-image: none;
 }
 
 :disabled {
     cursor: default;
 }
 
-img,
-svg,
-video,
-canvas,
-audio,
-iframe,
-embed,
-object {
-    display: block;
-    vertical-align: middle;
-}
-
-img,
-video {
-    max-width: 100%;
-    height: auto;
-}
-
-[hidden] {
-    display: none;
-}
-
 /* ==================================================================== */
-/* 2. PERUSTYYLIT JA TEEMAN YLIKIRJOITUKSET                             */
+/* 2. YLÄNAVIGAATIO (PALAUTETTU ALKUPERÄISEEN)                          */
 /* ==================================================================== */
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: #F5F5F4;
-    /* stone-100 */
-    color: #1C1917;
-    /* stone-900 */
-    font-family: 'Inter', sans-serif;
-}
-
-/* ==================================================================== */
-/* --- Banneri --- */
-/* ==================================================================== */
-
-.main-banner {
-    position: relative;
-    height: 24rem;
-    /* h-96 */
-    width: 100%;
-    /* w-full */
-    background-size: cover;
-    /* bg-cover */
-    background-position: center;
-    /* bg-center */
-    margin-bottom: 2rem;
-    /* mb-8 */
-
-    /* Lisätyt Flexbox-ominaisuudet sisällön keskittämiseen */
-    display: flex;
-    align-items: center;
-    /* items-center (keskittää vertikaalisesti) */
-    justify-content: center;
-    /* justify-center (keskittää horisontaalisesti) */
-}
-
-/* Sisempi div, joka käärii bannerin otsikon */
-.main-banner>div {
-    position: relative;
-    /* relative */
-    z-index: 10;
-    /* z-10 */
-    display: flex;
-    /* flex */
-    height: 100%;
-    /* h-full */
-    align-items: center;
-    /* items-center */
-    justify-content: center;
-    /* justify-center */
-    width: 100%;
-    /* varmistaa, että ottaa kaiken leveyden käytettäväksi */
-}
-
-/* ==================================================================== */
-/* --- Ylänavigaatio (Top Navbar) - Yleiset tyylit --- */
-/* Nämä tyylit koskevat sekä mobiili- että työpöytänäkymää, ellei media-kysely yliajaa. */
-/* ==================================================================== */
-
-/* Header (yläpalkin säiliö) */
 header {
     background-color: #2F361F;
-    /* Tumma oliivi */
     color: #FDF6E3;
-    /* Vaalea hiekka */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 40;
-    /* Alempi kuin sivupalkin toggle-nappi (z-50) */
     box-sizing: border-box;
 }
 
-/* Headerin container - säätää elementtien asettelua yläpalkissa */
 #main-navbar .container {
     display: flex;
     align-items: center;
@@ -374,20 +119,17 @@ header {
     margin-left: auto;
     margin-right: auto;
     padding: 1rem;
-    height: fit-content;
+    height: 100%;
 }
 
-/* Pudotusvalikon container, joka sisältää "nykyisen sivun nimen" ja varsinaisen dropdownin */
 #navbar-dropdown-container {
     position: relative;
     display: flex;
     align-items: center;
     height: 100%;
     flex-grow: 1;
-    /* Ottaa kaiken vapaan tilan headerissa */
 }
 
-/* "Nykyisen sivun nimi" (home-link) - toimii myös dropdownin avaajana mobiilissa */
 #current-page-name {
     display: block;
     padding: 0.375rem 1rem;
@@ -405,14 +147,12 @@ header {
     color: #C2B280;
 }
 
-/* Nuoli current-page-name:n perään */
 #current-page-name::after {
     content: '▼';
     font-size: 0.8em;
     margin-left: 0.5em;
     position: absolute;
     right: 1rem;
-    /* Sijoita nuoli oikeaan laitaan elementin sisällä */
     top: 50%;
     transform: translateY(-50%);
     transition: transform 0.2s ease-in-out;
@@ -422,25 +162,6 @@ header {
     transform: translateY(-50%) rotate(180deg);
 }
 
-/* Varsinainen navigaation sisältö (pudotusvalikko mobiilissa, normaali palkki työpöydällä) */
-#main-navbar-content {
-    display: flex;
-    flex-direction: row;
-    /* Oletuksena rivissä (työpöytä) */
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
-    width: auto;
-    background-color: transparent;
-    position: static;
-    /* Oletuksena staattinen (työpöytä) */
-    transform: none;
-    transition: all 0.3s ease-in-out;
-    z-index: auto;
-    /* pointer-events: auto; Tämä voi olla ongelma mobiilissa, käsitellään media-kyselyssä */
-}
-
-/* Ylänavigaation lista */
 .top-nav-list {
     display: flex;
     flex-wrap: wrap;
@@ -448,267 +169,31 @@ header {
     padding: 0;
     margin: 0;
     gap: 0.5rem;
-    justify-content: center;
 }
 
-/* Ylänavigaation yksittäiset linkit */
 .nav-link-top {
     display: block;
     padding: 0.375rem 1rem;
     border-radius: 0.375rem;
     color: #FDF6E3;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s, color 0.2s;
     white-space: nowrap;
 }
 
 .nav-link-top:hover {
     background-color: #556B2F;
-    color: #FDF6E3;
 }
 
 /* ==================================================================== */
-/* Mobiilin navigaation toggle-painike (vain sivupalkille) - Yleiset tyylit */
-/* ==================================================================== */
-#menu-toggle {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    /* Vasempaan reunaan */
-    z-index: 50;
-    padding: 0.5rem;
-    background-color: white;
-    border-radius: 0.375rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e5e7eb;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Headerin välipalat mobiilissa, piilotettu työpöydällä */
-.header-left-spacer,
-.header-right-spacer {
-    height: 1px;
-    flex-grow: 1;
-    display: block;
-    /* Näytetään mobiilissa */
-}
-
-
-/* ==================================================================== */
-/* TYÖPÖYTÄNÄKYMÄN ASETUKSET (min-width: 768px) */
-/* ==================================================================== */
-@media (min-width: 768px) {
-    header {
-        left: 256px;
-        width: calc(100% - 256px);
-        transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
-    }
-
-    #main-navbar .container {
-        justify-content: flex-end;
-        /* Navigaatio oikealle */
-    }
-
-    /* Piilota spacerit työpöydällä */
-    .header-left-spacer,
-    .header-right-spacer {
-        display: none;
-    }
-
-    /* Dropdown container työpöydällä (sisältää normaalin navin) */
-    #navbar-dropdown-container {
-        flex-grow: 0;
-        justify-content: flex-end;
-        /* Työnnä navigaatio oikealle */
-    }
-
-    /* Piilota "nykyinen sivu" -painike työpöydällä */
-    #current-page-name {
-        display: none;
-    }
-
-    /* Näytä varsinainen navigaation sisältö (main-navbar-content) normaalisti työpöydällä */
-    #main-navbar-content {
-        display: flex;
-        position: static;
-        transform: none;
-        background-color: transparent;
-        height: auto;
-        width: auto;
-        z-index: auto;
-        padding: 0;
-        flex-direction: row;
-        justify-content: flex-end;
-    }
-
-    .top-nav-list {
-        flex-direction: row;
-        /* Linkit rivissä */
-        justify-content: flex-end;
-        width: auto;
-    }
-
-    /* Sivupalkki työpöydällä */
-    #sidebar {
-        transform: translateX(0) !important;
-        /* Varmista, että näkyy */
-        z-index: 20;
-    }
-
-    /* Piilota sivupalkin toggle-nappi työpöydällä */
-    #menu-toggle {
-        display: none;
-    }
-
-    /* Pääsisältö työpöydällä */
-    #main-content {
-        margin-left: 256px;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-bottom: 2rem;
-        /* Lisätty pohjalle paddingia */
-    }
-}
-
-/* ==================================================================== */
-/* PÄÄSISÄLTÖ (MAIN CONTENT) - Yleiset tyylit */
+/* 3. YLEISET ASETTELUT (SIVUPALKKI, PÄÄSISÄLTÖ)                       */
 /* ==================================================================== */
 
 #main-content {
     padding-top: 5rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: 2rem;
 }
-
-
-/* ==================================================================== */
-/* 3. TYPOGRAFIA (PROSE-LUOKAN MÄÄRITYKSET)                            */
-/* ==================================================================== */
-
-.prose h1 {
-    font-size: 2.25rem;
-    color: #556B2F !important;
-    line-height: 1;
-    max-width: none;
-}
-
-.prose h2 {
-    font-size: 1.875rem;
-    margin-top: 2em;
-    color: #556B2F;
-    /* Haettu väri rules.css:stä */
-}
-
-.prose h3 {
-    font-size: 1.5rem;
-    margin-top: 1.8em;
-    color: #556B2F;
-    /* Haettu väri rules.css:stä */
-    border-bottom-style: dashed;
-}
-
-.prose h4 {
-    font-size: 1.2rem;
-    margin-top: 1.5em;
-    color: #556B2F;
-    /* Haettu väri rules.css:stä */
-    border-bottom: 1px solid #E5E7EB;
-}
-
-.prose h5 {
-    margin-top: 1.2em;
-    color: #556B2F;
-    /* Haettu väri rules.css:stä */
-    border-bottom: 2px dotted #E5E7EB;
-}
-
-.prose strong {
-    color: #44403C;
-}
-
-.prose ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-}
-
-.prose ol {
-    list-style-type: decimal;
-    padding-left: 1.5rem;
-}
-
-/* --- Taulukot --- */
-.table-container {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-}
-
-.prose table {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    border-collapse: collapse !important;
-}
-
-.prose th,
-.prose td {
-    padding: 0.5rem 0.75rem !important;
-    border: 1px solid #E5E7EB !important;
-}
-
-.prose table tbody tr:nth-child(even) {
-    background-color: #FAFAF9 !important;
-}
-
-/* --- Sanaston erikoistyylit --- */
-/* Tyyli sanastotermeille leipätekstissä */
-.glossary-term {
-    color: #556B2F;
-    /* Pelin teemaväri */
-    font-weight: bold;
-    border-bottom: 1px dotted #556B2F;
-    cursor: pointer;
-    transition: color 0.2s, background-color 0.2s;
-}
-
-.glossary-term:hover {
-    color: #FFFFFF;
-    background-color: #556B2F;
-}
-
-/* Itse pop-up-ruudun tyyli */
-.glossary-popup {
-    position: absolute;
-    display: none;
-    /* Oletuksena piilossa */
-    background-color: #ffffff;
-    border: 1px solid #d6d3d1;
-    /* stone-300 */
-    border-radius: 0.375rem;
-    /* rounded-md */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    padding: 1rem;
-    margin: 1rem;
-    max-width: 350px;
-    z-index: 100;
-    /* Varmistaa, että on muiden elementtien päällä */
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-/* Varmistetaan, että popupin sisällä olevat listat näyttävät siisteiltä */
-.glossary-popup ul {
-    padding-left: 1.25rem;
-    margin-top: 0.5rem;
-    list-style-type: disc;
-}
-
-/* ==================================================================== */
-/* 4. KOMPONENTIT - Sivupalkki (Sidebar) jne. */
-/* ==================================================================== */
 
 #sidebar {
     position: fixed;
@@ -717,25 +202,34 @@ header {
     height: 100%;
     width: 16rem;
     background-color: white;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-    z-index: 20;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    z-index: 45;
     padding: 1rem;
     overflow-y: auto;
     transition: transform 0.3s ease-in-out;
 }
 
-/* Mobiilinäkymän oletusarvo: piilotettu */
 .sidebar-hidden {
     transform: translateX(-100%);
 }
 
-/* Työpöytänäkymässä sivupalkki näkyy */
-@media (min-width: 768px) {
-    #sidebar {
-        transform: translateX(0);
-    }
+#menu-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 50;
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    display: flex;
 }
 
+/* ==================================================================== */
+/* 4. KOMPONENTIT                                                       */
+/* ==================================================================== */
+
+/* --- Sivupalkin navigaatio --- */
 .sidebar-title {
     font-size: 1.5rem;
     font-weight: bold;
@@ -753,8 +247,6 @@ header {
     transition: all 0.2s;
     border-left: 4px solid transparent;
     word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
 }
 
 .nav-link:hover {
@@ -770,8 +262,6 @@ header {
 
 .nav-link.font-bold {
     font-weight: bold;
-    color: #556B2F;
-    margin-top: 0.25rem;
 }
 
 .nav-link.ml-4 {
@@ -783,18 +273,31 @@ header {
     font-size: 0.875rem;
 }
 
-/* --- Logo --- */
-#logo-link img {
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    border-radius: 0.25rem;
+/* --- Banneri --- */
+.main-banner {
+    position: relative;
+    height: 24rem;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../images/bannertkd.webp');
 }
 
-#logo-link:hover img {
-    transform: scale(1.03);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.main-banner>div {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
-/* --- Bannerin otsikon omat tyylit --- */
+/* --- Bannerin otsikko (PALAUTETTU ALKUPERÄISEEN) --- */
 .banner-title {
     font-family: 'Black Ops One', sans-serif;
     display: inline-block;
@@ -808,30 +311,83 @@ header {
     border-radius: 0.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     text-decoration: none !important;
-    isolation: isolate;
-    will-change: transform;
-    transform: translateZ(0);
     border-bottom: 1px solid rgba(143, 151, 121, 0.3) !important;
     font-size: 2.25rem;
     text-align: center;
+    color: white;
 }
 
-@media (min-width: 768px) {
-    .banner-title {
-        font-size: 3.75rem;
-        /* 6xl Tailwindissa */
-    }
+/* --- Call-to-Action (CTA) --- */
+.cta-box {
+    background-color: #F5E8C7;
+    border-left: 4px solid #556B2F;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0.375rem;
 }
 
-/* ==================================================================== */
-/* 5. APUOHJELMA- JA ERIKOISTYYLIT (esim. PDF, vieritysnapit)         */
-/* ==================================================================== */
+.cta-button {
+    display: inline-block;
+    background-color: #556B2F;
+    color: white !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: none;
+    transition: background-color 0.2s, transform 0.2s;
+}
 
-/* --- Vieritysnapit (Scroll Buttons) --- */
-/* Yleiset tyylit napeille */
+.cta-button:hover {
+    background-color: #4A5D23;
+    color: white !important;
+    transform: translateY(-2px);
+    border-bottom: none;
+}
+
+/* --- Sanasto Termi --- */
+.glossary-term {
+    color: #556B2F;
+    font-weight: bold;
+    border-bottom: 1px dotted #556B2F;
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.glossary-term:hover {
+    color: #FFFFFF;
+    background-color: #556B2F;
+}
+
+.glossary-popup {
+    position: absolute;
+    display: none;
+    background-color: #ffffff;
+    border: 1px solid #d6d3d1;
+    border-radius: 0.375rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    max-width: 350px;
+    z-index: 100;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* --- Vieritysnapit --- */
+.scroll-buttons {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .scroll-button {
     background-color: #556B2F;
-    /* Haettu rules.css:stä */
     border: none;
     width: 3rem;
     height: 3rem;
@@ -848,13 +404,11 @@ header {
 .scroll-button:hover:not(:disabled) {
     transform: scale(1.1);
     background-color: #4A5D23;
-    /* Haettu rules.css:stä */
 }
 
 .scroll-button:disabled {
     opacity: 0.3;
     cursor: not-allowed;
-    transform: none;
 }
 
 .scroll-button img {
@@ -864,17 +418,9 @@ header {
 }
 
 .scroll-button svg {
-    /* SVG kuvakkeiden väri */
     color: white;
-    width: 3rem;
-    height: 3rem;
-}
-
-@media (max-width: 767px) {
-    .scroll-button svg {
-        width: 1.5rem;
-        height: 3rem;
-    }
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 .invert-icon {
@@ -883,33 +429,12 @@ header {
 
 .info-button {
     background-color: #6B8E23;
-    /* Haettu rules.css:stä */
-    width: 6.5rem;
-    height: 3rem;
-    border-radius: 9999px;
 }
 
 .info-button:hover:not(:disabled) {
     background-color: #4A5D23;
-    /* Haettu rules.css:stä */
 }
 
-/* Pääsäiliö: Kiinnitetty oikeaan alakulmaan. */
-.scroll-buttons {
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    z-index: 50;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.7s ease-out, visibility 0.5s ease-out;
-}
-
-/* Asettelun apuluokat napeille */
 .scroll-row {
     display: flex;
     gap: 0.5rem;
@@ -921,12 +446,10 @@ header {
     gap: 0.5rem;
 }
 
-/* --- Nappien selitepaneeli --- */
 .scroll-legend-panel {
     position: absolute;
     bottom: calc(100% + 1rem);
     left: 50%;
-    /* Keskitys alussa */
     transform: translateX(-50%);
     width: 280px;
     background-color: rgba(30, 27, 47, 0.9);
@@ -934,21 +457,19 @@ header {
     color: white;
     padding: 1rem;
     border-radius: 0.5rem;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
     opacity: 0;
     visibility: hidden;
-    /* Piilotettu oletuksena */
-    transform-origin: bottom center;
     transition: all 0.2s ease-in-out;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
 }
 
 .scroll-legend-panel.is-visible {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0) translateX(-50%);
-    /* Varmista keskitys ja näkyvyys */
+}
+
+.legend-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 
 .scroll-legend-panel ul {
@@ -958,552 +479,193 @@ header {
 }
 
 .scroll-legend-panel li {
-    padding: 0.3rem 0;
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    padding: 0.25rem 0;
 }
 
 .legend-icon {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
-    object-fit: contain;
 }
-
-#scroll-info-toggle svg {
-    width: 1.5rem; /* 24px */
-    height: 1.5rem; /* 24px */
-}
-
-/* --- Erikoissäiliöt (PDF, jne.) --- */
-.pdf-container {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    height: fit-content;
-    max-width: 100%;
-    border: 1px solid #e7e5e4;
-}
-
-.pdf-container iframe {
-    min-width: 650px;
-    width: 100%;
-    height: 1170px;
-    border: none;
-}
-
-.mobile-pdf-link {
-    display: none;
-    /* Piilotettu oletuksena (vain mobiilissa näkyviin) */
-    padding: 0.5rem 1rem;
-    text-align: center;
-    background-color: #fafaf9;
-}
-
 
 /* ==================================================================== */
-/* 6. RESPONSIIVISET TYYLIT (MEDIA QUERIES)                           */
+/* 5. TYPOGRAFIA (PROSE)                                                */
+/* ==================================================================== */
+.prose h2,
+.prose h3,
+.prose h4 {
+    color: #556B2F;
+    margin-top: 2em;
+}
+
+.prose h2 {
+    font-size: 1.875rem;
+}
+
+.prose h3 {
+    font-size: 1.5rem;
+    border-bottom: 1px dashed #d6d3d1;
+    padding-bottom: 0.3em;
+}
+
+.prose h4 {
+    font-size: 1.25rem;
+}
+
+.prose p {
+    margin-top: 1.25em;
+    line-height: 1.7;
+}
+
+.prose ul,
+.prose ol {
+    margin-top: 1.25em;
+    padding-left: 1.5rem;
+}
+
+.prose li {
+    margin-top: 0.5em;
+}
+
+.prose strong {
+    color: #44403C;
+}
+
+.prose blockquote {
+    border-left: 4px solid #556B2F;
+    padding-left: 1rem;
+    margin-top: 1.5em;
+    font-style: italic;
+    color: #57534e;
+}
+
+.prose a {
+    color: #556B2F;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid #C2B280;
+    transition: color 0.2s, border-bottom-color 0.2s;
+}
+
+.prose a:hover {
+    color: #1C1917;
+    border-bottom-color: #556B2F;
+}
+
+/* ==================================================================== */
+/* 6. RESPONSIIVISET SÄÄNNÖT (MEDIA QUERIES)                           */
 /* ==================================================================== */
 
-/* --- TYÖPÖYTÄ JA ISOMMAT NÄYTÖT (min-width: 768px) --- */
-@media (min-width: 768px) {
-    header {
-        left: 256px;
-        width: calc(100% - 256px);
-        transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
-    }
+/* --- MOBIILINAVIGAATION ASETTELU (max-width: 767px) --- */
+@media (max-width: 767px) {
 
-    /* Piilota spacerit työpöydällä */
     .header-left-spacer,
     .header-right-spacer {
+        flex-grow: 1;
+    }
+
+    #main-navbar .container {
+        justify-content: center;
+    }
+
+    #navbar-dropdown-container {
+        flex-grow: 0;
+        justify-content: center;
+    }
+
+    #main-navbar-content {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 2rem);
+        max-height: 0;
+        overflow: hidden;
+        background-color: #2F361F;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        z-index: 35;
+        border-radius: 0 0 0.375rem 0.375rem;
+        transition: max-height 0.3s ease-out;
+        flex-direction: column;
+    }
+
+    #main-navbar-content.dropdown-open {
+        max-height: 80vh;
+        /* Riittävä korkeus */
+    }
+
+    .top-nav-list {
+        flex-direction: column;
+        width: 100%;
+        padding: 0.5rem 0;
+    }
+
+    .nav-link-top {
+        text-align: left;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .banner-title {
+        font-size: 1.875rem;
+    }
+}
+
+/* --- TYÖPÖYTÄNÄKYMÄN ASETTELU (min-width: 768px) --- */
+@media (min-width: 768px) {
+    header {
+        left: 16rem;
+        width: calc(100% - 16rem);
+    }
+
+    #main-content {
+        margin-left: 16rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    #menu-toggle {
         display: none;
     }
 
-    /* Dropdown container työpöydällä (sisältää normaalin navin) */
-    #navbar-dropdown-container {
-        flex-grow: 0;
-        justify-content: flex-end;
-        /* Työnnä navigaatio oikealle */
+    #sidebar {
+        transform: translateX(0) !important;
     }
 
-    /* Piilota "nykyinen sivu" -painike työpöydällä */
     #current-page-name {
         display: none;
     }
 
-    /* Näytä varsinainen navigaation sisältö (main-navbar-content) normaalisti työpöydällä */
     #main-navbar-content {
         display: flex;
         position: static;
-        transform: none;
-        background-color: transparent;
-        height: auto;
-        width: auto;
-        z-index: auto;
-        padding: 0;
         flex-direction: row;
-        justify-content: flex-end;
-        pointer-events: auto;
-        /* Varmista, että on klikattavissa työpöydällä */
+        transform: none;
+        width: auto;
+        height: auto;
+        background: transparent;
+        box-shadow: none;
+        max-height: none;
+        overflow: visible;
     }
 
     .top-nav-list {
         flex-direction: row;
         /* Linkit rivissä */
         justify-content: center;
+        /* */
         width: auto;
     }
 
-    /* Sivupalkki työpöydällä */
-    #sidebar {
-        transform: translateX(0) !important;
-        /* Varmista, että näkyy */
-        z-index: 20;
-    }
-
-    /* Piilota sivupalkin toggle-nappi työpöydällä */
-    #menu-toggle {
-        display: none;
-    }
-
-    /* Pääsisältö työpöydällä */
-    #main-content {
-        margin-left: 256px;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-bottom: 2rem;
-    }
-
-    /* Mobiili-PDF-linkki piiloon työpöydällä */
-    .mobile-pdf-link {
-        display: none;
-    }
-
-    /* Vieritysnappien palautus työpöytäasettelun mukaiseksi */
-    #scroll-buttons-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        width: auto;
-        bottom: 1.5rem;
-        right: 1.5rem;
-        padding: 0;
-        background-color: transparent;
-        /* Poista tausta */
-    }
-
-    #scroll-buttons-container .scroll-row,
-    #scroll-buttons-container .scroll-column {
-        display: flex;
-        flex-direction: column;
-        /* Palauta kolumni */
-        gap: 0.5rem;
-    }
-
-    #scroll-buttons-container .scroll-row {
-        flex-direction: row;
-        /* Palauta rivi */
-    }
-
-    /* Palauta nappien koot ja muodot */
-    .scroll-button {
-        width: 3rem;
-        height: 3rem;
-        border-radius: 9999px;
-    }
-
-    .info-button {
-        width: 6.5rem;
-        /* Leveys vastaa kahta nappia ja väliä */
-        border-radius: 9999px;
-    }
-
-    /* Selitepaneelin asettelu työpöydällä */
-    #scroll-legend {
-        bottom: calc(100% + 1rem);
-        /* Yläpuolelle */
-        left: -50%;
-        transform: translateX(-50%);
-        width: 280px;
-        /* Kiinteä leveys */
-        background-color: rgba(30, 27, 47, 0.9);
-        /* Tumma tausta */
-        color: white;
-        padding: 1rem;
-        border: none;
-        /* Ei reunaa */
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-    }
-}
-
-/* --- MOBIILILAITTEET (max-width: 767px) --- */
-@media (max-width: 767px) {
-    header {
-        left: 0;
-        width: 100%;
-        height: 64px;
-    }
-
-    /* Headerin container mobiilissa: sivupalkin nappi vasemmalla, sivun nimi keskellä */
-    #main-navbar .container {
-        justify-content: center;
-        /* Keskittää current-page-name:n */
-        position: relative;
-        /* Tarvitaan, jotta voit siirtää menu-toggleä suhteessa */
-    }
-
-    /* Mobiilin sivupalkin toggle-painike on jo position: fixed, joten se pysyy paikallaan. */
-    #menu-toggle {
-        left: 1rem;
-        width: 1.5rem;
-        height: 1.5rem;
-        padding: 0.05rem;
-    }
-
-    #menu-toggle svg {
-        width: 100%;
-        /* Vie koko vanhemman leveys */
-        height: 100%;
-        /* Vie koko vanhemman korkeus */
-    }
-
-    /* Pudotusvalikon container mobiilissa */
-    #navbar-dropdown-container {
-        display: flex;
-        flex-grow: 0;
-        justify-content: center;
-        /* Keskittää current-page-name:n */
-        height: 100%;
-        padding: 0 4rem;
-        /* Anna tilaa menu-togglelle ja oikean laidan spacerille */
-        box-sizing: border-box;
-        z-index: 40;
-        /* Jotta se olisi headerin päällä */
-    }
-
-    /* Nykyisen sivun nimi mobiilissa (näytetään) */
-    #current-page-name {
-        display: block;
-        padding: 1rem;
-        padding-right: 2.5rem;
-        /* Tilaa nuolelle */
-        font-size: 1.25rem;
-    }
-
-    /* Varsinainen navigaation sisältö (pudotusvalikko) mobiilissa */
-    #main-navbar-content {
-        position: absolute;
-        top: 100%;
-        /* Aukeaa #navbar-dropdown-containerin alapuolelle */
-        left: 50%;
-        /* Keskittää dropdownin vaakasuunnassa */
-        transform: translateX(-50%) translateY(0);
-        /* Keskittää ja varmistaa piilotuksen */
-        width: calc(100% - 2rem);
-        /* Antaa marginaalin reunoille */
-        max-width: 300px;
-        /* Rajaa maksimileveyden, jos haluat */
-        max-height: 0;
-        /* Piilota oletuksena (ei korkeutta) */
-        overflow: hidden;
-        transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-        opacity: 0;
-        background-color: #2F361F;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        z-index: 35;
-        /* Toggle-napin ja sidebarin (45, 50) alla, mutta headerin yläpuolella (40) */
-        border-radius: 0 0 0.375rem 0.375rem;
-        flex-direction: column;
-        align-items: flex-start;
-        pointer-events: none;
-        /* Estää klikkaukset, kun piilotettu */
-    }
-
-    /* Luokka, joka lisätään JS:llä, kun pudotusvalikko on auki */
-    #main-navbar-content.dropdown-open {
-        min-height: fit-content;
-        /* Tai tarvittava korkeus, jotta kaikki linkit näkyvät */
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-        /* Näytä ja pysy keskellä */
-        pointer-events: auto;
-        /* Sallii klikkaukset, kun näkyvissä */
-        overflow-y: auto;
-    }
-
-    /* Ylänavigaation listan linkkien asettelu mobiilissa */
-    .top-nav-list {
-        flex-direction: column;
-        width: 100%;
-        gap: 0;
-        padding: 0.5rem 0;
-    }
-
-    /* Ylänavigaation yksittäiset linkit pudotusvalikossa */
-    .nav-link-top {
-        width: 100%;
-        text-align: left;
-        padding: 0.75rem 1.5rem;
-    }
-
-    /* Sivupalkki mobiilissa */
-    #sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 16rem;
-        background-color: white;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-        z-index: 45;
-        /* Korkeampi kuin ylänavigaatio (35), alempi kuin toggle-nappi (50) */
-        padding: 1rem;
-        overflow-y: auto;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    /* Sivupalkki piilossa mobiilissa */
-    #sidebar.sidebar-hidden {
-        transform: translateX(-100%);
-    }
-
-    /* Pääsisältö mobiilissa */
-    #main-content {
-        margin-left: 0;
-        padding-top: 5rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-bottom: 1rem;
-        /* Lisätty mobiiliin pohjalle paddingia */
-    }
-
-    /* Piilottaa vieritysnapit, kun footer tulee näkyviin mobiilissa. */
-    #scroll-buttons-container.is-docked {
-        opacity: 1;
-        /* Tämä voi olla 0, jos haluat ne kokonaan pois näkyvistä */
-        visibility: visible;
-        pointer-events: none;
-    }
-
-    /* Näyttää suoran linkin PDF-tiedostoon mobiilissa. */
-    .mobile-pdf-link {
-        display: block;
-    }
-
-    /* Muuttaa bannerin otsikon tyyliä (poistaa turhat koristelut). */
     .banner-title {
-        background-color: transparent;
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
-        border: none;
-        box-shadow: none;
-        padding: 0.2em;
-        text-decoration: none !important;
-        border-bottom: 1px solid rgba(143, 151, 121, 0) !important;
-    }
-
-    /* --- Mobiilin vieritysnapit: monimutkainen ruudukkoasettelu --- */
-    /* Muutetaan pääsäiliö koko näytön levyiseksi palkiksi alareunaan. */
-    #scroll-buttons-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        width: 50%;
-        /* Nyt vain puolet näytön leveydestä */
-        bottom: 0;
-        right: 0;
-        padding: 8px;
-        border-radius: 0;
-        background-color: rgba(245, 245, 244, 0.0);
-    }
-
-    /* Käytetään "display: contents", jotta voimme kohdistaa napit suoraan
-       ruudukkoon HTML-rakenteesta välittämättä. */
-    #scroll-buttons-container .scroll-row,
-    #scroll-buttons-container .scroll-column {
-        display: contents;
-    }
-
-    /* Asetellaan jokainen nappi ID:n perusteella omaan ruutuunsa. */
-    #scroll-info-toggle {
-        grid-column: 1 / 2;
-        grid-row: 1 / 3;
-    }
-
-    /* Ylärivin napit */
-    #scroll-top {
-        grid-column: 2 / 3;
-        grid-row: 1 / 2;
-    }
-
-    #scroll-h2-up {
-        grid-column: 3 / 4;
-        grid-row: 1 / 2;
-    }
-
-    #scroll-h3-up {
-        grid-column: 4 / 5;
-        grid-row: 1 / 2;
-    }
-
-    /* Alarivin napit */
-    #scroll-bottom {
-        grid-column: 2 / 3;
-        grid-row: 2 / 3;
-    }
-
-    #scroll-h2-down {
-        grid-column: 3 / 4;
-        grid-row: 2 / 3;
-    }
-
-    #scroll-h3-down {
-        grid-column: 4 / 5;
-        grid-row: 2 / 3;
-    }
-
-    /* Viimeistellään nappien ulkoasu ruudukossa. */
-    .scroll-button {
-        width: auto;
-        height: 100%;
-        border-radius: 6px;
-    }
-
-    /* Säädetään selitepaneelin sijaintia ja kokoa mobiilissa. */
-    #scroll-legend {
-        position: absolute;
-        bottom: calc(100% + 8px);
-        right: 8px;
-        width: auto;
-        max-width: calc(100vw - 16px);
-        background-color: white;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        border: 1px solid #E7E5E4;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        visibility: visible;
-        transform: translateY(10px);
-        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-        color: #1C1917;
-    }
-
-    #scroll-legend.is-visible {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        left: -50%;
-        color: #E5E7EB;
-        background-color: rgba(30, 27, 47, 0.9);
+        font-size: 3.75rem;
     }
 }
 
-
-/* --- PIENET MOBIILILAITTEET (max-width: 459px) --- */
-@media (max-width: 459px) {
-
-    /* Poistetaan bannerin tausta ja tehosteet kokonaan pienimmillä näytöillä, */
-    /* jotta teksti on luettavampi ja ulkoasu siistimpi. */
-    .banner-title {
-        background-color: transparent;
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
-        border: none;
-        box-shadow: none;
-        padding: 0.2em;
-        text-decoration: none !important;
-        border-bottom: 1px solid rgba(143, 151, 121, 0) !important;
-    }
-}
-
-/* ==================================================================== */
-/* 7. LINKKIEN TYYLIT                                                   */
-/* ==================================================================== */
-
-/* Tämä sääntö koskee kaikkia linkkejä leipätekstissä (.prose-luokan sisällä) */
-.prose a {
-    color: #556B2F;
-    /* Tumma oliivinvihreä, sama kuin otsikoissa */
-    font-weight: 600;
-    /* Puolilihavoitu, jotta linkki erottuu selvästi */
-    text-decoration: none;
-    /* Poistetaan selaimen oletusalleviivaus */
-    border-bottom: 1px solid #C2B280;
-    /* Lisätään hienovarainen alleviivaus tehostevärillä (hiekka/kulta) */
-    transition: color 0.2s, border-bottom-color 0.2s;
-    /* Pehmeä siirtymä hover-efektille */
-    padding-bottom: 1px;
-    /* Pieni tila tekstin ja alleviivauksen välille */
-}
-
-/* Kun hiiren kursori viedään linkin päälle */
-.prose a:hover {
-    color: #1C1917;
-    /* Tekstin väri muuttuu tummaksi perusleipätekstin väriseksi */
-    border-bottom-color: #556B2F;
-    /* Alleviivaus muuttuu tummanvihreäksi tehostaen sitä */
-}
-
-/* Bannerin taustakuva, joka suosii WebP-formaattia */
-.main-banner {
-    background-image: url('../images/bannertkd.jpg');
-    /* Varakuva vanhoille selaimille */
-}
-
-@supports (background-image: url('../images/bannertkd.webp')) {
-    .main-banner {
-        background-image: url('../images/bannertkd.webp');
-        /* Uudempi, tehokkaampi kuva */
-    }
-}
-
-/* -------------------------------------------------------------------- */
-/* UUSI KOMPONENTTI: Call-to-Action (CTA) -laatikko                     */
-/* Korvaa HTML:n div.cta-box                                            */
-/* -------------------------------------------------------------------- */
-.cta-box {
-    background-color: #F5E8C7;
-    /* Lämmin tehosteväri */
-    border-left: 4px solid #556B2F;
-    /* Teeman pääväri korostuksena */
-    padding: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 0.375rem;
-}
-
-.cta-box h2 {
-    color: #556B2F;
-    margin-top: 0;
-    /* Nollaa oletusmarginaali */
-    font-size: 1.5rem;
-}
-
-.cta-box p {
-    margin-bottom: 1rem;
-}
-
-/* UUSI KOMPONENTTI: Call-to-Action (CTA) -nappi                       */
-/* Korvaa HTML:n a.cta-button                                         */
-.cta-button {
-    display: inline-block;
-    background-color: #556B2F;
-    /* Teeman pääväri */
-    color: #1C1917 !important;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.375rem;
-    text-decoration: none;
-    font-weight: bold;
-    border-bottom: none;
-    /* Kumotaan yleinen linkin alleviivaus */
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-.cta-button:hover {
-    background-color: #4A5D23;
-    /* Hieman tummempi sävy hoverilla */
-    color: #1C1917 !important;
-    transform: translateY(-2px);
-    border-bottom: none;
+.prose h1 {
+    font-size: 2.25rem;
+    color: #556B2F !important;
+    line-height: 1;
 }

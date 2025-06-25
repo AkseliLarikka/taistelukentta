@@ -2,50 +2,45 @@
  * Taistelukenttä d20 -sivuston etusivun (index.html) interaktiivisuutta ja navigaatiota hallinnoiva skripti.
  *
  * Vastuualueet:
- * 1. Sivupalkin navigaation luonti (ilman automaattista numerointia, sillä se on etusivu).
+ * 1. Sivupalkin navigaation dynaaminen luonti sivun otsikoista.
  * 2. Vieritystoiminnot: Dynaamiset vierityspainikkeet ja niiden tilan hallinta.
  * 3. Käyttöliittymän parannukset: Mobiilinavigaation ja pudotusvalikon hallinta, aktiivisen linkin korostus.
- * 4. Automaattinen tekijänoikeusvuoden päivitys.
  *
- * @version 1.1
+ * @version 1.2
  * @author Akseli Larikka
  */
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Noudetaan sivulta tarvittavat pääelementit myöhempää käyttöä varten.
     const mainContent = document.getElementById('main-content');
     const navMenu = document.getElementById('nav-menu');
     const sidebar = document.getElementById('sidebar');
     const menuToggle = document.getElementById('menu-toggle');
-
-    // === KORJAUS TÄSSÄ ===
-    // Lisätty puuttuva viittaus ylänavigaatiopalkkiin.
     const mainNavbar = document.getElementById('main-navbar');
-
-    // Uudet elementit pudotusvalikon navigaatioon
     const currentPageNameElement = document.getElementById('current-page-name');
     const mainNavbarContent = document.getElementById('main-navbar-content');
 
-    // Vianetsintä: Tarkista, että elementit löytyvät
-    if (!currentPageNameElement) {
-        console.error("currentPageNameElement (id='current-page-name') not found in DOM.");
-    }
-    if (!mainNavbarContent) {
-        console.error("mainNavbarContent (id='main-navbar-content') not found in DOM.");
+    // Tarkistetaan, että kaikki kriittiset elementit löytyvät
+    if (!mainContent || !navMenu || !sidebar || !menuToggle || !mainNavbar || !currentPageNameElement || !mainNavbarContent) {
+        console.error("Yksi tai useampi navigaation pääelementti puuttuu DOM:sta. Skriptin suoritus keskeytetty.");
+        return;
     }
 
-    // Päivittää otsikoiden scrollMarginTop -arvon navbarin korkeuden mukaan.
+    // ====================================================================
+    // OSA 1: NAVIGAATION JA SISÄLLÖN ALUSTUS
+    // ====================================================================
+
+    /**
+     * Päivittää otsikoiden scroll-margin-top -arvon yläpalkin korkeuden mukaan,
+     * jotta ankkurilinkit kohdistuvat oikein.
+     */
     function updateScrollMargin() {
-        if (mainNavbar) {
-            const navbarHeightPx = mainNavbar.offsetHeight;
-            const navbarHeightRem = (navbarHeightPx / 16) + 0.5;
-            const headers = mainContent.querySelectorAll('h1, h2, h3, h4');
-            headers.forEach(header => {
-                header.style.scrollMarginTop = `${navbarHeightRem}rem`;
-            });
-        }
+        const navbarHeightPx = mainNavbar.offsetHeight;
+        // Muunnetaan pikselit rem-yksiköiksi ja lisätään pieni marginaali
+        const navbarHeightRem = (navbarHeightPx / parseFloat(getComputedStyle(document.documentElement).fontSize)) + 1;
+        document.documentElement.style.setProperty('--navbar-height', `${navbarHeightRem}rem`);
     }
 
+    // Asetetaan scroll-margin-top heti latauksen jälkeen ja ikkunan koon muuttuessa
     updateScrollMargin();
     let resizeTimeout;
     window.addEventListener('resize', () => {
@@ -53,306 +48,156 @@ document.addEventListener('DOMContentLoaded', function () {
         resizeTimeout = setTimeout(updateScrollMargin, 150);
     });
 
-    // ====================================================================
-    // OSA 1: SISÄLLÖN ALUSTUS JA SIVUPALKKI & YLÄNAVIGAATION DROPDOWN
-    // ====================================================================
+    // Lisätään CSS-muuttujaa hyödyntävä tyylisääntö dynaamisesti
+    const styleSheet = document.createElement("style");
+    styleSheet.innerText = `h1, h2, h3, h4, h5, h6 { scroll-margin-top: var(--navbar-height, 5rem); }`;
+    document.head.appendChild(styleSheet);
 
-    window.initializeContentAndSidebar = function () {
-        Array.from(navMenu.children).forEach(child => {
-            if (!child.classList.contains('sidebar-title')) {
-                navMenu.removeChild(child);
-            }
-        });
 
+    /**
+     * Generoi sivupalkin navigaation dynaamisesti sivun H2, H3 ja H4-otsikoista.
+     */
+    function initializeSidebar() {
+        navMenu.innerHTML = ''; // Tyhjennetään vanhat linkit
         const headersForSidebar = mainContent.querySelectorAll('h2, h3, h4');
 
-        const createSlug = (text) => {
-            if (!text) return '';
-            return 'header-' + text.toString().toLowerCase()
-                .replace(/\s+/g, '-')
-                .replace(/[^\w\-]+/g, '')
-                .replace(/\-\-+/g, '-')
-                .replace(/^-+/, '')
-                .replace(/-+$/, '');
-        };
+        const createSlug = (text) => 'header-' + text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
 
         headersForSidebar.forEach(header => {
-            const originalText = header.textContent;
-            let id = header.id;
-
-            if (!id) {
-                id = createSlug(originalText);
-                header.id = id;
-            }
+            const id = header.id || createSlug(header.textContent);
+            header.id = id;
 
             const link = document.createElement('a');
             link.href = `#${id}`;
-            link.textContent = originalText;
-            link.className = 'block py-1.5 px-4 rounded-md text-stone-700 hover:bg-purple-100 nav-link transition-all duration-200';
+            link.textContent = header.textContent;
+            link.className = 'nav-link'; // Yksinkertaistettu luokkanimi
 
-            if (header.tagName === 'H2') {
-                link.classList.add('font-bold', 'text-purple-800', 'mt-1');
-            } else if (header.tagName === 'H3') {
-                link.classList.add('ml-4');
-            } else if (header.tagName === 'H4') {
-                link.classList.add('ml-8', 'text-sm');
-            }
+            if (header.tagName === 'H2') link.classList.add('font-bold');
+            if (header.tagName === 'H3') link.classList.add('ml-4');
+            if (header.tagName === 'H4') link.classList.add('ml-8');
 
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                document.getElementById(id).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Sulje molemmat valikot linkkiä klikatessa mobiilissa
+                document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
                 if (window.innerWidth < 768) {
-                    toggleMobileSidebar(true);
-                    toggleNavbarDropdown(true);
+                    toggleMobileSidebar(true); // Sulje valikko
                 }
             });
             navMenu.appendChild(link);
         });
     };
 
-    // --- Mobiilivalikoiden näkyvyyden hallinta ---
-
+    /**
+     * Hallinnoi sivupalkin näkyvyyttä mobiililaitteilla.
+     * @param {boolean} hide - Pakotetaanko valikko piiloon.
+     */
     const toggleMobileSidebar = (hide) => {
         if (hide) {
             sidebar.classList.add('sidebar-hidden');
         } else {
             sidebar.classList.remove('sidebar-hidden');
-            toggleNavbarDropdown(true); // Sulje dropdown, jos sivupalkki avataan
+            toggleNavbarDropdown(true); // Sulje toinen valikko, jos tämä avataan
         }
     };
 
+    /**
+     * Hallinnoi yläpalkin pudotusvalikon näkyvyyttä mobiililaitteilla.
+     * @param {boolean} forceHide - Pakotetaanko valikko piiloon.
+     */
     const toggleNavbarDropdown = (forceHide = false) => {
         const isCurrentlyOpen = mainNavbarContent.classList.contains('dropdown-open');
-
-        if (forceHide) {
-            mainNavbarContent.classList.remove('dropdown-open');
-            currentPageNameElement.classList.remove('dropdown-open');
-        } else if (isCurrentlyOpen) {
+        if (forceHide || isCurrentlyOpen) {
             mainNavbarContent.classList.remove('dropdown-open');
             currentPageNameElement.classList.remove('dropdown-open');
         } else {
             mainNavbarContent.classList.add('dropdown-open');
             currentPageNameElement.classList.add('dropdown-open');
-            toggleMobileSidebar(true);
+            toggleMobileSidebar(true); // Sulje toinen valikko, jos tämä avataan
         }
     };
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', (event) => {
-            event.stopPropagation();
-            const isHidden = sidebar.classList.contains('sidebar-hidden');
-            console.log("Menu toggle clicked. Sidebar hidden:", isHidden); // Vianetsintä
-            toggleMobileSidebar(!isHidden);
-        });
-    }
+    // --- Tapahtumankuuntelijat navigaatiolle ---
+    menuToggle.addEventListener('click', (e) => { e.stopPropagation(); toggleMobileSidebar(sidebar.classList.contains('sidebar-hidden') ? false : true); });
+    currentPageNameElement.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); if (window.innerWidth < 768) toggleNavbarDropdown(); });
+    mainNavbarContent.querySelectorAll('.nav-link-top').forEach(link => link.addEventListener('click', () => { if (window.innerWidth < 768) toggleNavbarDropdown(true); }));
 
-    if (currentPageNameElement && mainNavbarContent) {
-        currentPageNameElement.addEventListener('click', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            console.log("Current page name clicked.");
-            console.log("Window width:", window.innerWidth);
-            console.log("Is dropdown open BEFORE toggle:", mainNavbarContent.classList.contains('dropdown-open'));
-
-            // Kutsu toggleNavbarDropdown ilman parametria, jotta se vaihtaa tilaa
-            if (window.innerWidth < 768) { // Vain mobiilissa
-                toggleNavbarDropdown();
-            }
-
-
-            console.log("Is dropdown open AFTER toggle:", mainNavbarContent.classList.contains('dropdown-open'));
-        });
-
-        // Lisää klikkauskuuntelija pudotusvalikon linkeille, jotta valikko sulkeutuu linkkiä klikatessa
-        mainNavbarContent.querySelectorAll('.nav-link-top').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth < 768) {
-                    toggleNavbarDropdown(true); // Pakota sulkeminen linkkiä klikatessa
-                }
-            });
-        });
-    } else {
-        console.error("currentPageNameElement or mainNavbarContent not found, dropdown click handler not attached.");
-    }
-
-
-    // Sulje valikot, jos klikataan niiden ulkopuolelle
+    // Sulje valikot klikattaessa niiden ulkopuolelle
     document.addEventListener('click', (event) => {
         if (window.innerWidth < 768) {
-            // Sulje sivupalkki, jos klikattiin sen ulkopuolelle ja se on auki
-            if (sidebar && menuToggle && !sidebar.contains(event.target) && !menuToggle.contains(event.target) && !sidebar.classList.contains('sidebar-hidden')) {
-                toggleMobileSidebar(true);
-            }
-
-            // Sulje dropdown, jos klikattiin sen tai sen avaajan ulkopuolelle ja se on auki
-            if (mainNavbarContent && currentPageNameElement && !mainNavbarContent.contains(event.target) && !currentPageNameElement.contains(event.target) && mainNavbarContent.classList.contains('dropdown-open')) {
-                toggleNavbarDropdown(true);
-            }
+            if (!sidebar.contains(event.target) && !menuToggle.contains(event.target)) toggleMobileSidebar(true);
+            if (!mainNavbarContent.contains(event.target) && !currentPageNameElement.contains(event.target)) toggleNavbarDropdown(true);
         }
     });
 
-    // Sulje valikot, jos ikkunan kokoa muutetaan työpöytämoodiin
-    window.addEventListener('resize', () => {
-        if (window.innerWidth >= 768) {
-            toggleMobileSidebar(true);
-            toggleNavbarDropdown(true);
-        }
-    });
+    // Sulje valikot, kun ikkunaa levennetään työpöytänäkymään
+    window.addEventListener('resize', () => { if (window.innerWidth >= 768) { toggleMobileSidebar(true); toggleNavbarDropdown(true); } });
 
     // --- Sivupalkin aktiivisen linkin korostus vierittäessä ---
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            const id = entry.target.id;
-            const navLink = navMenu.querySelector(`a[href="#${id}"]`);
-
-            if (navLink && entry.isIntersecting && entry.intersectionRatio > 0.5) {
-                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                navLink.classList.add('active');
-                navLink.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest'
-                });
+            if (entry.isIntersecting) {
+                document.querySelectorAll('#nav-menu .nav-link').forEach(link => link.classList.remove('active'));
+                const navLink = navMenu.querySelector(`a[href="#${entry.target.id}"]`);
+                if (navLink) navLink.classList.add('active');
             }
         });
-    }, {
-        rootMargin: "-30% 0px -60% 0px",
-        threshold: 0.6
-    });
+    }, { rootMargin: "-30% 0px -60% 0px", threshold: 0.5 });
 
-    const setupIntersectionObserver = () => {
-        const headersForSidebar = mainContent.querySelectorAll('h2, h3, h4');
-        headersForSidebar.forEach(header => observer.observe(header));
-    };
+    const setupIntersectionObserver = () => mainContent.querySelectorAll('h2, h3, h4').forEach(h => observer.observe(h));
 
     // ====================================================================
     // OSA 2: SIVUN VIERITYSPAINIKKEET
     // ====================================================================
 
     const scrollButtonsContainer = document.getElementById('scroll-buttons-container');
-    const mainContentForScroll = document.getElementById('main-content');
-
-    if (scrollButtonsContainer && mainContentForScroll) {
+    if (scrollButtonsContainer) {
         const scrollTopButton = document.getElementById('scroll-top');
         const scrollH2UpButton = document.getElementById('scroll-h2-up');
         const scrollH3UpButton = document.getElementById('scroll-h3-up');
         const scrollBottomButton = document.getElementById('scroll-bottom');
         const scrollH2DownButton = document.getElementById('scroll-h2-down');
         const scrollH3DownButton = document.getElementById('scroll-h3-down');
+        const infoToggle = document.getElementById('scroll-info-toggle');
+        const legendPanel = document.getElementById('scroll-legend');
 
-        const findNextNavigableHeader = (direction) => {
-            const allNavigableHeaders = Array.from(mainContentForScroll.querySelectorAll('h2, h3'));
-            const navbarHeight = mainNavbar?.offsetHeight || 0;
-
+        const findNearestHeader = (selector, direction) => {
+            const headers = Array.from(mainContent.querySelectorAll(selector));
+            const margin = mainNavbar.offsetHeight + 15; // Pieni puskuri
             if (direction === 'up') {
-                const headersAbove = allNavigableHeaders.filter(h => h.getBoundingClientRect().top < -1);
-                return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null;
-            } else { // 'down'
-                return allNavigableHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null;
-            }
-        };
-
-        const findNearestStrictHeader = (selector, direction) => {
-            const allHeaders = Array.from(mainContentForScroll.querySelectorAll(selector));
-            const navbarHeight = mainNavbar?.offsetHeight || 0;
-
-            if (direction === 'up') {
-                const headersAbove = allHeaders.filter(h => h.getBoundingClientRect().top < -1);
-                return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null;
-            } else { // 'down'
-                return allHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null;
+                return headers.filter(h => h.getBoundingClientRect().top < -1).pop();
+            } else { // down
+                return headers.find(h => h.getBoundingClientRect().top > margin);
             }
         };
 
         const updateButtonStates = () => {
-            const scrollY = window.scrollY;
-            const pageHeight = document.documentElement.scrollHeight;
-            const windowHeight = window.innerHeight;
-
-            const atTop = scrollY < 20;
-            const atBottom = (windowHeight + scrollY) >= pageHeight - 20;
-
-            const nextH2Up = findNearestStrictHeader('h2', 'up');
-            const nextH2Down = findNearestStrictHeader('h2', 'down');
-            const nextNavigableUp = findNextNavigableHeader('up');
-            const nextNavigableDown = findNextNavigableHeader('down');
-
+            const atTop = window.scrollY < 20;
+            const atBottom = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 20;
             if (scrollTopButton) scrollTopButton.disabled = atTop;
             if (scrollBottomButton) scrollBottomButton.disabled = atBottom;
-            if (scrollH2UpButton) scrollH2UpButton.disabled = atTop || !nextH2Up;
-            if (scrollH2DownButton) scrollH2DownButton.disabled = atBottom || !nextH2Down;
-            if (scrollH3UpButton) scrollH3UpButton.disabled = atTop || !nextNavigableUp;
-            if (scrollH3DownButton) scrollH3DownButton.disabled = atBottom || !nextNavigableDown;
+            if (scrollH2UpButton) scrollH2UpButton.disabled = atTop || !findNearestHeader('h2', 'up');
+            if (scrollH2DownButton) scrollH2DownButton.disabled = atBottom || !findNearestHeader('h2', 'down');
+            if (scrollH3UpButton) scrollH3UpButton.disabled = atTop || !findNearestHeader('h2, h3', 'up');
+            if (scrollH3DownButton) scrollH3DownButton.disabled = atBottom || !findNearestHeader('h2, h3', 'down');
         };
 
-        if (scrollTopButton) scrollTopButton.addEventListener('click', () => window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        }));
-        if (scrollBottomButton) scrollBottomButton.addEventListener('click', () => window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: 'smooth'
-        }));
-        if (scrollH2UpButton) scrollH2UpButton.addEventListener('click', () => findNearestStrictHeader('h2', 'up')?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        }));
-        if (scrollH2DownButton) scrollH2DownButton.addEventListener('click', () => findNearestStrictHeader('h2', 'down')?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        }));
-        if (scrollH3UpButton) scrollH3UpButton.addEventListener('click', () => findNextNavigableHeader('up')?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        }));
-        if (scrollH3DownButton) scrollH3DownButton.addEventListener('click', () => findNextNavigableHeader('down')?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        }));
+        scrollTopButton?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        scrollBottomButton?.addEventListener('click', () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }));
+        scrollH2UpButton?.addEventListener('click', () => findNearestHeader('h2', 'up')?.scrollIntoView({ behavior: 'smooth' }));
+        scrollH2DownButton?.addEventListener('click', () => findNearestHeader('h2', 'down')?.scrollIntoView({ behavior: 'smooth' }));
+        scrollH3UpButton?.addEventListener('click', () => findNearestHeader('h2, h3', 'up')?.scrollIntoView({ behavior: 'smooth' }));
+        scrollH3DownButton?.addEventListener('click', () => findNearestHeader('h2, h3', 'down')?.scrollIntoView({ behavior: 'smooth' }));
+
+        infoToggle?.addEventListener('click', (e) => { e.stopPropagation(); legendPanel.classList.toggle('is-visible'); });
+        document.addEventListener('click', () => legendPanel?.classList.remove('is-visible'));
 
         let scrollTimeout;
-        window.addEventListener('scroll', () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(updateButtonStates, 50);
-        });
+        window.addEventListener('scroll', () => { clearTimeout(scrollTimeout); scrollTimeout = setTimeout(updateButtonStates, 100); });
         window.addEventListener('resize', updateButtonStates);
-
-        setTimeout(updateButtonStates, 100);
-
-    } else {
-        console.error('VIERITYSNAPPIEN SKRIPTI EI KÄYNNISTYNYT! Varmista, että HTML-koodissa on elementit ID:llä "scroll-buttons-container" ja "main-content".');
+        updateButtonStates(); // Aseta tila heti latauksen jälkeen
     }
 
-    // ====================================================================
-    // OSA 4: VIERITYSNAPPIEN SELITTEEN NÄYTTÖ
-    // ====================================================================
-
-    const infoToggle = document.getElementById('scroll-info-toggle');
-    const legendPanel = document.getElementById('scroll-legend');
-
-    if (infoToggle && legendPanel) {
-        infoToggle.addEventListener('click', (event) => {
-            event.stopPropagation();
-            legendPanel.classList.toggle('is-visible');
-        });
-
-        document.addEventListener('click', () => {
-            if (legendPanel.classList.contains('is-visible')) {
-                legendPanel.classList.remove('is-visible');
-            }
-        });
-    }
-    // ====================================================================
-    // OSA 5: JALKISANAT JA AUTOMAATTINEN VUOSILUVUN PÄIVITYS
-    // ====================================================================
-
-    const yearSpan = document.getElementById('copyright-year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
-
-    window.initializeContentAndSidebar();
+    // Alustetaan kaikki toiminnot
+    initializeSidebar();
     setupIntersectionObserver();
 });
