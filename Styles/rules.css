@@ -182,13 +182,25 @@ table {
     border-collapse: collapse;
 }
 
+/* Nollaa painikkeiden oletusulkoasu */
 button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
-    -webkit-appearance: button;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     background-color: transparent;
     background-image: none;
+}
+
+/* Nollaa tekstikenttien ja hakukentän oletusulkoasu */
+input[type='search'],
+input[type='text'],
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 :-moz-focusring {
@@ -208,8 +220,8 @@ progress {
     height: auto;
 }
 
+/* Säilytetään hakukentän erikoistyyli */
 [type='search'] {
-    -webkit-appearance: textfield;
     outline-offset: -2px;
 }
 
@@ -292,7 +304,6 @@ iframe,
 embed,
 object {
     display: block;
-    vertical-align: middle;
 }
 
 img,
@@ -767,7 +778,6 @@ header {
 .glossary-index-letter {
     text-align: center;
     font-weight: bold;
-    vertical-align: middle;
     color: #6D28D9;
     font-size: 1.1em;
     padding: 0.5rem 0.2rem;
@@ -1054,7 +1064,6 @@ header {
 
 .lisenssi-kuvake-yksi {
     height: 7rem;
-    vertical-align: middle;
     transition: opacity 0.2s ease-in-out;
 }
 
@@ -2098,6 +2107,5 @@ a:has(> .lisenssi-kuvake-yksi):hover {
 .lisenssi-kuvake-yksi {
     height: 7rem;
     /* Siirretty inline-tyylistä */
-    vertical-align: middle;
     transition: opacity 0.2s ease-in-out;
 }

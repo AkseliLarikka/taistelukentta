@@ -82,7 +82,6 @@ svg,
 video,
 canvas {
     display: block;
-    vertical-align: middle;
     max-width: 100%;
     height: auto;
 }
