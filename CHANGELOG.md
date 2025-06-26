@@ -2,6 +2,31 @@
 
 Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -peliin.
 
+## 2025-06-26
+
+### Parannukset ja korjaukset
+
+* Kehitetty ja päivitetty merkittävästi Pelinjohtajan Työkalupakkia (`gm-tool`).
+* Parannettu työkalun JavaScript-logiikkaa ja jaettu sen CSS-tyylejä omaksi `gm-tool.css`-tiedostoksi selkeyden parantamiseksi.
+* Korjattu etusivun mobiilinäkymää.
+
+## 2025-06-25
+
+### Uudet ominaisuudet
+
+* Aloitettu Pelinjohtajan Työkalupakin (`gm-tool`) kehitys `pelinjohtajan-opas.html`-sivulle.
+
+### Parannukset ja korjaukset
+
+* **Sääntöpäivitykset:**
+  * Tarkennettu sääntöjä koskien voittopisteiden (VP) ja komentopisteiden (KP) käyttöä pelinjohtajan oppaassa ja kampanjan hallinnassa.
+* **Käyttöliittymä ja ulkoasu:**
+  * Toteutettu merkittävä CSS-uudistus, jossa luovuttiin Tailwind-viitekehyksestä ja siirryttiin käyttämään omia, selkeämpiä CSS-tiedostoja.
+  * Optimoitu navigointipainikkeiden kuvien kokoa ja parannettu sivuston suorituskykyä (Lighthouse-raportti).
+  * Siivottu ja selkeytetty CSS-tiedostoja.
+* **Hakukoneoptimointi (SEO):**
+  * Päivitetty sivuston metatietoja (avainsanat, robots-tagit) hakukonenäkyvyyden parantamiseksi.
+
 ## 2025-06-24
 
 ### Uudet ominaisuudet
@@ -24,7 +49,6 @@ Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Tai
   * Korjattu etusivun ja sääntösivujen vierityspainikkeiden toimintaa.
   * Päivitetty aloitussivun (`landing page`) sisältöä ja yhtenäistetty linkkien tyylejä.
   * Yhtenäistetty otsikkotasojen käyttöä läpi sivuston rakenteen selkeyttämiseksi.
-  * Korjattu sivuston yleistä navigointia JavaScript-puolella.
   * Yhtenäistetty otsikoiden muotoilua ja päivitetty lisenssitiedot `tietoja.html`-sivulle.
 
 ## 2025-06-23
@@ -45,14 +69,12 @@ Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Tai
 ### Uudet ominaisuudet
 
 * Lisätty `CHANGELOG.md`-tiedosto muutoshistorian seuraamiseksi.
-* Lisätty README-tiedostoon kehitysroadmap, joka kuvaa pelin tulevia vaiheita: "Vakaa Perusta", "Operatiivinen Askel", "Strateginen Perspektiivi" ja "Yhtenäinen Kokonaisuus".
+* Lisätty README-tiedostoon kehitysroadmap, joka kuvaa pelin tulevia vaiheita.
 
 ### Parannukset ja korjaukset
 
-* Päivitetty lisenssitietoihin Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International -lisenssi ja linkki sen kuvaukseen.
-* Lisätty `.gitignore`-tiedosto, joka estää tarpeettomien tiedostojen (kuten `.vscode/settings.json`) seuraamisen versionhallinnassa.
-* Parannettu vieritysnappien toimintaa ja asettelua.
-* Lisätty mobiililaitteille linkki PDF-karttaan `Operaatio Teräsvalli` -osiossa ja korjattu sen näkyvyyttä.
+* Päivitetty lisenssitietoihin Creative Commons -lisenssi.
+* Lisätty `.gitignore`-tiedosto estämään tarpeettomien tiedostojen seuraamisen versionhallinnassa.
 * Lisätty palautelomake ja yhteystiedot.
 * Lisätty `Operaatio Teräsvalli` -kartta PDF-muodossa.
 * Lisätty `Jälkisanat`-osio.
