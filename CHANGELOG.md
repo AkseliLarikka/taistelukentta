@@ -4,11 +4,15 @@ Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Tai
 
 ## 2025-06-26
 
+### Uudet ominaisuudet
+
+* **Pelaajan työkalut:** Lisätty täysin uusi Pelaajan työkalupakki (`player-tools.js` ja `player-tools.css`), joka sisältää laajoja toiminnallisuuksia pelaajille.
+
 ### Parannukset ja korjaukset
 
-* Kehitetty ja päivitetty merkittävästi Pelinjohtajan Työkalupakkia (`gm-tool`).
-* Parannettu työkalun JavaScript-logiikkaa ja jaettu sen CSS-tyylejä omaksi `gm-tool.css`-tiedostoksi selkeyden parantamiseksi.
-* Korjattu etusivun mobiilinäkymää.
+* **Koodin refaktorointi:** Suoritettu laaja refaktorointi, joka parantaa olemassa olevien työkalujen, kuten Pelinjohtajan Työkalupakin (`gm-tool`), toiminnallisuutta ja ylläpidettävyyttä.
+* **Käyttöliittymä:** Korjattu etusivun mobiilinäkymää ja parannettu yleistä käytettävyyttä.
+* **Dokumentaatio:** Lisätty `tietoja.html`-sivulle suora linkki tähän muutoshistoriaan.
 
 ## 2025-06-25
 
