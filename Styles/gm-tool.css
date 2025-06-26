@@ -689,3 +689,102 @@
     padding: 0.25rem 0.5rem;
     border-radius: 99px;
 }
+
+/* Koodilisäys: Yksityiskohtaisten GM-yksikkökorttien tyylit */
+
+.gm-unit-active-item .unit-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.gm-unit-active-item .unit-stat {
+    text-align: center;
+    background-color: #fafaf9;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.gm-unit-active-item .unit-stat .label {
+    font-size: 0.8rem;
+    color: #57534e;
+    font-weight: bold;
+}
+
+.gm-unit-active-item .unit-stat .value {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.gm-unit-active-item .armament-table {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.gm-unit-active-item .armament-table th,
+.gm-unit-active-item .armament-table td {
+    border: 1px solid #e7e5e4;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.gm-unit-active-item .armament-table th {
+    background-color: #fafaf9;
+    font-weight: bold;
+}
+
+.gm-unit-active-item .abilities-list {
+    list-style-type: '▸';
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.gm-unit-active-item .abilities-list li {
+    margin-bottom: 0.5rem;
+}
+
+/* Annetaan poista-napille hieman tilaa */
+.gm-unit-active-item .gm-delete-button {
+    margin-top: 1rem;
+}
+
+/* Koodilisäys: Aktiivisten yksiköiden responsiivinen ruudukkoasettelu */
+
+#active-unit-list {
+    display: grid;
+    /* Luo niin monta saraketta kuin mahtuu. Yksi sarake on vähintään 350px leveä. */
+    /* Tämä johtaa automaattisesti 1-4 sarakkeeseen useimmilla näyttökooilla. */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    /* Lisätään ilmaa korttien väliin */
+}
+
+/* Muokataan yksittäisen kortin tyyliä sopimaan paremmin ruudukkoon.
+   Poistetaan vanha border-bottom ja tehdään siitä itsenäinen kortti. */
+.gm-unit-active-item {
+    display: flex;
+    /* Muutetaan kortti flex-säiliöksi */
+    flex-direction: column;
+    /* Asetetaan kortin sisältö pystysuuntaan */
+    border: 1px solid #e7e5e4;
+    /* Lisätään yhtenäinen reunus */
+    border-radius: 0.5rem;
+    /* Pyöristetään kulmat */
+    padding: 1rem;
+    background-color: #fdfdfd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* Nollataan vanhat, mahdollisesti ristiriitaiset säännöt */
+    grid-template-columns: none;
+    align-items: stretch;
+}
+
+/* Varmistetaan, että kortin sisällä oleva sisältö venyy koko leveydelle */
+.gm-unit-active-item>div {
+    width: 100%;
+}

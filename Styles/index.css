@@ -2291,3 +2291,19 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     font-size: 1rem;
     line-height: 1.6;
 }
+
+/* Koodilisäys: Tietolaatikon tyylit */
+.info-box {
+    background-color: #f5f5f4; /* stone-100 */
+    border-left: 5px solid #556B2F; /* Teemaväri */
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.info-box p {
+    margin-bottom: 0.5rem;
+}
+.info-box p:last-child {
+    margin-bottom: 0;
+}

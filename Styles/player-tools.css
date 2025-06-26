@@ -1,0 +1,825 @@
+/* Styles/player-tools.css */
+
+/* ==================================================================== */
+/* PELAAJAN TYÖKALUPAKIN TYYLIT (Mobiili ensin)                       */
+/* ==================================================================== */
+
+#main-content {
+    padding-bottom: 250px !important;
+}
+
+#player-tool {
+    background-color: #fdfdfd;
+    border: 1px solid #d6d3d1;
+    border-radius: 0.5rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.player-tool-tabs {
+    display: flex;
+    border-bottom: 1px solid #d6d3d1;
+    background-color: #fafaf9;
+    border-radius: 0.5rem 0.5rem 0 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.player-tab-button {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #57534e;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+}
+
+.player-tab-button:hover {
+    background-color: #f5f5f4;
+}
+
+.player-tab-button.active {
+    color: #556B2F;
+    border-bottom-color: #556B2F;
+}
+
+.player-tool-content {
+    padding: 1rem;
+}
+
+.player-tab-pane {
+    display: none;
+    /* Oletuksena piilossa, jotta se ei vie tilaa */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    /* Määritellään 0.3s häivytysanimaatio */
+}
+
+.player-tab-pane.active {
+    display: block;
+    /* Tehdään osaksi sivun asettelua, mutta on yhä näkymätön (opacity: 0) */
+}
+
+.player-tab-pane.is-visible {
+    opacity: 1;
+    /* Tehdään näkyväksi pehmeällä häivytyksellä */
+}
+
+/* Yleinen osio/korttityyli */
+.player-tool-section {
+    background-color: #f5f5f4;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e7e5e4;
+}
+
+.player-tool-section h3,
+.player-tool-section h4 {
+    margin-top: 0;
+    color: #556B2F;
+}
+
+/* Roolin valinta */
+#role-selector label {
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+#role-selector select {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #d6d3d1;
+}
+
+/* KP-seuranta (yleinen säiliö) */
+.kp-tracker-container {
+    margin-top: 1rem;
+}
+
+.kp-tracker-container h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #44403C;
+}
+
+.player-kp-tracker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #e7e5e4;
+}
+
+.player-kp-tracker .kp-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.player-kp-tracker .kp-controls button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #556B2F;
+    background: #f5f5f4;
+    border: 1px solid #d6d3d1;
+    border-radius: 99px;
+    width: 35px;
+    height: 35px;
+    /* UUDET LISÄYKSET NAPIN KESKITTÄMISEKSI */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-kp-tracker .player-kp-value {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Ilmoitusalue */
+#player-notifications {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-height: 40px;
+}
+
+.player-notification {
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    color: white;
+}
+
+.player-notification.is-warning {
+    background-color: #f97316;
+}
+
+.player-notification.is-info {
+    background-color: #3b82f6;
+}
+
+.player-notification.is-success {
+    background-color: #22c55e;
+}
+
+/* Yksikkövalitsin */
+.unit-checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.unit-checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border-radius: 9999px;
+    border: 1px solid #d6d3d1;
+    transition: all 0.2s ease;
+    user-select: none;
+    font-size: 0.9rem;
+}
+
+.unit-checkbox-label input {
+    margin-right: 0.5rem;
+}
+
+.unit-checkbox-label:has(input:checked) {
+    background-color: #C2B280;
+    color: #2F361F;
+    font-weight: bold;
+    border-color: #556B2F;
+}
+
+/* Aktiivisen yksikön kortti */
+.player-unit-card {
+    border: 1px solid #d6d3d1;
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.player-unit-card header {
+    background-color: #fafaf9;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #d6d3d1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player-unit-card header h4 {
+    margin: 0;
+}
+
+.player-unit-card .status-indicator {
+    padding: 0.25rem 0.5rem;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.unit-card h4 .unit-type-display {
+    font-size: 0.8em;
+    font-weight: 500;
+    /* Normaalia kevyempi paino */
+    color: #78716c;
+    /* stone-500 */
+    margin-left: 0.25em;
+}
+
+.status-kunnossa {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.status-vaurioitunut {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-lamautunut {
+    background-color: #e0e7ff;
+    color: #3730a3;
+}
+
+.status-tuhottu {
+    background-color: #d1d5db;
+    color: #1f2937;
+}
+
+.unit-card-body {
+    padding: 1rem;
+}
+
+/* Koodimuutos: Laajennettu statistiikkaruudukko */
+.unit-stat-grid {
+    display: grid;
+    /* Muutetaan ruudukko joustavaksi ja useampisarakkeiseksi */
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+    /* Lisätään tilaa ennen kykyjä */
+}
+
+.unit-stat {
+    text-align: center;
+}
+
+.unit-stat .label {
+    font-size: 0.8rem;
+    color: #57534e;
+}
+
+.unit-stat .value {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.unit-tracker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.ammo-tracker button,
+.unit-tracker button {
+    background-color: #e7e5e4;
+    border: 1px solid #d6d3d1;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+}
+
+.ammo-tracker button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.unit-abilities ul {
+    list-style-type: '▸';
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+.unit-abilities li {
+    margin-bottom: 0.25rem;
+}
+
+.ability-cost {
+    font-style: italic;
+    color: #57534e;
+}
+
+/* Komennot-välilehti */
+.command-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px dashed #d6d3d1;
+}
+
+.command-name {
+    font-weight: bold;
+}
+
+.command-cost {
+    background-color: #556B2F;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    font-size: 0.9rem;
+}
+
+.command-list-item button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.command-list-item button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Apuohjelmat */
+.player-tool-section input[type="number"],
+.player-tool-section input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d6d3d1;
+    border-radius: 4px;
+}
+
+.player-tool-section button {
+    width: 50%;
+    padding: 0.75rem;
+    background-color: #556B2F;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.calculator-output {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 4px;
+    min-height: 40px;
+    font-weight: 500;
+}
+
+#player-notes {
+    width: 100%;
+    min-height: 150px;
+    padding: 1rem;
+    border: 1px solid #d6d3d1;
+    border-radius: 4px;
+}
+
+.liike-laskuri-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+    align-items: center;
+}
+
+/* Media Query for larger screens */
+@media (min-width: 768px) {
+    .player-tool-content {
+        padding: 1.5rem;
+    }
+
+    #active-units-display {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1rem;
+    }
+}
+
+/* Roolinvalinnan valintaruutujen tyylit */
+#role-selector-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#role-selector-checkboxes label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+#role-selector-checkboxes label:hover {
+    background-color: #f0f0f0;
+}
+
+#role-selector-checkboxes input {
+    margin-right: 0.75rem;
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Interaktiivisten komentopainikkeiden tyylit */
+.command-btn {
+    background-color: #3b82f6;
+    /* sininen */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.command-btn:hover {
+    background-color: #2563eb;
+}
+
+.command-btn:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Koodilisäys: Tulitukimatriisin ja kykyjen tyylit */
+
+.fire-support-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    .fire-support-form {
+        grid-template-columns: 2fr 2fr 1fr auto;
+    }
+}
+
+.fire-support-form input,
+.fire-support-form button {
+    padding: 0.75rem;
+    border: 1px solid #d6d3d1;
+    border-radius: 4px;
+}
+
+.fire-support-form button {
+    background-color: #556B2F;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+}
+
+#fire-support-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#fire-support-table th,
+#fire-support-table td {
+    border: 1px solid #e7e5e4;
+    padding: 0.75rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#fire-support-table th {
+    background-color: #f5f5f4;
+}
+
+.remove-mission-btn {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.remove-mission-btn:hover {
+    background-color: #dc2626;
+}
+
+/* Yksikön kyky-painike kortin sisällä */
+.unit-abilities .ability-btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.unit-abilities .ability-btn:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Asettelun apuluokka */
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+/* Koodilisäys: Komentojen asettelu vierekkäin isommilla näytöillä */
+
+.commands-container {
+    display: flex;
+    flex-direction: column;
+    /* Oletus pienillä näytöillä: allekkain */
+    gap: 1.5rem;
+    /* Väli elementtien välille */
+}
+
+/* Kohdistetaan sääntö vain komentosäiliön sisällä oleviin osioihin */
+.commands-container>.player-tool-section {
+    flex-grow: 1;
+    /* Antaa elementin kasvaa täyttämään vapaan tilan */
+    flex-basis: 0;
+    /* Varmistaa, että kasvu alkaa nollasta, jolloin tila jaetaan tasaisesti */
+}
+
+/* Media-kysely isommille näytöille (esim. tabletit vaaka-asennossa ja tietokoneet) */
+@media (min-width: 992px) {
+    .commands-container {
+        flex-direction: row;
+        /* Asetetaan elementit vierekkäin */
+    }
+}
+
+/* Koodimuutos: Päivitetyt pelaajan yksiköiden lisäyslomakkeen tyylit */
+
+#player-unit-templates-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    /* Pienennettiin väliä hieman */
+    margin-top: 1rem;
+}
+
+.player-unit-template-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: #fafaf9;
+    border: 1px solid #e7e5e4;
+    border-radius: 0.375rem;
+}
+
+/* Asettelu isommilla näytöillä */
+@media (min-width: 768px) {
+    .player-unit-template-item {
+        grid-template-columns: 1fr 2fr auto;
+        /* Nimi, Input, Nappi */
+    }
+}
+
+
+.player-unit-template-item .template-name {
+    font-weight: bold;
+    color: #44403C;
+}
+
+.player-unit-template-item input[type="text"] {
+    padding: 0.5rem;
+    border: 1px solid #d6d3d1;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.player-unit-template-item .template-add-btn {
+    background-color: #556B2F;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.player-unit-template-item .template-add-btn:hover {
+    background-color: #4A5D23;
+}
+
+/* Yksikön poistopainike kortissa */
+.remove-unit-btn {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    display: block;
+    width: 100%;
+}
+
+.remove-unit-btn:hover {
+    background-color: #dc2626;
+}
+
+/* Annetaan yleiskatsaus-välilehden ensimmäiselle osiolle hieman tilaa yläreunaan, 
+   koska ilmoitukset eivät ole enää sen sisällä. */
+#tab-overview-player .player-tool-section:first-child {
+    margin-top: 0;
+}
+
+/* Muotoillaan itse ilmoitusaluetta, jotta se erottuu selkeästi */
+#player-notifications {
+    padding: 0.5rem 0;
+    /* Lisätään hieman pystysuuntaista tilaa */
+    min-height: 50px;
+    /* Varmistetaan, että alueella on korkeutta vaikka se olisi tyhjä */
+}
+
+/* Varmistetaan, että ilmoituslaatikot, jotka olivat aiemmin player-tool-sectionin sisällä,
+   näyttävät edelleen hyviltä. */
+.player-tool-section>#player-notifications {
+    padding: 0;
+    min-height: initial;
+}
+
+/* Koodilisäys: Vuorolaskurin ja ilmoitusten asettelu */
+
+.overview-top-row {
+    display: flex;
+    flex-wrap: wrap;
+    /* Salli rivitys pienillä näytöillä */
+    gap: 1.5rem;
+    /* Väli elementtien välille */
+    margin-bottom: 1.5rem;
+    /* Tilaa alapuolelle */
+}
+
+/* Säännöt, jotka koskevat vain tämän rivin sisällä olevia osioita */
+.overview-top-row>.player-tool-section {
+    margin-bottom: 0;
+    /* Nollataan oletusmarginaali, koska gap hoitaa välit */
+    display: flex;
+    /* Tehdään näistäkin flex-säiliöitä, jotta sisältö asettuu paremmin */
+    flex-direction: column;
+}
+
+/* Määritellään leveydet suhteessa toisiinsa (75% / 25%) */
+.overview-notifications {
+    flex: 3;
+    /* Ottaa 3 osaa tilasta */
+    min-width: 300px;
+    /* Vähimmäisleveys ennen rivitystä */
+}
+
+.overview-turn-counter {
+    flex: 1;
+    /* Ottaa 1 osan tilasta */
+    min-width: 150px;
+}
+
+/* Varmistetaan, että ilmoituslaatikko täyttää korkeuden */
+#player-notifications {
+    flex-grow: 1;
+}
+
+/* Koodilisäys: Nollauspainikkeen ja modaalin tyylit */
+
+.player-tool-reset-container {
+    padding: 1rem;
+    border-top: 1px solid #d6d3d1;
+    background-color: #fafaf9;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.danger-button {
+    background-color: #ef4444;
+    color: white;
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.danger-button:hover {
+    background-color: #dc2626;
+}
+
+.danger-button:disabled {
+    background-color: #fca5a5;
+    cursor: not-allowed;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    width: 90%;
+    max-width: 500px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-container.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-container h3 {
+    margin-top: 0;
+    color: #556B2F;
+}
+
+.modal-container input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border: 1px solid #d6d3d1;
+    border-radius: 4px;
+}
+
+.modal-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.modal-buttons button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    border: 1px solid #d6d3d1;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-buttons button:not(.danger-button) {
+    background-color: #f5f5f4;
+}
+
+.armament-table {
+    text-align: center;
+    border: #1f2937;
+    border-width: 1px;
+}

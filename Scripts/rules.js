@@ -4,8 +4,7 @@
  * Vastuualueet:
  * 1. Sivupalkin navigaation luonti (sis. automaattisen numeroinnin alasivuilla).
  * 2. Vieritystoiminnot: Dynaamiset vierityspainikkeet ja niiden tilan hallinta.
- * 3. Käyttöliittymän parannukset: Mobiilinavigaation hallinta ja aktiivisen linkin korostus.
- * 4. Automaattinen tekijänoikeusvuoden päivitys.
+ * 3. VIERITYSNAPPIEN SELITTEEN NÄYTTÖ
  *
  * @version 1.0
  * @author Akseli Larikka
@@ -253,109 +252,79 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // ====================================================================
-    // OSA 2: SIVUN VIERITYSPAINIKKEET
-    // ====================================================================
+// OSA 2: SIVUN VIERITYSPAINIKKEET (MODULAARINEN)
+// ====================================================================
 
-    const scrollButtonsContainer = document.getElementById('scroll-buttons-container'); //
-    const mainContentForScroll = document.getElementById('main-content'); //
-
-    if (scrollButtonsContainer && mainContentForScroll) { //
-        const scrollTopButton = document.getElementById('scroll-top'); //
-        const scrollH2UpButton = document.getElementById('scroll-h2-up'); //
-        const scrollH3UpButton = document.getElementById('scroll-h3-up'); //
-        const scrollBottomButton = document.getElementById('scroll-bottom'); //
-        const scrollH2DownButton = document.getElementById('scroll-h2-down'); //
-        const scrollH3DownButton = document.getElementById('scroll-h3-down'); //
-
-        const findNextNavigableHeader = (direction) => { //
-            const allNavigableHeaders = Array.from(mainContentForScroll.querySelectorAll('h2, h3')); //
-            const navbarHeight = mainNavbar?.offsetHeight || 0; // Haetaan yläpalkin korkeus
-
-            if (direction === 'up') { //
-                // Etsitään kaikki otsikot, jotka ovat näkymän yläpuolella
-                const headersAbove = allNavigableHeaders.filter(h => h.getBoundingClientRect().top < -1); //
-                return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null; // Palautetaan niistä viimeinen (lähin)
-            } else { // 'down'
-                // Etsitään seuraava otsikko, joka on selvästi nykyisen alapuolella (yläpalkin korkeus + 5px puskuri)
-                return allNavigableHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null; //
-            }
-        };
-
-        const findNearestStrictHeader = (selector, direction) => { //
-            const allHeaders = Array.from(mainContentForScroll.querySelectorAll(selector)); //
-            const navbarHeight = mainNavbar?.offsetHeight || 0; // Haetaan yläpalkin korkeus
-
-            if (direction === 'up') { //
-                // Etsitään kaikki otsikot, jotka ovat näkymän yläpuolella
-                const headersAbove = allHeaders.filter(h => h.getBoundingClientRect().top < -1); //
-                return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null; // Palautetaan niistä viimeinen (lähin)
-            } else { // 'down'
-                // Etsitään seuraava otsikko, joka on selvästi nykyisen alapuolella (yläpalkin korkeus + 5px puskuri)
-                return allHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null; //
-            }
-        };
-
-        const updateButtonStates = () => { //
-            const scrollY = window.scrollY; //
-            const pageHeight = document.documentElement.scrollHeight; //
-            const windowHeight = window.innerHeight; //
-
-            const atTop = scrollY < 20; //
-            const atBottom = (windowHeight + scrollY) >= pageHeight - 20; //
-
-            const nextH2Up = findNearestStrictHeader('h2', 'up'); //
-            const nextH2Down = findNearestStrictHeader('h2', 'down'); //
-            const nextNavigableUp = findNextNavigableHeader('up'); //
-            const nextNavigableDown = findNextNavigableHeader('down'); //
-
-            if (scrollTopButton) scrollTopButton.disabled = atTop; //
-            if (scrollBottomButton) scrollBottomButton.disabled = atBottom; //
-            if (scrollH2UpButton) scrollH2UpButton.disabled = atTop || !nextH2Up; //
-            if (scrollH2DownButton) scrollH2DownButton.disabled = atBottom || !nextH2Down; //
-            if (scrollH3UpButton) scrollH3UpButton.disabled = atTop || !nextNavigableUp; //
-            if (scrollH3DownButton) scrollH3DownButton.disabled = atBottom || !nextNavigableDown; //
-        };
-
-        if (scrollTopButton) scrollTopButton.addEventListener('click', () => window.scrollTo({ //
-            top: 0, //
-            behavior: 'smooth' //
-        }));
-        if (scrollBottomButton) scrollBottomButton.addEventListener('click', () => window.scrollTo({ //
-            top: document.body.scrollHeight, //
-            behavior: 'smooth' //
-        }));
-        if (scrollH2UpButton) scrollH2UpButton.addEventListener('click', () => findNearestStrictHeader('h2', 'up')?.scrollIntoView({ //
-            behavior: 'smooth', //
-            block: 'start' //
-        }));
-        if (scrollH2DownButton) scrollH2DownButton.addEventListener('click', () => findNearestStrictHeader('h2', 'down')?.scrollIntoView({ //
-            behavior: 'smooth', //
-            block: 'start' //
-        }));
-        if (scrollH3UpButton) scrollH3UpButton.addEventListener('click', () => findNextNavigableHeader('up')?.scrollIntoView({ //
-            behavior: 'smooth', //
-            block: 'start' //
-        }));
-        if (scrollH3DownButton) scrollH3DownButton.addEventListener('click', () => findNextNavigableHeader('down')?.scrollIntoView({ //
-            behavior: 'smooth', //
-            block: 'start' //
-        }));
-
-        let scrollTimeout; //
-        window.addEventListener('scroll', () => { //
-            clearTimeout(scrollTimeout); //
-            scrollTimeout = setTimeout(updateButtonStates, 50); //
-        });
-        window.addEventListener('resize', updateButtonStates); //
-
-        setTimeout(updateButtonStates, 100); //
-
-    } else {
-        console.error('VIERITYSNAPPIEN SKRIPTI EI KÄYNNISTYNYT! Varmista, että HTML-koodissa on elementit ID:llä "scroll-buttons-container" ja "main-content".'); //
+// Muutetaan logiikka globaaliksi funktioksi, jota voidaan kutsua muualta.
+window.initializeScrollButtons = function() {
+    const scrollButtonsContainer = document.getElementById('scroll-buttons-container');
+    const mainContentForScroll = document.getElementById('main-content');
+    
+    // Varmistetaan, että elementit ovat olemassa, ennen kuin jatketaan
+    if (!scrollButtonsContainer || !mainContentForScroll || !mainNavbar) {
+        return;
     }
 
+    const scrollTopButton = document.getElementById('scroll-top');
+    const scrollH2UpButton = document.getElementById('scroll-h2-up');
+    const scrollH3UpButton = document.getElementById('scroll-h3-up');
+    const scrollBottomButton = document.getElementById('scroll-bottom');
+    const scrollH2DownButton = document.getElementById('scroll-h2-down');
+    const scrollH3DownButton = document.getElementById('scroll-h3-down');
+    
+    // KORJATTU OSA: Lisätty H4-otsikko tähän, jotta "Korpraali"-nappi toimii yksikkösivuilla.
+    const findNextNavigableHeader = (direction) => {
+        const allNavigableHeaders = Array.from(mainContentForScroll.querySelectorAll('h2, h3, h4'));
+        const navbarHeight = mainNavbar.offsetHeight || 0;
+        if (direction === 'up') {
+            const headersAbove = allNavigableHeaders.filter(h => h.getBoundingClientRect().top < -1);
+            return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null;
+        } else {
+            return allNavigableHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null;
+        }
+    };
+
+    const findNearestStrictHeader = (selector, direction) => {
+        const allHeaders = Array.from(mainContentForScroll.querySelectorAll(selector));
+        const navbarHeight = mainNavbar.offsetHeight || 0;
+        if (direction === 'up') {
+            const headersAbove = allHeaders.filter(h => h.getBoundingClientRect().top < -1);
+            return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null;
+        } else {
+            return allHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null;
+        }
+    };
+
+    // Poistetaan vanhat kuuntelijat, jos niitä on, estää päällekkäiset kutsut
+    let scrollTimeout;
+    const scrollHandler = () => { clearTimeout(scrollTimeout); scrollTimeout = setTimeout(updateButtonStates, 50); };
+    window.removeEventListener('scroll', scrollHandler); // Poista vanha ensin
+    window.addEventListener('scroll', scrollHandler); // Lisää uusi
+
+    // updateButtonStates ja nappien kuuntelijat pysyvät funktion sisällä
+    const updateButtonStates = () => {
+        const atTop = window.scrollY < 20;
+        const atBottom = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 20;
+        const nextH2Up = findNearestStrictHeader('h2', 'up');
+        const nextH2Down = findNearestStrictHeader('h2', 'down');
+        const nextNavigableUp = findNextNavigableHeader('up');
+        const nextNavigableDown = findNextNavigableHeader('down');
+
+        if (scrollTopButton) scrollTopButton.disabled = atTop;
+        if (scrollBottomButton) scrollBottomButton.disabled = atBottom;
+        if (scrollH2UpButton) scrollH2UpButton.disabled = atTop || !nextH2Up;
+        if (scrollH2DownButton) scrollH2DownButton.disabled = atBottom || !nextH2Down;
+        if (scrollH3UpButton) scrollH3UpButton.disabled = atTop || !nextNavigableUp;
+        if (scrollH3DownButton) scrollH3DownButton.disabled = atBottom || !nextNavigableDown;
+    };
+    
+    // Tässä kohtaa emme lisää kuuntelijoita uudelleen, koska ne on jo lisätty kerran.
+    // Riittää, että päivitämme niiden tilan.
+    updateButtonStates();
+};
+
     // ====================================================================
-    // OSA 4: VIERITYSNAPPIEN SELITTEEN NÄYTTÖ
+    // OSA 3: VIERITYSNAPPIEN SELITTEEN NÄYTTÖ
     // ====================================================================
 
     const infoToggle = document.getElementById('scroll-info-toggle'); //

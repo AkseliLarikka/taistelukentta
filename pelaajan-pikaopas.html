@@ -6,18 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, noimageindex, noarchive">
     <meta name="description"
-        content="Taistelukenttä d20 -pelin pikaopas pelaajalle. Sisältää vuoron vaiheet, komentopistetoiminnot ja suodattimen omien yksiköiden tietojen nopeaan tarkasteluun.">
+        content="Taistelukenttä d20 -pelin interaktiivinen pikaopas ja työkalu pelaajalle. Hallinnoi yksiköitäsi, seuraa komentopisteitä ja käytä apuohjelmia pelin aikana.">
     <meta name="keywords" lang="fi"
-        content="pikaopas, pelaajan opas, Taistelukenttä d20, komentopisteet, KP, yksiköt, säännöt, nopea viite, sotapeli, d20 system, D&D, Dungeons and Dragons, noppapeli, suomalainen, ilmaiset säännöt, taktiset säännöt">
+        content="pelaajan työkalu, pikaopas, Taistelukenttä d20, komentopisteet, KP, yksiköt, säännöt, nopea viite, sotapeli, d20 system, D&D, Dungeons and Dragons, noppapeli, suomalainen, ilmaiset säännöt, taktinen työkalu">
     <meta name="keywords" lang="en"
-        content="quick reference, player guide, Taistelukenttä d20, command points, units, rules, wargame, d20 system, D&D, Dungeons and Dragons, dice game, Finnish, free rules, tactical rules">
-    <title>Taistelukenttä d20 - Pelaajan Pikaopas</title>
+        content="player tool, quick reference, player guide, Taistelukenttä d20, command points, units, rules, wargame, d20 system, D&D, Dungeons and Dragons, dice game, Finnish, free rules, tactical tool">
+    <title>Taistelukenttä d20 - Pelaajan Työkalu</title>
     <link rel="icon" type="image/x-icon" href="images/tkd20ikoni.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="Styles/rules.css">
+    <link rel="stylesheet" type="text/css" href="Styles/player-tools.css">
 </head>
 
 <body>
@@ -25,14 +26,14 @@
         <div class="container">
             <div class="header-left-spacer"></div>
             <div id="navbar-dropdown-container">
-                <a href="#" id="current-page-name" class="home-link">Pelaajan Pikaopas</a>
+                <a href="#" id="current-page-name" class="home-link">Pelaajan pikaopas</a>
                 <nav id="main-navbar-content">
                     <ul class="top-nav-list">
                         <li><a href="index.html" class="nav-link-top">Etusivu</a></li>
                         <li><a href="ydinsaannot.html" class="nav-link-top">Ydinsäännöt</a></li>
                         <li><a href="taktisen-tason-taistelu.html" class="nav-link-top">Taktisen tason taistelu</a></li>
                         <li><a href="pelaajan-pikaopas.html" class="nav-link-top" style="color:#C2B280;">Pelaajan
-                                Pikaopas</a></li>
+                                pikaopas</a></li>
                         <li><a href="siniset-yksiköt.html" class="nav-link-top">Siniset yksiköt</a></li>
                         <li><a href="punaiset-yksiköt.html" class="nav-link-top">Punaiset yksiköt</a></li>
                         <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
@@ -49,7 +50,9 @@
 
     <div id="sidebar" class="sidebar-hidden">
         <h1 class="sidebar-title">Sisällysluettelo</h1>
-        <nav id="nav-menu"></nav>
+        <nav id="nav-menu">
+            <p style="padding: 1rem;">Tällä sivulla ei ole sisällysluetteloa, koska se on interaktiivinen työkalu.</p>
+        </nav>
     </div>
 
     <button id="menu-toggle" aria-label="Avaa Sisällysluettelo">
@@ -63,439 +66,438 @@
             <div class="main-banner">
                 <div>
                     <h1 class="banner-title">
-                        Taistelukenttä d20 – Pelaajan Pikaopas <br> v. Alpha
+                        Taistelukenttä d20 – Pelaajan pikaopas <br> v. Alpha
                     </h1>
                 </div>
             </div>
 
-            <section id="pikaohjeet">
-                <h2>Pelivuoron Vaiheet</h2>
-                <ol>
-                    <li><strong>Liikevaihe:</strong> Yksiköt suorittavat ennalta määrätyt liikkeensä.</li>
-                    <li><strong>Tiedusteluvaihe:</strong> Tiedustelutoiminnot ja havaintoheitot tehdään.</li>
-                    <li><strong>Komentovaihe:</strong> Pelaajat käyttävät Komentopisteensä (<span class="glossary-term"
-                            data-term="kp">KP</span>) ja antavat kaikki käskyt
-                        (tuli, erikoistoiminnot) samanaikaisesti.</li>
-                    <li><strong>Tulitoimintavaihe:</strong> Kaikki Komentovaiheessa annetut tulikomennot ja iskut
-                        ratkaistaan.</li>
-                    <li><strong>Tilannevaihe:</strong> Moraalitestit suoritetaan, tilavaikutukset päivitetään ja vuoro
-                        päättyy.</li>
-                </ol>
+            <h2>Pelaajan työkalupakki</h2>
 
-                <h2 style="margin-top: 2em;">Taistelun Perusteet</h2>
-                <ul>
-                    <li><strong>Hyökkäysheitto:</strong>
-                        <code>d20 + <span class="glossary-term" data-term="taitotaso">Taitotaso</span> (<span class="glossary-term" data-term="taitotaso">TT</span>) + bonukset</code>
-                        vs. Vihollisen
-                        <code><span class="glossary-term" data-term="suoja">Suoja</span> (<span class="glossary-term" data-term="suoja">S</span>)</code>.
-                        Tulos pitää olla <strong>vähintään yhtä suuri</strong> kuin <span class="glossary-term"
-                            data-term="suoja">Suoja</span>-arvo.
-                    </li>
-                    <li><strong><span class="glossary-term" data-term="etu ja haitta">Etu</span> (Advantage):</strong>
-                        Heitä 2 x d20, käytä parempi tulos. Saadaan esim. hyökätessä
-                        sivustaan/selustaan tai lamautunutta kohdetta vastaan.</li>
-                    <li><strong><span class="glossary-term" data-term="etu ja haitta">Haitta</span>
-                            (Disadvantage):</strong> Heitä 2 x d20, käytä huonompi tulos. Tulee esim.
-                        ammuttaessa linnoittautunutta kohdetta tai huonossa näkyvyydessä.</li>
-                    <li><strong>Vahinko:</strong> Onnistunut osuma aiheuttaa vahinkoa aseen <strong><span
-                                class="glossary-term" data-term="tuli-isku">Tuli-isku</span>
-                            (TI)</strong> -nopan verran.</li>
-                    <li><strong>Tilaisuusisku:</strong> Jos vihollinen poistuu Hallintavyöhykkeeltäsi (2 cm säde) ilman
-                        <i>Irtautuminen</i>-komentoa, saat tehdä sitä vastaan yhden ilmaisen hyökkäyksen.
-                    </li>
-                </ul>
+            <p>Tervetuloa pelaajan työkalupakkiin! Tämä työkalu auttaa sinua hallinnoimaan omia yksiköitäsi,
+                seuraamaan komentopisteitä ja tekemään nopeita sääntötarkistuksia. Tiedot tallentuvat
+                automaattisesti selaimesi välimuistiin.</p>
 
-                <h2 style="margin-top: 2em;">Moraalitestit</h2>
-                <p>Heitto:
-                    <code>d20 + <span class="glossary-term" data-term="moraali">Moraali</span> (<span class="glossary-term" data-term="moraali">M</span>)</code>
-                    vs. Vaikeusaste (<span class="glossary-term" data-term="dc">DC</span>). Epäonnistuminen johtaa
-                    <strong>Lamautunut</strong>-tilaan, kriittinen epäonnistuminen (5 alle <span class="glossary-term"
-                        data-term="dc">DC</span>:n)
-                    <strong>Vetäytyy</strong>-tilaan.
-                </p>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Tilanne</th>
-                                <th>Vaikeusaste (<span class="glossary-term" data-term="dc">DC</span>)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Kärsii vahinkoa ensimmäistä kertaa</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td><span class="glossary-term" data-term="taistelukunto">TK</span> putoaa alle 50%</td>
-                                <td>12</td>
-                            </tr>
-                            <tr>
-                                <td>Joutuu epäsuoran tulen alle</td>
-                                <td>13</td>
-                            </tr>
-                            <tr>
-                                <td>Vieressä oleva oma yksikkö tuhoutuu/vetäytyy</td>
-                                <td>12</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <h3>Pelivuoron Vaiheet</h3>
+            <ol>
+                <li><strong>Liikevaihe:</strong> Yksiköt suorittavat ennalta määrätyt liikkeensä.</li>
+                <li><strong>Tiedusteluvaihe:</strong> Tiedustelutoiminnot ja havaintoheitot tehdään.
+                </li>
+                <li><strong>Komentovaihe:</strong> Pelaajat käyttävät Komentopisteensä (<span class="glossary-term"
+                        data-term="kp">KP</span>) ja antavat kaikki käskyt
+                    (tuli, erikoistoiminnot) samanaikaisesti.</li>
+                <li><strong>Tulitoimintavaihe:</strong> Kaikki Komentovaiheessa annetut tulikomennot ja
+                    iskut
+                    ratkaistaan.</li>
+                <li><strong>Tilannevaihe:</strong> Moraalitestit suoritetaan, tilavaikutukset
+                    päivitetään ja vuoro
+                    päättyy.</li>
+            </ol>
+
+            <h3 style="margin-top: 2em;">Taistelun Perusteet</h3>
+            <ul>
+                <li><strong>Hyökkäysheitto:</strong>
+                    <code>d20 + <span class="glossary-term" data-term="taitotaso">Taitotaso</span> (<span class="glossary-term" data-term="taitotaso">TT</span>) + bonukset</code>
+                    vs. Vihollisen
+                    <code><span class="glossary-term" data-term="suoja">Suoja</span> (<span class="glossary-term" data-term="suoja">S</span>)</code>.
+                    Tulos pitää olla <strong>vähintään yhtä suuri</strong> kuin <span class="glossary-term"
+                        data-term="suoja">Suoja</span>-arvo.
+                </li>
+                <li><strong><span class="glossary-term" data-term="etu ja haitta">Etu</span>
+                        (Advantage):</strong>
+                    Heitä 2 x d20, käytä parempi tulos. Saadaan esim. hyökätessä
+                    sivustaan/selustaan tai lamautunutta kohdetta vastaan.</li>
+                <li><strong><span class="glossary-term" data-term="etu ja haitta">Haitta</span>
+                        (Disadvantage):</strong> Heitä 2 x d20, käytä huonompi tulos. Tulee esim.
+                    ammuttaessa linnoittautunutta kohdetta tai huonossa näkyvyydessä.</li>
+                <li><strong>Vahinko:</strong> Onnistunut osuma aiheuttaa vahinkoa aseen <strong><span
+                            class="glossary-term" data-term="tuli-isku">Tuli-isku</span>
+                        (TI)</strong> -nopan verran.</li>
+                <li><strong>Tilaisuusisku:</strong> Jos vihollinen poistuu Hallintavyöhykkeeltäsi (2 cm
+                    säde) ilman
+                    <i>Irtautuminen</i>-komentoa, saat tehdä sitä vastaan yhden ilmaisen hyökkäyksen.
+                </li>
+            </ul>
+
+            <h3 style="margin-top: 2em;">Moraalitestit</h3>
+            <p>Heitto:
+                <code>d20 + <span class="glossary-term" data-term="moraali">Moraali</span> (<span class="glossary-term" data-term="moraali">M</span>)</code>
+                vs. Vaikeusaste (<span class="glossary-term" data-term="dc">DC</span>). Epäonnistuminen
+                johtaa
+                <strong>Lamautunut</strong>-tilaan, kriittinen epäonnistuminen (5 alle <span class="glossary-term"
+                    data-term="dc">DC</span>:n)
+                <strong>Vetäytyy</strong>-tilaan.
+            </p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tilanne</th>
+                            <th>Vaikeusaste (<span class="glossary-term" data-term="dc">DC</span>)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Kärsii vahinkoa ensimmäistä kertaa</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td><span class="glossary-term" data-term="taistelukunto">TK</span> putoaa
+                                alle 50%</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>Joutuu epäsuoran tulen alle</td>
+                            <td>13</td>
+                        </tr>
+                        <tr>
+                            <td>Vieressä oleva oma yksikkö tuhoutuu/vetäytyy</td>
+                            <td>12</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin-top: 2em;">Tärkeimmät <span class="glossary-term"
+                    data-term="tilaefektit">Tilaefektit</span></h3>
+            <ul>
+                <li><strong>Vaurioitunut:</strong> <span class="glossary-term" data-term="taistelukunto">TK</span>
+                    alle 50%. <span class="glossary-term" data-term="liike">Liike</span> ja <span class="glossary-term"
+                        data-term="tuli-isku">Tuli-isku</span> puolitettu.</li>
+                <li><strong>Lamautunut:</strong> Ei voi liikkua tai käyttää toimintoja. Vastaan tehdyt
+                    hyökkäykset
+                    saavat <span class="glossary-term" data-term="etu ja haitta">Edun</span>. Poistuu
+                    onnistuneella
+                    moraalitestillä tai <i>Moraalin Kohotus</i> -komennolla.</li>
+                <li><strong>Vetäytyy:</strong> Pakenee hallitsemattomasti. Poistuu <i>Moraalin
+                        Kohotus</i>
+                    -komennolla.</li>
+                <li><strong><span class="glossary-term" data-term="piiloutunut">Piiloutunut</span>:</strong> Ei voi
+                    ottaa kohteeksi, ellei vihollinen ole 5 cm tai lähempänä.
+                    Tilaan pääsee vain erikoiskyvyllä.</li>
+            </ul>
+
+            <h3 style="margin-top: 2em;">Maaston Vaikutukset Pelaajalle</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Maastotyyppi</th>
+                            <th>Liikevaikutus</th>
+                            <th><span class="glossary-term" data-term="suoja">Suojabonus</span> (<span
+                                    class="glossary-term" data-term="suoja">S</span>)</th>
+                            <th>Näkyvyys</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tie</strong></td>
+                            <td>+50% <span class="glossary-term" data-term="liike">liike</span></td>
+                            <td>+0</td>
+                            <td>Ei estä</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pelto</strong></td>
+                            <td>Normaali</td>
+                            <td>+1</td>
+                            <td>Ei estä</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Metsä</strong></td>
+                            <td>-50% <span class="glossary-term" data-term="liike">liike</span></td>
+                            <td>+4</td>
+                            <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tiheä metsä</strong></td>
+                            <td>-75% <span class="glossary-term" data-term="liike">liike</span></td>
+                            <td>+6</td>
+                            <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rakennus/Asema</strong></td>
+                            <td>Ei voi liikkua läpi</td>
+                            <td>+6</td>
+                            <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Korkea maasto</strong></td>
+                            <td>-</td>
+                            <td colspan="2">Saa +2 bonuksen hyökkäys- ja tiedusteluheittoihin alempana
+                                olevaa
+                                kohdetta vastaan.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <section id="player-tool">
+
+            <div id="player-tool-container">
+                <div class="player-tool-tabs">
+                    <button class="player-tab-button active" data-tab="tab-overview-player">Yleiskatsaus</button>
+                    <button class="player-tab-button" data-tab="tab-units-player">Omat Yksiköt</button>
+                    <button class="player-tab-button" data-tab="tab-commands-player">Komennot & Kyvyt</button>
+                    <button class="player-tab-button" data-tab="tab-utils-player">Apuohjelmat</button>
+                    <button class="player-tab-button" data-tab="tab-firesupport-player">Tulituki</button>
                 </div>
 
-                <h2 style="margin-top: 2em;">Tärkeimmät <span class="glossary-term"
-                        data-term="tilaefektit">Tilaefektit</span></h2>
-                <ul>
-                    <li><strong>Vaurioitunut:</strong> <span class="glossary-term" data-term="taistelukunto">TK</span>
-                        alle 50%. <span class="glossary-term" data-term="liike">Liike</span> ja <span
-                            class="glossary-term" data-term="tuli-isku">Tuli-isku</span> puolitettu.</li>
-                    <li><strong>Lamautunut:</strong> Ei voi liikkua tai käyttää toimintoja. Vastaan tehdyt hyökkäykset
-                        saavat <span class="glossary-term" data-term="etu ja haitta">Edun</span>. Poistuu onnistuneella
-                        moraalitestillä tai <i>Moraalin Kohotus</i> -komennolla.</li>
-                    <li><strong>Vetäytyy:</strong> Pakenee hallitsemattomasti. Poistuu <i>Moraalin Kohotus</i>
-                        -komennolla.</li>
-                    <li><strong><span class="glossary-term" data-term="piiloutunut">Piiloutunut</span>:</strong> Ei voi
-                        ottaa kohteeksi, ellei vihollinen ole 5 cm tai lähempänä.
-                        Tilaan pääsee vain erikoiskyvyllä.</li>
-                </ul>
+                <div class="overview-top-row">
 
-                <h2 style="margin-top: 2em;">Komppanian&shy;päällikön Rooli</h2>
-                <p>Komppanianpäällikkönä (<span class="glossary-term" data-term="kp">KP</span>) olet koko komppanian
-                    strateginen aivot ja johtaja. Sinun päätöksesi
-                    muovaavat taistelun kulkua ja vaikuttavat suoraan muiden pelaajien (joukkueenjohtajien)
-                    onnistumiseen. Et ole vain yksi komentaja muiden joukossa – olet voimankerrain, joka ohjaa koko
-                    koneistoa.</p>
-
-                <h3>Päätehtävät ja vastuut</h3>
-                <ul>
-                    <li><strong>Strateginen johtaminen:</strong> Sinä näet taistelukentän kokonaiskuvan. Määrität
-                        komppanian päätavoitteet, päätät missä ja milloin puolustetaan, hyökätään tai vetäydytään.
-                        Vastuullasi on sijoittaa joukkueet (A, B, C, D) kartalle siten, että ne tukevat toisiaan ja
-                        yleistä suunnitelmaa.</li>
-                    <li><strong><span class="glossary-term" data-term="kp">Komentopisteiden</span> (<span
-                                class="glossary-term" data-term="kp">KP</span>)
-                            hallinta:</strong> Saat joka vuoro suurimman määrän
-                        <span class="glossary-term" data-term="kp">komentopisteitä</span>. Yksi tärkeimmistä
-                        tehtävistäsi on jakaa näitä pisteitä joukkueenjohtajille
-                        sinne, missä niitä eniten tarvitaan. Voit siirtää <span class="glossary-term"
-                            data-term="kp">KP</span>:tä yhdelle johtajalle vahvistaaksesi hänen
-                        kykyään toimia tai pitää ne itselläsi käyttääksesi komppanian tason käskyjä.
-                    </li>
-                    <li><strong>Komppanian erikoiskäskyjen antaminen:</strong> Sinulla on pääsy uniikkeihin ja
-                        voimakkaisiin käskyihin, joita joukkueenjohtajat eivät voi antaa. Nämä käskyt maksavat <span
-                            class="glossary-term" data-term="kp">KP</span>:tä,
-                        mutta voivat muuttaa taistelun suunnan, kuten <i>Vahvistettu maali</i> tai <i>Järjestäytynyt
-                            vetäytyminen</i>.</li>
-                    <li><strong>Tukivarojen käyttö:</strong> Hallinnoit komppanian "epäorgaanisia" tukielementtejä. Tämä
-                        tarkoittaa tyypillisesti kaikkein voimakkaimpia aseita, kuten pataljoonan raskasta tykistöä
-                        (esim. 155mm kenttätykistö). Muista, että näiden kutsumisessa on usein viive ja niiden
-                        käyttömäärä on rajallinen.</li>
-                </ul>
-
-                <h3>Vinkkejä menestykseen komppanian&shy;päällikkönä</h3>
-                <ul>
-                    <li><strong>Kommunikoi:</strong> Jatkuva ja selkeä viestintä joukkueenjohtajien kanssa on
-                        elintärkeää. Kuuntele heidän raporttejaan ja tue heitä resursseillasi.</li>
-                    <li><strong>Ennakoi:</strong> Yritä ennakoida, mitä vihollinen tekee seuraavaksi, ja valmistele
-                        vastatoimet etukäteen. Hyvä tykistökeskitys ennakoidulle etenemisreitille on tuhoisampi kuin
-                        reaktiivinen isku.</li>
-                    <li><strong>Tunne joukkosi:</strong> Tiedä, mikä joukkue on varustettu parhaiten panssarintorjuntaan
-                        (<span class="glossary-term" data-term="pst">PST</span>) ja mikä tulitukeen (<span
-                            class="glossary-term" data-term="krh">KRH</span>, <span class="glossary-term"
-                            data-term="tr">TR</span>). Ohjaa tehtävät oikeille joukkueille.</li>
-                </ul>
-
-                <h3 style="margin-top: 2em;">Komppanian&shy;päällikön Taktiset Erikoiskyvyt</h3>
-                <p>
-                    Nämä ovat voimakkaita käskyjä, joita vain Komppanianpäällikkö voi käyttää omasta <span
-                        class="glossary-term" data-term="kp">KP</span>-poolistaan. Muista, että voit käyttää vain
-                    <strong>yhden</strong> näistä taktisista kyvyistä (Motti, Painopiste, Sitova, Vetäytyminen) per
-                    vuoro.
-                </p>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Toiminto</th>
-                                <th>Hinta (<span class="glossary-term" data-term="kp">KP</span>)</th>
-                                <th>Kuvaus</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Tulitukipyyntö (Epäorgaaninen)</strong></td>
-                                <td>3 <span class="glossary-term" data-term="kp">KP</span></td>
-                                <td>Kutsu pelilaudan ulkopuolista tulitukea (esim. 155mm tykistö).</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Mottitaktiikka</strong></td>
-                                <td>5 <span class="glossary-term" data-term="kp">KP</span></td>
-                                <td>(Kerran/taistelu) Valitse 10 cm säde. Viholliset tekevät <span class="glossary-term"
-                                        data-term="moraali">Moraalitestin</span> (<span class="glossary-term"
-                                        data-term="dc">DC</span> 15) tai vetäytyvät.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Painopisteen Muodostaminen</strong></td>
-                                <td>3 <span class="glossary-term" data-term="kp">KP</span></td>
-                                <td>Yksi joukkue saa +5 cm lisää liikkumista hyökätessään.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Sitova Tuli</strong></td>
-                                <td>2 <span class="glossary-term" data-term="kp">KP</span></td>
-                                <td>Yhden joukkueen onnistuneet iskut antavat kohteelle -1 sen seuraavaan <span
-                                        class="glossary-term" data-term="moraali">Moraalitestiin</span>.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Järjestäytynyt Vetäytyminen</strong></td>
-                                <td>3 <span class="glossary-term" data-term="kp">KP</span></td>
-                                <td>Valitse enintään 3 yksikköä, jotka voivat vetäytyä ja ampua samalla vuorolla.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Vahvistettu Maali</strong></td>
-                                <td>1 <span class="glossary-term" data-term="kp">KP</span></td>
-                                <td>Jos kaksi omaa yksikköä näkee saman vihollisen, seuraava hyökkäys sitä vastaan saa
-                                    +2 bonuksen.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h2 style="margin-top: 2em;">Yleisimmät <span class="glossary-term"
-                        data-term="kp">Komentopiste</span>&shy;toiminnot (<span class="glossary-term"
-                        data-term="kp">KP</span>)</h2>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Toiminto</th>
-                                <th>Hinta (<span class="glossary-term" data-term="kp">KP</span>)</th>
-                                <th>Lyhyt Kuvaus</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Hyökkäyskäsky</strong></td>
-                                <td>1 <span class="glossary-term" data-term="kp">KP</span> / ryhmä</td>
-                                <td>Käske ryhmää aktiivisesti hyökkäämään tai rynnäköimään.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tulen Keskittäminen</strong></td>
-                                <td>1 <span class="glossary-term" data-term="kp">KP</span></td>
-                                <td>Yksi tai useampi ryhmäsi saa +1 bonuksen hyökkäysheittoonsa samaa maalia vastaan.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Irtautuminen</strong></td>
-                                <td>2 <span class="glossary-term" data-term="kp">KP</span> / ryhmä</td>
-                                <td>Vetäydy hallitusti vihollisen lähitaistelusta (ZoC) ilman tilaisuusiskua.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Moraalin Kohotus</strong></td>
-                                <td>2 <span class="glossary-term" data-term="kp">KP</span></td>
-                                <td>Poista "Lamautunut" tai "Vetäytyy"-tila yhdeltä omalta yksiköltä.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tulitukipyyntö (orgaaninen)</strong></td>
-                                <td>1 <span class="glossary-term" data-term="kp">KP</span></td>
-                                <td>Pyydä tulta omalta kranaatinheitinryhmältäsi. Vaatii tulenjohtajan.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tiedustelutoiminta</strong></td>
-                                <td>1 <span class="glossary-term" data-term="kp">KP</span> / ryhmä</td>
-                                <td>Käske ryhmää suorittamaan aktiivinen tiedusteluheitto nimeämäänsä kohti tai aluetta
-                                    kohti.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Valmius (Overwatch)</strong></td>
-                                <td>1 <span class="glossary-term" data-term="kp">KP</span> / ryhmä</td>
-                                <td>
-                                    Aseta yksi yksikkö valmiustilaan. Käsky annetaan Komentovaiheessa. Jos
-                                    vihollisyksikkö myöhemmin (mutta kuitenkin ennen seuraavan vuoron komentovaihetta)
-                                    liikkuu tämän yksikön näköyhteyteen,
-                                    valmiudessa oleva yksikkö saa välittömästi tehdä sitä vastaan hyökkäyksen. Tämä
-                                    kuluttaa yksikön normaalin tulitoiminnon kyseiseltä vuorolta. Valmiushyökkäyksen
-                                    tulos selvitetään
-                                    heti, kun sen ehdot täyttyvät eikä vasta tulitoimintavaiheen aikana.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <h2 style="margin-top: 2em;">Maaston Vaikutukset Pelaajalle</h2>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Maastotyyppi</th>
-                                <th>Liikevaikutus</th>
-                                <th><span class="glossary-term" data-term="suoja">Suojabonus</span> (<span
-                                        class="glossary-term" data-term="suoja">S</span>)</th>
-                                <th>Näkyvyys</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Tie</strong></td>
-                                <td>+50% <span class="glossary-term" data-term="liike">liike</span></td>
-                                <td>+0</td>
-                                <td>Ei estä</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Pelto</strong></td>
-                                <td>Normaali</td>
-                                <td>+1</td>
-                                <td>Ei estä</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Metsä</strong></td>
-                                <td>-50% <span class="glossary-term" data-term="liike">liike</span></td>
-                                <td>+4</td>
-                                <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tiheä metsä</strong></td>
-                                <td>-75% <span class="glossary-term" data-term="liike">liike</span></td>
-                                <td>+6</td>
-                                <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Rakennus/Asema</strong></td>
-                                <td>Ei voi liikkua läpi</td>
-                                <td>+6</td>
-                                <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Korkea maasto</strong></td>
-                                <td>-</td>
-                                <td colspan="2">Saa +2 bonuksen hyökkäys- ja tiedusteluheittoihin alempana olevaa
-                                    kohdetta vastaan.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3 style="margin-top: 2em;">Apuväline: Tulitukimatriisi</h3>
-                <p>
-                    Epäorgaanisen tulituen (kuten 155mm tykistö) saapumisen seuraaminen voi olla haastavaa.
-                    "Tulitukimatriisi" on yksinkertainen apuväline tämän hallintaan. Se voidaan piirtää paperille tai
-                    pienelle valkotaululle.
-                </p>
-                <p>
-                    Kun Komppanianpäällikkö tilaa tulitukipyynnön, merkitkää matriisiin:
-                </p>
-                <ol>
-                    <li><strong>Mitä tilattiin</strong> (esim. "155mm")</li>
-                    <li><strong>Mihin kohteeseen</strong> (esim. "Ruutu G7")</li>
-                    <li><strong>Saapumisvuoro</strong> (Pelinjohtaja heittää viiveen salassa ja asettaa merkin oikean
-                        vuoronumeron kohdalle)</li>
-                </ol>
-                <p>
-                    Jokaisen pelivuoron alussa siirretään "NYT"-merkkiä eteenpäin. Kun se saavuttaa tulitukimerkinnän,
-                    isku tapahtuu kyseisen vuoron Tulitoimintavaiheessa.
-                </p>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Tuki</th>
-                                <th>Kohde</th>
-                                <th>V3</th>
-                                <th>V4</th>
-                                <th>V5</th>
-                                <th>V6</th>
-                                <th>V7</th>
-                                <th>V8</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>NYT -></strong></td>
-                                <td></td>
-                                <td>(155mm)</td>
-                                <td></td>
-                                <td>(120mm)</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3 style="margin-top: 2em;">Etäisyysmuunnin</h3>
-                <div class="unit-filter-container">
-                    <p style="margin-bottom: 1rem;">Syötä etäisyys senttimetreinä (cm) nähdäksesi sen vastineen metreinä
-                        ja esimerkkejä aseiden kantamista (mittakaava 1cm = 100m).</p>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <input type="number" id="distance-input" placeholder="Etäisyys (cm)"
-                            style="padding: 0.5rem; border-radius: 0.25rem; border: 1px solid #d6d3d1;">
-                        <button id="calculate-distance"
-                            style="padding: 0.5rem 1rem; background-color: #556B2F; color: white; border-radius: 0.25rem; cursor: pointer;">Laske</button>
+                    <div class="player-tool-section overview-notifications">
+                        <h3>Ilmoitukset & Muistutukset</h3>
+                        <div id="player-notifications"></div>
                     </div>
-                    <div id="distance-output" style="margin-top: 1rem; font-weight: bold;"></div>
+
+                    <div class="player-tool-section overview-turn-counter">
+                        <h3>Pelivuoro</h3>
+                        <div class="player-kp-tracker"
+                            style="justify-content: center; height: 100%; align-items: center;">
+                            <span style="font-size: 2rem; font-weight: bold;" id="player-turn-counter">1</span>
+                        </div>
+                    </div>
+
                 </div>
 
-                <h3 style="margin-top: 2em;">Liikkumisen Kustannuslaskuri</h3>
-                <div class="unit-filter-container">
-                    <p style="margin-bottom: 1.5rem;">
-                        Syötä yksikkösi <span class="glossary-term" data-term="liike">Liike</span>-arvo ja suunniteltu
-                        matka eri maastotyypeissä. Laskuri kertoo, riittääkö
-                        liikkumispotentiaalisi reitin kulkemiseen. <strong>Huom:</strong> Syötä vain kokonaislukuja
-                        (kuten "1" tai "5").
-                    </p>
-                    <div id="liike-laskuri"
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
-
-                        <div>
-                            <label for="liike-arvo"
-                                style="font-weight: bold; display: block; margin-bottom: 0.5rem;">Yksikön
-                                <span class="glossary-term" data-term="liike">Liike</span>-arvo:</label>
-                            <input type="number" id="liike-arvo" placeholder="Esim. 7"
-                                style="width: 100%; padding: 0.5rem; border-radius: 0.25rem; border: 1px solid #d6d3d1;">
+                <div class="player-tool-content">
+                    <div id="tab-overview-player" class="player-tab-pane active">
+                        <div class="player-tool-section">
+                            <h3>Valitse Roolisi</h3>
+                            <p>Voit valita useita rooleja samanaikaisesti. Komentopisteet ja kyvyt päivittyvät
+                                valintojesi mukaan.</p>
+                            <div id="role-selector-checkboxes">
+                                <label>
+                                    <input type="checkbox" name="player-role" value="joukkueenjohtaja">
+                                    Joukkueenjohtaja
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="player-role" value="komppanianpaallikko">
+                                    Komppanianpäällikkö
+                                </label>
+                            </div>
                         </div>
-
-                        <div>
-                            <p style="font-weight: bold; margin-bottom: 0.5rem;">Suunniteltu matka (cm):</p>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
-                                <label for="matka-tie">Tie:</label>
-                                <input type="number" id="matka-tie" placeholder="0"
-                                    style="padding: 0.5rem; border-radius: 0.25rem; border: 1px solid #d6d3d1;">
-
-                                <label for="matka-pelto">Pelto/Aukea:</label>
-                                <input type="number" id="matka-pelto" placeholder="0"
-                                    style="padding: 0.5rem; border-radius: 0.25rem; border: 1px solid #d6d3d1;">
-
-                                <label for="matka-metsa">Metsä/Suo:</label>
-                                <input type="number" id="matka-metsa" placeholder="0"
-                                    style="padding: 0.5rem; border-radius: 0.25rem; border: 1px solid #d6d3d1;">
-
-                                <label for="matka-tihea-metsa">Tiheä metsä:</label>
-                                <input type="number" id="matka-tihea-metsa" placeholder="0"
-                                    style="padding: 0.5rem; border-radius: 0.25rem; border: 1px solid #d6d3d1;">
+                        <div class="player-tool-section">
+                            <h3>Omat Komentopisteesi (KP)</h3>
+                            <div id="kp-tracker-container-jj" class="kp-tracker-container" style="display: none;">
+                                <h4>Joukkueenjohtajan Pisteet</h4>
+                                <div class="player-kp-tracker">
+                                    <span>Jäljellä:</span>
+                                    <div class="kp-controls">
+                                        <button id="kp-decrement-btn-jj">-</button>
+                                        <span id="player-kp-value-jj" class="player-kp-value">0</span>
+                                        <button id="kp-increment-btn-jj">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="kp-tracker-container-kp" class="kp-tracker-container" style="display: none;">
+                                <h4>Komppanianpäällikön Pisteet</h4>
+                                <div class="player-kp-tracker">
+                                    <span>Jäljellä:</span>
+                                    <div class="kp-controls">
+                                        <button id="kp-decrement-btn-kp">-</button>
+                                        <span id="player-kp-value-kp" class="player-kp-value">0</span>
+                                        <button id="kp-increment-btn-kp">+</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <button id="calculate-liike"
-                        style="margin-top: 1.5rem; padding: 0.75rem 1.5rem; background-color: #556B2F; color: white; border-radius: 0.25rem; cursor: pointer; width: 100%;">Laske
-                        Liikkumisen Kustannus</button>
-                    <div id="liike-output"
-                        style="margin-top: 1rem; padding: 1rem; background-color: #e7e5e4; border-radius: 0.25rem; min-height: 50px;">
+
+                    <div id="tab-units-player" class="player-tab-pane">
+                        <div class="player-tool-section">
+                            <h3>Lisää yksiköitä peliin</h3>
+                            <p>Valitse yksikkötyyppi, anna sille yksilöllinen nimi ja paina "Lisää".
+                                Voit toistaa tämän niin monta kertaa kuin tahdot.
+                            </p>
+                            <div id="player-unit-templates-container">
+                            </div>
+                        </div>
+                        <hr>
+                        <h3>Aktiiviset Yksiköt</h3>
+                        <div id="active-units-display">
+                            <p>Valitse yksiköitä yllä olevasta listasta näyttääksesi niiden tiedot.</p>
+                        </div>
+                    </div>
+
+                    <div class="player-tool-section">
+                        <h3>Vuoron Hallinta</h3>
+                        <button id="new-turn-button"
+                            style="width:100%; padding: 0.75rem; background-color: #C2B280; color: #2F361F; border:none; border-radius:4px; font-weight:bold;">Aloita
+                            Uusi Vuoro</button>
+                        <p style="font-size:0.8rem; text-align:center; margin-top:0.5rem;">Nollaa käytetyt
+                            taktiset kyvyt ja palauttaa Komentopisteet.</p>
+                    </div>
+
+                    <div id="tab-commands-player" class="player-tab-pane">
+                        <div class="commands-container">
+                            <div class="player-tool-section">
+                                <h3>Yleiset Komennot</h3>
+                                <div id="command-list-general">
+                                    <div class="command-list-item">
+                                        <span class="command-name">Hyökkäyskäsky</span>
+                                        <button class="command-btn" data-cost="1" data-pool="jj">Käytä (1 KP)</button>
+                                    </div>
+                                    <div class="command-list-item">
+                                        <span class="command-name">Tulen Keskittäminen</span>
+                                        <button class="command-btn" data-cost="1" data-pool="jj">Käytä (1 KP)</button>
+                                    </div>
+                                    <div class="command-list-item">
+                                        <span class="command-name">Irtautuminen</span>
+                                        <button class="command-btn" data-cost="2" data-pool="jj">Käytä (2 KP)</button>
+                                    </div>
+                                    <div class="command-list-item">
+                                        <span class="command-name">Moraalin Kohotus</span>
+                                        <button class="command-btn" data-cost="2" data-pool="jj">Käytä (2 KP)</button>
+                                    </div>
+                                    <div class="command-list-item">
+                                        <span class="command-name">Tulitukipyyntö (orgaaninen)</span>
+                                        <button class="command-btn" data-cost="1" data-pool="jj">Käytä (1 KP)</button>
+                                    </div>
+                                    <div class="command-list-item">
+                                        <span class="command-name">Tiedustelutoiminta</span>
+                                        <button class="command-btn" data-cost="1" data-pool="jj">Käytä (1 KP)</button>
+                                    </div>
+                                    <div class="command-list-item">
+                                        <span class="command-name">Valmius (Overwatch)</span>
+                                        <button class="command-btn" data-cost="1" data-pool="jj">Käytä (1 KP)</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="player-tool-section" id="command-list-commander" style="display:none;">
+                                <h3>Komppanianpäällikön Komennot</h3>
+                                <p>Nämä komennot käyttävät Komppanianpäällikön omia komentopisteitä.
+                                    <strong>Sääntöhuomio:</strong> Voit käyttää vain <strong>yhden</strong> taktisen
+                                    erikoiskyvyn (Motti, Painopiste, jne.) per vuoro, koska ne vaativat komentajan
+                                    täyden
+                                    huomion.
+                                </p>
+                                <div class="command-list-item">
+                                    <div>
+                                        <div class="command-name">Tulitukipyyntö (Epäorgaaninen)</div>
+                                        <small>Kutsu raskasta tukea.</small>
+                                    </div>
+                                    <button class="command-btn" data-cost="3" data-pool="kp">Käytä (3 KP)</button>
+                                </div>
+                                <div class="command-list-item">
+                                    <div>
+                                        <div class="command-name">Mottitaktiikka (kerran/taistelu)</div>
+                                        <small>Pakota viholliset vetäytymään.</small>
+                                    </div>
+                                    <button class="command-btn" id="use-ability-motti" data-ability-id="motti"
+                                        data-ability-type="tactical" data-cost="5" data-pool="kp">Aktivoi (5
+                                        KP)</button>
+                                </div>
+                                <div class="command-list-item">
+                                    <div>
+                                        <div class="command-name">Painopisteen Muodostaminen</div>
+                                        <small>Anna yhdelle joukkueelle lisäliikettä.</small>
+                                    </div>
+                                    <button class="command-btn" id="use-ability-painopiste" data-cost="3"
+                                        data-pool="kp">Aktivoi (3 KP)</button>
+                                </div>
+                                <div class="command-list-item">
+                                    <div>
+                                        <div class="command-name">Sitova Tuli</div>
+                                        <small>Heikennä vihollisen moraalia tulella.</small>
+                                    </div>
+                                    <button class="command-btn" id="use-ability-sitova" data-cost="2"
+                                        data-pool="kp">Aktivoi
+                                        (2 KP)</button>
+                                </div>
+                                <div class="command-list-item">
+                                    <div>
+                                        <div class="command-name">Järjestäytynyt Vetäytyminen</div>
+                                        <small>Salli yksiköiden vetäytyä ja ampua.</small>
+                                    </div>
+                                    <button class="command-btn" id="use-ability-vetaytyminen" data-cost="3"
+                                        data-pool="kp">Aktivoi (3 KP)</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tab-utils-player" class="player-tab-pane">
+                        <div class="player-tool-section">
+                            <h3>Etäisyysmuunnin (1cm = 100m)</h3>
+                            <input type="number" id="distance-input-player" placeholder="Syötä etäisyys (cm)">
+                            <button id="calculate-distance-player">Laske</button>
+                            <div id="distance-output-player" class="calculator-output"></div>
+                        </div>
+                        <div class="player-tool-section">
+                            <h3>Liikkumisen Kustannuslaskuri</h3>
+                            <label for="liike-arvo-player" style="font-weight:bold;">Yksikön Liike-arvo:</label>
+                            <input type="number" id="liike-arvo-player" placeholder="Esim. 7">
+                            <p style="font-weight:bold; margin-top:1rem;">Suunniteltu matka (cm):</p>
+                            <div class="liike-laskuri-grid">
+                                <label for="matka-tie-player">Tie:</label>
+                                <input type="number" id="matka-tie-player" placeholder="0">
+                                <label for="matka-pelto-player">Pelto/Aukea:</label>
+                                <input type="number" id="matka-pelto-player" placeholder="0">
+                                <label for="matka-metsa-player">Metsä/Suo:</label>
+                                <input type="number" id="matka-metsa-player" placeholder="0">
+                                <label for="matka-tihea-metsa-player">Tiheä metsä:</label>
+                                <input type="number" id="matka-tihea-metsa-player" placeholder="0">
+                            </div>
+                            <button id="calculate-liike-player">Laske Kustannus</button>
+                            <div id="liike-output-player" class="calculator-output"></div>
+                        </div>
+                        <div class="player-tool-section">
+                            <h3>Omat Muistiinpanot</h3>
+                            <textarea id="player-notes"
+                                placeholder="Kirjoita omat taktiset muistiinpanosi tähän..."></textarea>
+                        </div>
+                    </div>
+                    <div id="tab-firesupport-player" class="player-tab-pane">
+                        <div class="player-tool-section" id="fire-support-manager">
+                            <h3>Tulitukimatriisi (Komppanianpäällikkö)</h3>
+                            <p>Lisää ja seuraa epäorgaanisia tulitukitehtäviäsi. Tämä osio näkyy vain, jos olet valinnut
+                                Komppanianpäällikön roolin.</p>
+
+                            <form id="add-mission-form" class="fire-support-form">
+                                <input type="text" id="mission-type-input" placeholder="Tuen tyyppi (esim. 120mm Krh)"
+                                    required>
+                                <input type="text" id="mission-target-input" placeholder="Maalin kuvaus" required>
+                                <input type="number" id="mission-arrival-input" placeholder="Saapumisvuoro" min="1"
+                                    required>
+                                <button type="submit">Lisää tehtävä</button>
+                            </form>
+
+                            <div class="table-container" style="margin-top: 1.5rem;">
+                                <table id="fire-support-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tyyppi</th>
+                                            <th>Maali</th>
+                                            <th>Saapumisvuoro</th>
+                                            <th>Toiminnot</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="fire-support-mission-list">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
+            <div class="player-tool-reset-container">
+                <button id="player-reset-tool-button" class="danger-button">Nollaa Koko Työkalu</button>
+            </div>
 
-            <section id="yksikkosuodatin">
-                <h2>Valitse Omat Yksikkösi</h2>
-                <div class="unit-filter-container">
-                    <p style="margin-bottom: 1.5rem;">Valitse alla olevasta listasta ne yksiköt, jotka ovat mukanasi
-                        tässä skenaariossa. Vain
-                        valittujen yksiköiden tiedot näytetään alla.</p>
-                    <div id="blue-unit-checkboxes" class="unit-checkbox-group">
-                    </div>
-                </div>
-
-                <div id="unit-display-area">
-                </div>
-            </section>
+        </section>
+        <div id="player-modal-overlay" class="modal-overlay"></div>
+        <div id="player-modal-container" class="modal-container">
+            <h3>Vahvista nollaus</h3>
+            <p>Olet aikeissa poistaa kaikki pelaajan työkalun tiedot pysyvästi selaimen muistista. Vahvista toiminto
+                kirjoittamalla alle <strong>RESET</strong> (kirjainkoolla on väliä).</p>
+            <input type="text" id="player-reset-confirm-input" placeholder="Kirjoita vahvistus tähän...">
+            <div class="modal-buttons">
+                <button id="player-reset-cancel-button">Peruuta</button>
+                <button id="player-reset-confirm-button" class="danger-button" disabled>Vahvista ja Nollaa</button>
+            </div>
         </div>
     </main>
 
@@ -505,30 +507,12 @@
                 <h4>JÄÄKÄRIRYHMÄ</h4>
                 <div class="unit-card-content">
                     <ul>
-                        <li><strong>Tyyppi:</strong> Jalkaväki (10 sotilasta)</li>
-                        <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 10</li>
-                        <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +3</li>
-                        <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 11</li>
-                        <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 7 cm</li>
-                        <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +3</li>
                         <li><strong>Kyvyt:</strong>
                             <ul>
-                                <li><strong>Sisu:</strong> Kun yksikkö on "Vaurioitunut", sen <span
-                                        class="glossary-term" data-term="moraali">Moraali</span> pysyy +3 (ei putoa
-                                    +1).</li>
-                                <li><strong>Maastoon Tottunut:</strong> Jättää huomiotta metsämaaston aiheuttaman
-                                    <span class="glossary-term" data-term="liike">liikehidasteen</span>.
+                                <li><strong>Sisu:</strong> Kun yksikkö on "Vaurioitunut", sen Moraali pysyy +3.</li>
+                                <li><strong>Maastoon Tottunut:</strong> Jättää huomiotta metsämaaston liikehidasteen.
                                 </li>
-                                <li><strong>Tulenjohto (Passiivinen) <span
-                                            class="vaurioitunut-tila">(Vaurioitunut)</span>:</strong> Voi johtaa
-                                    orgaanista ja epäorgaanista tulta. Yksikön ollessa vaurioitunut, kyvyn käyttö vaatii
-                                    onnistuneen d6-heiton (4+).</li>
-                            </ul>
-                        </li>
-                        <li><strong>Varustus:</strong>
-                            <ul>
-                                <li><strong>Jalkaväkiaseistus:</strong> +3 (Hyökkäys), d6 (Vahinko)</li>
-                                <li><strong>Tiedustelulennokki:</strong> +5 (Tiedustelu)</li>
+                                <li><strong>Tulenjohto (Passiivinen):</strong> Voi johtaa tulta.</li>
                             </ul>
                         </li>
                     </ul>
@@ -537,32 +521,14 @@
         </div>
         <div id="unit-tukiryhma">
             <div class="unit-card">
-                <h4>TUKIRYHMÄ (<span class="glossary-term" data-term="kk">KK</span>)</h4>
+                <h4>TUKIRYHMÄ (KK)</h4>
                 <div class="unit-card-content">
                     <ul>
-                        <li><strong>Tyyppi:</strong> Jalkaväki (Raskas konekivääri, 3 sotilasta)</li>
-                        <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 8</li>
-                        <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +2</li>
-                        <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 10</li>
-                        <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 5 cm</li>
-                        <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +1</li>
                         <li><strong>Kyvyt:</strong>
                             <ul>
-                                <li><strong>Lamauttava Tuli (2 <span class="glossary-term"
-                                            data-term="kp">KP</span>):</strong> Valitse 5x1cm alue. Jokainen
-                                    vihollisyksikkö valitulla alueella tekee välittömästi <span class="glossary-term"
-                                        data-term="moraali">Moraalitestin</span> (<span class="glossary-term"
-                                        data-term="dc">DC</span> 10). Tämä
-                                    kyky ei aiheuta <span class="glossary-term"
-                                        data-term="taistelukunto">TK</span>-vahinkoa.</li>
-                                <li><strong>Tuliasema <span class="vaurioitunut-tila">(Vaurioitunut)</span>:</strong> +1
-                                    Hyökkäykseen, jos pysyy paikallaan vuoron ajan. Yksikön ollessa vaurioitunut, kykyä
-                                    ei voi käyttää.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Varustus:</strong>
-                            <ul>
-                                <li><strong>Konekivääri:</strong> +4 (Hyökkäys), d8 (Vahinko)</li>
+                                <li><strong>Lamauttava Tuli (2 KP):</strong> Valitse 5x1cm alue. Viholliset tekevät
+                                    Moraalitestin (DC 10).</li>
+                                <li><strong>Tuliasema:</strong> +1 Hyökkäykseen, jos pysyy paikallaan.</li>
                             </ul>
                         </li>
                     </ul>
@@ -571,32 +537,18 @@
         </div>
         <div id="unit-pst-ryhma">
             <div class="unit-card">
-                <h4><span class="glossary-term" data-term="pst">PST</span>-RYHMÄ</h4>
+                <h4>PST-RYHMÄ</h4>
                 <div class="unit-card-content">
                     <ul>
-                        <li><strong>Tyyppi:</strong> Jalkaväki (2 sotilasta + <span class="glossary-term"
-                                data-term="pst">PST</span>-ase)</li>
-                        <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 6</li>
-                        <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +2</li>
-                        <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 10</li>
-                        <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 5 cm</li>
-                        <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +1</li>
                         <li><strong>Kyvyt:</strong>
                             <ul>
                                 <li><strong>Panssarintuhoaja:</strong> +2 Hyökkäykseen ajoneuvoja vastaan.</li>
-                                <li><strong>Varustautuminen:</strong> <span class="glossary-term"
-                                        data-term="pst">PST</span>-aseen voi ladata, mutta se kuluttaa koko
-                                    vuoron, eikä ryhmä voi liikkua. Ei kuluta <span class="glossary-term"
-                                        data-term="kp">Komentopisteitä</span>.</li>
+                                <li><strong>Varustautuminen:</strong> Lataaminen vie koko vuoron.</li>
                             </ul>
                         </li>
                         <li><strong>Varustus:</strong>
                             <ul>
-                                <li><strong><span class="glossary-term" data-term="pst">PST</span>-ase:</strong> +2
-                                    (Hyökkäys), 2d12 (<span class="glossary-term" data-term="pst">PST</span>-Vahinko).
-                                </li>
-                                <li><strong>Ammukset:</strong> 3 kpl</li>
-                                <li><strong>Lämpökamera:</strong> +2 (Tiedustelu)</li>
+                                <li>Ammukset: 3 kpl</li>
                             </ul>
                         </li>
                     </ul>
@@ -605,30 +557,15 @@
         </div>
         <div id="unit-krh-ryhma">
             <div class="unit-card">
-                <h4>KRANAATIN&shy;HEITIN&shy;RYHMÄ (81mm)</h4>
+                <h4>KRANAATINHEITINRYHMÄ (81mm)</h4>
                 <div class="unit-card-content">
                     <ul>
-                        <li><strong>Tyyppi:</strong> Jalkaväki (Kevyt kranaatinheitin, 3 sotilasta)</li>
-                        <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 8</li>
-                        <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +2</li>
-                        <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 9</li>
-                        <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 4 cm</li>
-                        <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +0</li>
-                        <li><strong>Ammukset:</strong> 10</li>
                         <li><strong>Kyvyt:</strong>
                             <ul>
-                                <li><strong><span class="glossary-term" data-term="orgaaninen tulituki">Orgaaninen
-                                            Tulituki</span> (Epäsuora Tuli):</strong> Voi antaa epäsuoraa tulta.
-                                    Vaatii onnistuneen tulenjohdon toiselta ystävälliseltä yksiköltä. Jokainen isku
-                                    kuluttaa yhden ammuksen.</li>
+                                <li><strong>Orgaaninen Tulituki:</strong> Voi antaa epäsuoraa tulta.</li>
                             </ul>
                         </li>
-                        <li><strong>Varustus:</strong>
-                            <ul>
-                                <li><strong>81mm Kranaatinheitin:</strong> +1 (Hyökkäys), 2d6 (Vahinko, vaikutusalue 5cm
-                                    säde)</li>
-                            </ul>
-                        </li>
+                        <li><strong>Ammukset:</strong> 10</li>
                     </ul>
                 </div>
             </div>
@@ -638,38 +575,16 @@
                 <h4>SISSI-JÄÄKÄRIT</h4>
                 <div class="unit-card-content">
                     <ul>
-                        <li><strong>Tyyppi:</strong> Jalkaväki (Sissi, 7 sotilasta)</li>
-                        <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 8</li>
-                        <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +3</li>
-                        <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 12</li>
-                        <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 9 cm</li>
-                        <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +4</li>
                         <li><strong>Kyvyt:</strong>
                             <ul>
-                                <li><strong>Koukkaus :</strong> Hyökätessään vihollisen sivustaan tai selustaan, tämä
-                                    yksikkö saa <span class="glossary-term" data-term="etu ja haitta">Edun</span>
-                                    (Advantage) hyökkäysheittoonsa.</li>
-                                <li><strong>Metsänpeitto (1 <span class="glossary-term"
-                                            data-term="kp">KP</span>):</strong> Voi käyttää koko vuoronsa asettuakseen
-                                    asemiin
-                                    metsässä tai tiheässä suojassa, jolloin se muuttuu "<span class="glossary-term"
-                                        data-term="piiloutunut">Piiloutunut</span>"-tilaan.</li>
-                                <li><strong>Murtosulute (2 <span class="glossary-term"
-                                            data-term="kp">KP</span>):</strong> Voi käyttää koko vuoronsa asettaakseen
-                                    5cm
-                                    leveän miinakentän.</li>
+                                <li><strong>Koukkaus:</strong> Etu hyökätessä sivustaan/selustaan.</li>
+                                <li><strong>Metsänpeitto (1 KP):</strong> Saavuttaa "Piiloutunut"-tilan.</li>
+                                <li><strong>Murtosulute (2 KP):</strong> Voi asettaa miinakentän.</li>
                             </ul>
                         </li>
                         <li><strong>Varustus:</strong>
                             <ul>
-                                <li><strong>Jääkäriaseistus:</strong> +3 (Hyökkäys), d6 (Vahinko)</li>
-                                <li><strong>Konekivääri:</strong> +4 (Hyökkäys), d8 (Vahinko)</li>
-                                <li><strong>Kevyt <span class="glossary-term" data-term="pst">PST</span>-ase:</strong>
-                                    +2 (Hyökkäys), 2d12 (<span class="glossary-term"
-                                        data-term="pst">PST</span>-Vahinko). Ammukset: 1 kpl.
-                                </li>
-                                <li><strong>Tarkkuuskivääri:</strong> +5 (Hyökkäys), d10 (Vahinko). Osuessaan hyökkääjä
-                                    voi valita kohteen aktiivisen erikoiskyvyn pois käytöstä yhden vuoron ajaksi.</li>
+                                <li>Kevyt PST-ase: Ammukset: 1 kpl.</li>
                             </ul>
                         </li>
                     </ul>
@@ -678,39 +593,22 @@
         </div>
         <div id="unit-erikoisjaakari-osasto">
             <div class="unit-card">
-                <h4>ERIKOIS&shy;JÄÄKÄRI-OSASTO</h4>
+                <h4>ERIKOISJÄÄKÄRI-OSASTO</h4>
                 <div class="unit-card-content">
                     <ul>
-                        <li><strong>Tyyppi:</strong> Jalkaväki (Erikoisjoukko, 5 sotilasta)</li>
-                        <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 10</li>
-                        <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +5</li>
-                        <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 13</li>
-                        <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 9 cm</li>
-                        <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +5</li>
                         <li><strong>Kyvyt:</strong>
                             <ul>
-                                <li><strong>Toimintakyky (1 <span class="glossary-term"
-                                            data-term="kp">KP</span>):</strong> Jos yksikkö epäonnistuu Moraalitestissä,
-                                    pelaaja voi välittömästi kuluttaa 1 <span class="glossary-term"
-                                        data-term="kp">KP</span>:n, jolloin yksikkö läpäisee testin
-                                    automaattisesti.</li>
-                                <li><strong>Iskuosasto (3 <span class="glossary-term"
-                                            data-term="kp">KP</span>):</strong> Yhden vuoron ajan yksikkö saa +2
-                                    Hyökkäykseen ja
-                                    sen iskut jättävät huomiotta kohteen suojan antaman puolustusbonuksen.</li>
-                                <li><strong>Tarkka Isku (Erikoiskyky, 4 <span class="glossary-term"
-                                            data-term="kp">KP</span>):</strong> Voi kerran pelissä kutsua kartan
-                                    ulkopuolisen tarkan iskun (2d12 vahinkoa, ei hajontaa). Vaatii <span
-                                        class="glossary-term" data-term="los">näköyhteyden</span> ja
-                                    paikallaan pysymisen.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Varustus:</strong>
-                            <ul>
-                                <li><strong>Erikoisjoukkojen rynnäkkökivääri:</strong> +5 (Hyökkäys), d8 (Vahinko)</li>
-                                <li><strong>Raskas tarkkuuskivääri:</strong> +6 (Hyökkäys), d12 (Vahinko). Osuessaan
-                                    hyökkääjä voi valita kohteen aktiivisen erikoiskyvyn pois käytöstä yhden vuoron
-                                    ajaksi.</li>
+                                <li><strong>Toimintakyky (1 KP):</strong> Läpäise epäonnistunut Moraalitesti.</li>
+                                <li><strong>Iskuosasto (3 KP):</strong> +2 Hyökkäykseen ja ohittaa suojabonuksen.</li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <strong>Tarkka Isku (4 KP):</strong>
+                                        <button class="ability-btn" data-ability-id="tarkka-isku-erikoisjaakari"
+                                            data-ability-type="game" data-cost="4" data-pool="kp">Aktivoi</button>
+                                    </div>
+                                    <small style="display: block; padding-left: 1rem;">Kerran pelissä tarkka epäsuora
+                                        isku.</small>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -719,44 +617,14 @@
         </div>
         <div id="unit-komppanianpäällikkö">
             <div class="unit-card">
-                <h4>KOMPPANIANPÄÄLLIKKÖ (<span class="glossary-term" data-term="kp">KP</span>)</h4>
+                <h4>KOMPPANIANPÄÄLLIKKÖ (KP)</h4>
                 <div class="unit-card-content">
                     <ul>
-                        <li><strong>Tyyppi:</strong> Komentoryhmä (3-5 sotilasta)</li>
-                        <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 8</li>
-                        <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +5</li>
-                        <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 10</li>
-                        <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 5 cm</li>
-                        <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +4</li>
-                        <li>
-                            <strong>Kyvyt:</strong>
+                        <li><strong>Kyvyt:</strong>
                             <ul>
-                                <li><strong>Komentajan Aura:</strong> Kaikki ystävälliset yksiköt 60 cm säteellä, jotka
-                                    ovat <span class="glossary-term" data-term="komentoyhteys">komentoyhteydessä</span>,
-                                    saavat +1 bonuksen kaikkiin <span class="glossary-term"
-                                        data-term="moraali">Moraalitesteihin</span>. Tämä kyky ei
-                                    ole kasautuva muiden vastaavien aurien kanssa.</li>
-                                <li><strong>Tilannekuva:</strong> Päälliköllä on aina pääsy laajempaan tilannekuvaan.
-                                    Kerran pelissä hän voi tehdä <span class="glossary-term"
-                                        data-term="taitotaso">TT</span>-testin (<span class="glossary-term"
-                                        data-term="dc">DC</span> 14). Onnistuessaan hän voi poistaa yhden
-                                    "?"-merkin kartalta ja paljastaa yksikön tyypin (mutta ei tarkkaa sijaintia).</li>
-                                <li><strong>Johtaa edestä <span
-                                            class="vaurioitunut-tila">(Vaurioitunut)</span>:</strong> Jos päällikön
-                                    yksikkö on "Vaurioitunut", Komentajan Aura -kyvyn bonus putoaa arvoon +0 ja hän ei
-                                    voi enää käyttää Tilannekuva-kykyä. Komentopistetuotanto ja -siirto toimivat
-                                    kuitenkin normaalisti.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>Varustus:</strong>
-                            <ul>
-                                <li><strong>Henkilökohtainen aseistus:</strong> +1 (Hyökkäys), d4 (Vahinko). Tämä
-                                    yksikkö ei ole tarkoitettu etulinjan taisteluun.</li>
-                                <li><strong>Tehokas viestivälineistö:</strong> Mahdollistaa Komentoyhteyden ja
-                                    <span class="glossary-term" data-term="kp">Komentopisteiden</span> siirron
-                                    alaisille.
-                                </li>
+                                <li><strong>Komentajan Aura:</strong> +1 Moraaliin ystävällisille yksiköille 60cm
+                                    säteellä.</li>
+                                <li><strong>Tilannekuva:</strong> Kerran pelissä voi paljastaa yhden ?-merkin.</li>
                             </ul>
                         </li>
                     </ul>
@@ -764,6 +632,11 @@
             </div>
         </div>
     </div>
+    <!--
+    ====================================================================
+    KELLUVAT VIERITYSNAPIT (SCROLL BUTTONS)
+    ====================================================================
+    -->
     <div id="scroll-buttons-container" class="scroll-buttons">
 
         <div id="scroll-legend" class="scroll-legend-panel">
@@ -817,126 +690,8 @@
     <script src="Scripts/rules.js"></script>
     <script src="Scripts/glossaryData.js"></script>
     <script src="Scripts/popup.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-
-            // ====================================================================
-            // OSA 1: YKSIKKÖSUODATIN
-            // ====================================================================
-            const blueUnitData = {
-                'unit-jaakariryhma': 'Jääkäriryhmä',
-                'unit-tukiryhma': 'Tukiryhmä (KK)',
-                'unit-pst-ryhma': 'PST-ryhmä',
-                'unit-krh-ryhma': 'Krh-ryhmä (81mm)',
-                'unit-sissi-jaakarit': 'Sissi-Jääkärit',
-                'unit-erikoisjaakari-osasto': 'Erikoisjääkäri-osasto',
-                'unit-komppanianpäällikkö': 'Komppanianpäällikkö'
-            };
-
-            const blueCheckboxContainer = document.getElementById('blue-unit-checkboxes');
-            const displayArea = document.getElementById('unit-display-area');
-            const allUnitDataContainer = document.getElementById('all-unit-data');
-            const filterContainer = document.getElementById('yksikkosuodatin');
-
-            function createCheckboxes(container, data) {
-                if (!container) return;
-                for (const id in data) {
-                    const label = document.createElement('label');
-                    label.className = 'unit-checkbox-label';
-                    const checkbox = document.createElement('input');
-                    checkbox.type = 'checkbox';
-                    checkbox.value = id;
-                    checkbox.className = 'unit-checkbox';
-                    const span = document.createElement('span');
-                    span.textContent = data[id];
-                    label.appendChild(checkbox);
-                    label.appendChild(span);
-                    container.appendChild(label);
-                }
-            }
-            createCheckboxes(blueCheckboxContainer, blueUnitData);
-
-            function updateDisplayedUnits() {
-                if (!displayArea || !allUnitDataContainer) return;
-                displayArea.innerHTML = '';
-                const selectedCheckboxes = filterContainer.querySelectorAll('.unit-checkbox:checked');
-                if (selectedCheckboxes.length > 0) {
-                    selectedCheckboxes.forEach(checkbox => {
-                        const unitId = checkbox.value;
-                        const unitElement = allUnitDataContainer.querySelector('#' + unitId);
-                        if (unitElement) {
-                            displayArea.appendChild(unitElement.cloneNode(true));
-                        }
-                    });
-                }
-            }
-
-            if (filterContainer) {
-                filterContainer.addEventListener('change', function (event) {
-                    if (event.target.classList.contains('unit-checkbox')) {
-                        updateDisplayedUnits();
-                    }
-                });
-            }
-
-            // ====================================================================
-            // OSA 2: ETÄISYYSMUUNNIN
-            // ====================================================================
-            const calculateDistanceBtn = document.getElementById('calculate-distance');
-            if (calculateDistanceBtn) {
-                calculateDistanceBtn.addEventListener('click', function () {
-                    const inputCm = document.getElementById('distance-input').value;
-                    const outputDiv = document.getElementById('distance-output');
-                    if (inputCm && !isNaN(inputCm)) {
-                        const distanceMeters = inputCm * 100;
-                        let resultText = inputCm + " cm = " + distanceMeters + " metriä. <br>Tällä etäisyydellä tehokkaita aseita ovat:<ul>";
-                        if (distanceMeters <= 500) resultText += "<li>Kaikki jalkaväkiaseet</li>";
-                        if (distanceMeters <= 1000) resultText += "<li>Konekiväärit ja Tarkkuuskiväärit</li>";
-                        if (distanceMeters <= 1500) resultText += "<li>Panssarintorjunta-aseet (<span class='glossary-term' data-term='pst'>PST</span>)</li>";
-                        if (distanceMeters <= 3000) resultText += "<li><span class='glossary-term' data-term='orgaaninen tulituki'>Orgaaninen tulituki</span> (<span class='glossary-term' data-term='krh'>KRH</span> 81mm)</li>";
-                        if (distanceMeters > 3000) resultText += "<li><span class='glossary-term' data-term='epäorgaaninen tulituki'>Epäorgaaninen tulituki</span> (esim. 155mm tykistö)</li>";
-                        resultText += "</ul>";
-                        outputDiv.innerHTML = resultText;
-                    } else {
-                        outputDiv.textContent = "Syötä kelvollinen numero.";
-                    }
-                });
-            }
-
-            // ====================================================================
-            // OSA 3: LIIKKUMISEN KUSTANNUSLASKURI
-            // ====================================================================
-            const calculateLiikeBtn = document.getElementById('calculate-liike');
-            if (calculateLiikeBtn) {
-                calculateLiikeBtn.addEventListener('click', function () {
-                    // KORJATUT RIVIT: Poistettu <span>-tagit getElementById-kutsuista
-                    const liikeArvo = parseFloat(document.getElementById('liike-arvo').value) || 0;
-                    const matkaTie = parseFloat(document.getElementById('matka-tie').value) || 0;
-                    const matkaPelto = parseFloat(document.getElementById('matka-pelto').value) || 0;
-                    const matkaMetsa = parseFloat(document.getElementById('matka-metsa').value) || 0;
-                    const matkaTiheaMetsa = parseFloat(document.getElementById('matka-tihea-metsa').value) || 0;
-                    const outputDiv = document.getElementById('liike-output');
-
-                    if (liikeArvo <= 0) {
-                        outputDiv.innerHTML = "Syötä yksikön Liike-arvo (suurempi kuin 0).";
-                        return;
-                    }
-
-                    const kustannus = { tie: 0.5, pelto: 1, metsa: 2, tiheaMetsa: 3 };
-                    const totalCost = (matkaTie * kustannus.tie) + (matkaPelto * kustannus.pelto) + (matkaMetsa * kustannus.metsa) + (matkaTiheaMetsa * kustannus.tiheaMetsa);
-                    const remainingMovement = liikeArvo - totalCost;
-                    let resultHTML = `Suunnitellun reitin kokonaiskustannus: <strong>${totalCost.toFixed(1)}</strong> liikkumispistettä.<br>`;
-
-                    if (remainingMovement >= 0) {
-                        resultHTML += `<span style="color: green;">Liike onnistuu.</span> Liikkumispotentiaalia jää jäljelle: <strong>${remainingMovement.toFixed(1)}</strong>.`;
-                    } else {
-                        resultHTML += `<span style="color: red;">Liike ei onnistu.</span> Ylität liikkumispotentiaalisi <strong>${Math.abs(remainingMovement).toFixed(1)}</strong> pisteellä.`;
-                    }
-                    outputDiv.innerHTML = resultHTML;
-                });
-            }
-        });
-    </script>
+    <script src="Scripts/unit-data.js"></script>
+    <script src="Scripts/player-tools.js"></script>
 </body>
 
 </html>

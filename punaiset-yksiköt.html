@@ -50,6 +50,7 @@
     <div id="sidebar" class="sidebar-hidden">
         <h1 class="sidebar-title">Sisällysluettelo</h1>
         <nav id="nav-menu"></nav>
+        <nav id="unit-nav-menu"></nav>
     </div>
 
     <button id="menu-toggle" aria-label="Avaa Sisällysluettelo">
@@ -70,366 +71,7 @@
             <!--SECTION: Punaiset yksiköt alkaa-->
             <section id="punaiset-yksikot">
                 <h2>Venäläiset Yksiköt</h2>
-
-                <div class="unit-card">
-                    <h4>MOTORISOITU JALKAVÄKIRYHMÄ</h4>
-                    <div class="unit-card-content">
-                        <ul>
-                            <li><strong>Tyyppi:</strong> Jalkaväki (9 sotilasta)</li>
-                            <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 10
-                            </li>
-                            <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +2</li>
-                            <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 10</li>
-                            <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 7 cm</li>
-                            <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +2</li>
-                            <li>
-                                <strong>Kyvyt:</strong>
-                                <ul>
-                                    <li>
-                                        <strong>Peräänantamaton:</strong> Yksikkö ei tee
-                                        ylimääräistä Moraalitestiä, kun se joutuu
-                                        "Vaurioituneeksi", mutta <span class="glossary-term"
-                                            data-term="liike">liike</span> ja <span class="glossary-term"
-                                            data-term="tuli-isku">tuli-isku</span> puolittuvat
-                                        silti.
-                                    </li>
-                                    <li>
-                                        <strong>Aaltohyökkäys (0 <span class="glossary-term" data-term="kp">KP</span>)
-                                            <span class="vaurioitunut-tila">(Vaurioitunut)</span>:</strong> Jos
-                                        vähintään 3
-                                        Motorisoitua Jalkaväkiryhmää hyökkää samaan kohteeseen, ne
-                                        saavat +1 Moraaliin seuraavalla vuorolla. Tämä kyky on
-                                        passiivinen eikä vaadi <span class="glossary-term"
-                                            data-term="kp">Komentopisteiden</span> käyttöä. Yksikön ollessa
-                                        vaurioitunut
-                                        ryhmien välinen koheesio heikkenee ja aaltohyökkäyksestä ei voi saada
-                                        bonusta.
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Varustus:</strong>
-                                <ul>
-                                    <li>
-                                        <strong>Jalkaväkiaseistus:</strong> +2 (Hyökkäys), d6
-                                        (Vahinko)
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="unit-card">
-                    <h4>BTR-82A (Panssaroitu miehistönkuljetus&shy;vaunu)</h4>
-                    <div class="unit-card-content">
-                        <ul>
-                            <li><strong>Tyyppi:</strong> Ajoneuvo</li>
-                            <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 30
-                            </li>
-                            <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +2</li>
-                            <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 15</li>
-                            <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 10 cm (Tie:
-                                +5 cm)</li>
-                            <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +1</li>
-                            <li>
-                                <strong>Kyvyt:</strong>
-                                <ul>
-                                    <li>
-                                        <strong>Panssaroitu:</strong> Miehistönkuljetusvaunun
-                                        sisällä oleva jalkaväki saa täyden suojan jalkaväkiaseita
-                                        vastaan. <span class="glossary-term" data-term="pst">PST</span>-osumien
-                                        aiheuttama <span class="glossary-term"
-                                            data-term="taistelukunto">TK</span>-vahinko sisällä
-                                        oleville taistelijoille puolittuu (pyöristä ylöspäin), kun
-                                        ajoneuvoon osutaan.
-                                    </li>
-                                    <li>
-                                        <span class="vaurioitunut-tila">(Vaurioitunut):</span> Kun <span
-                                            class="glossary-term" data-term="taistelukunto">TK</span> on 50% tai
-                                        alle, BTR on Vaurioitunut: sen <span class="glossary-term"
-                                            data-term="liike">Liike</span>
-                                        puolittuu. Sen <span class="glossary-term"
-                                            data-term="tuli-isku">Tuli-isku</span> ei heikkene.
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Varustus:</strong>
-                                <ul>
-                                    <li>
-                                        <strong>30mm Konetykki (2A72):</strong> +4 (Hyökkäys), d8
-                                        (Vahinko). Voi käyttää kohdennettuun tuleen tai
-                                        lamauttavaan tuleen (2cm säde, kaikki alueella olevat
-                                        yksiköt tekevät <span class="glossary-term"
-                                            data-term="moraali">Moraalitestin</span> <span class="glossary-term"
-                                            data-term="dc">DC</span> 10). Lamauttava tuli ei
-                                        aiheuta <span class="glossary-term"
-                                            data-term="taistelukunto">TK</span>-vahinkoa.
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="unit-card">
-                    <h4>T-72B3 (Panssari&shy;vaunu)</h4>
-                    <div class="unit-card-content">
-                        <ul>
-                            <li>
-                                <strong>Tyyppi:</strong> Ajoneuvo (Raskas panssarivaunu)
-                            </li>
-                            <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 40
-                            </li>
-                            <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +2</li>
-                            <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 18</li>
-                            <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 7 cm (Tie:
-                                +5 cm)</li>
-                            <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +0</li>
-                            <li>
-                                <strong>Kyvyt:</strong>
-                                <ul>
-                                    <li>
-                                        <strong>Pelote:</strong> Vaunun läsnäolo herättää kauhua. Jokaisen vuoron
-                                        alussa kaikki vihollisen jalkaväkiyksiköt 5 cm säteellä tekevät
-                                        <span class="glossary-term" data-term="moraali">Moraalitestin</span> (<span
-                                            class="glossary-term" data-term="dc">DC</span> 10). Tämä jatkuva kyky korvaa
-                                        yleisen säännön "nähdessään
-                                        vihollisen panssarivaunun ensimmäistä kertaa" tätä yksikköä vastaan.
-                                    </li>
-                                    <li>
-                                        <strong>Raskas Panssari:</strong> Kaikki vahingot
-                                        vähenevät 1 pisteellä ennen <span class="glossary-term"
-                                            data-term="taistelukunto">TK</span>-vähennystä.
-                                    </li>
-                                    <li>
-                                        <span class="vaurioitunut-tila">(Vaurioitunut):</span> Kun <span
-                                            class="glossary-term" data-term="taistelukunto">TK</span> on 50% tai
-                                        alle, T-72B3 on Vaurioitunut: sen Raskas
-                                        Panssari -kyky menetetään ja kaikki tuleva vahinko
-                                        lasketaan normaalisti. Sen <span class="glossary-term"
-                                            data-term="tuli-isku">Tuli-isku</span> tai <span class="glossary-term"
-                                            data-term="liike">Liike</span> eivät
-                                        heikkene tässä vaiheessa.
-                                    </li>
-                                    <li>
-                                        Kun <span class="glossary-term" data-term="taistelukunto">TK</span> on 30%,
-                                        telat poikki, mutta tykki toimii. Tämän
-                                        lisäksi kaikki vastedes kärsityt <span class="glossary-term"
-                                            data-term="taistelukunto">TK</span>-vahingot kasvavat 1
-                                        pisteellä (ennen mahdollisia suojausbonuksia, mutta
-                                        vahingonvähennyksen jälkeen).
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Varustus:</strong>
-                                <ul>
-                                    <li>
-                                        <strong>125mm Kanuuna (2A46M):</strong> +5 (Hyökkäys),
-                                        2d12 (<span class="glossary-term" data-term="pst">PST</span>-Vahinko, jalkaväkeä
-                                        vastaan d10, vaikutusalue
-                                        1 ruutu, kohdennettu tuli)
-                                    </li>
-                                    <li>
-                                        <strong>Konekiväärit (PKT & NSVT):</strong> +3 (Hyökkäys),
-                                        d8 (Vahinko, Lamauttava tuli, useita osumia mahdollinen,
-                                        jos maali alueella, 3cm säde, kaikki alueella olevat
-                                        yksiköt tekevät <span class="glossary-term"
-                                            data-term="moraali">Moraalitestin</span> <span class="glossary-term"
-                                            data-term="dc">DC</span> 10). Lamauttava tuli ei
-                                        aiheuta <span class="glossary-term"
-                                            data-term="taistelukunto">TK</span>-vahinkoa.
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="unit-card">
-                    <h4>KRANAATIN&shy;HEITIN&shy;RYHMÄ (120mm)</h4>
-                    <div class="unit-card-content">
-                        <ul>
-                            <li>
-                                <strong>Tyyppi:</strong> Jalkaväki (Raskas kranaatinheitin, 4
-                                sotilasta)
-                            </li>
-                            <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 10
-                            </li>
-                            <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +1</li>
-                            <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 9</li>
-                            <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 4 cm</li>
-                            <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +0</li>
-                            <li>
-                                <strong>Kyvyt:</strong>
-                                <ul>
-                                    <li>
-                                        <strong>Epäsuora Tuli:</strong> Voi ampua yli esteiden (ei
-                                        tarvitse linjanäkymää), kunhan on spotteri tai
-                                        tiedusteluyksikkö näköyhteydessä maaliin.
-                                    </li>
-                                    <li>
-                                        <strong>Laaja Räjähdysalue:</strong> Kranaatit vaikuttavat
-                                        suuremmalle alueelle.
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Varustus:</strong>
-                                <ul>
-                                    <li>
-                                        <strong>120mm Kranaatinheitin (2B11):</strong> +1
-                                        (Hyökkäys), d10 (Vahinko, vaikutusalue 2x2cm taktisen tason taistelun säännön
-                                        1.2.1 mukaisesti)
-                                    </li>
-                                    <li>
-                                        <strong>Lähietäisyydellä (alle 5cm) jalkaväkiaseistus:</strong>
-                                        +3 (Hyökkäys), d6 (Vahinko)
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="unit-card">
-                    <h4>TIEDUSTELU&shy;ERIKOISRYHMÄ</h4>
-                    <div class="unit-card-content">
-                        <ul>
-                            <li><strong>Tyyppi:</strong> Jalkaväki (Tiedustelu, 9 sotilasta)</li>
-                            <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 10
-                            </li>
-                            <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +2</li>
-                            <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 10</li>
-                            <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 8 cm</li>
-                            <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +2</li>
-                            <li>
-                                <strong>Kyvyt:</strong>
-                                <ul>
-                                    <li>
-                                        <strong>Tehostettu Tiedustelu <span
-                                                class="vaurioitunut-tila">(Vaurioitunut)</span>:</strong> Yksikkö
-                                        saa +2 bonuksen tehdessään
-                                        tiedusteluheittoja (kokonaisbonus tiedusteluun +4). Yksikön ollessa
-                                        vaurioitunut, se ei saa tiedustelubonusta.
-                                    </li>
-                                    <li>
-                                        <strong>Peräänantamaton:</strong> Yksikkö ei tee ylimääräistä Moraalitestiä
-                                        joutuessaan "Vaurioitunut"-tilaan.
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Varustus:</strong>
-                                <ul>
-                                    <li>
-                                        <strong>Jalkaväkiaseistus:</strong> +2 (Hyökkäys), d6 (Vahinko).
-                                    </li>
-                                    <li>
-                                        <strong>Tarkkuuskivääri:</strong> +3 (Hyökkäys), d10 (Vahinko). Osuessaan
-                                        hyökkääjä voi valita yhden kohteen erikoiskyvyn; kohde ei voi käyttää tätä
-                                        kykyä seuraavan vuoronsa aikana. Jos kohteella ei ole erikoiskykyjä, sen on
-                                        tehtävä <span class="glossary-term" data-term="moraali">Moraalitesti</span>
-                                        (<span class="glossary-term" data-term="dc">DC</span> 13). <strong>Kykyä ei voi
-                                            käyttää passiivisiin
-                                            ominaisuuksiin, kuten panssarointiin, mutta sitä voi käyttää aktiivisiin
-                                            järjestelmiin perustuviin kykyihin.</strong>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="unit-card">
-                    <h4>SHTURMOVAYA GRUPPA (RYNNÄKKÖRYHMÄ)</h4>
-                    <div class="unit-card-content">
-                        <ul>
-                            <li><strong>Tyyppi:</strong> Jalkaväki (Rynnäkköryhmä, 9 sotilasta)</li>
-                            <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 12
-                            </li>
-                            <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +2</li>
-                            <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 10</li>
-                            <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 5 cm</li>
-                            <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +1</li>
-                            <li><strong>Kyvyt:</strong>
-                                <ul>
-                                    <li><strong>Tiazholaya Bronya (Raskas panssari) <span
-                                                class="vaurioitunut-tila">(Vaurioitunut)</span>:</strong> Yksikkö
-                                        vähentää 1
-                                        pisteen kaikesta jalkaväkiaseiden aiheuttamasta vahingosta (minimivahinko
-                                        1). Yksikön ollessa vaurioitunut, heidän panssari on kulutettu loppuun ja he
-                                        ottavat vastedes +1 lisää vahinkoa.</li>
-                                    <li><strong>Tulimuuri (2 <span class="glossary-term"
-                                                data-term="kp">KP</span>):</strong> Valitse 5x2 cm alue.
-                                        Alueella olevat tai sinne liikkuvat vihollisyksiköt kärsivät -2 Hyökkäykseen
-                                        ja niiden on tehtävä <span class="glossary-term"
-                                            data-term="moraali">Moraalitesti</span> (<span class="glossary-term"
-                                            data-term="dc">DC</span> 10).</li>
-                                </ul>
-                            </li>
-                            <li><strong>Varustus:</strong>
-                                <ul>
-                                    <li><strong>Rynnäkköaseistus:</strong> +3 (Hyökkäys), d8 (Vahinko)</li>
-                                    <li><strong>Termobaarinen raketinheitin:</strong> +2 (Hyökkäys), 2d8 (Vahinko,
-                                        jättää huomiotta suojan, +2 vahinkoa rakennuksissa olevia yksiköitä
-                                        vastaan). Ammukset: 4 kpl.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="unit-card">
-                    <h4>SPETSNAZ GRU:N DIVERSIORYHMÄ</h4>
-                    <div class="unit-card-content">
-                        <ul>
-                            <li><strong>Tyyppi:</strong> Jalkaväki (Erikoisjoukko, 6 sotilasta)</li>
-                            <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> 7</li>
-                            <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> +4</li>
-                            <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> 12</li>
-                            <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> 9 cm</li>
-                            <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> +4</li>
-                            <li><strong>Kyvyt:</strong>
-                                <ul>
-                                    <li><strong>Häirintäoperaatiot (2 <span class="glossary-term"
-                                                data-term="kp">KP</span>):</strong> Niin kauan
-                                        kuin tämä yksikkö on
-                                        "<span class="glossary-term"
-                                            data-term="piiloutunut">Piiloutunut</span>"-tilassa, voit komentovaiheessa
-                                        käyttää tämän kyvyn ja valita
-                                        yhden seuraavista vaikutuksista:
-                                        <ul>
-                                            <li>&rarr; <strong>Elektroninen häirintä:</strong> Yksi vihollisen
-                                                Joukkueenjohtaja 20 cm säteellä menettää 1 <span class="glossary-term"
-                                                    data-term="kp">KP</span>:n seuraavalla
-                                                vuorollaan.</li>
-                                            <li>&rarr; <strong>Pikasulute:</strong> Aseta 5x1cm leveä
-                                                miinasulute-merkki mille tahansa tielle tai kulku-uralle 10 cm
-                                                säteellä tästä yksiköstä. Ensimmäinen yksikkö, joka liikkuu
-                                                sulutteen läpi, pysähtyy välittömästi ja sen <span class="glossary-term"
-                                                    data-term="liike">liike</span> päättyy tähän
-                                                vuoroon.</li>
-                                        </ul>
-                                        <span class="vaurioitunut-tila">(Vaurioitunut):</span> Yksikön ollessa
-                                        vaurioitunut se ei kykene suorittamaan häirintäoperaatioita.
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><strong>Varustus:</strong>
-                                <ul>
-                                    <li><strong>Vaimennettu erikoiskivääri:</strong> +4 (Hyökkäys), d10 (Vahinko).
-                                        Yksikön ampuminen ei poista sen "<span class="glossary-term"
-                                            data-term="piiloutunut">Piiloutunut</span>"-tilaa, ellei kohde ole 10 cm
-                                        etäisyydellä.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
+                <div id="unit-display-container"></div>
             </section>
             <!--/SECTION: Punaiset yksiköt loppuu-->
         </div>
@@ -496,6 +138,80 @@
     <script src="Scripts/rules.js"></script>
     <script src="Scripts/glossaryData.js"></script>
     <script src="Scripts/popup.js"></script>
+    <script src="Scripts/unit-data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentContainer = document.getElementById('unit-display-container');
+            const sidebarNav = document.getElementById('unit-nav-menu');
+            const units = window.redUnitData
+
+            if (!contentContainer || !sidebarNav || !units) {
+                console.error("Dynaamisen sisällön luonti epäonnistui: elementtejä tai dataa puuttuu.");
+                return;
+            }
+
+            const createSlug = (text) => 'unit-' + text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+
+            // Käydään läpi valitun datalähteen yksiköt
+            for (const unitId in units) {
+                const unit = units[unitId];
+                const slug = createSlug(unit.name);
+
+                const card = document.createElement('div');
+                card.className = 'unit-card';
+                card.id = slug;
+
+                const abilitiesHtml = unit.abilities.map(ability => {
+                    const damagedEffectHtml = ability.isDamagedEffect ? ' <span class="vaurioitunut-tila">(Vaurioitunut)</span>' : '';
+                    return `<li><strong>${ability.name}${damagedEffectHtml}:</strong> ${ability.description}</li>`;
+                }).join('');
+
+                const armamentHtml = unit.armament.map(w => `<tr><td>${w.name}</td><td>${w.attack}</td><td>${w.damage}</td><td>${w.notes}</td></tr>`).join('');
+
+                let ammoHtml = Object.keys(unit.ammo).length > 0 ? `<li><strong>Ammukset:</strong> ${Object.entries(unit.ammo).map(([key, value]) => `${key}: ${value} kpl`).join(', ')}</li>` : '';
+
+                card.innerHTML = `
+                    <h4>${unit.name}</h4>
+                    <div class="unit-card-content">
+                        <ul>
+                            <li><strong>Tyyppi:</strong> ${unit.type}</li>
+                            <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> ${unit.stats.tk}</li>
+                            <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> ${unit.stats.m}</li>
+                            <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> ${unit.stats.s}</li>
+                            <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> ${unit.stats.l}</li>
+                            <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> ${unit.stats.tt}</li>
+                            ${ammoHtml}
+                            <li><strong>Kyvyt:</strong><ul>${abilitiesHtml}</ul></li>
+                            <li><strong>Varustus:</strong>
+                                <div class="table-container" style="margin-top: 0.5em;">
+                                    <table>
+                                        <thead><tr><th>Ase</th><th>Hyökkäys</th><th>Vahinko</th><th>Huom.</th></tr></thead>
+                                        <tbody>${armamentHtml}</tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                `;
+                contentContainer.appendChild(card);
+
+                const link = document.createElement('a');
+                link.href = `#${slug}`;
+                link.textContent = unit.name;
+                link.className = 'block py-1.5 px-4 rounded-md text-stone-700 hover:bg-purple-100 nav-link transition-all duration-200 font-bold text-purple-800 mt-1';
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.getElementById(slug)?.scrollIntoView({ behavior: 'smooth' });
+                });
+                sidebarNav.appendChild(link);
+            }
+
+            // KORJATTU: Kutsutaan vieritysnappien alustusta vain kerran, kun kaikki on luotu.
+            if (window.initializeScrollButtons) {
+                window.initializeScrollButtons();
+            }
+        });
+    </script>
 </body>
 
 </html>
