@@ -54,87 +54,71 @@ document.addEventListener('DOMContentLoaded', function () {
     // ====================================================================
 
     window.initializeContentAndSidebar = function () {
-        const currentFileName = window.location.pathname.split('/').pop(); // Hakee nykyisen tiedoston nimen
+        const navMenu = document.getElementById('nav-menu');
+        const mainContent = document.getElementById('main-content');
+        if (!navMenu || !mainContent) return;
 
-        Array.from(navMenu.children).forEach(child => { //
-            if (!child.classList.contains('sidebar-title')) { //
-                navMenu.removeChild(child); //
+        // Puhdista vanhat linkit, mutta säästä otsikko
+        Array.from(navMenu.children).forEach(child => {
+            if (!child.classList.contains('sidebar-title')) {
+                navMenu.removeChild(child);
             }
         });
 
-        // --- Otsikoiden automaattinen numerointi ---
-        // Suoritetaan numerointi vain, jos sivu EI ole index.html
-        if (currentFileName !== 'index.html') { //
-            const headersToNumber = mainContent.querySelectorAll('h1, h2, h3, h4'); //
-            const counters = [0, 0, 0]; // Laskurit H2, H3 ja H4 tasoille. (H1 ei numeroida)
+        const headersForSidebar = mainContent.querySelectorAll('h2, h3, h4');
+        const currentFileName = window.location.pathname.split('/').pop();
+        const isIndexPage = currentFileName === 'index.html' || currentFileName === '';
 
-            headersToNumber.forEach(header => { //
-                const level = parseInt(header.tagName.substring(1)); // Hakee otsikon tason (esim. 2 H2:lle)
+        // Yhtenäistetty laskuri, joka nollataan aina H2-otsikon kohdalla
+        let counters = { h2: 0, h3: 0, h4: 0 };
 
-                if (level === 1) { //
-                    counters.fill(0); // Nollaa kaikki laskurit, kun kohdataan H1-pääotsikko.
-                } else if (level >= 2 && level <= 4) { //
-                    const counterIndex = level - 2; // H2 -> index 0, H3 -> index 1, H4 -> index 2
-                    counters[counterIndex]++; // Kasvata nykyisen tason laskuria
+        headersForSidebar.forEach(header => {
+            const level = parseInt(header.tagName.substring(1));
+            let headerText = header.textContent.trim(); // Käytä trimmattua tekstiä
 
-                    for (let i = counterIndex + 1; i < counters.length; i++) { //
-                        counters[i] = 0; //
-                    }
-                    const numberString = counters.slice(0, counterIndex + 1).join('.'); // Muodosta numerosarja (esim. "1.2")
-                    header.textContent = `${numberString} ${header.textContent}`; // Lisää numero otsikon eteen
+            // Suorita numerointi VAIN jos emme ole etusivulla
+            if (!isIndexPage) {
+                if (level === 2) {
+                    counters.h2++;
+                    counters.h3 = 0; // Nollaa alemmat tasot
+                    counters.h4 = 0;
+                    headerText = `${counters.h2}. ${headerText}`;
+                } else if (level === 3) {
+                    counters.h3++;
+                    counters.h4 = 0; // Nollaa alemmat tasot
+                    headerText = `${counters.h2}.${counters.h3}. ${headerText}`;
+                } else if (level === 4) {
+                    counters.h4++;
+                    headerText = `${counters.h2}.${counters.h3}.${counters.h4}. ${headerText}`;
                 }
-            });
-        }
-
-        const createSlug = (text) => {
-            if (!text) return ''; //
-            // Poista numerot rules-sivuilla, jotta slug ei sisällä niitä.
-            // Index-sivulla otsikoita ei ole numeroitu, joten slugia ei tarvitse puhdistaa numeroista siinä tapauksessa.
-            const cleanText = currentFileName !== 'index.html' ? text.replace(/^[\d\.]+\s/, '') : text; // Muutettu index.js:n mukaan, mutta säilyttäen numerointilogiikka
-            return 'header-' + cleanText.toString().toLowerCase() //
-                .replace(/\s+/g, '-') //
-                .replace(/[^\w\-]+/g, '') //
-                .replace(/\-\-+/g, '-') //
-                .replace(/^-+/, '') //
-                .replace(/-+$/, ''); //
-        };
-
-        const headersForSidebar = mainContent.querySelectorAll('h2, h3, h4'); //
-
-        headersForSidebar.forEach(header => { //
-            const originalText = header.textContent; //
-            let id = header.id; //
-
-            if (!id) { //
-                id = createSlug(originalText); //
-                header.id = id; //
+                // Päivitä otsikko DOM:iin vain jos se on numeroitu
+                header.textContent = headerText;
             }
 
-            const link = document.createElement('a'); //
-            link.href = `#${id}`; //
-            link.textContent = originalText; //
-            link.className = 'block py-1.5 px-4 rounded-md text-stone-700 hover:bg-purple-100 nav-link transition-all duration-200'; //
+            // Luo ankkurilinkki (slug) ja varmista ID
+            const originalText = header.textContent.replace(/^[\d\.]+\s/, ''); // Puhdista numerointi slugia varten
+            const slug = 'header-' + originalText.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+            header.id = slug;
 
-            if (header.tagName === 'H2') { //
-                link.classList.add('font-bold', 'text-purple-800', 'mt-1'); //
-            } else if (header.tagName === 'H3') { //
-                link.classList.add('ml-4'); //
-            } else if (header.tagName === 'H4') { //
-                link.classList.add('ml-8', 'text-sm'); //
-            }
+            // Luo ja lisää linkki sivupalkkiin
+            const link = document.createElement('a');
+            link.href = `#${slug}`;
+            link.textContent = headerText; // Käytä mahdollisesti numeroitua tekstiä
+            link.className = 'nav-link';
 
-            link.addEventListener('click', (e) => { //
-                e.preventDefault(); //
-                document.getElementById(id).scrollIntoView({ //
-                    behavior: 'smooth' //
-                });
-                // Sulje molemmat valikot linkkiä klikatessa mobiilissa
-                if (window.innerWidth < 768) { //
-                    toggleMobileSidebar(true); //
-                    toggleNavbarDropdown(true); //
+            if (level === 2) link.classList.add('font-bold');
+            if (level === 3) link.classList.add('ml-4');
+            if (level === 4) link.classList.add('ml-8');
+
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById(slug)?.scrollIntoView({ behavior: 'smooth' });
+                if (window.innerWidth < 768) {
+                    sidebar.classList.add('sidebar-hidden');
                 }
             });
-            navMenu.appendChild(link); //
+
+            navMenu.appendChild(link);
         });
     };
 
@@ -250,99 +234,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const headersForSidebar = mainContent.querySelectorAll('h2, h3, h4'); //
         headersForSidebar.forEach(header => observer.observe(header)); //
     };
-
-    // ====================================================================
-// OSA 2: SIVUN VIERITYSPAINIKKEET (MODULAARINEN)
-// ====================================================================
-
-// Muutetaan logiikka globaaliksi funktioksi, jota voidaan kutsua muualta.
-window.initializeScrollButtons = function() {
-    const scrollButtonsContainer = document.getElementById('scroll-buttons-container');
-    const mainContentForScroll = document.getElementById('main-content');
-    
-    // Varmistetaan, että elementit ovat olemassa, ennen kuin jatketaan
-    if (!scrollButtonsContainer || !mainContentForScroll || !mainNavbar) {
-        return;
-    }
-
-    const scrollTopButton = document.getElementById('scroll-top');
-    const scrollH2UpButton = document.getElementById('scroll-h2-up');
-    const scrollH3UpButton = document.getElementById('scroll-h3-up');
-    const scrollBottomButton = document.getElementById('scroll-bottom');
-    const scrollH2DownButton = document.getElementById('scroll-h2-down');
-    const scrollH3DownButton = document.getElementById('scroll-h3-down');
-    
-    // KORJATTU OSA: Lisätty H4-otsikko tähän, jotta "Korpraali"-nappi toimii yksikkösivuilla.
-    const findNextNavigableHeader = (direction) => {
-        const allNavigableHeaders = Array.from(mainContentForScroll.querySelectorAll('h2, h3, h4'));
-        const navbarHeight = mainNavbar.offsetHeight || 0;
-        if (direction === 'up') {
-            const headersAbove = allNavigableHeaders.filter(h => h.getBoundingClientRect().top < -1);
-            return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null;
-        } else {
-            return allNavigableHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null;
-        }
-    };
-
-    const findNearestStrictHeader = (selector, direction) => {
-        const allHeaders = Array.from(mainContentForScroll.querySelectorAll(selector));
-        const navbarHeight = mainNavbar.offsetHeight || 0;
-        if (direction === 'up') {
-            const headersAbove = allHeaders.filter(h => h.getBoundingClientRect().top < -1);
-            return headersAbove.length > 0 ? headersAbove[headersAbove.length - 1] : null;
-        } else {
-            return allHeaders.find(h => h.getBoundingClientRect().top > navbarHeight + 15) || null;
-        }
-    };
-
-    // Poistetaan vanhat kuuntelijat, jos niitä on, estää päällekkäiset kutsut
-    let scrollTimeout;
-    const scrollHandler = () => { clearTimeout(scrollTimeout); scrollTimeout = setTimeout(updateButtonStates, 50); };
-    window.removeEventListener('scroll', scrollHandler); // Poista vanha ensin
-    window.addEventListener('scroll', scrollHandler); // Lisää uusi
-
-    // updateButtonStates ja nappien kuuntelijat pysyvät funktion sisällä
-    const updateButtonStates = () => {
-        const atTop = window.scrollY < 20;
-        const atBottom = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 20;
-        const nextH2Up = findNearestStrictHeader('h2', 'up');
-        const nextH2Down = findNearestStrictHeader('h2', 'down');
-        const nextNavigableUp = findNextNavigableHeader('up');
-        const nextNavigableDown = findNextNavigableHeader('down');
-
-        if (scrollTopButton) scrollTopButton.disabled = atTop;
-        if (scrollBottomButton) scrollBottomButton.disabled = atBottom;
-        if (scrollH2UpButton) scrollH2UpButton.disabled = atTop || !nextH2Up;
-        if (scrollH2DownButton) scrollH2DownButton.disabled = atBottom || !nextH2Down;
-        if (scrollH3UpButton) scrollH3UpButton.disabled = atTop || !nextNavigableUp;
-        if (scrollH3DownButton) scrollH3DownButton.disabled = atBottom || !nextNavigableDown;
-    };
-    
-    // Tässä kohtaa emme lisää kuuntelijoita uudelleen, koska ne on jo lisätty kerran.
-    // Riittää, että päivitämme niiden tilan.
-    updateButtonStates();
-};
-
-    // ====================================================================
-    // OSA 3: VIERITYSNAPPIEN SELITTEEN NÄYTTÖ
-    // ====================================================================
-
-    const infoToggle = document.getElementById('scroll-info-toggle'); //
-    const legendPanel = document.getElementById('scroll-legend'); //
-
-    if (infoToggle && legendPanel) { //
-        infoToggle.addEventListener('click', (event) => { //
-            event.stopPropagation(); //
-            legendPanel.classList.toggle('is-visible'); //
-        });
-
-        document.addEventListener('click', () => { //
-            if (legendPanel.classList.contains('is-visible')) { //
-                legendPanel.classList.remove('is-visible'); //
-            }
-        });
-    }
-
-    window.initializeContentAndSidebar(); //
-    setupIntersectionObserver(); //
+    initializeContentAndSidebar();
+    setupIntersectionObserver();
 });

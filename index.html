@@ -348,52 +348,10 @@
             </div>
         </div>
     </div>
-    <script src="Scripts/index.js"></script>
+    <script src="Scripts/rules.js"></script>
     <script src="Scripts/glossaryData.js"></script>
     <script src="Scripts/popup.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const currentFileName = window.location.pathname.split('/').pop();
-            // ... (dynaamisen sisällön latauslogiikka ennallaan) ...
-            if (currentFileName !== 'index.html') {
-                const baseFileName = currentFileName.replace('.html', '');
-                fetch(`${baseFileName}-index.html`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status}`);
-                        }
-                        return response.text();
-                    })
-                    .then(data => {
-                        const mainContentDiv = document.getElementById('main-content').querySelector('.prose');
-                        if (mainContentDiv) {
-                            mainContentDiv.innerHTML = data;
-                            if (typeof window.initializeContentAndSidebar === 'function') {
-                                window.initializeContentAndSidebar();
-                            }
-                            // Päivitä current-page-name myös alasivuilla
-                            const currentPageTitle = document.title.split(' - ')[0]; // Oletus: "Sivun nimi - Taistelukenttä d20"
-                            const currentPageNameElement = document.getElementById('current-page-name');
-                            if (currentPageNameElement) {
-                                currentPageNameElement.textContent = currentPageTitle;
-                            }
-                        } else {
-                            console.error('Prose container not found in main-content.');
-                        }
-                    })
-                    .catch(error => console.error('Error loading content:', error));
-            } else {
-                if (typeof window.initializeContentAndSidebar === 'function') {
-                    window.initializeContentAndSidebar();
-                }
-                // Index-sivulla asetetaan nimeksi "Etusivu" tai vastaava
-                const currentPageNameElement = document.getElementById('current-page-name');
-                if (currentPageNameElement) {
-                    currentPageNameElement.textContent = "Etusivu"; // Voit muuttaa tämän haluamaksesi
-                }
-            }
-        });
-    </script>
+    <script src="Scripts/scroll-buttons.js"></script>
 </body>
 
 </html>
