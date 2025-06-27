@@ -6,7 +6,7 @@ window.blueUnitData = {
     'unit-jaakariryhma': {
         name: 'JÄÄKÄRIRYHMÄ', type: 'Jalkaväki (10 sotilasta)', stats: { tk: 10, tt: '+3', s: 11, m: '+3', l: 7 },
         armament: [{ name: 'Jalkaväkiaseistus', damage: 'd6', attack: '+3', notes: '-' }, { name: 'Tiedustelulennokki', damage: '-', attack: '+5 (Tied.)', notes: '-' }],
-        abilities: [{ name: 'Sisu', description: 'Kun yksikkö on "Vaurioitunut", sen Moraali pysyy +3 (ei putoa +1).' }, { name: 'Maastoon Tottunut', description: 'Jättää huomiotta metsämaaston aiheuttaman liikehidasteen.' }, { name: 'Tulenjohto (Passiivinen)', description: 'Voi johtaa tulta. Vaurioituneena vaatii onnistuneen d6-heiton (4+).', isDamagedEffect: true }],
+        abilities: [{ name: 'Sisu', description: 'Kun yksikkö on "Vaurioitunut", sen Moraali pysyy +3 (ei putoa +1).' }, { name: 'Maastoon Tottunut', description: 'Jättää huomiotta metsämaaston aiheuttaman liikehidasteen.' }, { name: 'Tulenjohto (Passiivinen)', description: 'Voi johtaa tulta. Vaurioituneena vaatii onnistuneen d6-heiton (4+). Jos TK on 1-2, ei voi johtaa tulta lainkaan.', isDamagedEffect: true }],
         ammo: {}
     },
     'unit-tukiryhma': {

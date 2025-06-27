@@ -138,7 +138,14 @@ document.addEventListener('DOMContentLoaded', function () {
             if (entry.isIntersecting) {
                 document.querySelectorAll('#nav-menu .nav-link').forEach(link => link.classList.remove('active'));
                 const navLink = navMenu.querySelector(`a[href="#${entry.target.id}"]`);
-                if (navLink) navLink.classList.add('active');
+                if (navLink) {
+                    navLink.classList.add('active');
+                    // LISÄTTY KOHTA: Vieritä aktiivinen linkki näkyviin sivupalkissa
+                    navLink.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest'
+                    });
+                }
             }
         });
     }, { rootMargin: "-30% 0px -60% 0px", threshold: 0.5 });
@@ -177,16 +184,17 @@ document.addEventListener('DOMContentLoaded', function () {
             if (scrollBottomButton) scrollBottomButton.disabled = atBottom;
             if (scrollH2UpButton) scrollH2UpButton.disabled = atTop || !findNearestHeader('h2', 'up');
             if (scrollH2DownButton) scrollH2DownButton.disabled = atBottom || !findNearestHeader('h2', 'down');
-            if (scrollH3UpButton) scrollH3UpButton.disabled = atTop || !findNearestHeader('h2, h3', 'up');
-            if (scrollH3DownButton) scrollH3DownButton.disabled = atBottom || !findNearestHeader('h2, h3', 'down');
+            // MUOKATTU KOHTA ALLA: Lisätty 'h4' valitsimeen
+            if (scrollH3UpButton) scrollH3UpButton.disabled = atTop || !findNearestHeader('h2, h3, h4', 'up');
+            if (scrollH3DownButton) scrollH3DownButton.disabled = atBottom || !findNearestHeader('h2, h3, h4', 'down');
         };
 
         scrollTopButton?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
         scrollBottomButton?.addEventListener('click', () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }));
         scrollH2UpButton?.addEventListener('click', () => findNearestHeader('h2', 'up')?.scrollIntoView({ behavior: 'smooth' }));
         scrollH2DownButton?.addEventListener('click', () => findNearestHeader('h2', 'down')?.scrollIntoView({ behavior: 'smooth' }));
-        scrollH3UpButton?.addEventListener('click', () => findNearestHeader('h2, h3', 'up')?.scrollIntoView({ behavior: 'smooth' }));
-        scrollH3DownButton?.addEventListener('click', () => findNearestHeader('h2, h3', 'down')?.scrollIntoView({ behavior: 'smooth' }));
+        scrollH3UpButton?.addEventListener('click', () => findNearestHeader('h2, h3, h4', 'up')?.scrollIntoView({ behavior: 'smooth' }));
+        scrollH3DownButton?.addEventListener('click', () => findNearestHeader('h2, h3, h4', 'down')?.scrollIntoView({ behavior: 'smooth' }));
 
         infoToggle?.addEventListener('click', (e) => { e.stopPropagation(); legendPanel.classList.toggle('is-visible'); });
         document.addEventListener('click', () => legendPanel?.classList.remove('is-visible'));
