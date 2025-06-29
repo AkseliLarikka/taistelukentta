@@ -59,3 +59,42 @@ Vastauksesi on noudatettava tarkasti seuraavaa vaiheistettua rakennetta. Jokaise
 * **Tietoturva ensin:** Korosta suunnitelmassa, miten jokainen toiminto (sekä HTTP-pyyntö että Socket.IO-tapahtuma) validoidaan ja auktorisoidaan.
 * **Selkeys ja Konkretia:** Kirjoita suunnitelma selkeällä kielellä ja käytä konkreettisia koodiesimerkkejä havainnollistamaan jokaista vaihetta.
 * **Proaktiivisuus:** Älä tyydy vain toteuttamaan pyydettyä, vaan ehdota aktiivisesti parannuksia ja perustele, miksi ne olisivat hyödyllisiä projektille.
+
+# Pitch: **Taistelukenttä d20 – Visio Reaaliaikaisesta Moninpelialustasta**
+
+#### **Nykytila: Loistava työkalu, eristetty kokemus**
+
+Tällä hetkellä Taistelukenttä d20 on poikkeuksellisen laadukas ja yksityiskohtainen työkalu pelinjohtajalle. Sen avulla voi hallita monimutkaisiakin skenaarioita tehokkaasti. Sen suurin rajoite on kuitenkin sen luonne: se on yksinpelikokemus, joka elää vain yhdellä näytöllä. Pelaajat ovat passiivisia tiedon vastaanottajia, ja pelin kulku on täysin riippuvainen manuaalisesta kommunikaatiosta.
+
+#### **Tavoite: Muutamme työkalun eläväksi taistelukentäksi**
+
+Ehdotuksemme on viedä Taistelukenttä d20 täysin uudelle tasolle muuttamalla se dynaamiseksi, reaaliaikaiseksi moninpelialustaksi.
+
+Kuvittele peli, jossa:
+
+* Pelinjohtajan jokainen päätös – vuoron vaihto, vaiheen eteneminen – näkyy pelaajien näytöillä **välittömästi**.
+* Pelaajat eivät ole enää sivustaseuraajia, vaan he **voivat itse hallinnoida omia joukkojaan** omilta laitteiltaan – päivittää niiden tilaa, merkitä tappioita ja valmistautua seuraavaan siirtoon.
+* Pelinjohtaja saa pelaajien tekemät muutokset tietoonsa reaaliajassa, mikä luo saumattoman ja elävän komentoketjun.
+
+Tämä ei ole enää vain työkalu, vaan jaettu, interaktiivinen sotapelikokemus.
+
+#### **Avainominaisuudet:**
+
+* **Reaaliaikainen Synkronointi:** Kaikki pelin data synkronoidaan kaikkien osallistujien kesken ilman viivettä. Ei enää "Onko vuoro vaihtunut?" -kyselyitä.
+* **Roolipohjainen Hallinta:** Selkeät roolit varmistavat pelin eheyden. Vain Pelinjohtaja voi tehdä strategisia päätöksiä, ja pelaajat voivat vaikuttaa ainoastaan omiin joukkoihinsa.
+* **Interaktiivinen Pelaajakokemus:** Pelaajat osallistuvat aktiivisesti pelin hallintaan, mikä lisää immersiota ja sitoutumista.
+* **Turvallinen ja Luotettava:** Järjestelmä varmistaa, että vain peliin kuuluvat henkilöt voivat osallistua, ja heillä on vain omien rooliensa mukaiset oikeudet.
+
+#### **Teknologinen Toteutus ja Reitti Onnistumiseen**
+
+Toteutamme tämän vision modernilla ja vankalla teknologiapinolla, joka perustuu **Pythoniin** ja **Flask**-kehykseen. Reaaliaikaisuus rakennetaan **WebSocket**-teknologian ja **Socket.IO**-kirjaston varaan, mikä takaa nopean ja luotettavan yhteyden.
+
+Projektisuunnitelmamme on selkeä ja vaiheistettu:
+
+1. **Perustan rakentaminen:** Luomme turvallisen backend-rungon ja tietokannan käyttäjien ja pelisessioiden hallintaan.
+2. **Reaaliaikaisuuden toteutus:** Rakennamme viestintäkanavan, joka synkronoi pelitilan kaikkien osallistujien välillä.
+3. **Integraatio ja käyttöönotto:** Yhdistämme nykyisen, hiotun käyttöliittymän uuteen backendiin ja viemme sen maailmalle.
+
+Parasta kaikessa? Voimme toteuttaa tämän vision **ilman merkittäviä juoksevia kuluja** hyödyntämällä moderneja pilvialustoja, jotka tarjoavat anteliaita ilmaistasoja harrasteprojekteille.
+
+**On aika muuttaa Taistelukenttä d20 työkalusta kokemukseksi.**
