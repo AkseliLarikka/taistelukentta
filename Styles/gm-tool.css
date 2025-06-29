@@ -6,6 +6,12 @@
     padding-bottom: 250px !important;
 }
 
+@media (max-width: 768px) {
+    #main-content {
+        padding-bottom: 100px !important;
+    }
+}
+
 #gm-tool {
     margin-top: 4rem;
     padding-top: 2rem;

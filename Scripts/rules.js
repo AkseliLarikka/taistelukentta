@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        const headersForSidebar = mainContent.querySelectorAll('h2, h3, h4');
+        const headersForSidebar = mainContent.querySelectorAll('h2, section:not(#gm-tool) h3, section:not(#gm-tool) h4');
         const currentFileName = window.location.pathname.split('/').pop();
         const isIndexPage = currentFileName === 'index.html' || currentFileName === '';
 
