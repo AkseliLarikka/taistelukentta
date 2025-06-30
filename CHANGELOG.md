@@ -2,6 +2,16 @@
 
 Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -peliin.
 
+## 2025-06-30
+
+### Uudet ominaisuudet ja Parannukset
+
+* **Automatisoitu julkaisu (CI/CD):** Otettu käyttöön GitHub Actions -työnkulku, joka päivittää automaattisesti sivujen julkaisupäivämäärät ja julkaisee sivuston GitHub Pagesiin jokaisen `git push` -komennon jälkeen.
+* **Tekninen SEO-parannus:** Lisätty `sitemap.xml`-tiedosto kaikkien sivujen indeksoinnin tehostamiseksi sekä `robots.txt`-tiedosto ohjaamaan hakukonerobotteja.
+* **Saavutettavuus & Kuva-SEO:** Lisätty kuvaavat `alt`-tekstit kaikille kuville, mukaan lukien navigointielementit, parantaen sekä näkövammaisten käyttökokemusta että kuvien löydettävyyttä hakukoneissa.
+* **SEO- ja esikatselupäivitys:** Lisätty kattavat Open Graph- ja Twitter Card -metatiedot kaikille sivuston sivuille. Tämä parantaa merkittävästi linkkien esikatselua sosiaalisen median alustoilla ja viestisovelluksissa.
+  * Lisäksi lisätty tuki strukturoidulle datalle (Schema.org JSON-LD), kanonisille URL-osoitteille ja tekijätiedoille.
+
 ## 2025-06-26
 
 ### Uudet ominaisuudet
