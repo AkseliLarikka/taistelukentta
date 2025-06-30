@@ -1,13 +1,18 @@
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 import re
 
 # Hakemisto, josta etsitään HTML-tiedostoja (nykyinen hakemisto)
 root_dir = '.'
 # Haettava metatagi
 tag_pattern = re.compile(r'(<meta property="article:published_time" content=")(.*?)(".*?>)')
-# Nykyinen aika UTC-muodossa, ISO 8601 -standardin mukaan
-current_time_iso = datetime.utcnow().strftime('%Y-%m-%d T%H:%M:%S')
+
+# --- KORJATTU OSA ---
+# Haetaan nykyinen aika käyttäen suositeltua, aikavyöhyketietoista tapaa.
+# .now(timezone.utc) tuottaa ajan suoraan UTC-aikavyöhykkeessä.
+current_time_utc = datetime.now(timezone.utc)
+current_time_iso = current_time_utc.strftime('%Y-%m-%d T%H:%M:%S')
+
 
 print(f"Päivitetään julkaisuaika muotoon: {current_time_iso}")
 
