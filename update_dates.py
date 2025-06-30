@@ -7,7 +7,7 @@ root_dir = '.'
 # Haettava metatagi
 tag_pattern = re.compile(r'(<meta property="article:published_time" content=")(.*?)(".*?>)')
 # Nykyinen aika UTC-muodossa, ISO 8601 -standardin mukaan
-current_time_iso = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+current_time_iso = datetime.utcnow().strftime('%Y-%m-%d T%H:%M:%S')
 
 print(f"Päivitetään julkaisuaika muotoon: {current_time_iso}")
 
