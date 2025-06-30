@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, noimageindex, noarchive">
+    
+    <title>Taistelukenttä d20 - Pelinjohtajan opas</title>
+    <meta name="description" content="Tämä opas tarjoaa pelinjohtajalle (GM) syvällisen katsauksen Taistelukenttä d20 -pelin Punaisen puolen johtamiseen, sodan sumun hyödyntämiseen, komentopisteiden hallintaan ja taktisen doktriinin soveltamiseen haastavien skenaarioiden luomiseksi.">
+    <meta name="author" content="Akseli Larikka">
+    <link rel="canonical" href="https://akselilarikka.github.io/taistelukentta/pelinjohtajan-opas.html">
+    <meta name="keywords" lang="fi" content="pelinjohtajan opas, GM-opas, Taistelukenttä d20, Red Team, Punainen puoli, sodan sumu, komentopisteet, taktinen doktriini, aaltohyökkäys, tulituki, nopea liike, sotapeli, strategia, noppapeli, ilmaiset säännöt, suomalainen sotapeli, Dungeon Master, DM-opas, D&D, roolipeli, d20 system">
+    <meta name="keywords" lang="en" content="game master guide, GM guide, Taistelukenttä d20, Red Team, fog of war, command points, tactical doctrine, wave attack, fire support, rapid movement, wargame, strategy game, dice game, free rules, Finnish wargame, Dungeon Master guide, DM guide, D&D, role-playing game, RPG, d20 system">
+
+    <link rel="icon" type="image/x-icon" href="images/tkd20ikoni.png">
+
+    <meta property="og:title" content="Taistelukenttä d20 - Pelinjohtajan opas">
+    <meta property="og:description" content="Syvällinen katsaus Punaisen puolen johtamiseen, sodan sumun hyödyntämiseen ja taktisen doktriinin soveltamiseen haastavien skenaarioiden luomiseksi.">
+    <meta property="og:image" content="https://akselilarikka.github.io/taistelukentta/images/TKD20LOGO.png">
+    <meta property="og:image:alt" content="Taistelukenttä d20 -logo">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://akselilarikka.github.io/taistelukentta/pelinjohtajan-opas.html">
+    <meta property="og:type" content="website">
+    <meta property="article:published_time" content="2025-06-30T04:49:45Z">
+    <meta property="article:author" content="Akseli Larikka">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Taistelukenttä d20 - Pelinjohtajan opas">
+    <meta name="twitter:description" content="Syvällinen katsaus Punaisen puolen johtamiseen, sodan sumun hyödyntämiseen ja taktisen doktriinin soveltamiseen haastavien skenaarioiden luomiseksi.">
+    <meta name="twitter:image" content="https://akselilarikka.github.io/taistelukentta/images/TKD20LOGO.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Styles/rules.css">
+    <link rel="stylesheet" type="text/css" href="Styles/gm-tool.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Taistelukenttä d20 - Pelinjohtajan opas",
+      "url": "https://akselilarikka.github.io/taistelukentta/pelinjohtajan-opas.html",
+      "author": {
+        "@type": "Person",
+        "name": "Akseli Larikka"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <header id="main-navbar">
+        <div class="container">
+            <div class="header-left-spacer"></div>
+            <div id="navbar-dropdown-container">
+                <a href="#" id="current-page-name" class="home-link">Pelinjohtajan opas</a>
+                <nav id="main-navbar-content">
+                    <ul class="top-nav-list">
+                        <li><a href="index.html" class="nav-link-top">Etusivu</a></li>
+                        <li><a href="ydinsaannot.html" class="nav-link-top">Ydinsäännöt</a></li>
+                        <li><a href="taktisen-tason-taistelu.html" class="nav-link-top">Taktisen tason taistelu</a></li>
+                        <li><a href="pelaajan-pikaopas.html" class="nav-link-top">Pelaajan pikaopas</a></li>
+                        <li><a href="siniset-yksiköt.html" class="nav-link-top">Siniset yksiköt</a></li>
+                        <li><a href="punaiset-yksiköt.html" class="nav-link-top">Punaiset yksiköt</a></li>
+                        <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
+                        <li><a href="skenaariot.html" class="nav-link-top">Skenaariot</a></li>
+                        <li><a href="pelinjohtajan-opas.html" class="nav-link-top" style="color:#C2B280;">Pelinjohtajan
+                                opas</a></li>
+                        <li><a href="sanasto-ja-ukk.html" class="nav-link-top">Sanasto ja UKK</a></li>
+                        <li><a href="tietoja.html" class="nav-link-top">Tietoa & Muutoshistoria</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right-spacer"></div>
+        </div>
+    </header>
+
+    <div id="sidebar" class="sidebar-hidden">
+        <h1 class="sidebar-title">Sisällysluettelo</h1>
+        <nav id="nav-menu"></nav>
+    </div>
+
+    <button id="menu-toggle" aria-label="Avaa Sisällysluettelo">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <main id="main-content">
+        <div class="prose">
+            <div class="main-banner">
+                <div>
+                    <h1 class="banner-title">
+                        Taistelukenttä d20 – Pelinjohtajan opas <br> v. Alpha
+                    </h1>
+                </div>
+
+            </div>
+            <!--SECTION: Pelinjohtajan opas alkaa-->
+            <section id="pelinjohtajan-opas">
+                <h2>Pelinjohtajan Opas</h2>
+                <p>
+                    <span class="glossary-term" data-term="gm">GM</span>:n tehtävä on pelata Red Teamia heidän
+                    doktriininsa mukaisesti,
+                    mikä tarkoittaa massan, tulivoiman ja nopean liikkeen hyödyntämistä.
+                </p>
+
+                <h2>Hallitse Sodan Sumua:</h2>
+                <ul>
+                    <li>
+                        <strong>Tiedustelu Ensin:</strong> Aloita skenaario lähettämällä
+                        kevyt tiedustelu eteen. Tämä voi olla yksittäinen motorisoitu
+                        jalkaväkiryhmä tai kevyempi ajoneuvo, joka pyrkii havaitsemaan
+                        vihollisen asemat. Älä paljasta koko joukkoa kerralla.
+                    </li>
+                    <li>
+                        <strong>"Kysymysmerkit":</strong> Käytä paljon "?"-merkkejä
+                        <span class="glossary-term" data-term="gm">GM</span>-kartalla. Vasta kun Blue Team on tehnyt
+                        onnistuneen tiedustelun
+                        tai Red Team aloittaa hyökkäyksen, paljasta yksiköiden tarkka
+                        tyyppi ja sijainti.
+                    </li>
+                </ul>
+
+                <h2>Punaisen Puolen Komentorakenne ja KP:n Hallinta</h2>
+                <p>
+                    Yksinkertaistaaksemme pelinjohtajan työmäärää ja vähentääksemme kirjanpitoa, Punaisen puolen
+                    komentopistejärjestelmä keskitetään. Sen sijaan, että hallinnoisit useita pieniä ja erillisiä
+                    pistepooleja, käytät yhtä isompaa poolia, jolla on kuitenkin käyttörajoituksia.
+                </p>
+
+                <h3>Yhdistetty Komentopooli</h3>
+                <p>
+                    Pelinjohtaja saa joka vuoron alussa yhden ison komentopistepoolin. Poolin koko määräytyy Punaisen
+                    puolen joukkojen koon mukaan:
+                </p>
+                <ul>
+                    <li>Saat <strong>3 KP</strong> jokaista taistelukentällä olevaa <strong>Taisteluryhmää</strong>
+                        (vastaa karkeasti joukkuetta) kohden.</li>
+                </ul>
+                <p>
+                    <em>Esimerkki: Jos Punaisella puolella on kolme Taisteluryhmää, pelinjohtaja saa käyttöönsä 3 x 3 =
+                        9 KP per vuoro.</em>
+                </p>
+                <h3>Käyttörajoitus: Doktriinin Jäykkyys</h3>
+                <p>
+                    Vaikka sinulla on yksi iso pooli, et voi käyttää kaikkia pisteitä vapaasti yhteen ainoaan tehtävään.
+                    Tämä simuloi komentoketjun jäykkyyttä.
+                </p>
+                <ul>
+                    <li>Vuoron aikana voit käyttää <strong>enintään 4 KP</strong> minkä tahansa <strong>yksittäisen
+                            Taisteluryhmän</strong> yksiköiden komentamiseen.</li>
+                    <li>Voit siis esimerkiksi käyttää 4 KP Taisteluryhmä A:han, 3 KP Taisteluryhmä B:hen ja 2 KP
+                        Taisteluryhmä C:hen (yhteensä 9 KP), mutta et voi käyttää 5 KP Taisteluryhmä A:han.</li>
+                    <li>Tämä rajoitus ei koske yleisiä, koko armeijaa koskevia toimintoja, kuten epäorgaanisen tulituen
+                        kutsumista, jos skenaario sen sallii.</li>
+                </ul>
+
+                <h2>Hyödynnä Doktriinia – Massa ja Tulivoima:</h2>
+                <ul>
+                    <li>
+                        <strong>Aaltohyökkäys:</strong> Aktivoi "Aaltohyökkäys"-kykyä
+                        usein. Kun vähintään kolme jalkaväkiryhmää hyökkää samaan
+                        kohteeseen, ne saavat +1 Moraaliin seuraavalla vuorolla. Tämä
+                        kannustaa Blue Teamia hajottamaan puolustustaan ja estää heitä
+                        keskittämästä tulta.
+                    </li>
+                    <li>
+                        <strong>Tulituen Maksimointi:</strong> Älä epäröi käyttää
+                        kranaatinheittimiä ja tykistöä. "Tulitukipyyntö" maksaa 3 <span class="glossary-term"
+                            data-term="kp">KP</span>, ja
+                        sen vaikutusalue (esim. 5cm säde) aiheuttaa d6 <span class="glossary-term"
+                            data-term="taistelukunto">TK</span>-vahinkoa ja
+                        Moriaalitestin Haitalla. Keskity kohteisiin, jotka ovat hyvissä
+                        suojissa tai joilla on korkea <span class="glossary-term" data-term="moraali">Moraali</span>,
+                        murtaaksesi niiden
+                        puolustusta.
+                    </li>
+                    <li>
+                        <strong>Ajoneuvot Edellä:</strong> BTR-82A ja T-72B3 ovat
+                        tulivoimaisia ja panssaroituja. Käytä niitä kärkijoukkoina
+                        murtamaan Blue Teamin linjoja ja tarjoamaan suojatulta
+                        jalkaväelle.
+                        <ul>
+                            <li>
+                                <strong>BTR-82A:</strong> Hyvä liikkuvuus ja konetykki (d8
+                                Vahinko). Käytä niitä kuljetukseen ja tulitukeen jalkaväelle.
+                            </li>
+                            <li>
+                                <strong>T-72B3:</strong> Erittäin kestävä (<span class="glossary-term"
+                                    data-term="taistelukunto">TK</span> 40) ja tehokas
+                                (2d12 <span class="glossary-term" data-term="pst">PST</span>-vahinko). Hyödynnä
+                                "Pelote"-kykyä pakottaaksesi
+                                lähellä olevat viholliset moraalitestiin. Älä ujostele ajaa
+                                niillä suoraan vastustajan etulinjaan.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h2>Nopea <span class="glossary-term" data-term="liike">Liike</span> ja Adaptoituminen:</h2>
+                <ul>
+                    <li>
+                        <strong>Välitön Hyökkäys:</strong> Kun tiedustelu on tehty ja
+                        kohteet paikannettu, aloita hyökkäys nopeasti. Pyri ylittämään
+                        Blue Teamin puolustuslinjat ja pääsemään lähelle.
+                    </li>
+                    <li>
+                        <strong><span class="glossary-term" data-term="kp">Komentopisteiden</span> Käyttö:</strong>
+                        Käytä <span class="glossary-term" data-term="kp">Komentopisteitä</span>
+                        aggressiivisesti. "Hyökkäyskäsky" (1 <span class="glossary-term" data-term="kp">KP</span>/ryhmä)
+                        on välttämätön, ja
+                        "Tulen Keskittäminen" (1 <span class="glossary-term" data-term="kp">KP</span>) on erittäin
+                        tehokas.
+                    </li>
+                    <li>
+                        <strong>Vahvistukset Aalloittain:</strong> Älä tuo kaikkia
+                        joukkoja kartalle heti. Aloita kevyillä tiedustelujoukoilla ja
+                        kärkikomppanialla. Kun taistelu etenee ja Blue Teamin asemat
+                        paljastuvat, tuo lisää panssareita tai toinen komppania toisesta
+                        suunnasta pitääksesi paineen yllä ja simuloidaksesi jatkuvaa
+                        hyökkäystä.
+                    </li>
+                    <li>
+                        <strong>Reagoi Blue Teamin Liikkeisiin:</strong> Jos Blue Team
+                        yrittää saartaa tai vetäytyä, reagoi nopeasti. Käytä
+                        "Irtautuminen"-komentoa (2 <span class="glossary-term" data-term="kp">KP</span>/ryhmä)
+                        tarvittaessa, mutta
+                        pääasiallisesti pyri pitämään kiinni hyökkäysvauhdista.
+                    </li>
+                    <li>
+                        <strong>Vältä Jumiutumista:</strong> Jos Red Team joutuu ansaan
+                        tai kiinnitettyyn tulitaisteluun, harkitse etenemisen jatkamista
+                        sivuuttamalla tai iskemällä toisesta suunnasta, jos se on taktinen
+                        edullista. Venäläinen doktriini korostaa jatkuvaa etenemistä.
+                    </li>
+                </ul>
+
+                <h2>Uusien Mekaniikkojen Hallinta</h2>
+                <p>Kun peliin tulee uusia sääntöjä, on hyvä pitää muutama asia mielessä:</p>
+                <ul>
+                    <li><strong>Merkitse sulutteet salaa:</strong> Kun pelaaja käyttää kykyä kuten
+                        <em>Murtosulute</em>, merkitse miinakentän tarkka sijainti ja koko omaan salaiseen
+                        karttaasi. Älä anna pelaajille mitään vihjettä sen olemassaolosta ennen kuin he yrittävät
+                        havaita sitä tai liikkuvat sen päälle.
+                    </li>
+                    <li><strong>Tarkka-ampujan isku:</strong> Muista, että kun tarkkuuskiväärillä osutaan, hyökkäävä
+                        pelaaja saa päättää, minkä erikoiskyvyn hän kohteelta lamauttaa. Jos kohteella ei ole
+                        kykyjä, muistuta pelaajaa Moraalitestistä.</li>
+                </ul>
+
+                <h2>Ole Tuomari, Älä Vihollinen:</h2>
+                <p>
+                    Muista, että tehtäväsi on luoda haastava mutta reilu skenaario.
+                    Pelaa Red Teamia fiksusti, mutta älä yritä "voittaa" pelaajia
+                    hinnalla millä hyvänsä. Anna heidän myös onnistua ajoittain ja
+                    tuntea taktisen oivalluksen riemua. Ole valmis soveltamaan sääntöjä
+                    luovasti ja yksinkertaistamaan lennosta, jos se hidastaa peliä.
+                    Tärkeintä on tarinan ja strategisen kokemuksen jatkuminen.
+                </p>
+
+                <h2>Kartan piirto-ohjeet</h2>
+                <h3>Kartan piirto-ohjeet – 1:10 000</h3>
+                <h3>Komppaniapelit (1:10 000)</h3>
+                <p>Käytä 10 mm ruudullista paperia. 1 ruutu = 10 <span class="glossary-term"
+                        data-term="moraali">m</span>. Piirrä:</p>
+                <ul>
+                    <li>Tiestö (musta viiva)</li>
+                    <li>Metsä (valkoinen tila)</li>
+                    <li>Tiheä metsä (vihreä viivoitus)</li>
+                    <li>Aukeat (keltainen tila)</li>
+                    <li>Rakennukset (harmaa täyttö / neliöt)</li>
+                    <li>Vesistöt (sininen)</li>
+                    <li>Suot ja kosteikot (sininen viivoitus)</li>
+                    <li><a
+                            href="https://www.maanmittauslaitos.fi/sites/maanmittauslaitos.fi/files/attachments/2023/11/karttamerkkien_selitys.pdf">
+                            Katso tarkemmat ohjeet Maanmittauslaitoksen PDF-oppaasta.</a>
+                    </li>
+                </ul>
+                <h3>Komppaniapelit (1:10 000)</h3>
+                <p>
+                    Voit käyttää valmiita Maanmittauslaitoksen maastokarttoja. 1 cm =
+                    100 <span class="glossary-term" data-term="moraali">m</span>. Senttiruudukko ei pakollinen, mutta
+                    suositeltava
+                    mittaamiseen. Suositus: käytä viivoitinta ja mittakaavaa.
+                </p>
+
+                <h2>Pelikoon vaikutukset</h2>
+                <h3>Pelikoko ja vaikutus sääntöihin</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pelikoko</th>
+                                <th>Yksikkötaso</th>
+                                <th>Mittakaava</th>
+                                <th>Karttatyyppi</th>
+                                <th>Huomioitavaa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Komppaniapeli</td>
+                                <td>Ryhmä</td>
+                                <td>1:10 000</td>
+                                <td>Itse piirretty</td>
+                                <td><span class="glossary-term" data-term="kp">Komentopisteet</span>: 5 <span
+                                        class="glossary-term" data-term="kp">KP</span>/päällikkö + 3 <span
+                                        class="glossary-term" data-term="kp">KP</span>/joukkueenjohtaja</td>
+                            </tr>
+                            <tr>
+                                <td>Pataljoonapeli</td>
+                                <td>Joukkue</td>
+                                <td>1:25 000</td>
+                                <td>Valmis tai piirretty</td>
+                                <td><strong>Patalj. Komentaja: 8 <span class="glossary-term" data-term="kp">KP</span>.
+                                        Kompp. Päälliköt: 5 <span class="glossary-term" data-term="kp">KP</span>
+                                        kukin.</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3>Vaikutukset sääntöihin:</h3>
+                <p>
+                    <strong>Yksikkötaso ja Komentaminen:</strong> Pelin mittakaavasta
+                    riippumatta pelilaudalla käytettävät yksiköt ovat aina ryhmätasoisia
+                    (esim. Jääkäriryhmä, T-72B3-vaunu), ja niitä vastaavat omat
+                    yksikkökorttinsa. Pelikoon kasvaessa pelaajien roolit muuttuvat:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Komppaniapelissä</strong> yksi
+                        pelaaja on Komppanianpäällikkö ja muut pelaajat ovat
+                        Joukkueenjohtajia. Jokainen Joukkueenjohtaja komentaa usean ryhmän
+                        muodostamaa joukkuetta. Pelissä ei siis käytetä erillisiä
+                        'joukkue'-yksiköitä tai -kortteja, vaan Joukkueenjohtaja hallinnoi
+                        useita ryhmäkortteja.
+                    </li>
+                    <li>
+                        <strong>Pataljoonapelissä</strong> pelaajien roolit nousevat pykälällä: yksi pelaaja on
+                        <strong>Pataljoonan komentaja (8KP)</strong> ja muut ovat hänen alaisiaan
+                        <strong>Komppanianpäälliköitä (5KP kukin)</strong>. Pataljoonan komentaja voi käyttää
+                        pisteitään strategisiin erikoiskykyihin ja siirtää niitä alaisilleen. Komppanianpäälliköt
+                        johtavat omia komppanioitaan (jotka koostuvat pelilaudalla esim. joukkue-tokeneista) omilla,
+                        pienemmillä <span class="glossary-term" data-term="kp">KP</span>-pooleillaan.
+                    </li>
+                </ul>
+                <p>
+                    <strong>Tulen määrä:</strong> Komppaniatasolla tulivoima kasvaa —
+                    pelinjohtajan on rajoitettava ajan kulumista. <br>
+                    <strong>Tulituki:</strong> Epäorgaaninen tuki voi olla käytössä
+                    vain, jos skenaario niin määrittää.
+                </p>
+
+                <figure class="text-center">
+                    <img src="images/tkdkesken.png" alt="Työ kesken -kuvake" class="mx-auto my-4 h-48">
+                    <figcaption>
+                        <strong>Huom:</strong> Vaikka pataljoonapelin perusrakenne on yllä hahmoteltu, sen
+                        yksityiskohtaiset säännöt, taktiikat ja joukkuekohtaiset yksikkökortit ovat vielä aktiivisen
+                        kehitystyön alla.
+                    </figcaption>
+                </figure>
+            </section>
+            <section id="gm-tool">
+                <h2>Pelinjohtajan Työkalupakki</h2>
+                <p>Tämä työkalu auttaa sinua hallinnoimaan peliä. Tiedot tallennetaan automaattisesti selaimeesi ja on
+                    päivitetty uusilla ominaisuuksilla tukemaan sodan sumua, KP-rajoituksia ja doktriinia. <br>
+                    <strong>Huomio:</strong> työkalupakki toimii selainpuoleisesti eli syöttämäsi tiedot
+                    tallentuvat vain ja ainoastaan selaimesi välimuistiin. Emme kerää mitään dataa siitä, miten käytät työkalua.
+                </p>
+
+                <div class="gm-tool-container">
+
+                    <div class="gm-phase-tracker">
+                        <div id="gm-notifications"></div>
+                        <div id="gm-tactical-advice" class="tactical-advice"></div>
+
+                        <h3 id="phase-title">Vuoron Tila</h3>
+                        <div id="phase-instructions">
+                            <p>Aloita peli painamalla "Seuraava Vaihe".</p>
+                        </div>
+                        <div class="gm-phase-controls">
+                            <button id="prev-phase-button" disabled="">&lt; Edellinen</button>
+                            <span id="phase-counter">Vaihe 0/5</span>
+                            <button id="next-phase-button">Seuraava Vaihe &gt;</button>
+                        </div>
+                    </div>
+
+                    <div class="gm-tool-tabs">
+                        <button class="gm-tab-button active" data-tab="tab-overview">Yleiskatsaus</button>
+                        <button class="gm-tab-button" data-tab="tab-units">Yksiköt</button>
+                        <button class="gm-tab-button" data-tab="tab-strategy">Strategia</button>
+                        <button class="gm-tab-button" data-tab="tab-firesupport">Tulituki</button>
+                        <button class="gm-tab-button" data-tab="tab-notes">Muistiinpanot</button>
+                    </div>
+
+                    <div class="gm-tool-content">
+                        <div id="tab-overview" class="gm-tab-pane active">
+                            <h3>Yleiskatsaus</h3>
+                            <div class="gm-overview-grid">
+                                <div class="gm-tracker">
+                                    <label>Pelivuoro</label>
+                                    <div class="gm-tracker-controls">
+                                        <button id="turn-counter-decrement">-</button>
+                                        <span id="turn-counter">1</span>
+                                        <button id="turn-counter-increment">+</button>
+                                    </div>
+                                </div>
+                                <div class="gm-tracker">
+                                    <label>Punaisen Komentopisteet (KP)</label>
+                                    <div class="gm-tracker-controls">
+                                        <button id="kp-pool-decrement">-</button>
+                                        <span id="kp-pool">0</span>
+                                        <button id="kp-pool-increment">+</button>
+                                    </div>
+                                </div>
+                                <div class="gm-tracker">
+                                    <label>Sinisen Voittopisteet (VP)</label>
+                                    <div class="gm-tracker-controls">
+                                        <button id="blue-vp-decrement">-</button>
+                                        <span id="blue-vp">0</span>
+                                        <button id="blue-vp-increment">+</button>
+                                    </div>
+                                </div>
+                                <div class="gm-tracker">
+                                    <label>Punaisen Voittopisteet (VP)</label>
+                                    <div class="gm-tracker-controls">
+                                        <button id="red-vp-decrement">-</button>
+                                        <span id="red-vp">0</span>
+                                        <button id="red-vp-increment">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gm-info-box">
+                                <h4>Moraalitestit Vaaditaan</h4>
+                                <ul id="morale-check-list">
+                                    <li>Ei yksiköitä, jotka vaativat testin.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div id="tab-units" class="gm-tab-pane">
+                            <h3>Yksiköiden Hallinta</h3>
+                            <p>Lisää Punaisen puolen yksiköitä peliin. Määritä niille taisteluryhmän tunnus (esim. TG-A,
+                                TG-B) seurataksesi KP-käyttöä.</p>
+                            <div id="unit-templates-container"></div>
+                            <hr>
+                            <h4>Aktiiviset Yksiköt</h4>
+                            <div id="active-unit-list"></div>
+                        </div>
+
+                        <div id="tab-strategy" class="gm-tab-pane">
+                            <h3>Strateginen Tila</h3>
+
+                            <div class="strategic-section">
+                                <h4>Sodan Sumu: Havaitsemattomat Yksiköt</h4>
+                                <p>Lisää kartalle "?"-merkkejä. Kun pelaajat havaitsevat yksikön, paljasta se ja poista
+                                    listalta.</p>
+                                <div class="gm-unit-form">
+                                    <input type="text" id="undetected-desc-input"
+                                        placeholder="Yksikön kuvaus tai sijainti (esim. metsänreunassa)">
+                                    <button id="add-undetected-button">Lisää "?"</button>
+                                </div>
+                                <ul id="undetected-list"></ul>
+                            </div>
+
+                            <div class="strategic-section">
+                                <h4>Vahvistus&shy;aallot</h4>
+                                <p>Määritä, milloin ja mitä vahvistuksia saapuu peliin.</p>
+                                <div class="gm-unit-form">
+                                    <input type="text" id="reinforcement-desc-input"
+                                        placeholder="Vahvistuksen kuvaus (esim. 2x T-72B3)">
+                                    <input type="number" id="reinforcement-turn-input" placeholder="Saapumisvuoro"
+                                        min="1">
+                                    <button id="add-reinforcement-button">Lisää Aalto</button>
+                                </div>
+                                <ul id="reinforcement-list"></ul>
+                            </div>
+
+                            <div class="strategic-section">
+                                <h4>Salaiset Tiedot & Sääntö&shy;muistutukset</h4>
+                                <p>Kirjaa muistiin salaisia tietoja, kuten miinakenttien ("Murtosulute") sijainnit tai
+                                    muita vain sinun tiedossasi olevia asioita.</p>
+                                <textarea id="gm-secret-notes"
+                                    placeholder="Esim. Murtosulute koordinaateissa F5-G5. Laatikkomiinoite, PST/PS-miinoja..."></textarea>
+                            </div>
+                        </div>
+
+                        <div id="tab-firesupport" class="gm-tab-pane">
+                            <h3>Tulituen Seuranta</h3>
+                            <div class="gm-unit-form">
+                                <input type="text" id="firesupport-desc-input"
+                                    placeholder="Tuen kuvaus (esim. 120mm KRH -> G7)">
+                                <input type="number" id="firesupport-turn-input" placeholder="Saapumisvuoro" min="1">
+                                <button id="add-firesupport-button">Lisää Tulituki</button>
+                            </div>
+                            <ul id="firesupport-list"></ul>
+                        </div>
+
+                        <div id="tab-notes" class="gm-tab-pane">
+                            <h3>Yleiset Muistiinpanot</h3>
+                            <textarea id="gm-notes"
+                                placeholder="Kirjoita yleiset, salaiset muistiinpanosi tähän..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="gm-tool-reset-container">
+                        <button id="gm-reset-tool-button" class="danger-button">Nollaa Koko Työkalu</button>
+                    </div>
+                </div>
+
+                <div id="gm-modal-overlay" class="modal-overlay"></div>
+                <div id="gm-modal-container" class="modal-container">
+                    <h3>Vahvista nollaus</h3>
+                    <p>Olet aikeissa poistaa kaikki työkalun tiedot pysyvästi. Vahvista toiminto kirjoittamalla alle
+                        <strong>RESET</strong> (kirjainkoolla on väliä).
+                    </p>
+                    <input type="text" id="gm-reset-confirm-input" placeholder="Kirjoita vahvistus tähän...">
+                    <div class="modal-buttons">
+                        <button id="gm-reset-cancel-button">Peruuta</button>
+                        <button id="gm-reset-confirm-button" class="danger-button" disabled>Vahvista ja Nollaa</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!--
+    ====================================================================
+    KELLUVAT VIERITYSNAPIT (SCROLL BUTTONS)
+    ====================================================================
+    -->
+    <div id="scroll-buttons-container" class="scroll-buttons">
+
+        <div id="scroll-legend" class="scroll-legend-panel">
+            <p class="font-bold mb-2">Nappien selitteet:</p>
+            <ul>
+                <li><img src="images/Kersantti_hihalaatta.svg.png" alt="Kersantti" class="legend-icon"> Sivun alkuun /
+                    Loppuun</li>
+                <li><img src="images/Alikersantti_hihalaatta.svg.png" alt="Alikersantti" class="legend-icon"> Edellinen
+                    / Seuraava pääotsikko (H2)</li>
+                <li><img src="images/Korpraali_hihalaatta.svg.png" alt="Korpraali" class="legend-icon"> Edellinen /
+                    Seuraava otsikko (H2/H3)</li>
+            </ul>
+        </div>
+
+        <div class="scroll-row">
+            <button id="scroll-info-toggle" title="Näytä ohjeet" class="scroll-button info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="scroll-row">
+            <div class="scroll-column">
+                <button id="scroll-top" title="Sivun alkuun (Kersantti)" class="scroll-button">
+                    <img src="images/Kersantti_hihalaatta.svg.png" alt="Sivun alkuun">
+                </button>
+                <button id="scroll-h2-up" title="Edellinen pääotsikko (Alikersantti)" class="scroll-button">
+                    <img src="images/Alikersantti_hihalaatta.svg.png" alt="Edellinen pääotsikko">
+                </button>
+                <button id="scroll-h3-up" title="Edellinen otsikko (Korpraali)" class="scroll-button">
+                    <img src="images/Korpraali_hihalaatta.svg.png" alt="Edellinen otsikko">
+                </button>
+            </div>
+            <div class="scroll-column">
+                <button id="scroll-bottom" title="Sivun loppuun (Kersantti)" class="scroll-button">
+                    <img src="images/Kersantti_hihalaatta.svg.png" alt="Sivun loppuun" class="invert-icon">
+                </button>
+                <button id="scroll-h2-down" title="Seuraava pääotsikko (Alikersantti)" class="scroll-button">
+                    <img src="images/Alikersantti_hihalaatta.svg.png" alt="Seuraava pääotsikko" class="invert-icon">
+                </button>
+                <button id="scroll-h3-down" title="Seuraava otsikko (Korpraali)" class="scroll-button">
+                    <img src="images/Korpraali_hihalaatta.svg.png" alt="Seuraava otsikko" class="invert-icon">
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--
+    ====================================================================
+    JAVASCRIPT-TIEDOSTOT
+    ====================================================================
+    -->
+    <script src="Scripts/rules.js"></script>
+    <script src="Scripts/glossaryData.js"></script>
+    <script src="Scripts/popup.js"></script>
+    <script src="Scripts/unit-data.js"></script>
+    <script src="Scripts/gm-tool.js"></script>
+    <script src="Scripts/scroll-buttons.js"></script>
+</body>
+
+</html>

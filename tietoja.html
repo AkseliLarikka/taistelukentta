@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, noimageindex, noarchive">
+    
+    <title>Taistelukenttä d20 - Tietoa</title>
+    <meta name="description" content="Lisätietoa Taistelukenttä d20 -projektista, pelin kehityshistoriasta, muutoshistoriasta ja lisenssitiedoista. Löydä myös yhteystiedot ja palautelomake kehittäjälle.">
+    <meta name="author" content="Akseli Larikka">
+    <link rel="canonical" href="https://akselilarikka.github.io/taistelukentta/tietoja.html">
+    <meta name="keywords" lang="fi" content="tietoja, Taistelukenttä d20, muutoshistoria, kehitys, lisenssi, yhteystiedot, palautelomake, sotapeli, d20 system, Akseli Larikka, tekoälyn käyttö, strategiapeli, noppapeli, D&D, roolipeli, suomalainen sotapeli">
+    <meta name="keywords" lang="en" content="about, Taistelukenttä d20, changelog, development, license, contact information, feedback form, wargame, d20 system, Akseli Larikka, AI usage, strategy game, dice game, D&D, role-playing game, RPG, Finnish wargame">
+
+    <link rel="icon" type="image/x-icon" href="images/tkd20ikoni.png">
+
+    <meta property="og:title" content="Tietoa Taistelukenttä d20 -projektista">
+    <meta property="og:description" content="Lisätietoa projektista, pelin kehityshistoriasta ja lisenssitiedoista. Löydä myös yhteystiedot ja palautelomake.">
+    <meta property="og:image" content="https://akselilarikka.github.io/taistelukentta/images/TKD20LOGO.png">
+    <meta property="og:image:alt" content="Taistelukenttä d20 -logo">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://akselilarikka.github.io/taistelukentta/tietoja.html">
+    <meta property="og:type" content="website">
+    <meta property="article:published_time" content="2025-06-30T04:49:45Z">
+    <meta property="article:author" content="Akseli Larikka">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tietoa Taistelukenttä d20 -projektista">
+    <meta name="twitter:description" content="Lisätietoa projektista, pelin kehityshistoriasta ja lisenssitiedoista. Löydä myös yhteystiedot ja palautelomake.">
+    <meta name="twitter:image" content="https://akselilarikka.github.io/taistelukentta/images/TKD20LOGO.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Styles/rules.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Taistelukenttä d20 - Tietoa",
+      "url": "https://akselilarikka.github.io/taistelukentta/tietoja.html",
+      "author": {
+        "@type": "Person",
+        "name": "Akseli Larikka"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <header id="main-navbar">
+        <div class="container">
+            <div class="header-left-spacer"></div>
+            <div id="navbar-dropdown-container">
+                <a href="#" id="current-page-name" class="home-link">Tietoa & muutoshistoria</a>
+                <nav id="main-navbar-content">
+                    <ul class="top-nav-list">
+                        <li><a href="index.html" class="nav-link-top">Etusivu</a></li>
+                        <li><a href="ydinsaannot.html" class="nav-link-top">Ydinsäännöt</a></li>
+                        <li><a href="taktisen-tason-taistelu.html" class="nav-link-top">Taktisen tason taistelu</a></li>
+                        <li><a href="pelaajan-pikaopas.html" class="nav-link-top">Pelaajan pikaopas</a></li>
+                        <li><a href="siniset-yksiköt.html" class="nav-link-top">Siniset yksiköt</a></li>
+                        <li><a href="punaiset-yksiköt.html" class="nav-link-top">Punaiset yksiköt</a></li>
+                        <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
+                        <li><a href="skenaariot.html" class="nav-link-top">Skenaariot</a></li>
+                        <li><a href="pelinjohtajan-opas.html" class="nav-link-top">Pelinjohtajan opas</a></li>
+                        <li><a href="sanasto-ja-ukk.html" class="nav-link-top">Sanasto ja UKK</a></li>
+                        <li><a href="tietoja.html" class="nav-link-top" style="color:#C2B280;">Tietoa &
+                                Muutoshistoria</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right-spacer"></div>
+        </div>
+    </header>
+
+    <div id="sidebar" class="sidebar-hidden">
+        <h1 class="sidebar-title">Sisällysluettelo</h1>
+        <nav id="nav-menu"></nav>
+    </div>
+
+    <button id="menu-toggle" aria-label="Avaa Sisällysluettelo">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <main id="main-content">
+        <div class="prose">
+            <div class="main-banner">
+                <div>
+                    <h1 class="banner-title">
+                        Taistelukenttä d20 – Tietoa ja muutoshistoria <br> v. Alpha
+                    </h1>
+                </div>
+
+            </div>
+
+            <!--Jälkisanat alkaa-->
+            <section id="jälkisanat-ja-kiitokset">
+                <h2>Jälkisanat ja kiitokset</h2>
+                <p>
+                    Taistelukenttä d20 sai alkunsa yksinkertaisesta, mutta itsepäisestä ajatuksesta: mitä jos modernin
+                    sodankäynnin strategiapeliin yhdistäisi D&D roolipelistä tuttuja mekaniikkoja? En halunnut luoda
+                    vain
+                    peliä, jossa siirrellään nappuloita, vaan simulaattorin, joka asettaa pelaajan komentajan
+                    saappaisiin –
+                    yksittäisen sotilaan sijaan johtamaan, tekemään vaikeita päätöksiä ja kohtaamaan sodan sumun
+                    kaikessa
+                    arvaamattomuudessaan.
+                    <br><br>
+
+                    Kun lyhyt tutkimus osoitti, ettei visiotani vastaavaa peliä ollut olemassa, päätös oli selvä: piti
+                    ryhtyä
+                    tuumasta toimeen ja rakentaa sellainen itse.
+                    <br><br>
+
+                    Tämä projekti ei olisi tässä pisteessä ilman tukea, ja siitä haluan esittää erityisen kiitoksen
+                    isälleni. Hänen maltillisuutensa ja ymmärryksensä ansiosta saatoin omistaa myös osan työajastani
+                    pelin
+                    kehitykselle. Ne hetket olivat korvaamattomia, sillä ne tarjosivat puitteet, joissa ajatustyötä
+                    pystyi
+                    tekemään päivän tuottavimpina tunteina ja antamaan visiolleni tilaa kasvaa. Osoitan kiitokset myös
+                    ystävilleni Väinölle ja Samille joiden kehotuksesta, yllytyksestä ja rohkaisusta lähdin tätä
+                    projektia
+                    ajamaan takaa. Sekä kiitos tietysti koko ryhmä Sunille, jotka toimivat betatestaajina ja ideoijina
+                    tässä
+                    prosessissa.
+                    <br><br>
+
+                    Ja yhtä lailla kiitän sinua – pelaajaa ja lukijaa. Sinä pidät nyt käsissäsi tämän vision
+                    ensimmäistä,
+                    pelattavaa hedelmää. Tämä projekti on minulle intohimo, ja olen täysin sitoutunut sen
+                    jatkokehitykseen.
+                    Mutta totuus on, ettei yksikään peli synny tyhjiössä. Taistelukenttä d20 voi saavuttaa täyden
+                    potentiaalinsa vain yhteisön avulla – sinun ajatustesi, palautteesi ja jopa kritiikkisi kautta.
+                    Jokainen
+                    testipeli, jokainen sääntöehdotus ja jokainen oivallus auttaa hiomaan siitä paremman ja
+                    tasapainoisemman
+                    kokemuksen.
+                    <br>
+
+                    Älä siis epäröi ottaa yhteyttä tai käyttää palautelomaketta, jos sinulle herää mitään kysyttävää.
+                    Toivon, että nautit pelihetkistä Taistelukenttä d20:n parissa ja koet johtamisen haasteet ja riemut.
+                    <br><br><br>
+
+                    Tavataan taistelukentällä, komentaja!
+                    <br>
+
+                    -Akseli Larikka
+                </p>
+            </section>
+            <!--/SECTION: Jälkisanat loppuu-->
+
+            <!--SECTION: Muutoshistoria alkaa-->
+            <section id="changelog">
+                <h2>Muutoshistoria</h2>
+                <p>Täältä löydät listauksen kaikista peliin tehdyistä muutoksista ja päivityksistä. Katso uusimmat
+                    kehitysaskeleet:</p>
+                <ul class="changelog-links">
+                    <li style="list-style-type: none; text-decoration: underline;"><a
+                            href="https://github.com/AkseliLarikka/taistelukentta/blob/main/CHANGELOG.md"
+                            target="_blank" rel="noopener noreferrer">Avaa täydellinen muutoshistoria</a></li>
+                </ul>
+                <div id="latest-changelog-entries">
+                </div>
+            </section>
+            <!--/SECTION: Muutoshistoria päättyy-->
+
+            <section id="vastuuvapaus">
+                <h2>Tietosuoja ja Vastuuvapaus&shy;lausekkeet</h2>
+                <p>Tässä osiossa kerrotaan tarkemmin sivuston toiminnasta, datan käsittelystä ja tekoälyn käytöstä
+                    projektin apuna.</p>
+
+                <h3>JavaScriptin Käyttö</h3>
+                <p>Sivuston interaktiiviset työkalut, kuten "Pelaajan pikaopas" ja "Pelinjohtajan opas", on
+                    rakennettu käyttäen JavaScript-kieltä. Niiden toiminta edellyttää, että JavaScript on sallittu
+                    selaimesi asetuksissa. Jos työkalut eivät näy tai toimi, tarkistathan selaimesi asetukset.</p>
+
+                <h3>Tietojen Tallennus (Paikallinen Tieto)</h3>
+                <p>Haluamme korostaa yksityisyyttäsi. Tämä sivusto <strong>ei kerää, tallenna tai lähetä
+                        henkilökohtaisia tietojasi millekään palvelimelle.</strong></p>
+                <ul>
+                    <li>Kaikki tiedot, joita syötät työkaluihin (esim. valitut yksiköt, niiden taistelukunnot,
+                        muistiinpanot, pelinjohtajan strategiat), tallennetaan selaimesi <strong>paikalliseen
+                            muistiin (Local Storage)</strong>.</li>
+                    <li>Tämä tarkoittaa, että data on tallessa ainoastaan sinun omalla tietokoneellasi ja
+                        selaimessasi. Jos tyhjennät selaimesi välimuistin ja sivustotiedot, myös työkaluihin
+                        tallennetut tiedot poistuvat pysyvästi.</li>
+                    <li>Teknisesti tiedot tallennetaan avaimilla, kuten <code>tkd20PlayerData</code> ja
+                        <code>gmToolData</code>.
+                    </li>
+                </ul>
+
+                <h3>Tekoälyn Käyttö ja Vastuuvapauslauseke</h3>
+                <p>Osaa tämän sivuston sisällöstä, koodista ja rakenteellisista ideoista on kehitetty ja tuotettu
+                    tekoälymallien (kuten Googlen Gemini) avustuksella. Tekoälyä on käytetty työkaluna nopeuttamaan
+                    kehitysprosessia, luomaan sisältöehdotuksia ja ratkaisemaan teknisiä haasteita.</p>
+                <ul>
+                    <li>Vaikka kaikki sisältö on ihmisen tarkistamaa ja muokkaamaa, emme voi taata sen täydellistä
+                        virheettömyyttä.</li>
+                    <li>Säännöt, yksikköarvot ja esimerkit on pyritty laatimaan mahdollisimman tarkoiksi ja
+                        tasapainoisiksi, mutta ne voivat sisältää virheitä tai vaatia tulkintaa pelitilanteessa.
+                    </li>
+                    <li>Käyttäjä on viime kädessä itse vastuussa siitä, miten hän sivuston tietoja ja työkaluja
+                        käyttää ja soveltaa.</li>
+                </ul>
+            </section>
+            <!--SECTION: Sivun alatunniste alkaa-->
+            <section id="page-footer">
+                <h2>Tekijänoikeus</h2>
+                <p>
+                    Copyright © 2025 Akseli Larikka. Kaikki oikeudet pidätetään.
+                </p>
+
+                <h3>Lisenssi</h3>
+                <p>
+                    Tämä teos, "Taistelukenttä d20", sisältäen sen säännöt, tekstisisällöt, kuvat ja verkkosivuston
+                    lähdekoodi, on lisensoitu <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fi"
+                        target="_blank" rel="noopener noreferrer">Creative Commons Nimeä-EiKaupallinen-EiMuutoksia 4.0
+                        Kansainvälinen (CC BY-NC-ND 4.0)</a> -lisenssillä.
+                </p>
+                <p>
+                    Koko lisenssiteksti on luettavissa <a
+                        href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode" target="_blank"
+                        rel="noopener noreferrer">Creative Commonsin verkkosivuilta</a> ja projektin juurihakemistossa
+                    olevasta <a href="https://github.com/AkseliLarikka/taistelukentta/blob/main/LICENSE.txt">
+                        <code>LICENSE.txt</code>-tiedostosta.</a>
+                </p>
+                <div class="lisenssi-container" style="justify-content: flex-start; padding-top: 0.5rem;">
+                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"
+                        rel="noopener noreferrer license">
+                        <img src="images/Tekijänoikeudet.png" alt="Creative Commons BY-NC-ND 4.0 License"
+                            class="lisenssi-kuvake-yksi" style="height: 7rem;">
+                    </a>
+                </div>
+
+                <h3>Lisenssin Yhteenveto (Mitä saat tehdä):</h3>
+                <ul>
+                    <li><strong>Jakaa</strong> — saat kopioida ja jakaa tätä materiaalia missä tahansa muodossa ja
+                        formaatissa.</li>
+                </ul><br>
+                <p>Seuraavilla ehdoilla:</p>
+                <ul>
+                    <li><strong>Nimeä</strong> — Sinun on mainittava tekijä (Akseli Larikka) asianmukaisesti, tarjottava
+                        linkki lisenssiin ja ilmoitettava, onko muutoksia tehty. Voit tehdä tämän kohtuullisella
+                        tavalla, mutta et siten, että se viittaisi lisenssinantajan suosittelevan sinua tai teoksesi
+                        käyttöä.</li>
+                    <li><strong>EiKaupallinen</strong> — Et saa käyttää materiaalia kaupallisiin tarkoituksiin.</li>
+                    <li><strong>EiMuutoksia</strong> — Jos muokkaat tai rakennat materiaalin päälle, et saa jakaa
+                        muokattua materiaalia.</li>
+                </ul>
+                <h2>Yhteystiedot ja palautelomake</h2>
+                <ul class="yhteystiedot-lista">
+                    <li>
+                        <a id="contact" href="mailto:akseli.larikka@gmail.com">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span>akseli.larikka@gmail.com</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/akseli-larikka" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                            <span>LinkedIn</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://akselilarikka.github.io/" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span>Portfolio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/AkseliLarikka/taistelukentta" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                            <span>Projektin GitHub repositorio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://forms.gle/V7YuqPGC9oaX87RG6" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            <span>Palautelomake</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!--/SECTION: Sivun alatunniste loppuu-->
+
+        </div>
+    </main>
+    <!--
+    ====================================================================
+    KELLUVAT VIERITYSNAPIT (SCROLL BUTTONS)
+    ====================================================================
+    -->
+    <div id="scroll-buttons-container" class="scroll-buttons">
+
+        <div id="scroll-legend" class="scroll-legend-panel">
+            <p class="font-bold mb-2">Nappien selitteet:</p>
+            <ul>
+                <li><img src="images/Kersantti_hihalaatta.svg.png" alt="Kersantti" class="legend-icon"> Sivun alkuun /
+                    Loppuun</li>
+                <li><img src="images/Alikersantti_hihalaatta.svg.png" alt="Alikersantti" class="legend-icon"> Edellinen
+                    / Seuraava pääotsikko (H2)</li>
+                <li><img src="images/Korpraali_hihalaatta.svg.png" alt="Korpraali" class="legend-icon"> Edellinen /
+                    Seuraava otsikko (H2/H3)</li>
+            </ul>
+        </div>
+
+        <div class="scroll-row">
+            <button id="scroll-info-toggle" title="Näytä ohjeet" class="scroll-button info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="scroll-row">
+            <div class="scroll-column">
+                <button id="scroll-top" title="Sivun alkuun (Kersantti)" class="scroll-button">
+                    <img src="images/Kersantti_hihalaatta.svg.png" alt="Sivun alkuun">
+                </button>
+                <button id="scroll-h2-up" title="Edellinen pääotsikko (Alikersantti)" class="scroll-button">
+                    <img src="images/Alikersantti_hihalaatta.svg.png" alt="Edellinen pääotsikko">
+                </button>
+                <button id="scroll-h3-up" title="Edellinen otsikko (Korpraali)" class="scroll-button">
+                    <img src="images/Korpraali_hihalaatta.svg.png" alt="Edellinen otsikko">
+                </button>
+            </div>
+            <div class="scroll-column">
+                <button id="scroll-bottom" title="Sivun loppuun (Kersantti)" class="scroll-button">
+                    <img src="images/Kersantti_hihalaatta.svg.png" alt="Sivun loppuun" class="invert-icon">
+                </button>
+                <button id="scroll-h2-down" title="Seuraava pääotsikko (Alikersantti)" class="scroll-button">
+                    <img src="images/Alikersantti_hihalaatta.svg.png" alt="Seuraava pääotsikko" class="invert-icon">
+                </button>
+                <button id="scroll-h3-down" title="Seuraava otsikko (Korpraali)" class="scroll-button">
+                    <img src="images/Korpraali_hihalaatta.svg.png" alt="Seuraava otsikko" class="invert-icon">
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--
+    ====================================================================
+    JAVASCRIPT-TIEDOSTOT
+    ====================================================================
+    -->
+    <script src="Scripts/rules.js"></script>
+    <script src="Scripts/glossaryData.js"></script>
+    <script src="Scripts/popup.js"></script>
+    <script src="Scripts/scroll-buttons.js"></script>
+    <script>
+        const yearSpan = document.getElementById('copyright-year'); //
+        if (yearSpan) { //
+            yearSpan.textContent = new Date().getFullYear(); //
+        }
+    </script>
+</body>
+
+</html>
