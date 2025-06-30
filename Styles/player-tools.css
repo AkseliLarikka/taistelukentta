@@ -22,6 +22,10 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
+#player-tool-heading {
+    padding-left: 1rem;
+}
+
 .player-tool-tabs {
     display: flex;
     border-bottom: 1px solid #d6d3d1;
