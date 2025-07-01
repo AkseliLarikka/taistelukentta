@@ -1,7 +1,6 @@
 /**
  * Taistelukenttä d20 -sivuston sanastotietokantaa hallinnoiva skripti.
- *
- * @version 1.0
+ * @version 1.1 - Lisätty yksityiskohtaiset selitykset tilaefekteille.
  * @author Akseli Larikka
  */
 const glossaryData = {
@@ -25,12 +24,10 @@ const glossaryData = {
     "orgaaninen tulituki": "Pelaajan suoraan ohjaama tulitukiyksikkö pelilaudalla.",
     "pelitasot": "Kuvaavat pelin laajuutta (Joukkuepeli, Komppaniapeli).",
     "pelivuoron vaiheet": "Pelin ydinmekaniikka, joka jakaantuu viiteen vaiheeseen.",
-    "piiloutunut": "Erityinen tilaefekti, joka estää yksikön joutumasta kohteeksi, ellei vihollinen ole hyvin lähellä.",
     "pst": "Lyhenne panssarintorjunnalle. PST-ryhmät ja -aseet ovat erikoistuneet ajoneuvojen tuhoamiseen.",
     "suoja": "Vastaa panssaroinnin tasoa. Kuinka vaikea yksikköön on osua.",
     "sodan sumu": "Pelin keskeinen teema, joka simuloi epätäydellistä tietoa vihollisen sijainnista ja vahvuudesta. Tiedustelu on avain sen hälventämiseen.",
     "tuli-isku": "Vahinkoarvo, jota käytetään osumien jälkeen.",
-    "tilaefektit": "Yksiköiden toimintakykyyn vaikuttavat tilat (Vaurioitunut, Lamautunut, Vetäytyy).",
     "taistelukunto": "Yksikön elinvoima. Vahingot vähentävät tätä.",
     "taitotaso": "Yksikön osaaminen. Lasketaan: Koulutus + Kokemus.",
     "vastakkainen heitto": "Tilanne, jossa kaksi osapuolta heittää noppaa, ja heittojen tuloksia verrataan toisiinsa. Esimerkiksi tiedustelussa tiedustelijan heittoa verrataan kohteen heittoon.",
@@ -39,5 +36,12 @@ const glossaryData = {
     "jr": "Lyhenne jääkäriryhmälle. Jääkärit ovat suomalaisen sotilasdoktriinin selkäranka.",
     "tr": "Lyhenne tukiryhmälle. Tukiryhmät ovat erikoistuneet konekiväärien ja lamauttavan tulen käyttöön.",
     "krh": "Lyhenne kranaatinheittimelle. KRH-ryhmät ovat erikoistuneet tarkan orgaanisen epäsuorantulen käyttöön.",
-    "nopat": "Nopissa käytetty merkintä, kuten d20, kertoo nopan tyypin. Kirjain d tarkoittaa noppaa (engl. die), ja sen perässä oleva numero kertoo nopan sivujen määrän. Esimerkiksi d6 on tavallinen kuusisivuinen noppa ja d20 on 20-sivuinen noppa.",
+
+    // === YKSITYISKOHTAISET TILAEFEKTIT ===
+    "tilaefektit": "Yleisnimitys yksiköiden toimintakykyyn vaikuttaville tiloille, kuten Vaurioitunut, Lamautunut, Tärähtänyt, Vetäytyy ja Piiloutunut.",
+    "vaurioitunut": "<strong>Vaurioitunut:</strong> Yksikkö siirtyy tähän tilaan, kun sen TK putoaa alle 50%.<br><ul><li>Pakollinen Moraalitesti (DC 12).</li><li>Liike-arvo ja Tuli-isku puolitettu.</li><li>Ansaitsee vain puolet XP:stä kampanjassa.</li></ul>",
+    "tarahtanyt": "<strong>Tärähtänyt (Shaken):</strong> Lievästi epäonnistuneen moraalitestin seuraus. Yksikkö kärsii -2 rangaistuksen seuraavaan hyökkäysheittoonsa, mutta voi muuten toimia normaalisti. Tila poistuu hyökkäyksen jälkeen tai vuoron lopussa.",
+    "lamautunut": "<strong>Lamautunut (Suppressed):</strong> Epäonnistuneen moraalitestin seuraus.<ul><li>Ei voi liikkua tai käyttää toimintoja.</li><li>Sitä vastaan tehdyt hyökkäykset saavat Edun (Advantage).</li><li>Poistuu onnistuneella moraalitestillä tai 'Moraalin Kohotus' -komennolla.</li></ul>",
+    "vetaytyy": "<strong>Vetäytyy:</strong> Kriittisesti epäonnistuneen moraalitestin seuraus. Yksikkö pakenee hallitsemattomasti täyden liikkeensä verran poispäin lähimmästä vihollisesta.",
+    "piiloutunut": "<strong>Piiloutunut:</strong> Erityiskyvyllä saavutettu tila.<ul><li>Ei voi valita kohteeksi, ellei vihollinen ole 5 cm tai lähempänä.</li><li>Tila poistuu, jos yksikkö liikkuu, hyökkää tai vihollinen tulee 5 cm päähän.</li></ul>"
 };

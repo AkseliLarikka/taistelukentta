@@ -18,17 +18,23 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.10"
 
       - name: Update publication dates
         run: python update_dates.py
 
-      - name: Commit and push date changes
+      # --- LISÄTTY UUSI VAIHE TÄHÄN ---
+      - name: Run glossary autotagger
+        run: python autotag_glossary.py
+
+      # --- TÄTÄ VAIHETTA ON MUOKATTU ---
+      - name: Commit and push automated changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git diff-index --quiet HEAD || git commit -m "Automated: Update publication dates [ci skip]"
+          # Muokattu commit-viesti kattamaan molemmat muutokset
+          git diff-index --quiet HEAD || git commit -m "Automated: Update dates and glossary tags [ci skip]"
           git push
 
       - name: Deploy to GitHub Pages
