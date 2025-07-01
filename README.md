@@ -1,15 +1,17 @@
 # Taistelukenttä d20
 
-> **Enemmän kuin sotapeli – Komentajan simulaattori.**
+> **Enemmän kuin sotapeli – Yhteistyöhön perustuva komentajan simulaattori.**
 
-Tämä on moderniin sodankäyntiin keskittyvä strateginen sotapeli, joka käyttää tuttua d20-järjestelmää, mutta keskittyy yksittäisen sotilaan sijaan **johtamiseen, päätöksentekoon ja sodan sumuun.**
+Taistelukenttä d20 ei ole peli yksinäisille kenraaleille. Se on moderniin sodankäyntiin keskittyvä strategiapeli, jossa sinä ja ystäväsi muodostatte toimivan komentoketjun. Peli ammentaa inspiraatiota sotapelien "isästä" – [Kriegsspiel](https://fi.wikipedia.org/wiki/Kriegsspiel)-sotapelistä ja pyrkii tuomaan [ammattimaisen sotapelaamisen](https://en.wikipedia.org/wiki/Professional_wargaming) periaatteet, kuten sodan sumun ja komentoketjun haasteet, kaikkien harrastajien ulottuville helpommin lähestyttävässä muodossa.
+
+Yksi pelaaja ottaa komppanianpäällikön strategisen roolin, kun taas muut johtavat omia joukkueitaan etulinjassa. Menestys ei riipu vain omista siirroistasi, vaan kyvystäsi kommunikoida, koordinoida ja tehdä vaikeita päätöksiä yhdessä ryhmänä – jatkuvan sodan sumun ja paineen alla.
 
 ### Avainominaisuudet
 
-* **Johtamiskeskeisyys:** Et ole rivisotilas, vaan komentaja. Päätöksesi vaikuttavat koko yksikön toimintaan.
-* **Sota kaikilla tasoilla:** Koe konflikti taktisesta, operatiivisesta ja strategisesta näkökulmasta.
-* **Sodan sumu:** Toimi epätäydellisen ja viivästyneen tiedon varassa – aivan kuten oikeat komentajat.
-* **Tuttu d20-järjestelmä:** Hyödyntää tuttua noppamekaniikkaa, mutta soveltaa sitä joukkue- ja komppaniatasolle.
+* **Jaettu Komentajuus:** Et ole yksinäinen kenraali, vaan osa komentoketjua. Yksi pelaaja toimii komppanianpäällikkönä, ja muut johtavat omia joukkueitaan. Yhteinen menestys vaatii aitoa kommunikaatiota, neuvottelua ja käskyjen koordinointia.
+* **Monitasoinen Päätöksenteko:** Johda omaa joukkuettasi taktisella tasolla ja tee samalla yhteistyötä muiden komentajien kanssa saavuttaaksesi operatiiviset tavoitteet. Jokaisen pelaajan päätökset vaikuttavat koko komppanian onnistumiseen.
+* **Aito Sodan Sumu:** Toimikaa epätäydellisen ja viivästyneen tiedon varassa. Yhden pelaajan havainto on kriittinen tiedonjyvä, joka on jaettava muille, jotta kokonaiskuva muodostuu – aivan kuten oikeat komentajat tekevät.
+* **Lähestyttävä d20-järjestelmä:** Hyödyntää tuttua noppamekaniikkaa, mutta soveltaa sitä joukkue- ja komppaniatasolle, tehden monimutkaisistakin tilanteista hallittavia.
 
 ### Projektin nykytila
 
@@ -17,7 +19,7 @@ Peli on aktiivisessa kehitysvaiheessa. Tällä hetkellä sen **taktinen taso** o
 
 ### Kenelle peli on suunnattu?
 
-Taistelukenttä d20 on suunniteltu pelaajille, jotka nauttivat yksityiskohtaisesta simulaatiosta, strategisesta suunnittelusta ja realistisesta sotaterminologiasta. Vaikka peli on avoin kaikille, siitä saa eniten irti, jos modernin sodankäynnin konseptit ja johtamisen haasteet kiinnostavat.
+Taistelukenttä d20 on suunniteltu pelaajille, jotka nauttivat yksityiskohtaisesta simulaatiosta, strategisesta suunnittelusta ja **haastavasta ryhmätyöstä paineen alla**. Se sopii erityisesti heille, jotka ovat kiinnostuneita perinteisten [sotapelien](https://fi.wikipedia.org/wiki/Sotapeli) strategiaelementeistä, mutta kaipaavat syvempää simulaatiota ja roolipelimäistä yhteistyötä.
 
 ### Tutustu peliin
 

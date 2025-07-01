@@ -39,4 +39,5 @@ const glossaryData = {
     "jr": "Lyhenne jääkäriryhmälle. Jääkärit ovat suomalaisen sotilasdoktriinin selkäranka.",
     "tr": "Lyhenne tukiryhmälle. Tukiryhmät ovat erikoistuneet konekiväärien ja lamauttavan tulen käyttöön.",
     "krh": "Lyhenne kranaatinheittimelle. KRH-ryhmät ovat erikoistuneet tarkan orgaanisen epäsuorantulen käyttöön.",
+    "nopat": "Nopissa käytetty merkintä, kuten d20, kertoo nopan tyypin. Kirjain d tarkoittaa noppaa (engl. die), ja sen perässä oleva numero kertoo nopan sivujen määrän. Esimerkiksi d6 on tavallinen kuusisivuinen noppa ja d20 on 20-sivuinen noppa.",
 };
