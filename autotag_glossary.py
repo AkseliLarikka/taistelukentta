@@ -24,7 +24,7 @@ GLOSSARY = {
     "TT": "taitotaso",
     "VP": "vp",
     "XP": "xp",
-    "M": "moraali", # Lisätty selkeyden vuoksi, vaikka kirjain on yksinään
+    "M": "moraali",
 
     # === Käsitteet A-Ö ===
     "Ansat ja Sulutteet": "ansat ja sulutteet",
@@ -32,9 +32,7 @@ GLOSSARY = {
     "d20-järjestelmää": "d20-järjestelmä",
     "epäorgaaninen tulituki": "epäorgaaninen tulituki",
     "epäorgaanista tukea": "epäorgaaninen tulituki",
-    "Epäorgaaninen Tulituki": "epäorgaaninen tulituki",
     "Etu": "etu ja haitta",
-    "Etu ja Haitta": "etu ja haitta",
     "Edun": "etu ja haitta",
     "Haitta": "etu ja haitta",
     "Haitan": "etu ja haitta",
@@ -58,14 +56,14 @@ GLOSSARY = {
     "Moraalitesti": "moraali",
     "Moraalitestin": "moraali",
     "Moraalitesteihin": "moraali",
+    "Moraalin Kohotus": "moraali", # Olettaen, että tämä viittaa yleiseen moraali-käsitteeseen
     "Näköyhteys": "los",
     "näköyhteyden": "los",
     "orgaaninen tulituki": "orgaaninen tulituki",
     "Orgaaninen Tulituki": "orgaaninen tulituki",
     "orgaanista tulta": "orgaaninen tulituki",
-    "Piiloutunut": "piiloutunut",
-    "sodan sumu": "sodan sumu", # Pienellä, koska esiintyy myös lauseen keskellä
-    "Sodan Sumu": "sodan sumu", # Isolla, koska esiintyy otsikoissa
+    "sodan sumu": "sodan sumu",
+    "Sodan Sumu": "sodan sumu",
     "Suoja": "suoja",
     "suojabonus": "suoja",
     "suoja-arvoa": "suoja",
@@ -73,9 +71,22 @@ GLOSSARY = {
     "Taistelukuntoa": "taistelukunto",
     "Taitotaso": "taitotaso",
     "Taitotason": "taitotaso",
-    "Tilaefektit": "tilaefektit",
     "Tuli-isku": "tuli-isku",
     "Vastakkainen heitto": "vastakkainen heitto",
+    
+    # === Tilaefektit ja niiden taivutusmuodot ===
+    "Tilaefektit": "tilaefektit",
+    "Vaurioitunut": "vaurioitunut",
+    "Vaurioitunut-tilassa": "vaurioitunut",
+    "vaurioitumiselle": "vaurioitunut",
+    "Tärähtänyt": "tarahtanyt",
+    "Lamautunut": "lamautunut",
+    "Lamautunut-tilassa": "lamautunut",
+    "Vetäytyy": "vetaytyy",
+    "Piiloutunut": "piiloutunut",
+    "Piiloutunut-tilan": "piiloutunut",
+    "Piiloutunut-tilassa": "piiloutunut",
+    "piiloutumiseen": "piiloutunut"
 }
 
 
