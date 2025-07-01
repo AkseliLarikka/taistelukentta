@@ -2,6 +2,15 @@
 
 Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -peliin.
 
+## 2025-07-01
+
+### Uudet ominaisuudet ja Parannukset
+
+* **Karttakoordinaatisto:** Lisätty `Operaatio Teräsvalli` -karttaan koordinaatisto, joka helpottaa sijaintien ja etäisyyksien määrittämistä.
+* **Termistön yhtenäistäminen:** Parannettu sanaston integraatiota ja yhtenäistetty termien käyttöä läpi koko sivuston, mikä tekee säännöistä selkeämpiä.
+* **Käyttöliittymän selkeytys:** Muutettu noppien selitys käyttämään sanaston ponnahdusikkunaa, mikä vähentää toistoa ja parantaa luettavuutta.
+* **Sääntöpäivitykset:** Tehty useita sääntötarkennuksia ja -päivityksiä pelikokemuksen parantamiseksi.
+
 ## 2025-06-30
 
 ### Uudet ominaisuudet ja Parannukset
@@ -10,7 +19,7 @@ Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Tai
 * **Tekninen SEO-parannus:** Lisätty `sitemap.xml`-tiedosto kaikkien sivujen indeksoinnin tehostamiseksi sekä `robots.txt`-tiedosto ohjaamaan hakukonerobotteja.
 * **Saavutettavuus & Kuva-SEO:** Lisätty kuvaavat `alt`-tekstit kaikille kuville, mukaan lukien navigointielementit, parantaen sekä näkövammaisten käyttökokemusta että kuvien löydettävyyttä hakukoneissa.
 * **SEO- ja esikatselupäivitys:** Lisätty kattavat Open Graph- ja Twitter Card -metatiedot kaikille sivuston sivuille. Tämä parantaa merkittävästi linkkien esikatselua sosiaalisen median alustoilla ja viestisovelluksissa.
-  * Lisäksi lisätty tuki strukturoidulle datalle (Schema.org JSON-LD), kanonisille URL-osoitteille ja tekijätiedoille.
+* Lisäksi lisätty tuki strukturoidulle datalle (Schema.org JSON-LD), kanonisille URL-osoitteille ja tekijätiedoille.
 
 ## 2025-06-26
 
