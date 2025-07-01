@@ -812,7 +812,7 @@ header {
     padding: 1rem;
     margin: 1rem;
     max-width: 350px;
-    z-index: 100;
+    z-index: 39;
     /* Varmistaa, että on muiden elementtien päällä */
     font-size: 0.9rem;
     line-height: 1.5;

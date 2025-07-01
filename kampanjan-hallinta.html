@@ -5,18 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, noimageindex, noarchive">
-    
+
     <title>Taistelukenttä d20 - Kampanjan hallinta</title>
-    <meta name="description" content="Hallinnoi joukkojasi ja etene tarinallisessa kampanjassa Taistelukenttä d20 -pelissä. Opi käyttämään Kasarmia, seuraamaan yksikköjen kokemusta (XP) ja täydennyspisteitä (TP), sekä avaamaan erikoisyksiköitä.">
+    <meta name="description"
+        content="Hallinnoi joukkojasi ja etene tarinallisessa kampanjassa Taistelukenttä d20 -pelissä. Opi käyttämään Kasarmia, seuraamaan yksikköjen kokemusta (XP) ja täydennyspisteitä (TP), sekä avaamaan erikoisyksiköitä.">
     <meta name="author" content="Akseli Larikka">
     <link rel="canonical" href="https://akselilarikka.github.io/taistelukentta/kampanjan-hallinta.html">
-    <meta name="keywords" lang="fi" content="kampanjan hallinta, Taistelukenttä d20, kasarmi, yksikköpooli, vahvuusluettelo, kokemuspisteet, XP, täydennyspisteet, TP, yksikköjen kehitys, erikoisyksiköt, sotapeli kampanja, resurssien hallinta, sotapeli, D&D, d20 system, roolipeli, suomalainen sotapeli, strategiapeli">
-    <meta name="keywords" lang="en" content="campaign management, Taistelukenttä d20, barracks, unit pool, roster, experience points, XP, replenishment points, RP, unit progression, special units, wargame campaign, resource management, wargame, D&D, d20 system, role-playing game, RPG, Finnish wargame, strategy game">
+    <meta name="keywords" lang="fi"
+        content="kampanjan hallinta, Taistelukenttä d20, kasarmi, yksikköpooli, vahvuusluettelo, kokemuspisteet, XP, täydennyspisteet, TP, yksikköjen kehitys, erikoisyksiköt, sotapeli kampanja, resurssien hallinta, sotapeli, D&D, d20 system, roolipeli, suomalainen sotapeli, strategiapeli">
+    <meta name="keywords" lang="en"
+        content="campaign management, Taistelukenttä d20, barracks, unit pool, roster, experience points, XP, replenishment points, RP, unit progression, special units, wargame campaign, resource management, wargame, D&D, d20 system, role-playing game, RPG, Finnish wargame, strategy game">
 
     <link rel="icon" type="image/x-icon" href="images/tkd20ikoni.png">
 
     <meta property="og:title" content="Taistelukenttä d20 - Kampanjan hallinta">
-    <meta property="og:description" content="Hallinnoi joukkojasi ja etene tarinallisessa kampanjassa. Opi käyttämään Kasarmia, seuraamaan yksiköiden kokemusta (XP) ja täydennyspisteitä (TP).">
+    <meta property="og:description"
+        content="Hallinnoi joukkojasi ja etene tarinallisessa kampanjassa. Opi käyttämään Kasarmia, seuraamaan yksiköiden kokemusta (XP) ja täydennyspisteitä (TP).">
     <meta property="og:image" content="https://akselilarikka.github.io/taistelukentta/images/TKD20LOGO.png">
     <meta property="og:image:alt" content="Taistelukenttä d20 -logo">
     <meta property="og:image:width" content="1200">
@@ -27,9 +31,10 @@
     <meta property="article:author" content="Akseli Larikka">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Taistelukenttä d20 - Kampanjan hallinta">
-    <meta name="twitter:description" content="Hallinnoi joukkojasi ja etene tarinallisessa kampanjassa. Opi käyttämään Kasarmia, seuraamaan yksiköiden kokemusta (XP) ja täydennyspisteitä (TP).">
+    <meta name="twitter:description"
+        content="Hallinnoi joukkojasi ja etene tarinallisessa kampanjassa. Opi käyttämään Kasarmia, seuraamaan yksiköiden kokemusta (XP) ja täydennyspisteitä (TP).">
     <meta name="twitter:image" content="https://akselilarikka.github.io/taistelukentta/images/TKD20LOGO.png">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
@@ -366,6 +371,44 @@
                     erikoiskyvyt voivat kuitenkin muuttaa taistelun kulkua, ja pelinjohtajan tuleekin huomioida tämä
                     skenaarioiden suunnittelussa tasapainon säilyttämiseksi.
                 </p>
+
+                <h2>Tarinalliset Tavoitteet ja Pelaajien Roolit</h2>
+                <p>
+                    Kampanjan syventämiseksi pelinjohtaja voi antaa yksittäisille pelaajille tai joukkueille
+                    henkilökohtaisia, roolisidonnaisia tavoitteita. Nämä voivat olla julkisia tai salaisia ja ne
+                    palkitsevat pelaajia eläytymisestä ja tietynlaisen roolin pelaamisesta.
+                </p>
+
+                <h3>Esimerkkejä roolisidonnaisista tavoitteista:</h3>
+                <ul>
+                    <li>
+                        <strong>Paikallistuntemus:</strong> "Joukkueen A komentaja on kotoisin puolustettavasta kylästä.
+                        Jos yksikään siviilirakennus ei tuhoudu taistelun aikana, koko hänen joukkueensa saa pysyvän +1
+                        <span class="glossary-term" data-term="moraali">Moraaliin</span> seuraavassa taistelussa."
+                    </li>
+                    <li>
+                        <strong>Henkilökohtainen kauna:</strong> "Joukkueen B johtaja menetti edellisessä taistelussa
+                        ystävänsä tietylle vihollisyksikölle (esim. T-72B3 'Petrov'). Jos hän on henkilökohtaisesti
+                        osallisena tämän yksikön tuhoamisessa, hän saa +1 <span class="glossary-term"
+                            data-term="kp">KP</span> seuraavan taistelun ensimmäisellä vuorolla."
+                    </li>
+                    <li>
+                        <strong>Uraohjus:</strong> "Komppanianpäällikkö on paineen alla ylemmältä portaalta. Jos hän
+                        saavuttaa skenaarion päätavoitteen menettämättä yhtään omaa yksikköä, hän saa +10 <span
+                            class="glossary-term" data-term="vp">VP</span>:tä komppanian yhteiseen pottiin."
+                    </li>
+                    <li>
+                        <strong>Varusteiden testaus:</strong> "Tukiryhmällä on kokeellinen konekivääri. Jos se ampuu
+                        vähintään kolmella eri vuorolla (osumaa ei vaadita), komppania saa +3 <span
+                            class="glossary-term" data-term="tp">TP</span> bonuksen kampanjan hallintavaiheeseen."
+                    </li>
+                    <li>
+                        <strong>Veteraanin suojeleminen:</strong> "Ryhmä 'Karhu 1' on komppanian kokenein. Jos se
+                        selviää taistelusta ilman, että sen <span class="glossary-term"
+                            data-term="taistelukunto">TK</span> putoaa alle puoleen, koko komppania saa ylimääräiset +5
+                        <span class="glossary-term" data-term="xp">XP</span>:tä jaettavaksi."
+                    </li>
+                </ul>
             </section>
             <!--/SECTION: Kampanja loppuu-->
         </div>
@@ -380,11 +423,17 @@
         <div id="scroll-legend" class="scroll-legend-panel">
             <p class="font-bold mb-2">Nappien selitteet:</p>
             <ul>
-                <li><img src="images/Kersantti_hihalaatta.svg.png" alt="Kersantin hihalaatta, jota käytetään vierityspainikkeessa." class="legend-icon"> Sivun alkuun /
+                <li><img src="images/Kersantti_hihalaatta.svg.png"
+                        alt="Kersantin hihalaatta, jota käytetään vierityspainikkeessa." class="legend-icon"> Sivun
+                    alkuun /
                     Loppuun</li>
-                <li><img src="images/Alikersantti_hihalaatta.svg.png" alt="Alikersantin hihalaatta, jota käytetään vierityspainikkeessa." class="legend-icon"> Edellinen
+                <li><img src="images/Alikersantti_hihalaatta.svg.png"
+                        alt="Alikersantin hihalaatta, jota käytetään vierityspainikkeessa." class="legend-icon">
+                    Edellinen
                     / Seuraava pääotsikko (H2)</li>
-                <li><img src="images/Korpraali_hihalaatta.svg.png" alt="Korpraalin hihalaatta, jota käytetään vierityspainikkeessa." class="legend-icon"> Edellinen /
+                <li><img src="images/Korpraali_hihalaatta.svg.png"
+                        alt="Korpraalin hihalaatta, jota käytetään vierityspainikkeessa." class="legend-icon"> Edellinen
+                    /
                     Seuraava otsikko (H2/H3)</li>
             </ul>
         </div>
