@@ -7,6 +7,7 @@
 // ====================================================================
 // GLOBAALIT FUNKTIOT
 // ====================================================================
+let observer; // Globaali viittaus observeriin
 
 /**
  * Rakentaa KOKO sisällysluettelon uudelleen.
@@ -117,7 +118,6 @@ function createAndAppendLink(
     if (level === 4) link.classList.add("ml-8");
   }
 
-  // === TÄMÄ ON KORJATTU OSA ===
   link.addEventListener("click", (e) => {
     e.preventDefault();
     const targetElement = document.getElementById(slug);
@@ -127,7 +127,7 @@ function createAndAppendLink(
         document.getElementById("main-navbar")?.offsetHeight || 70; // Varakorkeus
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition =
-        elementPosition + window.scrollY - navbarHeight - 16; // 16px (1rem) lisäpuskuri
+        elementPosition + window.scrollY - navbarHeight - 48; // 16px (1rem) lisäpuskuri
 
       window.scrollTo({
         top: offsetPosition,

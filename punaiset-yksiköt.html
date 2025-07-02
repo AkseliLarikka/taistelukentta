@@ -208,7 +208,7 @@
                 return `<li><strong>${ability.name}${damagedEffectHtml}:</strong> ${ability.description}</li>`;
             }).join('');
             const armamentHtml = unit.armament.map(w => `<tr><td>${w.name}</td><td>${w.attack}</td><td>${w.damage}</td><td>${w.notes}</td></tr>`).join('');
-            let ammoHtml = Object.keys(unit.ammo).length > 0 ? `<li><strong>Ammukset:</strong> ${Object.entries(unit.ammo).map(([key, value]) => `${key}: ${value} kpl`).join(', ')}</li>` : '';
+            let ammoHtml = Object.keys(unit.ammo).length > 0 ? `<li> ${Object.entries(unit.ammo).map(([key, value]) => `${key}: ${value} kpl`).join(', ')}</li>` : '';
             
             card.innerHTML = `
                 <h4>${unit.name}</h4>
