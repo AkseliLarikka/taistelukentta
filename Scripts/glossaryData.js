@@ -39,7 +39,7 @@ const glossaryData = {
 
     // === YKSITYISKOHTAISET TILAEFEKTIT ===
     "tilaefektit": "Yleisnimitys yksiköiden toimintakykyyn vaikuttaville tiloille, kuten Vaurioitunut, Lamautunut, Tärähtänyt, Vetäytyy ja Piiloutunut.",
-    "vaurioitunut": "<strong>Vaurioitunut:</strong> Yksikkö siirtyy tähän tilaan, kun sen TK putoaa alle 50%.<br><ul><li>Pakollinen Moraalitesti (DC 12).</li><li>Liike-arvo ja Tuli-isku puolitettu.</li><li>Ansaitsee vain puolet XP:stä kampanjassa.</li></ul>",
+    "vaurioitunut": "<strong>Vaurioitunut:</strong> Yksikkö siirtyy tähän tilaan, kun sen TK putoaa alle 50%.<br><ul><li>Pakollinen Moraalitesti (DC 12).</li><li>Liike-arvo ja Tuli-isku puolitettu.</li><li>Ansaitsee vain puolet XP:stä kampanjassa.</li><li>Yksikön yksikkökortissa on merkitty kyky, jonka tekeminen vaikeutuu vaurioitumisen seurauksena.</li></ul>",
     "tarahtanyt": "<strong>Tärähtänyt (Shaken):</strong> Lievästi epäonnistuneen moraalitestin seuraus. Yksikkö kärsii -2 rangaistuksen seuraavaan hyökkäysheittoonsa, mutta voi muuten toimia normaalisti. Tila poistuu hyökkäyksen jälkeen tai vuoron lopussa.",
     "lamautunut": "<strong>Lamautunut (Suppressed):</strong> Epäonnistuneen moraalitestin seuraus.<ul><li>Ei voi liikkua tai käyttää toimintoja.</li><li>Sitä vastaan tehdyt hyökkäykset saavat Edun (Advantage).</li><li>Poistuu onnistuneella moraalitestillä tai 'Moraalin Kohotus' -komennolla.</li></ul>",
     "vetaytyy": "<strong>Vetäytyy:</strong> Kriittisesti epäonnistuneen moraalitestin seuraus. Yksikkö pakenee hallitsemattomasti täyden liikkeensä verran poispäin lähimmästä vihollisesta.",

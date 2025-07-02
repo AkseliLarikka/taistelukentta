@@ -27,7 +27,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://akselilarikka.github.io/taistelukentta/siniset-yksikot.html">
     <meta property="og:type" content="website">
-    <meta property="article:published_time" content="2025-07-01 T09:08:52">
+    <meta property="article:published_time" content="2025-07-02 T10:19:14">
     <meta property="article:author" content="Akseli Larikka">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Taistelukenttä d20 - Siniset yksiköt">
@@ -189,35 +189,35 @@
     <script src="Scripts/unit-data.js"></script>
     <script src="Scripts/scroll-buttons.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const contentContainer = document.getElementById('unit-display-container');
-        const sidebarNav = document.getElementById('unit-nav-menu');
-        // Valitsee oikean datan (sininen/punainen) tiedoston nimen perusteella
-        const units = window.location.pathname.includes('siniset') ? window.blueUnitData : window.redUnitData;
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentContainer = document.getElementById('unit-display-container');
+            const sidebarNav = document.getElementById('unit-nav-menu');
+            // Valitsee oikean datan (sininen/punainen) tiedoston nimen perusteella
+            const units = window.location.pathname.includes('siniset') ? window.blueUnitData : window.redUnitData;
 
-        if (!contentContainer || !sidebarNav || !units) {
-            console.error("Dynaamisen sisällön luonti epäonnistui: elementtejä tai dataa puuttuu.");
-            return;
-        }
+            if (!contentContainer || !sidebarNav || !units) {
+                console.error("Dynaamisen sisällön luonti epäonnistui: elementtejä tai dataa puuttuu.");
+                return;
+            }
 
-        const createSlug = (text) => 'unit-' + text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+            const createSlug = (text) => 'unit-' + text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
 
-        // Rakenna kaikki yksikkökortit (Tämä osa on sinulla jo kunnossa)
-        for (const unitId in units) {
-            const unit = units[unitId];
-            const slug = createSlug(unit.name);
-            const card = document.createElement('div');
-            card.className = 'unit-card';
-            card.id = slug;
+            // Rakenna kaikki yksikkökortit (Tämä osa on sinulla jo kunnossa)
+            for (const unitId in units) {
+                const unit = units[unitId];
+                const slug = createSlug(unit.name);
+                const card = document.createElement('div');
+                card.className = 'unit-card';
+                card.id = slug;
 
-            const abilitiesHtml = unit.abilities.map(ability => {
-                const damagedEffectHtml = ability.isDamagedEffect ? ' <span class="vaurioitunut-tila">(Vaurioitunut)</span>' : '';
-                return `<li><strong>${ability.name}${damagedEffectHtml}:</strong> ${ability.description}</li>`;
-            }).join('');
-            const armamentHtml = unit.armament.map(w => `<tr><td>${w.name}</td><td>${w.attack}</td><td>${w.damage}</td><td>${w.notes}</td></tr>`).join('');
-            let ammoHtml = Object.keys(unit.ammo).length > 0 ? `<li><strong>Ammukset:</strong> ${Object.entries(unit.ammo).map(([key, value]) => `${key}: ${value} kpl`).join(', ')}</li>` : '';
-            
-            card.innerHTML = `
+                const abilitiesHtml = unit.abilities.map(ability => {
+                    const damagedEffectHtml = ability.isDamagedEffect ? ' <span class="vaurioitunut-tila">(Vaurioitunut)</span>' : '';
+                    return `<li><strong>${ability.name}${damagedEffectHtml}:</strong> ${ability.description}</li>`;
+                }).join('');
+                const armamentHtml = unit.armament.map(w => `<tr><td>${w.name}</td><td>${w.attack}</td><td>${w.damage}</td><td>${w.notes}</td></tr>`).join('');
+                let ammoHtml = Object.keys(unit.ammo).length > 0 ? `<li> ${Object.entries(unit.ammo).map(([key, value]) => `${key}: ${value} kpl`).join(', ')}</li>` : '';
+
+                card.innerHTML = `
                 <h4>${unit.name}</h4>
                 <div class="unit-card-content">
                     <ul>
@@ -240,30 +240,36 @@
                     </ul>
                 </div>
             `;
-            
-            contentContainer.appendChild(card);
-        }
 
-        // ================================================================
-        // KUN KORTIT ON LUOTU, KUTSUTAAN TARVITTAVAT PÄIVITYSFUNKTIOT
-        // ================================================================
-        // 1. Rakenna sivupalkki, joka sisältää nyt myös uudet yksikköotsikot
-        if (typeof window.buildSidebar === 'function') {
-            window.buildSidebar();
-        }
+                contentContainer.appendChild(card);
+            }
 
-        // 2. TÄMÄ ON KORJAUS: Päivitä kaikkien otsikoiden (myös uusien)
-        //    vieritysmarginaalit uudelleen.
-        if (typeof window.updateScrollMargin === 'function') {
-            window.updateScrollMargin();
-        }
-        
-        // 3. Varmistetaan scroll-nappien alustus, jos se on erillisessä tiedostossa
-        if (typeof window.initializeScrollButtons === 'function') {
-            window.initializeScrollButtons();
-        }
-    });
-</script>
+            // ================================================================
+            // KUN KORTIT ON LUOTU, KUTSUTAAN TARVITTAVAT PÄIVITYSFUNKTIOT
+            // ================================================================
+            // 1. Rakenna sivupalkki, joka sisältää nyt myös uudet yksikköotsikot
+            if (typeof window.buildSidebar === 'function') {
+                window.buildSidebar();
+            }
+
+            // 2. TÄMÄ ON KORJAUS: Päivitä kaikkien otsikoiden (myös uusien)
+            //    vieritysmarginaalit uudelleen.
+            if (typeof window.updateScrollMargin === 'function') {
+                window.updateScrollMargin();
+            }
+
+            // 3. Varmistetaan scroll-nappien alustus, jos se on erillisessä tiedostossa
+            if (typeof window.initializeScrollButtons === 'function') {
+                window.initializeScrollButtons();
+            }
+
+            // 4. Alusta IntersectionObserver UUDELLEEN, jotta se huomaa uudet kortit    
+            if (typeof window.initializeObserver === 'function') {
+                window.initializeObserver();
+            }
+        });
+    </script>
+
 </body>
 
 </html>
