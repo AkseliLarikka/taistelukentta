@@ -1,103 +1,115 @@
 # Muutoshistoria - Taistelukenttä d20
 
-Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -peliin.
+Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -sotapeliin.
 
-## 2025-07-01
+## [2025-07-03]
 
-### Uudet ominaisuudet ja Parannukset
+### Lisätty
+
+* **Pelinjohtajan karttatyökalu (esimerkki):** Lisätty `pelinjohtajan-opas.html`-sivulle Figma-upotus, joka demonstroi, miten pelinjohtaja voisi hallita omaa salaista karttaansa ja yksiköidensä sijainteja.
+
+### Korjattu
+
+* **Vierityspainikkeiden korjaus:** Korjattu sivun vierityspainikkeiden toiminnassa ollut virhe ja parannettu niiden tilanhallintaa (`scroll-buttons.js`).
+
+## [2025-07-02]
+
+### Muutettu
+
+* **Termistön ja yksikkötietojen päivitys:** Tehty laajoja päivityksiä ja tarkennuksia sanastoon ja yksiköiden tietoihin pelikokemuksen selkeyttämiseksi.
+
+## [2025-07-01]
+
+### Lisätty
 
 * **Karttakoordinaatisto:** Lisätty `Operaatio Teräsvalli` -karttaan koordinaatisto, joka helpottaa sijaintien ja etäisyyksien määrittämistä.
+
+### Muutettu
+
 * **Termistön yhtenäistäminen:** Parannettu sanaston integraatiota ja yhtenäistetty termien käyttöä läpi koko sivuston, mikä tekee säännöistä selkeämpiä.
 * **Käyttöliittymän selkeytys:** Muutettu noppien selitys käyttämään sanaston ponnahdusikkunaa, mikä vähentää toistoa ja parantaa luettavuutta.
 * **Sääntöpäivitykset:** Tehty useita sääntötarkennuksia ja -päivityksiä pelikokemuksen parantamiseksi.
 
-## 2025-06-30
+## [2025-06-30]
 
-### Uudet ominaisuudet ja Parannukset
+### Lisätty
 
 * **Automatisoitu julkaisu (CI/CD):** Otettu käyttöön GitHub Actions -työnkulku, joka päivittää automaattisesti sivujen julkaisupäivämäärät ja julkaisee sivuston GitHub Pagesiin jokaisen `git push` -komennon jälkeen.
 * **Tekninen SEO-parannus:** Lisätty `sitemap.xml`-tiedosto kaikkien sivujen indeksoinnin tehostamiseksi sekä `robots.txt`-tiedosto ohjaamaan hakukonerobotteja.
 * **Saavutettavuus & Kuva-SEO:** Lisätty kuvaavat `alt`-tekstit kaikille kuville, mukaan lukien navigointielementit, parantaen sekä näkövammaisten käyttökokemusta että kuvien löydettävyyttä hakukoneissa.
-* **SEO- ja esikatselupäivitys:** Lisätty kattavat Open Graph- ja Twitter Card -metatiedot kaikille sivuston sivuille. Tämä parantaa merkittävästi linkkien esikatselua sosiaalisen median alustoilla ja viestisovelluksissa.
-* Lisäksi lisätty tuki strukturoidulle datalle (Schema.org JSON-LD), kanonisille URL-osoitteille ja tekijätiedoille.
+* **SEO- ja esikatselupäivitys:** Lisätty kattavat Open Graph- ja Twitter Card -metatiedot kaikille sivuston sivuille. Tämä parantaa merkittävästi linkkien esikatselua sosiaalisen median alustoilla ja viestisovelluksissa. Lisäksi lisätty tuki strukturoidulle datalle (Schema.org JSON-LD), kanonisille URL-osoitteille ja tekijätiedoille.
 
-## 2025-06-26
+## [2025-06-26]
 
-### Uudet ominaisuudet
+### Lisätty
 
 * **Pelaajan työkalut:** Lisätty täysin uusi Pelaajan työkalupakki (`player-tools.js` ja `player-tools.css`), joka sisältää laajoja toiminnallisuuksia pelaajille.
 
-### Parannukset ja korjaukset
+### Muutettu
 
 * **Koodin refaktorointi:** Suoritettu laaja refaktorointi, joka parantaa olemassa olevien työkalujen, kuten Pelinjohtajan Työkalupakin (`gm-tool`), toiminnallisuutta ja ylläpidettävyyttä.
-* **Käyttöliittymä:** Korjattu etusivun mobiilinäkymää ja parannettu yleistä käytettävyyttä.
 * **Dokumentaatio:** Lisätty `tietoja.html`-sivulle suora linkki tähän muutoshistoriaan.
 
-## 2025-06-25
+### Korjattu
 
-### Uudet ominaisuudet
+* **Käyttöliittymä:** Korjattu etusivun mobiilinäkymää ja parannettu yleistä käytettävyyttä.
+
+## [2025-06-25]
+
+### Lisätty
 
 * Aloitettu Pelinjohtajan Työkalupakin (`gm-tool`) kehitys `pelinjohtajan-opas.html`-sivulle.
 
-### Parannukset ja korjaukset
+### Muutettu
 
-* **Sääntöpäivitykset:**
-  * Tarkennettu sääntöjä koskien voittopisteiden (VP) ja komentopisteiden (KP) käyttöä pelinjohtajan oppaassa ja kampanjan hallinnassa.
-* **Käyttöliittymä ja ulkoasu:**
-  * Toteutettu merkittävä CSS-uudistus, jossa luovuttiin Tailwind-viitekehyksestä ja siirryttiin käyttämään omia, selkeämpiä CSS-tiedostoja.
-  * Optimoitu navigointipainikkeiden kuvien kokoa ja parannettu sivuston suorituskykyä (Lighthouse-raportti).
-  * Siivottu ja selkeytetty CSS-tiedostoja.
-* **Hakukoneoptimointi (SEO):**
-  * Päivitetty sivuston metatietoja (avainsanat, robots-tagit) hakukonenäkyvyyden parantamiseksi.
+* **Sääntöpäivitykset:** Tarkennettu sääntöjä koskien voittopisteiden (VP) ja komentopisteiden (KP) käyttöä pelinjohtajan oppaassa ja kampanjan hallinnassa.
+* **Käyttöliittymä ja ulkoasu:** Toteutettu merkittävä CSS-uudistus, jossa luovuttiin Tailwind-viitekehyksestä ja siirryttiin käyttämään omia, selkeämpiä CSS-tiedostoja. Optimoitu navigointipainikkeiden kuvien kokoa ja parannettu sivuston suorituskykyä (Lighthouse-raportti). Siivottu ja selkeytetty CSS-tiedostoja.
+* **Hakukoneoptimointi (SEO):** Päivitetty sivuston metatietoja (avainsanat, robots-tagit) hakukonenäkyvyyden parantamiseksi.
 
-## 2025-06-24
+## [2025-06-24]
 
-### Uudet ominaisuudet
+### Lisätty
 
 * **Liikelaskuri:** Pelaajan pikaoppaaseen on lisätty uusi interaktiivinen liikelaskuri helpottamaan yksiköiden liikuttelua.
 * **Havainnekuvat:** Esimerkkipeliin on lisätty runsaasti uusia havainnekuvia selkeyttämään pelin kulkua.
 * **Automaattinen sanasto:** Sivustolle on lisätty merkittävä uusi ominaisuus, joka muuttaa sanaston termit automaattisesti klikattaviksi. Termiä klikkaamalla avautuu pieni ponnahdusikkuna, joka näyttää termin selityksen.
 * **Uusi yksikkö:** Lisätty "Komppanianpäällikkö (esikunta)" -yksikkö sinisten joukkojen listaan.
 
-### Parannukset ja korjaukset
+### Muutettu
 
-* **Sääntöpäivitykset:**
-  * Tehty useita sääntötarkennuksia ja -päivityksiä eri osioihin.
-  * Parannettu sanaston automaattista tägäysjärjestelmää.
-  * Laajennettu ja päivitetty merkittävästi "Pelaajan pikaopasta" pelitestauksesta saatujen havaintojen perusteella.
-  * Tarkennettu sääntöjä koskien maaston vaikutuksia taistelussa.
-  * Paranneltu ja laajennettu esimerkkipeliä `ydinsäännöt.html`-sivulla perustuen aitoon pelitilanteeseen.
-  * Päivitetty "Sanasto ja UKK" -sivun sisältöä.
-* **Käyttöliittymä ja ulkoasu:**
-  * Korjattu etusivun ja sääntösivujen vierityspainikkeiden toimintaa.
-  * Päivitetty aloitussivun (`landing page`) sisältöä ja yhtenäistetty linkkien tyylejä.
-  * Yhtenäistetty otsikkotasojen käyttöä läpi sivuston rakenteen selkeyttämiseksi.
-  * Yhtenäistetty otsikoiden muotoilua ja päivitetty lisenssitiedot `tietoja.html`-sivulle.
+* **Sääntöpäivitykset:** Tehty useita sääntötarkennuksia ja -päivityksiä eri osioihin. Parannettu sanaston automaattista tägäysjärjestelmää. Laajennettu ja päivitetty merkittävästi "Pelaajan pikaopasta" pelitestauksesta saatujen havaintojen perusteella. Tarkennettu sääntöjä koskien maaston vaikutuksia taistelussa. Paranneltu ja laajennettu esimerkkipeliä `ydinsäännöt.html`-sivulla perustuen aitoon pelitilanteeseen. Päivitetty "Sanasto ja UKK" -sivun sisältöä.
+* **Käyttöliittymä ja ulkoasu:** Päivitetty aloitussivun (`landing page`) sisältöä ja yhtenäistetty linkkien tyylejä. Yhtenäistetty otsikkotasojen käyttöä läpi sivuston rakenteen selkeyttämiseksi. Yhtenäistetty otsikoiden muotoilua ja päivitetty lisenssitiedot `tietoja.html`-sivulle.
 
-## 2025-06-23
+### Korjattu
 
-### Merkittävät muutokset
+* **Käyttöliittymä ja ulkoasu:** Korjattu etusivun ja sääntösivujen vierityspainikkeiden toimintaa.
+
+## [2025-06-23]
+
+### Muutettu
 
 * **Sivuston rakenneuudistus:** Sivusto on kokenut täydellisen rakenneuudistuksen. Aiempi yhden sivun rakenne on jaettu useille alasivuille (`ydinsäännöt`, `skenaariot`, `yksiköt` jne.), ja koko sivuston visuaalinen ilme on uusittu täysin uusilla CSS-tyyleillä ja JavaScript-toiminnoilla.
-
-### Parannukset ja korjaukset
-
 * **Hakukoneoptimointi (SEO):** Kaikille sivuille on päivitetty yksilölliset metakuvaukset (description) ja avainsanat (keywords) parantamaan niiden löydettävyyttä hakukoneissa.
-* **Käyttöliittymä ja ulkoasu:**
-  * Parannettu ohjausnappien toimintaa ja asettelua mobiililaitteilla.
-  * Korjattu navigointipalkin (`navbar`) leveyttä ja pehmustetta (`padding`) leveillä näytöillä.
+* **Käyttöliittymä ja ulkoasu:** Parannettu ohjausnappien toimintaa ja asettelua mobiililaitteilla.
 
-## 2025-06-19
+### Korjattu
 
-### Uudet ominaisuudet
+* **Käyttöliittymä ja ulkoasu:** Korjattu navigointipalkin (`navbar`) leveyttä ja pehmustetta (`padding`) leveillä näytöillä.
+
+## [2025-06-19]
+
+### Lisätty
 
 * Lisätty `CHANGELOG.md`-tiedosto muutoshistorian seuraamiseksi.
 * Lisätty README-tiedostoon kehitysroadmap, joka kuvaa pelin tulevia vaiheita.
-
-### Parannukset ja korjaukset
-
-* Päivitetty lisenssitietoihin Creative Commons -lisenssi.
-* Lisätty `.gitignore`-tiedosto estämään tarpeettomien tiedostojen seuraamisen versionhallinnassa.
 * Lisätty palautelomake ja yhteystiedot.
 * Lisätty `Operaatio Teräsvalli` -kartta PDF-muodossa.
 * Lisätty `Jälkisanat`-osio.
+
+### Muutettu
+
+* Päivitetty lisenssitietoihin Creative Commons -lisenssi.
+
+### Poistettu
+
+* Lisätty `.gitignore`-tiedosto estämään tarpeettomien tiedostojen seuraamisen versionhallinnassa.
