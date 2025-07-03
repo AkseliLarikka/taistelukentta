@@ -5,7 +5,7 @@
  * vierityspainikkeita, mukaan lukien niiden näkyvyyden, toiminnallisuuden
  * ja selitepaneelin.
  *
- * @version 2.0
+ * @version 2.2 - Korjattu toistuvan vierityksen bugi.
  * @author Akseli Larikka
  */
 document.addEventListener('DOMContentLoaded', function () {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const mainContent = document.getElementById('main-content');
     const mainNavbar = document.getElementById('main-navbar');
 
-    // Jos nappeja ei ole tällä sivulla, lopetetaan suoritus
+    // Jos nappeja tai tarvittavia elementtejä ei ole tällä sivulla, lopetetaan suoritus
     if (!scrollButtonsContainer || !mainContent || !mainNavbar) {
         return;
     }
@@ -32,6 +32,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const legendPanel = document.getElementById('scroll-legend');
 
     /**
+     * UUSI APUFUNKTIO: Vierittää sivun tiettyyn elementtiin ottaen huomioon
+     * navigaatiopalkin korkeuden.
+     * @param {Element} header - HTML-elementti, johon halutaan vierittää.
+     */
+    const scrollToHeader = (header) => {
+        if (!header) return; // Varmistus, ettei yritetä vierittää olemattomaan kohteeseen
+
+        const navbarHeight = mainNavbar.offsetHeight;
+        const elementPosition = header.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - navbarHeight - 16; // 16px (1rem) puskuri
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    };
+
+    /**
      * Etsii lähimmän otsikon annetusta valitsimesta ja suunnasta.
      * @param {string} selector - CSS-valitsin otsikoille (esim. 'h2, h3').
      * @param {string} direction - 'up' tai 'down'.
@@ -39,13 +57,14 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     const findNearestHeader = (selector, direction) => {
         const headers = Array.from(mainContent.querySelectorAll(selector));
-        const margin = mainNavbar.offsetHeight + 15; // Pieni puskuri yläpalkille
+        // KORJAUS: Kasvatetaan marginaalia hieman, jotta funktio hyppää nykyisen otsikon yli.
+        const margin = mainNavbar.offsetHeight + 30; // Kasvatettu puskuria 15px -> 30px
 
         if (direction === 'up') {
-            // Etsi kaikki otsikot, jotka ovat näkymän yläpuolella, ja ota niistä viimeinen.
+            // Tämä logiikka on jo kunnossa
             return headers.filter(h => h.getBoundingClientRect().top < -1).pop();
         } else { // 'down'
-            // Etsi ensimmäinen otsikko, joka on näkymän alapuolella.
+            // Etsi ensimmäinen otsikko, joka on riittävän kaukana näkymän yläreunasta
             return headers.find(h => h.getBoundingClientRect().top > margin);
         }
     };
@@ -69,17 +88,20 @@ document.addEventListener('DOMContentLoaded', function () {
         if (scrollH3DownButton) scrollH3DownButton.disabled = atBottom || !findNearestHeader('h2, h3, h4', 'down');
     };
 
-    // --- TAPAHTUMANKUUNTELIJAT ---
+    // --- TAPAHTUMANKUUNTELIJAT (PÄIVITETTY) ---
 
     // Vieritysnapit
     scrollTopButton?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     scrollBottomButton?.addEventListener('click', () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }));
-    scrollH2UpButton?.addEventListener('click', () => findNearestHeader('h2', 'up')?.scrollIntoView({ behavior: 'smooth' }));
-    scrollH2DownButton?.addEventListener('click', () => findNearestHeader('h2', 'down')?.scrollIntoView({ behavior: 'smooth' }));
-    scrollH3UpButton?.addEventListener('click', () => findNearestHeader('h2, h3, h4', 'up')?.scrollIntoView({ behavior: 'smooth' }));
-    scrollH3DownButton?.addEventListener('click', () => findNearestHeader('h2, h3, h4', 'down')?.scrollIntoView({ behavior: 'smooth' }));
 
-    // Selitepaneeli
+    // MUOKATTU: Käytetään uutta scrollToHeader-funktiota scrollIntoView:n sijaan
+    scrollH2UpButton?.addEventListener('click', () => scrollToHeader(findNearestHeader('h2', 'up')));
+    scrollH2DownButton?.addEventListener('click', () => scrollToHeader(findNearestHeader('h2', 'down')));
+    scrollH3UpButton?.addEventListener('click', () => scrollToHeader(findNearestHeader('h2, h3, h4', 'up')));
+    scrollH3DownButton?.addEventListener('click', () => scrollToHeader(findNearestHeader('h2, h3, h4', 'down')));
+
+
+    // Selitepaneeli (tämä osa säilyy ennallaan)
     if (infoToggleButton && legendPanel) {
         infoToggleButton.addEventListener('click', (e) => {
             e.stopPropagation();
