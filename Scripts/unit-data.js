@@ -31,7 +31,7 @@ window.blueUnitData = {
         ammo: { '<strong>Ammukset</strong>': 3 }
     },
     'unit-krh-ryhma': {
-        name: 'KRANAATINHEITINRYHMÄ (81mm)', type: 'Jalkaväki (Kevyt kranaatinheitin, 3 sotilasta)', stats: { tk: 8, tt: '+0', s: 9, m: '+2', l: 4 },
+        name: 'KRANAATINHEITIN&shy;RYHMÄ (81mm)', type: 'Jalkaväki (Kevyt kranaatinheitin, 3 sotilasta)', stats: { tk: 8, tt: '+0', s: 9, m: '+2', l: 4 },
         armament: [{ name: '81mm Kranaatinheitin', damage: '2d6', attack: '+1', notes: 'Vaikutusalue 1 ruutu.' }, { name: 'Lähipuolustusaseet', damage: 'd6', attack: '+3', notes: 'Vain <=5cm etäisyydellä.' }],
         abilities: [
             { name: 'Orgaaninen Tulituki (Aktiivinen, 1 KP)', description: 'Voi antaa epäsuoraa tulta. Vaatii tulenjohdon.', isDamagedEffect: true }
@@ -75,7 +75,7 @@ window.blueUnitData = {
         ammo: {}
     },
     'unit-komppanianpaallikko': {
-        name: 'KOMPPANIANPÄÄLLIKKÖ (KP)', type: 'Komentoryhmä (3-5 sotilasta)', stats: { tk: 8, tt: '+4', s: 10, m: '+5', l: 5 },
+        name: 'KOMPPANIAN&shy;PÄÄLLIKKÖ (KP)', type: 'Komentoryhmä (3-5 sotilasta)', stats: { tk: 8, tt: '+4', s: 10, m: '+5', l: 5 },
         armament: [{ name: 'Henkilökohtainen aseistus', damage: 'd6', attack: '+1', notes: 'Vain itsepuolustukseen <=5cm etäisyydellä.' }, { name: 'Viestivälineistö', damage: '-', attack: '-', notes: 'Mahdollistaa komentotoiminnot.' }],
         abilities: [
             { name: 'Komentajan Aura (Passiivinen)', description: 'Ystävälliset yksiköt 60cm säteellä saavat +1 Moraalitesteihin.', isDamagedEffect: true },
