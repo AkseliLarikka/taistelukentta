@@ -390,7 +390,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 40;
+    z-index: 60;
     /* Alempi kuin sivupalkin toggle-nappi (z-50) */
     box-sizing: border-box;
 }
@@ -1221,6 +1221,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     transform-origin: bottom center;
     /* */
     transition: all 0.2s ease-in-out;
+    z-index: 55;
 }
 
 .scroll-legend-panel.is-visible {
@@ -1243,6 +1244,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+
 }
 
 .legend-icon {
@@ -1487,6 +1489,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
         /* */
         padding: 0.05rem;
         /* */
+        z-index: 61;
     }
 
     #menu-toggle svg {
@@ -1538,23 +1541,17 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     #main-navbar-content {
         position: absolute;
         /* */
-        top: 100%;
-        /* */
+        top: 64px;
         /* Aukeaa #navbar-dropdown-containerin alapuolelle */
         left: 50%;
-        /* */
         /* Keskittää dropdownin vaakasuunnassa */
         transform: translateX(-50%) translateY(0);
-        /* */
         /* Keskittää ja varmistaa piilotuksen */
         width: calc(100% - 2rem);
-        /* */
         /* Antaa marginaalin reunoille */
         max-width: 300px;
-        /* */
         /* Rajaa maksimileveyden, jos haluat */
         max-height: 0;
-        /* */
         /* Piilota oletuksena (ei korkeutta) */
         overflow: hidden;
         /* */
@@ -1566,9 +1563,9 @@ a:has(> .lisenssi-kuvake-yksi):hover {
         /* */
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         /* */
-        z-index: 35;
+        /* KORJATTU Z-INDEX: Nostetaan arvoa, jotta valikko on vieritysnappien (z: 50) yläpuolella */
+        z-index: 60;
         /* */
-        /* Toggle-napin ja sidebarin (45, 50) alla, mutta headerin yläpuolella (40) */
         border-radius: 0 0 0.375rem 0.375rem;
         /* */
         flex-direction: column;
@@ -1576,7 +1573,6 @@ a:has(> .lisenssi-kuvake-yksi):hover {
         align-items: flex-start;
         /* */
         pointer-events: none;
-        /* */
         /* Estää klikkaukset, kun piilotettu */
     }
 
@@ -1711,6 +1707,8 @@ a:has(> .lisenssi-kuvake-yksi):hover {
         border-radius: 0;
         /* */
         background-color: rgba(245, 245, 244, 0.0);
+        /* */
+        z-index: 55;
         /* */
     }
 

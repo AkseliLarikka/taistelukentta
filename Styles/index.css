@@ -390,7 +390,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 40;
+    z-index: 60;
     /* Alempi kuin sivupalkin toggle-nappi (z-50) */
     box-sizing: border-box;
 }
@@ -1221,6 +1221,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     transform-origin: bottom center;
     /* */
     transition: all 0.2s ease-in-out;
+    z-index: 55;
 }
 
 .scroll-legend-panel.is-visible {
@@ -1487,6 +1488,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
         /* */
         padding: 0.05rem;
         /* */
+        z-index: 61;
     }
 
     #menu-toggle svg {
