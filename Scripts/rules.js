@@ -1,19 +1,11 @@
 /**
  * Taistelukenttä d20 - Sivuston navigaatio ja interaktiivisuus
- * @version 4.1 - Yleistetty otsikoiden valitsin sivupalkin rakentamisessa.
+ * @version 4.3 - Lopullinen korjaus aktiivisen linkin tunnistukseen.
  * @author Akseli Larikka
  */
 
-// ====================================================================
-// GLOBAALIT MUUTTUJAT
-// ====================================================================
-
-// Ajastin scroll-tapahtuman "kuristamiseen" (throttling)
+// Globaali ajastin scroll-tapahtuman "kuristamiseen" (throttling)
 let scrollTimeout;
-
-// ====================================================================
-// PÄÄFUNKTIOT
-// ====================================================================
 
 /**
  * Rakentaa sisällysluettelon dynaamisesti sivun otsikoista.
@@ -25,7 +17,7 @@ window.buildSidebar = function () {
 
   if (!mainContent || !navMenu) return;
 
-  // Tyhjennetään vanhat linkit, jotta vältetään duplikaatit
+  // Tyhjennetään vanhat linkit
   Array.from(navMenu.children).forEach((child) => {
     if (!child.classList.contains("sidebar-title")) {
       navMenu.removeChild(child);
@@ -35,23 +27,17 @@ window.buildSidebar = function () {
     unitNavMenu.innerHTML = "";
   }
 
-  // --- KORJATTU OSA: YLEISPÄTEVÄMPI OTSIKOIDEN VALINTA ---
-  // Haetaan kaikki mahdolliset otsikot ".prose"-säiliön sisältä.
-  const allHeaders = mainContent.querySelectorAll(
-    ".prose h2, .prose h3, .prose h4"
-  );
-  
+  // Haetaan kaikki mahdolliset otsikot ja suodatetaan ne, jotka eivät kuulu sivupalkkiin.
+  const allPossibleHeaders = mainContent.querySelectorAll(".prose h2, .prose h3, .prose h4");
+  const staticHeaders = Array.from(allPossibleHeaders).filter(header => !header.closest(".rules-exclude") && !header.closest("#unit-display-container"));
+
   const isIndexPage = window.location.pathname.endsWith("index.html") || window.location.pathname.endsWith("/");
   let counters = { h2: 0, h3: 0, h4: 0 };
 
-  allHeaders.forEach((header) => {
-    // Varmistetaan, että emme ota mukaan dynaamisten työkalujen tai yksiköiden otsikoita.
-    if (header.closest(".rules-exclude") || header.closest("#unit-display-container")) return;
-
+  staticHeaders.forEach((header) => {
     const level = parseInt(header.tagName.substring(1));
     let headerText = header.textContent.trim();
 
-    // Lisätään numerointi muille sivuille paitsi etusivulle.
     if (!isIndexPage && !/^\d+\./.test(headerText)) {
       if (level === 2) {
         counters.h2++;
@@ -122,19 +108,27 @@ function createAndAppendLink(headerElement, text, level, menuElement, isUnitLink
  */
 function updateActiveLinkOnScroll() {
   const navbarHeight = document.getElementById('main-navbar')?.offsetHeight || 70;
-  const activationLine = navbarHeight + 50; 
+  const activationLine = navbarHeight + 50;
 
-  const allHeadings = Array.from(document.querySelectorAll('#main-content h2, #main-content h3, #main-content h4, #main-content .unit-card'));
-  
+  // KORJATTU VALITSIN: Valitsee staattiset otsikot ja .unit-card-elementit,
+  // mutta jättää huomiotta .unit-cardien sisällä olevat otsikot.
+  const allTrackableElements = Array.from(document.querySelectorAll('#main-content h2, #main-content h3, #main-content h4, #main-content .unit-card'))
+    .filter(el => !el.closest('.rules-exclude'));
+
   let bestCandidate = null;
 
-  for (const heading of allHeadings) {
-      const rect = heading.getBoundingClientRect();
-      if (rect.top <= activationLine) {
-          bestCandidate = heading;
-      } else {
-          break; 
-      }
+  for (const element of allTrackableElements) {
+    // Ohitetaan yksikkökorttien sisällä olevat H4-otsikot, koska seuraamme itse korttia.
+    if (element.tagName === 'H4' && element.closest('.unit-card')) {
+      continue;
+    }
+
+    const rect = element.getBoundingClientRect();
+    if (rect.top <= activationLine) {
+      bestCandidate = element;
+    } else {
+      break;
+    }
   }
 
   const currentActiveLink = document.querySelector('.nav-link.active');
@@ -143,19 +137,17 @@ function updateActiveLinkOnScroll() {
   }
 
   if (bestCandidate) {
-      const activeId = bestCandidate.id;
+    const activeId = bestCandidate.id;
+    if (activeId) {
       const newActiveLink = document.querySelector(`#nav-menu a[href="#${activeId}"], #unit-nav-menu a[href="#${activeId}"]`);
-      
       if (newActiveLink) {
-          newActiveLink.classList.add('active');
-          newActiveLink.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        newActiveLink.classList.add('active');
+        newActiveLink.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
+    }
   }
 }
 
-// ====================================================================
-// SIVUN LATAUTUESSA SUORITETTAVAT TOIMENPITEET
-// ====================================================================
 document.addEventListener("DOMContentLoaded", function () {
   window.buildSidebar();
 
@@ -179,14 +171,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (menuToggle && sidebar) {
     menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        sidebar.classList.toggle('sidebar-hidden');
-        if (!sidebar.classList.contains('sidebar-hidden')) {
-            toggleNavbarDropdown(true);
-        }
+      e.stopPropagation();
+      sidebar.classList.toggle('sidebar-hidden');
+      if (!sidebar.classList.contains('sidebar-hidden')) {
+        toggleNavbarDropdown(true);
+      }
     });
   }
-  
+
   if (currentPageNameElement) {
     currentPageNameElement.addEventListener("click", (e) => {
       e.preventDefault();
@@ -194,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (window.innerWidth < 768) toggleNavbarDropdown();
     });
   }
-  
+
   document.addEventListener("click", (e) => {
     if (window.innerWidth < 768) {
       if (sidebar && !sidebar.contains(e.target) && !menuToggle?.contains(e.target)) {
@@ -213,7 +205,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Kiinnitetään "kuristettu" (throttled) kuuntelija vieritystapahtumaan.
   window.addEventListener('scroll', () => {
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(updateActiveLinkOnScroll, 100);
