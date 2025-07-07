@@ -14,7 +14,7 @@ window.blueUnitData = {
         name: "Tiedustelulennokki",
         damage: "-",
         attack: "+5 (Tied.)",
-        notes: "-",
+        notes: "Tiedustelun vaikutusalue 10cm.",
       },
     ],
     abilities: [
