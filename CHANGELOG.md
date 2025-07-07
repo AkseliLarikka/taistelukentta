@@ -2,6 +2,26 @@
 
 Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -sotapeliin.
 
+## [2025-07-07]
+
+### Lisätty
+
+* **Automaattiset tulituki-ilmoitukset:** Pelaajan työkalu ilmoittaa nyt automaattisesti, kun pelaajan tilaama tulituki saapuu pelivuorolla. Saapunut tehtävä poistetaan samalla listalta.
+* **Kutistettava yksikönlisäysosio:** Pelaajan työkalun "Lisää yksiköitä" -osion voi nyt piilottaa tilan säästämiseksi, mikä parantaa käytettävyyttä erityisesti pienemmillä näytöillä.
+
+### Muutettu
+
+* **Käyttöliittymän animaatiot:**
+  * Yksikkökortin "Lisätty"-ilmoitus ei ainoastaan haalistu, vaan myös piiloutuu kokonaan vapauttaen tilaa.
+  * Sivuston vierityspainikkeiden animaatioita ja vakautta on parannettu mobiililaitteilla.
+* **Mobiilikäytettävyys:** Pelaajan työkalun yksikkökortin aseistustaulukko on nyt oikein vieritettävissä, mikä estää sivun leveyden rikkoutumisen.
+
+### Korjattu
+
+* **Kriittiset skriptivirheet:** Korjattu useita virheitä (`ReferenceError`, `TypeError`) `player-tools.js`-tiedostossa, jotka estivät vaiheseurannan ja muiden toimintojen toimivuuden.
+* **Yksiköiden nimien renderöinti:** Korjattu bugi, jossa yksikkökorttien otsikot eivät näkyneet oikein. Datan ja esitystavan eriyttäminen parantaa ylläpidettävyyttä.
+* **Punaiset Yksiköt -sivu:** Korjattu sivu näyttämään oikein punaisten yksiköiden tiedot virheellisten sinisten tietojen sijaan.
+
 ## [2025-07-03]
 
 ### Lisätty
