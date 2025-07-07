@@ -22,9 +22,121 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-#player-tool-heading {
-    padding-left: 1rem;
+/* Koodilisäys: Vaiheseurannan tyylit (kopioitu ja muokattu gm-tool.css:stä) */
+.player-phase-tracker {
+    background-color: #556B2F;
+    color: #FDF6E3;
+    padding: 1.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    border-bottom: 2px solid #C2B280;
+    text-align: center;
+    position: relative;
 }
+
+.player-phase-tracker h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: white;
+}
+
+#player-phase-instructions {
+    min-height: 150px;
+    /* Estää sisällön hyppimistä kun vaihe vaihtuu */
+}
+
+#player-phase-instructions p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #f5f5f4;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.player-phase-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.player-phase-controls button {
+    background-color: #fdf6e3;
+    color: #556B2F;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.player-phase-controls button:hover:not(:disabled) {
+    background-color: #f5e8c7;
+}
+
+.player-phase-controls button:disabled {
+    background-color: #d6d3d1;
+    color: #78716c;
+    cursor: not-allowed;
+}
+
+.player-phase-controls span {
+    font-weight: 500;
+    min-width: 100px;
+}
+
+.tactical-advice {
+    background-color: rgba(253, 246, 227, 0.8);
+    color: #556B2F;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid #C2B280;
+    font-size: 0.9rem;
+    text-align: center;
+    font-style: italic;
+}
+
+
+#player-phase-instructions ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#player-phase-instructions li {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    display: flex;
+    align-items: center;
+}
+
+#player-phase-instructions label {
+    margin-left: 0.75rem;
+    flex-grow: 1;
+}
+
+#player-phase-instructions input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+}
+
+#player-phase-instructions input[type="checkbox"]:checked+label {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Vaiheseurannan tyylit päättyvät */
+
 
 .player-tool-tabs {
     display: flex;
@@ -63,23 +175,17 @@
 
 .player-tab-pane {
     display: none;
-    /* Oletuksena piilossa, jotta se ei vie tilaa */
-    opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    /* Määritellään 0.3s häivytysanimaatio */
 }
 
 .player-tab-pane.active {
     display: block;
-    /* Tehdään osaksi sivun asettelua, mutta on yhä näkymätön (opacity: 0) */
 }
 
 .player-tab-pane.is-visible {
     opacity: 1;
-    /* Tehdään näkyväksi pehmeällä häivytyksellä */
 }
 
-/* Yleinen osio/korttityyli */
 .player-tool-section {
     background-color: #f5f5f4;
     padding: 1rem;
@@ -94,7 +200,6 @@
     color: #556B2F;
 }
 
-/* Roolin valinta */
 #role-selector label {
     font-weight: bold;
     margin-right: 1rem;
@@ -106,9 +211,9 @@
     border: 1px solid #d6d3d1;
 }
 
-/* KP-seuranta (yleinen säiliö) */
 .kp-tracker-container {
     margin-top: 1rem;
+    align-items: center;
 }
 
 .kp-tracker-container h4 {
@@ -126,6 +231,7 @@
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
     border: 1px solid #e7e5e4;
+    margin-left: 1rem;
 }
 
 .player-kp-tracker .kp-controls {
@@ -143,7 +249,6 @@
     border-radius: 99px;
     width: 35px;
     height: 35px;
-    /* UUDET LISÄYKSET NAPIN KESKITTÄMISEKSI */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -154,7 +259,6 @@
     font-size: 1.5rem;
 }
 
-/* Ilmoitusalue */
 #player-notifications {
     display: flex;
     flex-direction: column;
@@ -181,7 +285,6 @@
     background-color: #22c55e;
 }
 
-/* Yksikkövalitsin */
 .unit-checkbox-group {
     display: flex;
     flex-wrap: wrap;
@@ -212,7 +315,6 @@
     border-color: #556B2F;
 }
 
-/* Aktiivisen yksikön kortti */
 .player-unit-card {
     border: 1px solid #d6d3d1;
     border-radius: 0.375rem;
@@ -222,16 +324,39 @@
 }
 
 .player-unit-card header {
-    background-color: #fafaf9;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: opacity 0.75s ease-in-out;
+    background-color: #166534;
     padding: 0.75rem 1rem;
     border-bottom: 1px solid #d6d3d1;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 .player-unit-card header h4 {
     margin: 0;
+}
+
+.unit-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: #f5f5f4;
+    border-bottom: 1px solid #d6d3d1;
+}
+
+/* Oletustila, jossa header on piilotettu */
+.player-unit-card.header-hidden header {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-width: 0;
+    visibility: hidden;
 }
 
 .player-unit-card .status-indicator {
@@ -244,9 +369,7 @@
 .unit-card h4 .unit-type-display {
     font-size: 0.8em;
     font-weight: 500;
-    /* Normaalia kevyempi paino */
     color: #78716c;
-    /* stone-500 */
     margin-left: 0.25em;
 }
 
@@ -274,14 +397,11 @@
     padding: 1rem;
 }
 
-/* Koodimuutos: Laajennettu statistiikkaruudukko */
 .unit-stat-grid {
     display: grid;
-    /* Muutetaan ruudukko joustavaksi ja useampisarakkeiseksi */
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 1rem;
     margin-bottom: 1rem;
-    /* Lisätään tilaa ennen kykyjä */
 }
 
 .unit-stat {
@@ -334,7 +454,6 @@
     color: #57534e;
 }
 
-/* Komennot-välilehti */
 .command-list-item {
     display: flex;
     justify-content: space-between;
@@ -369,7 +488,6 @@
     cursor: not-allowed;
 }
 
-/* Apuohjelmat */
 .player-tool-section input[type="number"],
 .player-tool-section input[type="text"] {
     width: 100%;
@@ -381,7 +499,7 @@
 .player-tool-section button {
     width: 50%;
     padding: 0.75rem;
-    background-color: #556B2F;
+    background-color: #C2B280;
     color: white;
     border: none;
     border-radius: 4px;
@@ -412,7 +530,6 @@
     align-items: center;
 }
 
-/* Media Query for larger screens */
 @media (min-width: 768px) {
     .player-tool-content {
         padding: 1.5rem;
@@ -425,7 +542,6 @@
     }
 }
 
-/* Roolinvalinnan valintaruutujen tyylit */
 #role-selector-checkboxes {
     display: flex;
     flex-direction: column;
@@ -451,10 +567,8 @@
     height: 1rem;
 }
 
-/* Interaktiivisten komentopainikkeiden tyylit */
 .command-btn {
     background-color: #3b82f6;
-    /* sininen */
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -472,8 +586,6 @@
     background-color: #9ca3af;
     cursor: not-allowed;
 }
-
-/* Koodilisäys: Tulitukimatriisin ja kykyjen tyylit */
 
 .fire-support-form {
     display: grid;
@@ -535,7 +647,6 @@
     background-color: #dc2626;
 }
 
-/* Yksikön kyky-painike kortin sisällä */
 .unit-abilities .ability-btn {
     background-color: #3b82f6;
     color: white;
@@ -553,7 +664,6 @@
     cursor: not-allowed;
 }
 
-/* Asettelun apuluokka */
 .d-flex {
     display: flex;
 }
@@ -562,39 +672,27 @@
     align-items: center;
 }
 
-/* Koodilisäys: Komentojen asettelu vierekkäin isommilla näytöillä */
-
 .commands-container {
     display: flex;
     flex-direction: column;
-    /* Oletus pienillä näytöillä: allekkain */
     gap: 1.5rem;
-    /* Väli elementtien välille */
 }
 
-/* Kohdistetaan sääntö vain komentosäiliön sisällä oleviin osioihin */
 .commands-container>.player-tool-section {
     flex-grow: 1;
-    /* Antaa elementin kasvaa täyttämään vapaan tilan */
     flex-basis: 0;
-    /* Varmistaa, että kasvu alkaa nollasta, jolloin tila jaetaan tasaisesti */
 }
 
-/* Media-kysely isommille näytöille (esim. tabletit vaaka-asennossa ja tietokoneet) */
 @media (min-width: 992px) {
     .commands-container {
         flex-direction: row;
-        /* Asetetaan elementit vierekkäin */
     }
 }
-
-/* Koodimuutos: Päivitetyt pelaajan yksiköiden lisäyslomakkeen tyylit */
 
 #player-unit-templates-container {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    /* Pienennettiin väliä hieman */
     margin-top: 1rem;
 }
 
@@ -609,11 +707,9 @@
     border-radius: 0.375rem;
 }
 
-/* Asettelu isommilla näytöillä */
 @media (min-width: 768px) {
     .player-unit-template-item {
         grid-template-columns: 1fr 2fr auto;
-        /* Nimi, Input, Nappi */
     }
 }
 
@@ -646,7 +742,6 @@
     background-color: #4A5D23;
 }
 
-/* Yksikön poistopainike kortissa */
 .remove-unit-btn {
     background-color: #ef4444;
     color: white;
@@ -664,68 +759,46 @@
     background-color: #dc2626;
 }
 
-/* Annetaan yleiskatsaus-välilehden ensimmäiselle osiolle hieman tilaa yläreunaan, 
-   koska ilmoitukset eivät ole enää sen sisällä. */
 #tab-overview-player .player-tool-section:first-child {
     margin-top: 0;
 }
 
-/* Muotoillaan itse ilmoitusaluetta, jotta se erottuu selkeästi */
 #player-notifications {
     padding: 0.5rem 0;
-    /* Lisätään hieman pystysuuntaista tilaa */
     min-height: 50px;
-    /* Varmistetaan, että alueella on korkeutta vaikka se olisi tyhjä */
 }
 
-/* Varmistetaan, että ilmoituslaatikot, jotka olivat aiemmin player-tool-sectionin sisällä,
-   näyttävät edelleen hyviltä. */
 .player-tool-section>#player-notifications {
     padding: 0;
     min-height: initial;
 }
 
-/* Koodilisäys: Vuorolaskurin ja ilmoitusten asettelu */
-
 .overview-top-row {
     display: flex;
     flex-wrap: wrap;
-    /* Salli rivitys pienillä näytöillä */
     gap: 1.5rem;
-    /* Väli elementtien välille */
     margin-bottom: 1.5rem;
-    /* Tilaa alapuolelle */
 }
 
-/* Säännöt, jotka koskevat vain tämän rivin sisällä olevia osioita */
 .overview-top-row>.player-tool-section {
     margin-bottom: 0;
-    /* Nollataan oletusmarginaali, koska gap hoitaa välit */
     display: flex;
-    /* Tehdään näistäkin flex-säiliöitä, jotta sisältö asettuu paremmin */
     flex-direction: column;
 }
 
-/* Määritellään leveydet suhteessa toisiinsa (75% / 25%) */
 .overview-notifications {
     flex: 3;
-    /* Ottaa 3 osaa tilasta */
     min-width: 300px;
-    /* Vähimmäisleveys ennen rivitystä */
 }
 
 .overview-turn-counter {
     flex: 1;
-    /* Ottaa 1 osan tilasta */
     min-width: 150px;
 }
 
-/* Varmistetaan, että ilmoituslaatikko täyttää korkeuden */
 #player-notifications {
     flex-grow: 1;
 }
-
-/* Koodilisäys: Nollauspainikkeen ja modaalin tyylit */
 
 .player-tool-reset-container {
     padding: 1rem;
@@ -828,8 +901,29 @@
     background-color: #f5f5f4;
 }
 
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 0.5em;
+    border: 1px solid #e7e5e4;
+    border-radius: 4px;
+}
+
 .armament-table {
-    text-align: center;
-    border: #1f2937;
-    border-width: 1px;
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 400px;
+    /* Estää taulukon litistymisen liian pieneksi */
+}
+
+.armament-table th,
+.armament-table td {
+    border: 1px solid #e7e5e4;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.armament-table th {
+    background-color: #f5f5f4;
 }
