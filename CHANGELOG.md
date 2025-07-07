@@ -8,6 +8,7 @@ Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Tai
 
 * **Automaattiset tulituki-ilmoitukset:** Pelaajan työkalu ilmoittaa nyt automaattisesti, kun pelaajan tilaama tulituki saapuu pelivuorolla. Saapunut tehtävä poistetaan samalla listalta.
 * **Kutistettava yksikönlisäysosio:** Pelaajan työkalun "Lisää yksiköitä" -osion voi nyt piilottaa tilan säästämiseksi, mikä parantaa käytettävyyttä erityisesti pienemmillä näytöillä.
+* **Havainnekuva sääntöihin:** Lisätty ydinsääntöihin uusi kuva havainnollistamaan pelitilannetta.
 
 ### Muutettu
 
@@ -15,6 +16,9 @@ Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Tai
   * Yksikkökortin "Lisätty"-ilmoitus ei ainoastaan haalistu, vaan myös piiloutuu kokonaan vapauttaen tilaa.
   * Sivuston vierityspainikkeiden animaatioita ja vakautta on parannettu mobiililaitteilla.
 * **Mobiilikäytettävyys:** Pelaajan työkalun yksikkökortin aseistustaulukko on nyt oikein vieritettävissä, mikä estää sivun leveyden rikkoutumisen.
+* **Sääntöjen selkeytys:** Tehty laajoja parannuksia ja tarkennuksia ydinsääntöihin, pelaajan pikaoppaaseen ja sanastoon. Muutokset parantavat sääntöjen johdonmukaisuutta ja ratkovat aiemmin havaittuja epäselvyyksiä.
+* **Oikeudellisten ilmoitusten päivitys:** Uudistettu `tietoja.html`-sivun lisenssi- ja lakitekstit selkeämmiksi ja kattavammiksi.
+* **Sisältöpäivitykset:** Päivitetty etusivun sekä sanaston ja UKK-osion sisältöä.
 
 ### Korjattu
 
