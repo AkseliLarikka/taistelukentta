@@ -25,6 +25,7 @@ GLOSSARY = {
     "VP": "vp",
     "XP": "xp",
     "M": "moraali",
+    "TI": "tuli-isku",
 
     # === Käsitteet A-Ö ===
     "Ansat ja Sulutteet": "ansat ja sulutteet",
