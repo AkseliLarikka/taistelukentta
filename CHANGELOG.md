@@ -2,6 +2,20 @@
 
 Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -sotapeliin.
 
+## [2025-07-08]
+
+### Lisätty
+
+* **Kuvituskuvat:** Lisätty useita uusia kuvituskuvia eri sivuille parantamaan visuaalista ilmettä ja tunnelmaa.
+
+### Muutettu
+
+* **Oikeudelliset ilmoitukset:** Päivitetty `tietoja.html`-sivun lakitekstejä kattamaan uudet kuvituskuvat.
+
+### Korjattu
+
+* **Sääntöjen esitysvirhe:** Korjattu `ydinsäännöt.html`-sivulla ollut taulukon muotoiluvirhe.
+
 ## [2025-07-07]
 
 ### Lisätty
