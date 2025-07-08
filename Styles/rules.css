@@ -1706,7 +1706,7 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     /* Lisää tilaa alapuolelle */
     max-width: 800px;
     /* Kuvan enimmäisleveys työpöydällä */
-    margin-left: auto;
+    margin-left: 0;
     /* Keskittää kuvan horisontaalisesti */
     margin-right: auto;
     /* Keskittää kuvan horisontaalisesti */
@@ -1746,6 +1746,12 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     /* stone-50, hyvin vaalea tausta */
     border-top: 1px solid #E7E5E4;
     /* Reuna kuvan ja tekstin välissä */
+}
+
+.kuvituskuva {
+    width: 100%;
+    max-width: 600px;
+    margin: 1em auto 1em 0;
 }
 
 /* Bannerin taustakuva, joka suosii WebP-formaattia */
