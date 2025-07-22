@@ -2,6 +2,21 @@
 
 Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -sotapeliin.
 
+## [2025-07-22]
+
+### Lisätty
+
+* **Sulutteet ja esteet:** Lisätty uusi sääntöosio `ydinsäännöt.html`-sivulle, joka käsittelee sulutteiden, kuten miinoitteiden ja murrosteiden, rakentamista ja vaikutuksia.
+
+### Muutettu
+
+* **Skenaarion päivitys:** Tarkennettu "Operaatio Leppäkeihäs" -skenaarion kuvausta ja sääntöjä `skenaariot.html`-sivulla.
+* **Sääntöjen selkeytys:** Laajennettu esimerkkipelin kuvausta `ydinsäännöt.html`-sivulla selkeyden parantamiseksi.
+
+### Korjattu
+
+* **Sääntöjen johdonmukaisuus:** Korjattu useita kirjoitusvirheitä, sulkeiden käyttöä ja epäjohdonmukaisuuksia `ydinsäännöt.html`-sivulla.
+
 ## [2025-07-08]
 
 ### Lisätty
