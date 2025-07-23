@@ -267,6 +267,72 @@ window.blueUnitData = {
     ],
     ammo: { "<strong>Keskitykset</strong>": 4 },
   },
+  "unit-pioneeriryhma": {
+    name: "Pioneeriryhmä",
+    type: "Jalkaväki (Erikoisryhmä, 8 sotilasta)",
+    stats: { tk: 12, tt: "+4", s: 11, m: "+4", l: 6 },
+    armament: [
+      { name: "Jalkaväkiaseistus", damage: "d6", attack: "+3", notes: "-" },
+      { name: "Panokset", damage: "2d10", attack: "+4", notes: "Vain rakenteita ja ajoneuvoja vastaan <=2cm etäisyydellä." }
+    ],
+    abilities: [
+      {
+        name: "Linnoittautuminen (Aktiivinen, 2 KP)",
+        description: "Tämä tai viereinen ystävällinen yksikkö saa +2 Suoja-arvoon seuraavaan omaan vuoroon asti. Ei voi käyttää ajoneuvoihin.",
+        isDamagedEffect: true
+      },
+      {
+        name: "Pioneeriosaaminen (Passiivinen)",
+        description: "Tällä yksiköllä on erikoiskykyjä murtosulutteita vastaan: <ul><li>Suorittaa sulutteen havaitsemisen (Aktiivinen tiedustelu) ja varovaisen purkamisen alemmalla vaikeusasteella (DC 10).</li><li>Epäonnistuneen purkuyrityksen jälkeen voi yrittää välttää miinan laukeamisen TT-testillä (DC 10).</li><li>Suunniteltu purkaminen (DC 11) puhdistaa kerralla koko 2x2 cm suluteruudun.</li></ul>",
+      },
+      {
+        name: "Suluttaminen (Aktiivinen, 1 KP)",
+        description: "Voi käyttää koko vuoronsa asettaakseen viereiseen ruutuun 2x2 cm jalkaväki- tai panssarimiinoitteen. Tämä kuluttaa yhden Miinoite-resurssin. Toimintoa ei voi suorittaa, jos yksikkö on vihollisen tulen alla (Lamautunut-tilassa).",
+      }
+    ],
+    ammo: { "<strong>Miinoitteet</strong>": 2 }
+  },
+  "unit-cv90": {
+    name: "CV9030FIN Rynnäkkö&shy;panssari&shy;vaunu",
+    type: "Rynnäkköpanssarivaunu",
+    stats: { tk: 35, tt: "+2", s: 18, m: "+3", l: 9 },
+    armament: [
+      { name: "30mm Konetykki", damage: "2d10 (PST)", attack: "+5", notes: "Jalkaväkeä vastaan 1d10. Sarjatuli mahdollinen (3 laukausta, -2 hyökkäysheittoon per laukaus). Eli 1. laukaus normaalisti ja seuraavat kaksi laukausta -2 rangaistuksella (ei kumulatiivinen)." },
+      { name: "Konekivääri", damage: "d8", attack: "+3", notes: "-" }
+    ],
+    abilities: [
+      {
+        name: "Kuljetuskyky (Passiivinen)",
+        description: "Voi kuljettaa yhden jalkaväkiryhmän suojassa jalkaväkiaseistuksen tulelta."
+      },
+      {
+        name: "Jalkaväen Tulituki (Passiivinen)",
+        description: "Yksiköt, jotka ovat poistuneet tästä vaunusta tai ovat 2cm säteellä, saavat +1 hyökkäysheittoihinsa."
+      }
+    ],
+    ammo: {}
+  },
+  "unit-leopard-2a6": {
+    name: "Leopard 2A6 taistelu&shy;panssari&shy;vaunu",
+    type: "Panssarivaunu",
+    stats: { tk: 50, tt: "+2", s: 22, m: "+4", l: 8 },
+    armament: [
+      { name: "120mm tykki", damage: "2d12 (PST)", attack: "+7", notes: "Jalkaväkeä vastaan d10." },
+      { name: "Konekiväärit", damage: "d8", attack: "+4", notes: "-" }
+    ],
+    abilities: [
+      {
+        name: "Ylivoimainen Tulenjohto (Passiivinen)",
+        description: "Ohittaa kohteen perussuojabonuksen (esim. metsä, kevyt suoja). Ei koske raskasta suojaa (esim. bunkkeri, rakennus).",
+        isDamagedEffect: true
+      },
+      {
+        name: "Metsästäjä-Tappaja (Aktiivinen, 2 KP)",
+        description: "Voi ampua pääaseella kaksi kertaa yhden vuoron aikana. Toinen laukaus suoritetaan -2 rangaistuksella hyökkäysheittoon."
+      }
+    ],
+    ammo: {}
+  }
 };
 
 // --- PUNAISET YKSIKÖT ---
