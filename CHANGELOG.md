@@ -2,6 +2,13 @@
 
 Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -sotapeliin.
 
+## [2025-07-23]
+
+### Lisätty
+
+* **Uudet yksiköt:** Lisätty uudet yksikkömääritelmät `Pioneeriryhmä`, `CV9030FIN` ja `Leopard 2A6` -yksiköille.
+* **QR-koodi:** Lisätty projektiin QR-koodi, joka ohjaa pelin verkkosivuille.
+
 ## [2025-07-22]
 
 ### Lisätty
