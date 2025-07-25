@@ -66,14 +66,26 @@ window.buildSidebar = function () {
   }
 };
 
-/**
- * Apufunktio, joka luo ja lisää linkin sivupalkkiin.
- */
+/** Apufunktio, joka luo ja lisää linkin sivupalkkiin. **/
 function createAndAppendLink(headerElement, text, level, menuElement, isUnitLink = false) {
   let slug = isUnitLink ? headerElement.closest(".unit-card")?.id : headerElement.id;
   if (!slug) {
     const originalText = text.replace(/^[\d\.]+\s/, "");
-    slug = "header-" + originalText.toString().toLowerCase().replace(/\s+/g, "-").replace(/[^\w\-]+/g, "");
+    
+    // Luodaan siisti linkki, joka muuntaa ääkköset ja välilyönnit
+    slug = originalText
+        .toString()
+        .toLowerCase()
+        .replace(/ä/g, 'a')
+        .replace(/ö/g, 'o')
+        .replace(/å/g, 'oo')
+        .replace(/\s+/g, "-")
+        .replace(/[^\w\-]+/g, "")
+        .replace(/\-\-+/g, "-");
+
+    // Lisätään header-etuliite varmuuden vuoksi
+    slug = "header-" + slug;
+
     headerElement.id = slug;
   }
   if (!slug) return;
@@ -92,10 +104,12 @@ function createAndAppendLink(headerElement, text, level, menuElement, isUnitLink
     e.preventDefault();
     const targetElement = document.getElementById(slug);
     if (targetElement) {
-      const navbarHeight = document.getElementById("main-navbar")?.offsetHeight || 70;
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - navbarHeight - 48;
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+        const navbarHeight = document.getElementById("main-navbar")?.offsetHeight || 70;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - navbarHeight - 48;
+
+        history.pushState(null, '', `#${slug}`);
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
     const sidebar = document.getElementById("sidebar");
     if (window.innerWidth < 768 && sidebar) sidebar.classList.add("sidebar-hidden");
@@ -103,9 +117,7 @@ function createAndAppendLink(headerElement, text, level, menuElement, isUnitLink
   menuElement.appendChild(link);
 }
 
-/**
- * Päivittää aktiivisen linkin korostuksen ja vierittää sivupalkkia.
- */
+/** Päivittää aktiivisen linkin korostuksen ja vierittää sivupalkkia. **/
 function updateActiveLinkOnScroll() {
   const navbarHeight = document.getElementById('main-navbar')?.offsetHeight || 70;
   const activationLine = navbarHeight + 50;
@@ -144,7 +156,12 @@ function updateActiveLinkOnScroll() {
         newActiveLink.classList.add('active');
         newActiveLink.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
+
+      const newUrl = `${window.location.pathname}#${activeId}`;
+      history.replaceState(null, '', newUrl);
     }
+  } else {
+    history.replaceState(null, '', window.location.pathname);
   }
 }
 
