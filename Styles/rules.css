@@ -1756,13 +1756,13 @@ a:has(> .lisenssi-kuvake-yksi):hover {
 
 /* Bannerin taustakuva, joka suosii WebP-formaattia */
 .main-banner {
-    background-image: url('../images/bannertkd.jpg');
+    background-image: url('https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629036/bannertkd_ocvjff.jpg');
     /* Varakuva vanhoille selaimille */
 }
 
-@supports (background-image: url('../images/bannertkd.webp')) {
+@supports (background-image: url('https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629036/bannertkd_uc8meh.webp')) {
     .main-banner {
-        background-image: url('../images/bannertkd.webp');
+        background-image: url('https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629036/bannertkd_uc8meh.webp');
         /* Uudempi, tehokkaampi kuva */
     }
 }
