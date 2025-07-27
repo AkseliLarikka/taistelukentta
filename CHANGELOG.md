@@ -2,6 +2,19 @@
 
 Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -sotapeliin.
 
+## [2025-07-27]
+
+### Muutettu
+
+* **Sisällön selkeytys:** Uudistettu useiden sivujen HTML-rakennetta ja parannettu sisältöjen selkeyttä ja luettavuutta.
+* **Infrastruktuurin päivitys:** Siirretty kaikki kuvatiedostot pois Git-repositoriosta [Cloudinary](https://cloudinary.com/)-palveluun sivuston latausnopeuden ja ylläpidettävyyden parantamiseksi. Kuvalinkit on päivitetty automaattisesti uuden `korvaakuvat.py`-skriptin avulla.
+
+## [2025-07-25]
+
+### Muutettu
+
+* **Navigaation parannus:** Parannettu sivupalkin navigointilinkkien luontia ja vierityskäyttäytymistä (`rules.js`), mikä tekee sivuston selaamisesta sujuvampaa.
+
 ## [2025-07-23]
 
 ### Lisätty
