@@ -11,6 +11,13 @@ window.blueUnitData = {
     armament: [
       { name: "Jalkaväkiaseistus", damage: "d6", attack: "+3", notes: "-" },
       {
+        name: "Kevyt kertasinko",
+        damage: "1d12 (PST)",
+        attack: "+2",
+        notes:
+          "Vain ajoneuvoja vastaan. Heikompi panssarinläpäisy raskaasti panssaroituja maaleja (kuten T-72) vastaan (-2 vahinkoon).",
+      },
+      {
         name: "Tiedustelulennokki",
         damage: "-",
         attack: "+5 (Tied.)",
@@ -30,7 +37,7 @@ window.blueUnitData = {
         isDamagedEffect: true,
       },
     ],
-    ammo: {},
+    ammo: { "Kevyt kertasinko": 2 },
   },
   "unit-tukiryhma": {
     name: "Tukiryhmä (KK)",
@@ -60,7 +67,8 @@ window.blueUnitData = {
         name: "Raskas kertasinko",
         damage: "2d12 (PST)",
         attack: "+2",
-        notes: "Uudelleenlataus vaatii Varustautuminen-toiminnon.",
+        notes:
+          "Kantama 15cm. Uudelleenlataus vaatii Varustautuminen-toiminnon.",
       },
       {
         name: "Lähipuolustusaseet",
@@ -98,7 +106,7 @@ window.blueUnitData = {
         name: "81mm Kranaatinheitin",
         damage: "2d6",
         attack: "+1",
-        notes: "Vaikutusalue 1 ruutu.",
+        notes: "Kantama 5-15 cm. Vaikutusalue 1 ruutu.",
       },
       {
         name: "Lähipuolustusaseet",
@@ -116,32 +124,64 @@ window.blueUnitData = {
     ],
     ammo: { "<strong>Ammukset</strong>": 4 },
   },
-  "unit-huoltoryhma": {
-    name: "Huolto- ja lääkintäryhmä",
+  "unit-laakintaryhma": {
+    name: "Lääkintäryhmä",
     type: "Tuki (4 sotilasta)",
-    stats: { tk: 8, tt: "+2", s: 9, m: "+1", l: 6 },
+    stats: { tk: 8, tt: "+2", s: 9, m: "+1", l: 8 },
     armament: [
       {
         name: "Henkilökohtainen aseistus",
         damage: "d6",
         attack: "+0",
-        notes: "Vain itsepuolustukseen <=5cm etäisyydellä.",
+        notes: "Vain itsepuolustukseen <=5cm.",
       },
     ],
     abilities: [
       {
-        name: "Lääkintä (Aktiivinen, 2 KP)",
+        name: "Lääkintä (Aktiivinen, 1 KP)",
         description:
-          "Kohdista ystävälliseen yksikköön. Jos kohteen TK on alle 50%, palauta sen TK arvoon 50% + tämän ryhmän TT-bonus. Jos kohteen TK on yli 50%, se parantaa 1d4 + tämän ryhmän TT-bonus verran TK:ta.",
+          "Palauttaa viereiselle jalkaväkiyksikölle 1d4+1 TK:ta. Ei voi ylittää maksimi-TK:ta. Kuluttaa yhden Lääkintätarvike-resurssin.",
         isDamagedEffect: true,
       },
       {
-        name: "Ammustäydennys (Aktiivinen, 3 KP)",
+        name: "Huoltotoiminta (Passiivinen)",
         description:
-          "Palauttaa 1d4 ammusta viereiselle yksikölle (ei yli yksikön maksimikapasiteetin). Voidaan käyttää 2 kertaa/taistelu.",
+          "Voi täydentää Lääkintätarvike-resurssejaan ollessaan Komppanianpäälliköstä 5cm säteellä.",
       },
     ],
-    ammo: {},
+    ammo: { "<strong>Lääkintätarvikkeet</strong>": 3 },
+  },
+  "unit-huoltoryhma": {
+    name: "Huoltoryhmä",
+    type: "Tuki (4 sotilasta)",
+    stats: { tk: 8, tt: "+2", s: 9, m: "+1", l: 8 },
+    armament: [
+      {
+        name: "Henkilökohtainen aseistus",
+        damage: "d6",
+        attack: "+0",
+        notes: "Vain itsepuolustukseen <=5cm.",
+      },
+    ],
+    abilities: [
+      {
+        name: "Ammustäydennys (Aktiivinen, 1 KP)",
+        description:
+          "Palauttaa viereiselle yksikölle yhden ammuksen (esim. PST-ohjus, KES, räjähde). Kuluttaa yhden Ammustäydennys-resurssin.",
+      },
+      {
+        name: "Kenttäkorjaus (Aktiivinen, 2 KP)",
+        description:
+          "Voi yrittää korjata vaurioitunutta ajoneuvoa onnistuneella TT-testillä (DC 14) palauttaen sille 2d8 TK:ta. Kuluttaa yhden Ammustäydennys-resurssin.",
+        isDamagedEffect: true,
+      },
+      {
+        name: "Huoltotoiminta (Passiivinen)",
+        description:
+          "Voi täydentää Ammustäydennys-resurssejaan ollessaan Komppanianpäälliköstä 5cm säteellä.",
+      },
+    ],
+    ammo: { "<strong>Ammustäydennykset</strong>": 3 },
   },
   "unit-sissi-jaakarit": {
     name: "Sissi-jääkärit",
@@ -154,13 +194,13 @@ window.blueUnitData = {
         name: "Kevyt kertasinko",
         damage: "1d12 (PST)",
         attack: "+2",
-        notes: "Ammus: 1 kpl.",
+        notes: "Ammus: 2 kpl.",
       },
       {
         name: "Tarkkuuskivääri",
         damage: "d10",
         attack: "+5",
-        notes: "Osuessaan voi lamauttaa erikoiskyvyn.",
+        notes: "Kantama 15cm. Osuessaan voi lamauttaa erikoiskyvyn.",
       },
     ],
     abilities: [
@@ -192,7 +232,7 @@ window.blueUnitData = {
         name: "Raskas tarkkuuskivääri",
         damage: "d12",
         attack: "+6",
-        notes: "Osuessaan voi lamauttaa erikoiskyvyn.",
+        notes: "Kantama 20cm. Osuessaan voi lamauttaa erikoiskyvyn.",
       },
     ],
     abilities: [
@@ -242,12 +282,12 @@ window.blueUnitData = {
     ammo: {},
   },
   "unit-tykistopatteri-155mm": {
-    name: "Tykistöpatteri (155mm)",
+    name: "Panssarihaupitsi&shy;patteri (K9 155mm)",
     type: "Epäorgaaninen tulituki",
     stats: { tk: 0, tt: "+0", s: 0, m: "+0", l: 0 },
     armament: [
       {
-        name: "155mm Kenttäkanuuna",
+        name: "155mm haupitsi",
         damage: "3d10",
         attack: "Ohjattu",
         notes: "Epäsuora tuli. Ks. sääntö 2.1.2 Taktisen tason taistelussa.",
@@ -267,72 +307,121 @@ window.blueUnitData = {
     ],
     ammo: { "<strong>Keskitykset</strong>": 4 },
   },
+  "unit-raketinheitin-mlrs": {
+    name: "Raskas Raketinheitin (MLRS)",
+    type: "Epäorgaaninen tulituki",
+    stats: { tk: 0, tt: "+0", s: 0, m: "+0", l: 0 },
+    armament: [
+      {
+        name: "Raskas Raketinheitin",
+        damage: "4d8",
+        attack: "Ohjattu",
+        notes: "Epäsuora tuli. Ks. sääntö 2.1.2 Taktisen tason taistelussa.",
+      },
+    ],
+    abilities: [
+      {
+        name: "Sulutuskäsky (Aktiivinen, 3 KP)",
+        description:
+          "Komppanianpäällikkö voi käyttää 3 KP kutsuakseen laajan tuli-iskun. Ks. <em>Taktisen tason taistelu</em> -sivulta sääntö 2.1.2 tarkempia ohjeita varten.",
+      },
+      {
+        name: "Kartan Ulkopuolinen Yksikkö (Passiivinen)",
+        description:
+          "Tätä yksikköä ei sijoiteta kartalle eikä se voi olla hyökkäyksen kohteena.",
+      },
+    ],
+    ammo: { "<strong>Keskitykset</strong>": 2 },
+  },
   "unit-pioneeriryhma": {
     name: "Pioneeriryhmä",
     type: "Jalkaväki (Erikoisryhmä, 8 sotilasta)",
     stats: { tk: 12, tt: "+4", s: 11, m: "+4", l: 6 },
     armament: [
       { name: "Jalkaväkiaseistus", damage: "d6", attack: "+3", notes: "-" },
-      { name: "Panokset", damage: "2d10", attack: "+4", notes: "Vain rakenteita ja ajoneuvoja vastaan <=2cm etäisyydellä." }
+      {
+        name: "Räjähdepanokset",
+        damage: "-",
+        attack: "-",
+        notes: "Erillisillä säännöillä, jotka on kuvattuna kyvyissä",
+      },
     ],
     abilities: [
       {
         name: "Linnoittautuminen (Aktiivinen, 2 KP)",
-        description: "Tämä tai viereinen ystävällinen yksikkö saa +2 Suoja-arvoon seuraavaan omaan vuoroon asti. Ei voi käyttää ajoneuvoihin.",
-        isDamagedEffect: true
+        description:
+          "Tämä tai viereinen ystävällinen yksikkö saa +2 Suoja-arvoon seuraavaan omaan vuoroon asti. Ei voi käyttää ajoneuvoihin.",
+        isDamagedEffect: true,
       },
       {
         name: "Pioneeriosaaminen (Passiivinen)",
-        description: "Tällä yksiköllä on erikoiskykyjä murtosulutteita vastaan: <ul><li>Suorittaa sulutteen havaitsemisen (Aktiivinen tiedustelu) ja varovaisen purkamisen alemmalla vaikeusasteella (DC 10).</li><li>Epäonnistuneen purkuyrityksen jälkeen voi yrittää välttää miinan laukeamisen TT-testillä (DC 10).</li><li>Suunniteltu purkaminen (DC 11) puhdistaa kerralla koko 2x2 cm suluteruudun.</li></ul>",
+        description:
+          "Tällä yksiköllä on erikoiskykyjä murtosulutteita vastaan: <ul><li>Suorittaa sulutteen havaitsemisen (Aktiivinen tiedustelu) ja varovaisen purkamisen alemmalla vaikeusasteella (DC 10).</li><li>Epäonnistuneen purkuyrityksen jälkeen voi yrittää välttää miinan laukeamisen TT-testillä (DC 10).</li><li>Suunniteltu purkaminen (DC 11) puhdistaa kerralla koko 2x2 cm suluteruudun.</li></ul>",
       },
       {
-        name: "Suluttaminen (Aktiivinen, 1 KP)",
-        description: "Voi käyttää koko vuoronsa asettaakseen viereiseen ruutuun 2x2 cm jalkaväki- tai panssarimiinoitteen. Tämä kuluttaa yhden Miinoite-resurssin. Toimintoa ei voi suorittaa, jos yksikkö on vihollisen tulen alla (Lamautunut-tilassa).",
-      }
+        name: "Räjähdepanokset (Aktiivinen, 1 KP)",
+        description:
+          "Yksikkö voi käyttää yhden erikoisräjähteistään: <ul><li><strong>Viuhkapanos:</strong> Asetetaan yhteen ruutuun ja päätetään suunta, mihin se tähdätään. Voi laukaista reaktiona, kun vihollinen liikkuu tähän tai viereiseen ruutuun. Aiheuttaa <strong>2d8 vahinkoa</strong> kaikille jalkaväkiyksiköille alueella.</li><li><strong>Kylkipanos:</strong> Asetetaan samoilla säännöillä kuin viuhkapanos. Aiheuttaa <strong>1d12 PST-vahinkoa.</strong></li></ul>",
+      },
     ],
-    ammo: { "<strong>Miinoitteet</strong>": 2 }
+    ammo: { "<strong>Erikoisräjähteet</strong>": 2 },
   },
   "unit-cv90": {
     name: "CV9030FIN Rynnäkkö&shy;panssari&shy;vaunu",
     type: "Rynnäkköpanssarivaunu",
     stats: { tk: 35, tt: "+2", s: 18, m: "+3", l: 9 },
     armament: [
-      { name: "30mm Konetykki", damage: "2d10 (PST)", attack: "+5", notes: "Jalkaväkeä vastaan 1d10. Sarjatuli mahdollinen (3 laukausta, -2 hyökkäysheittoon per laukaus). Eli 1. laukaus normaalisti ja seuraavat kaksi laukausta -2 rangaistuksella (ei kumulatiivinen)." },
-      { name: "Konekivääri", damage: "d8", attack: "+3", notes: "-" }
+      {
+        name: "30mm Konetykki",
+        damage: "2d10 (PST)",
+        attack: "+5",
+        notes:
+          "Jalkaväkeä vastaan 1d10. Sarjatuli mahdollinen (3 laukausta, -2 hyökkäysheittoon per laukaus). Eli 1. laukaus normaalisti ja seuraavat kaksi laukausta -2 rangaistuksella (ei kumulatiivinen).",
+      },
+      { name: "Konekivääri", damage: "d8", attack: "+3", notes: "-" },
     ],
     abilities: [
       {
         name: "Kuljetuskyky (Passiivinen)",
-        description: "Voi kuljettaa yhden jalkaväkiryhmän suojassa jalkaväkiaseistuksen tulelta."
+        description:
+          "Voi kuljettaa yhden jalkaväkiryhmän suojassa jalkaväkiaseistuksen tulelta.",
       },
       {
         name: "Jalkaväen Tulituki (Passiivinen)",
-        description: "Yksiköt, jotka ovat poistuneet tästä vaunusta tai ovat 2cm säteellä, saavat +1 hyökkäysheittoihinsa."
-      }
+        description:
+          "Yksiköt, jotka ovat poistuneet tästä vaunusta tai ovat 2cm säteellä, saavat +1 hyökkäysheittoihinsa.",
+      },
     ],
-    ammo: {}
+    ammo: {},
   },
   "unit-leopard-2a6": {
     name: "Leopard 2A6 taistelu&shy;panssari&shy;vaunu",
     type: "Panssarivaunu",
     stats: { tk: 50, tt: "+2", s: 22, m: "+4", l: 8 },
     armament: [
-      { name: "120mm tykki", damage: "2d12 (PST)", attack: "+7", notes: "Jalkaväkeä vastaan d10." },
-      { name: "Konekiväärit", damage: "d8", attack: "+4", notes: "-" }
+      {
+        name: "120mm tykki",
+        damage: "2d12 (PST)",
+        attack: "+7",
+        notes: "Jalkaväkeä vastaan d10.",
+      },
+      { name: "Konekiväärit", damage: "d8", attack: "+4", notes: "-" },
     ],
     abilities: [
       {
         name: "Ylivoimainen Tulenjohto (Passiivinen)",
-        description: "Ohittaa kohteen perussuojabonuksen (esim. metsä, kevyt suoja). Ei koske raskasta suojaa (esim. bunkkeri, rakennus).",
-        isDamagedEffect: true
+        description:
+          "Ohittaa kohteen perussuojabonuksen (esim. metsä, kevyt suoja). Ei koske raskasta suojaa (esim. bunkkeri, rakennus).",
+        isDamagedEffect: true,
       },
       {
         name: "Metsästäjä-Tappaja (Aktiivinen, 2 KP)",
-        description: "Voi ampua pääaseella kaksi kertaa yhden vuoron aikana. Toinen laukaus suoritetaan -2 rangaistuksella hyökkäysheittoon."
-      }
+        description:
+          "Voi ampua pääaseella kaksi kertaa yhden vuoron aikana. Toinen laukaus suoritetaan -2 rangaistuksella hyökkäysheittoon.",
+      },
     ],
-    ammo: {}
-  }
+    ammo: {},
+  },
 };
 
 // --- PUNAISET YKSIKÖT ---
@@ -358,6 +447,35 @@ window.redUnitData = {
       },
     ],
     ammo: {},
+  },
+  "unit-pst-ryhma-red": {
+    name: "PST-ryhmä (Kornet)",
+    type: "Jalkaväki (3 sotilasta)",
+    stats: { tk: 8, m: "+2", s: 10, l: 5, tt: "+2" },
+    armament: [
+      {
+        name: "Panssarintorjuntaohjus (Kornet)",
+        attack: "+6",
+        damage: "2d12+2 (PST)",
+        notes:
+          "Kantama 15cm. Vaatii koko vuoron ampuma-asemaan asettuakseen ennen ensimmäistä laukausta.",
+      },
+      {
+        name: "Lähipuolustusaseet",
+        attack: "+2",
+        damage: "d6",
+        notes: "Vain <=5cm etäisyydellä.",
+      },
+    ],
+    abilities: [
+      {
+        name: "Tulenjohto-ohjus (Aktiivinen)",
+        description:
+          "Ohjus hakeutuu maaliin, joten ampuja voi vaihtaa asemaa heti laukaisun jälkeen. Yksikkö voi liikkua puolet liikkumisarvostaan ammuttuaan.",
+        isDamagedEffect: true,
+      },
+    ],
+    ammo: { "<strong>Ohjukset</strong>": 3 },
   },
   "unit-btr-82a": {
     name: "BTR-82A",
@@ -445,7 +563,8 @@ window.redUnitData = {
         name: "Tarkkuuskivääri",
         attack: "+3",
         damage: "d10",
-        notes: "Osuessaan voi lamauttaa yhden erikoiskyvyn vuoron ajaksi.",
+        notes:
+          "Kantama 15cm. Osuessaan voi lamauttaa yhden erikoiskyvyn vuoron ajaksi.",
       },
     ],
     abilities: [
@@ -473,7 +592,8 @@ window.redUnitData = {
         name: "Termobaarinen raketinheitin",
         attack: "+2",
         damage: "2d8",
-        notes: "Ohittaa suojan, +2 vahinkoa rakennuksissa oleviin yksikköihin.",
+        notes:
+          "Kantama 10cm. Ohittaa suojan, +2 vahinkoa rakennuksissa oleviin yksikköihin.",
       },
     ],
     abilities: [

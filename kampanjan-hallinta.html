@@ -163,6 +163,23 @@
                         määrittelee aina skenaariokohtaisesti tarkemmat rajoitukset, kuten suurimman sallitun
                         yksikkömäärän tai pistearvon.</strong>
                 </p>
+                <h3>Huolto ja Täydennykset Taistelun Aikana</h3>
+                <p>
+                    Lääkintä- ja Huoltoryhmät ovat elintärkeitä komppanian toimintakyvyn ylläpitämisessä. Niillä on
+                    rajallinen määrä resursseja ("Lääkintätarvikkeet", "Ammustäydennykset"), joita ne voivat käyttää
+                    etulinjassa.
+                </p>
+                <ul>
+                    <li><strong>Resurssien Kulutus:</strong> Jokainen erikoiskyvyn käyttö kuluttaa yhden resurssin.</li>
+                    <li><strong>Täydentäminen:</strong> Kun resurssit ovat vähissä, yksikön on palattava
+                        Komppanianpäällikön 5cm säteelle. Vuoronsa komentovaiheessa se voi ilmoittaa täydentävänsä
+                        varastojaan, jolloin kaikki sen resurssit palautuvat maksimiin. Tämä toiminto itsessään ei maksa
+                        KP:tä, mutta vaatii yksikön siirtymisen pois etulinjasta.</li>
+                </ul>
+                <p>
+                    Tämä mekaniikka simuloi huoltoreittejä ja pakottaa pelaajat tekemään strategisia päätöksiä
+                    yksiköidensä kierrättämisestä ja Komppanianpäällikön sijoittumisesta.
+                </p>
                 <h3>Yksiköiden Seuranta: Komppanian Vahvuusluettelo</h3>
                 <p>
                     Komppanian Vahvuusluettelo on kampanjan tärkein työkalu. Se on taulukko, johon kirjataan kaikki
@@ -253,9 +270,10 @@
                 <h2>Taisteluiden välinen toipuminen</h2>
                 <h3>Kenttälääkintä</h3>
                 <p>Täydellinen toipuminen vaatii resursseja, mutta perusensiapu on aina saatavilla. Taistelun jälkeen
-                    jokaisen "<span class="glossary-term" data-term="vaurioitunut">Vaurioitunut</span>"-tilassa (alle 50% <span class="glossary-term"
-                        data-term="taistelukunto">TK</span>) olevan yksikön <span class="glossary-term"
-                        data-term="taistelukunto">Taistelukunto</span> palautetaan automaattisesti <strong>puoleen (50
+                    jokaisen "<span class="glossary-term" data-term="vaurioitunut">Vaurioitunut</span>"-tilassa (alle
+                    50% <span class="glossary-term" data-term="taistelukunto">TK</span>) olevan yksikön <span
+                        class="glossary-term" data-term="taistelukunto">Taistelukunto</span> palautetaan automaattisesti
+                    <strong>puoleen (50
                         %) sen maksimiarvosta, minkä jälkeen siihen lisätään kaksi pistettä</strong>. Tämä ei kuluta
                     Täydennyspisteitä (TP).
                 </p>
@@ -309,8 +327,10 @@
                     </li>
                     <li>
                         <strong>Tappioiden Opetus:</strong> Yksiköt, jotka olivat taistelun lopussa
-                        <strong><span class="glossary-term" data-term="vaurioitunut">Vaurioitunut</span></strong>-tilassa (alle 50% <span class="glossary-term"
-                            data-term="taistelukunto">TK</span>), saavat vain <strong>puolet</strong>
+                        <strong><span class="glossary-term"
+                                data-term="vaurioitunut">Vaurioitunut</span></strong>-tilassa (alle 50% <span
+                            class="glossary-term" data-term="taistelukunto">TK</span>), saavat vain
+                        <strong>puolet</strong>
                         niille jaetusta <span class="glossary-term" data-term="xp">XP</span>-määrästä (pyöristettynä
                         alas).
                     </li>
@@ -373,6 +393,101 @@
                     erikoiskyvyt voivat kuitenkin muuttaa taistelun kulkua, ja pelinjohtajan tuleekin huomioida tämä
                     skenaarioiden suunnittelussa tasapainon säilyttämiseksi.
                 </p>
+
+                <h2>Armeijan Luominen Pisteillä</h2>
+                <p>
+                    Jokaisen skenaarion alussa (tai kampanjan alussa) pelaajat kokoavat joukkonsa käyttämällä ennalta
+                    määrättyä pistemäärää. Tämä antaa vapauden räätälöidä joukkueiden kokoonpanoja tehtävän vaatimusten
+                    mukaisesti.
+                </p>
+                <ul>
+                    <li><strong>Pistemäärä per Joukkue:</strong> Jokainen Joukkueenjohtaja saa käyttöönsä <strong>100
+                            pistettä</strong> joukkueensa muodostamiseen.</li>
+                    <li><strong>Komppanianpäällikkö:</strong> Yksi pelaajista toimii Komppanianpäällikkönä. Hänen
+                        johtamansa yksikkö (Komppanianpäällikkö-yksikkö) on <strong>ilmainen</strong> eikä kuluta
+                        pisteitä.</li>
+                    <li><strong>Joukkueen Rajoitukset:</strong> Yksi joukkue voi sisältää enintään <strong>4
+                            ryhmää</strong>.</li>
+                    <li><strong>Kampanjasääntö:</strong> Kampanjassa käyttämättä jääneet pisteet siirtyvät pelaajan
+                        henkilökohtaiseen "varantoon", jota voi käyttää myöhemmissä taisteluissa täydennyksiin tai
+                        vahvistuksiin.</li>
+                </ul>
+
+                <h3>Yksiköiden Pistehinnat</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Yksikkö</th>
+                                <th>Pistehinta</th>
+                                <th>Huomioita</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jääkäriryhmä</td>
+                                <td><strong>20 pistettä</strong></td>
+                                <td>Monikäyttöinen perusyksikkö.</td>
+                            </tr>
+                            <tr>
+                                <td>Tukiryhmä (KK)</td>
+                                <td><strong>25 pistettä</strong></td>
+                                <td>Vahva tulituki ja lamautuskyky.</td>
+                            </tr>
+                            <tr>
+                                <td>PST-ryhmä</td>
+                                <td><strong>30 pistettä</strong></td>
+                                <td>Erikoistunut panssarintorjuntaan.</td>
+                            </tr>
+                            <tr>
+                                <td>Kranaatinheitinryhmä (81mm)</td>
+                                <td><strong>25 pistettä</strong></td>
+                                <td>Orgaaninen epäsuora tuli.</td>
+                            </tr>
+                            <tr>
+                                <td>Lääkintäryhmä</td>
+                                <td><strong>20 pistettä</strong></td>
+                                <td>Parantaa yksiköitä, mutta heikko taistelussa.</td>
+                            </tr>
+                            <tr>
+                                <td>Huoltoryhmä</td>
+                                <td><strong>20 pistettä</strong></td>
+                                <td>Täydentää ammuksia ja korjaa ajoneuvoja.</td>
+                            </tr>
+                            <tr>
+                                <td>Sissi-jääkärit</td>
+                                <td><strong>45 pistettä</strong></td>
+                                <td>Eliittiyksikkö erikoistehtäviin.</td>
+                            </tr>
+                            <tr>
+                                <td>Pioneeriryhmä</td>
+                                <td><strong>30 pistettä</strong></td>
+                                <td>Suluttaa ja purkaa esteitä.</td>
+                            </tr>
+                            <tr>
+                                <td>CV9030FIN</td>
+                                <td><strong>70 pistettä</strong></td>
+                                <td>Raskas tulituki ja kuljetuskyky.</td>
+                            </tr>
+                            <tr>
+                                <td>Leopard 2A6</td>
+                                <td><strong>80 pistettä</strong></td>
+                                <td>Äärimmäisen voimakas, mutta kallis.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Vahvistukset kesken taistelun</h4>
+                <p>
+                    Pelaaja voi käyttää säästämiään kampanjapisteitä ostaakseen vahvistuksia kesken taistelun.
+                </p>
+                <ul>
+                    <li><strong>Hinta:</strong> Vahvistuksena ostetun yksikön hinta on <strong>150%</strong> sen
+                        normaalista pistehinnasta.</li>
+                    <li><strong>Saapuminen:</strong> Vahvistusyksikkö saapuu komppanian esikuntaan (eli sinne missä
+                        komppanianpäällikkö on kartalla) seuraten samoja viivesääntöjä kuin epäsuora tulituki.</li>
+                </ul>
 
                 <h2>Tarinalliset Tavoitteet ja Pelaajien Roolit</h2>
                 <p>
@@ -453,24 +568,30 @@
         <div class="scroll-row">
             <div class="scroll-column">
                 <button id="scroll-top" title="Sivun alkuun (Kersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png" alt="Sivun alkuun">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png"
+                        alt="Sivun alkuun">
                 </button>
                 <button id="scroll-h2-up" title="Edellinen pääotsikko (Alikersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png" alt="Edellinen pääotsikko">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png"
+                        alt="Edellinen pääotsikko">
                 </button>
                 <button id="scroll-h3-up" title="Edellinen otsikko (Korpraali)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png" alt="Edellinen otsikko">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png"
+                        alt="Edellinen otsikko">
                 </button>
             </div>
             <div class="scroll-column">
                 <button id="scroll-bottom" title="Sivun loppuun (Kersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png" alt="Sivun loppuun" class="invert-icon">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png"
+                        alt="Sivun loppuun" class="invert-icon">
                 </button>
                 <button id="scroll-h2-down" title="Seuraava pääotsikko (Alikersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png" alt="Seuraava pääotsikko" class="invert-icon">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png"
+                        alt="Seuraava pääotsikko" class="invert-icon">
                 </button>
                 <button id="scroll-h3-down" title="Seuraava otsikko (Korpraali)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png" alt="Seuraava otsikko" class="invert-icon">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png"
+                        alt="Seuraava otsikko" class="invert-icon">
                 </button>
             </div>
         </div>

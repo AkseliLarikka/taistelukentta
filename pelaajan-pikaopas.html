@@ -154,40 +154,70 @@
                 </ul>
 
                 <h3 style="margin-top: 2em;">Moraalitestit</h3>
-                <p>Heitto:
-                    <code>d20 + <span class="glossary-term" data-term="moraali">Moraali</span> (<span class="glossary-term" data-term="moraali">M</span>)</code>
-                    vs. Vaikeusaste (<span class="glossary-term" data-term="dc">DC</span>). Epäonnistuminen
-                    johtaa
-                    <strong><span class="glossary-term" data-term="lamautunut">Lamautunut</span></strong>-tilaan,
-                    kriittinen epäonnistuminen (5 alle <span class="glossary-term" data-term="dc">DC</span>:n)
-                    <strong><span class="glossary-term" data-term="vetaytyy">Vetäytyy</span></strong>-tilaan.
+                <p>
+                    Yksikön henkinen kantti on avainasemassa. Kun yksikkö joutuu stressaavaan tilanteeseen, sen on
+                    tehtävä moraalitesti onnistuakseen.
                 </p>
+                <p>
+                    <strong>Heitto:</strong> <code>d20 + Moraalibonus (M)</code> vs. <strong>Vaikeusaste (DC)</strong>
+                </p>
+                <p>
+                    <strong>Seuraukset:</strong>
+                </p>
+                <ul>
+                    <li><strong>Onnistuminen:</strong> Ei vaikutusta, yksikkö jatkaa toimintaansa.</li>
+                    <li><strong>Epäonnistuminen 1-4 pisteellä:</strong> Yksikkö on <strong><span class="glossary-term"
+                                data-term="tarahtanyt">Tärähtänyt</span></strong>. Se kärsii -2 rangaistuksen seuraavaan
+                        hyökkäykseensä.</li>
+                    <li><strong>Epäonnistuminen 5+ pisteellä:</strong> Yksikkö on <strong><span class="glossary-term"
+                                data-term="lamautunut">Lamautunut</span></strong>. Se ei voi toimia, ja sitä vastaan
+                        hyökätessä saa Edun.</li>
+                    <li><strong>Epäonnistuminen 10+ pisteellä TAI luonnollinen 1:</strong> Yksikkö joutuu <strong><span
+                                class="glossary-term" data-term="vetaytyy">Vetäytyy</span></strong>-tilaan ja pakenee.
+                    </li>
+                </ul>
+
                 <div class="table-container">
                     <table>
+                        <caption>Moraalitestin vaikeusasteet</caption>
                         <thead>
                             <tr>
                                 <th>Tilanne</th>
-                                <th>Vaikeusaste (<span class="glossary-term" data-term="dc">DC</span>)</th>
+                                <th><span class="glossary-term" data-term="dc">DC</span></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Kärsii vahinkoa ensimmäistä kertaa</td>
+                                <td>Kärsii vahinkoa ensimmäistä kertaa taistelussa</td>
                                 <td>10</td>
                             </tr>
                             <tr>
-                                <td><span class="glossary-term" data-term="taistelukunto">TK</span> putoaa
-                                    alle 50%</td>
+                                <td><span class="glossary-term" data-term="taistelukunto">TK</span> putoaa alle 50%
+                                    (joutuu <span class="glossary-term"
+                                        data-term="vaurioitunut">Vaurioitunut</span>-tilaan)</td>
                                 <td>12</td>
                             </tr>
                             <tr>
-                                <td>Joutuu epäsuoran tulen alle</td>
+                                <td>Joutuu epäsuoran tulen alle (vaikutusalueella)</td>
                                 <td>13</td>
                             </tr>
                             <tr>
-                                <td>Vieressä oleva oma yksikkö tuhoutuu/<span class="glossary-term"
-                                        data-term="vetaytyy">vetäytyy</span></td>
+                                <td>Ystävällinen yksikkö tuhoutuu tai <span class="glossary-term"
+                                        data-term="vetaytyy">vetäytyy</span> vieressä (≤ 5 cm säteellä)</td>
                                 <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>Näkee panssarivaunun lähietäisyydellä (≤ 5 cm)</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>Rynnäköinti murtosulutteen läpi</td>
+                                <td>14</td>
+                            </tr>
+                            <tr class="special-rule">
+                                <td colspan="2"><strong>Muista:</strong> Jos moraalitestin laukaiseva isku oli
+                                    <strong>Raskas Osuma</strong>, testin DC-arvoon lisätään +2.
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -216,6 +246,63 @@
                         Tilaan pääsee vain erikoiskyvyllä.</li>
                 </ul>
 
+                <h3 style="margin-top: 2em;">Taistelukunnon Vaikutukset</h3>
+                <p>
+                    Yksikön taistelukyky heikkenee sen kärsiessä tappioita. Alla oleva taulukko näyttää, mitä
+                    vaikutuksia Taistelukunnon (TK) laskulla on. Vaikutukset ovat kumulatiivisia.
+                </p>
+                <div class="table-container">
+                    <table>
+                        <caption>Taistelukunnon (TK) vaikutustaulukko</caption>
+                        <thead>
+                            <tr>
+                                <th>TK Taso</th>
+                                <th>Tila</th>
+                                <th>Vaikutukset</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>100% - 51%</strong></td>
+                                <td>Kunnossa</td>
+                                <td>Ei rangaistuksia.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>50% - 26%</strong></td>
+                                <td><span class="glossary-term" data-term="vaurioitunut">Vaurioitunut</span></td>
+                                <td>
+                                    <ul>
+                                        <li>Pakollinen Moraalitesti (DC 12).</li>
+                                        <li>Liike & Tuli-isku puolitettu.</li>
+                                        <li>Yksikkökortissa mainitut <span
+                                                class="vaurioitunut-tila">(Vaurioitunut)</span>-efektit aktivoituvat.
+                                        </li>
+                                        <li>Ansaitsee vain 50% XP:stä.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>25% - 1%</strong></td>
+                                <td><span class="glossary-term" data-term="lamautunut">Lamautunut</span></td>
+                                <td>
+                                    <ul>
+                                        <li>Kaikki edelliset vaikutukset.</li>
+                                        <li>Yksikkö on automaattisesti <span class="glossary-term"
+                                                data-term="lamautunut">Lamautunut</span>, kunnes sen TK nousee yli 25%.
+                                        </li>
+                                        <li>Ei voi suorittaa toimintoja.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>0%</strong></td>
+                                <td>Tuhottu</td>
+                                <td>Yksikkö poistetaan pelistä.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <h3 style="margin-top: 2em;">Maaston Vaikutukset Pelaajalle</h3>
                 <div class="table-container">
                     <table>
@@ -224,7 +311,8 @@
                             <tr>
                                 <th>Maastotyyppi</th>
                                 <th>Liikkeen Kustannuskerroin</th>
-                                <th><span class="glossary-term" data-term="suoja">Suojabonus</span> (<span class="glossary-term" data-term="suoja">S</span>)</th>
+                                <th><span class="glossary-term" data-term="suoja">Suojabonus</span> (<span
+                                        class="glossary-term" data-term="suoja">S</span>)</th>
                                 <th>Näkyvyysvaikutus</th>
                             </tr>
                         </thead>
@@ -245,13 +333,15 @@
                                 <td><strong>Metsä / Suo</strong></td>
                                 <td>x 2</td>
                                 <td>+4</td>
-                                <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span> yli 5 cm päähän</td>
+                                <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span> yli 5 cm
+                                    päähän</td>
                             </tr>
                             <tr>
                                 <td><strong>Tiheä metsä</strong></td>
                                 <td>x 3</td>
                                 <td>+6</td>
-                                <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span> yli 2 cm päähän</td>
+                                <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span> yli 2 cm
+                                    päähän</td>
                             </tr>
                             <tr>
                                 <td><strong>Rakennus / Asema</strong></td>
@@ -577,24 +667,30 @@
         <div class="scroll-row">
             <div class="scroll-column">
                 <button id="scroll-top" title="Sivun alkuun (Kersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png" alt="Sivun alkuun">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png"
+                        alt="Sivun alkuun">
                 </button>
                 <button id="scroll-h2-up" title="Edellinen pääotsikko (Alikersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png" alt="Edellinen pääotsikko">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png"
+                        alt="Edellinen pääotsikko">
                 </button>
                 <button id="scroll-h3-up" title="Edellinen otsikko (Korpraali)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png" alt="Edellinen otsikko">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png"
+                        alt="Edellinen otsikko">
                 </button>
             </div>
             <div class="scroll-column">
                 <button id="scroll-bottom" title="Sivun loppuun (Kersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png" alt="Sivun loppuun" class="invert-icon">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png"
+                        alt="Sivun loppuun" class="invert-icon">
                 </button>
                 <button id="scroll-h2-down" title="Seuraava pääotsikko (Alikersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png" alt="Seuraava pääotsikko" class="invert-icon">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png"
+                        alt="Seuraava pääotsikko" class="invert-icon">
                 </button>
                 <button id="scroll-h3-down" title="Seuraava otsikko (Korpraali)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png" alt="Seuraava otsikko" class="invert-icon">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png"
+                        alt="Seuraava otsikko" class="invert-icon">
                 </button>
             </div>
         </div>

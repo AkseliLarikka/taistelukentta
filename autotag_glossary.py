@@ -2,11 +2,11 @@ import os
 import re
 
 # Määritellään kansio, jossa HTML-tiedostot sijaitsevat
-ROOT_DIRECTORY = 'taistelukentta'
+ROOT_DIRECTORY = '.' # Oletetaan, että skripti ajetaan juurihakemistosta
 
 # ==============================================================================
 # PÄIVITETTY JA LAAJENNETTU SANASTO
-# Sisältää nyt uusia taivutusmuotoja ja on järjestetty aakkosjärjestykseen.
+# Sisältää nyt kaikki komppaniatason taktiikat ja muut keskeiset termit.
 # ==============================================================================
 GLOSSARY = {
     # === Lyhenteet ===
@@ -40,6 +40,7 @@ GLOSSARY = {
     "Hallintavyöhyke": "hallintavyöhyke",
     "Hallintavyöhykkeellä": "hallintavyöhyke",
     "Hallintavyöhykkeeltä": "hallintavyöhyke",
+    "Järjestäytynyt Vetäytyminen": "jarjestaytynyt-vetaytyminen",
     "Komentopiste": "kp",
     "Komentopisteen": "kp",
     "Komentopisteet": "kp",
@@ -57,12 +58,15 @@ GLOSSARY = {
     "Moraalitesti": "moraali",
     "Moraalitestin": "moraali",
     "Moraalitesteihin": "moraali",
-    "Moraalin Kohotus": "moraali", # Olettaen, että tämä viittaa yleiseen moraali-käsitteeseen
+    "Moraalin Kohotus": "moraali",
+    "Mottitaktiikka": "mottitaktiikka",
     "Näköyhteys": "los",
     "näköyhteyden": "los",
     "orgaaninen tulituki": "orgaaninen tulituki",
     "Orgaaninen Tulituki": "orgaaninen tulituki",
     "orgaanista tulta": "orgaaninen tulituki",
+    "Painopisteen Muodostaminen": "painopisteen-muodostaminen",
+    "Sitova Tuli": "sitova-tuli",
     "sodan sumu": "sodan sumu",
     "Sodan Sumu": "sodan sumu",
     "Suoja": "suoja",
@@ -73,6 +77,8 @@ GLOSSARY = {
     "Taitotaso": "taitotaso",
     "Taitotason": "taitotaso",
     "Tuli-isku": "tuli-isku",
+    "Tulitukipyyntö": "epäorgaaninen tulituki",
+    "Vahvistettu Maali": "vahvistettu-maali",
     "Vastakkainen heitto": "vastakkainen heitto",
     
     # === Tilaefektit ja niiden taivutusmuodot ===
@@ -126,18 +132,13 @@ def process_html_file(filepath, glossary):
     processed_parts = []
     # Käydään osat läpi
     for i, part in enumerate(parts):
-        # Jos osa on script- tai style-lohko (parittomat indeksit re.splitin tuloksessa),
-        # lisätään se takaisin sellaisenaan.
         if i % 2 == 1:
             processed_parts.append(part)
-        # Muussa tapauksessa osa on tavallista HTML-sisältöä, joka voidaan käsitellä.
         else:
             processed_parts.append(tag_terms_in_html(part, glossary))
             
-    # Yhdistetään osat takaisin kokonaiseksi dokumentiksi
     new_content = "".join(processed_parts)
 
-    # Tallennetaan tiedosto vain jos muutoksia on tehty
     if new_content != original_content:
         try:
             with open(filepath, 'w', encoding='utf-8') as f:
@@ -150,12 +151,13 @@ def process_html_file(filepath, glossary):
 
 def main():
     """Skriptin pääfunktio."""
-    if not os.path.isdir(ROOT_DIRECTORY):
-        print(f"VIRHE: KANSIOTA '{ROOT_DIRECTORY}' EI LÖYDY.")
-        print("Aja skripti samasta kansiosta, jossa 'taistelukentta'-kansio sijaitsee.")
+    project_root = 'akselilarikka/taistelukentta/taistelukentta-b37cef957ca0e3c105fab24324d2df01ab690a9e'
+    if not os.path.isdir(project_root):
+        print(f"VIRHE: KANSIOTA '{project_root}' EI LÖYDY.")
+        print("Aja skripti oikeasta juurihakemistosta.")
         return
 
-    for root, _, files in os.walk(ROOT_DIRECTORY):
+    for root, _, files in os.walk(project_root):
         for file in files:
             if file.endswith('.html'):
                 file_path = os.path.join(root, file)

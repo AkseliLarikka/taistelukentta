@@ -393,7 +393,8 @@
                     </table>
                 </div>
                 <h2>Yksiköt ja Ominaisuudet</h2>
-                <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629049/j%C3%A4%C3%A4k%C3%A4rit_mets%C3%A4ss%C3%A4_ygwrbx.png" alt="Jääkäriryhmä metsässä AI" class="kuvituskuva">
+                <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629049/j%C3%A4%C3%A4k%C3%A4rit_mets%C3%A4ss%C3%A4_ygwrbx.png"
+                    alt="Jääkäriryhmä metsässä AI" class="kuvituskuva">
                 <h3>Ominaisuus&shy;kortti Selitettynä</h3>
                 <p>
                     Jokainen ryhmä on yksi entiteetti, jolla on seuraavat ominaisuudet:
@@ -549,14 +550,12 @@
                     </li>
                     <li>
                         <strong><span class="glossary-term" data-term="piiloutunut">Piiloutunut</span>:</strong> Tämä
-                        tila kuvaa yksikköä, joka on aktiivisesti naamioitunut ja
-                        välttelee havaituksi tulemista.
+                        tila kuvaa yksikköä, joka on aktiivisesti naamioitunut ja välttelee havaituksi tulemista.
                         <ul>
                             <li><strong>Vaikutus:</strong> <span class="glossary-term"
                                     data-term="piiloutunut">Piiloutunut</span>-tilassa olevaa yksikköä ei voi valita
-                                suoran
-                                tai epäsuoran tulen kohteeksi, ellei hyökkääjä ole 5 cm tai lähempänä sitä. Tila
-                                estää myös joutumasta aluevaikutteisten kykyjen, kuten Lamauttava tuli, kohteeksi.
+                                suoran tai epäsuoran tulen kohteeksi, ellei hyökkääjä ole **2 cm tai lähempänä** sitä.
+                                Tila estää myös joutumasta aluevaikutteisten kykyjen, kuten Lamauttava tuli, kohteeksi.
                             </li>
                             <li><strong>Tilaan siirtyminen:</strong> Yksikkö voi siirtyä tähän tilaan ainoastaan
                                 käyttämällä kykyä, joka nimenomaisesti myöntää "<span class="glossary-term"
@@ -564,7 +563,7 @@
                             <li><strong>Tilan poistuminen:</strong> Tila poistuu välittömästi, jos yksikkö liikkuu,
                                 hyökkää tai käyttää muuta kuin <span class="glossary-term"
                                     data-term="piiloutunut">piiloutumiseen</span> liittyvää toimintoa, TAI jos
-                                vihollisyksikkö liikkuu 5 cm etäisyydelle siitä. Yksikkökortti voi määrittää
+                                vihollisyksikkö liikkuu **2 cm etäisyydelle** siitä. Yksikkökortti voi määrittää
                                 poikkeuksia tähän sääntöön.</li>
                         </ul>
                     </li>
@@ -578,7 +577,8 @@
                     tai huti, vaan se määräytyy sen mukaan, kuinka paljon hyökkäys ylittää tai alittaa kohteen
                     puolustuksen. Tämä korostaa taktisen päätöksenteon merkitystä.
                 </p>
-                <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629056/v%C3%A4ijytys_ujiq3x.png" alt="Väijytys AI" class="kuvituskuva">
+                <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629056/v%C3%A4ijytys_ujiq3x.png"
+                    alt="Väijytys AI" class="kuvituskuva">
 
                 <h4>Hyökkäyksen ratkaisu: Vaikutuksen asteet</h4>
                 <p>
@@ -667,14 +667,44 @@
                         <strong>1</strong>, johon lisätään normaalisti kaikki bonukset.
                         <br>
                         <strong>Lisävaikutus:</strong> Riippumatta lopputuloksesta, hyökkäävä yksikkö kärsii taktisen
-                        takaiskun. Pelinjohtaja valitsee tilanteeseen sopivimman:
-                        <ul>
-                            <li><strong>Asehäiriö:</strong> Yksikön aseistus kärsii hetkellisen toimintahäiriön. Se ei
-                                voi
-                                ampua seuraavalla vuorollaan.</li>
-                            <li><strong>Asema Paljastuu:</strong> Yksikön asema paljastuu täysin. Kaikki sitä vastaan
-                                tehdyt hyökkäykset saavat +2 bonuksen seuraavan pelivuoron alkuun asti.</li>
-                        </ul>
+                        takaiskun. Heitä d6 ja katso seuraus alla olevasta taulukosta:
+                        <div class="table-container" style="margin-top: 1em;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>d6 Tulos</th>
+                                        <th>Seuraus</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1-2</td>
+                                        <td><strong>Asehäiriö:</strong> Yksikön pääaseistus kärsii toimintahäiriön. Se
+                                            ei voi ampua seuraavalla vuorollaan.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3-4</td>
+                                        <td><strong>Asema Paljastuu:</strong> Yksikön tarkka sijainti paljastuu kaikille
+                                            vihollisille, jotka ovat 15 cm säteellä. Ne voivat kohdistaa siihen tulta
+                                            ilman tiedusteluheittoa seuraavan vuoron ajan.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><strong>Kommunikaatiokatkos:</strong> Yksikkö menettää hetkellisesti
+                                            yhteyden komentoketjuun. Se ei voi vastaanottaa tai hyötyä mistään
+                                            komentajan kyvyistä (esim. KP-siirto, taktiikat) seuraavan vuoron alkuun
+                                            asti.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td><strong>Hämäännys:</strong> Yksikkö on hetken epävarma ja altis
+                                            vastaiskulle. Seuraava sitä vastaan tehty hyökkäys saa <strong><span
+                                                    class="glossary-term" data-term="etu ja haitta">Edun</span>
+                                                (Advantage)</strong>.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </li>
                 </ul>
 
@@ -744,6 +774,7 @@
                 <h4><span class="glossary-term" data-term="moraali">Moraalitestitaulukko</span></h4>
                 <div class="table-container">
                     <table>
+                        <caption>Moraalitestin vaikeusasteet</caption>
                         <thead>
                             <tr>
                                 <th>Tilanne</th>
@@ -761,8 +792,7 @@
                                 <td>12</td>
                             </tr>
                             <tr>
-                                <td>Epäsuora tuli omalla <span class="glossary-term"
-                                        data-term="hallintavyöhyke">ZoC</span>:lla</td>
+                                <td>Joutuu epäsuoran tulen alle</td>
                                 <td>13</td>
                             </tr>
                             <tr>
@@ -777,6 +807,11 @@
                             <tr>
                                 <td>Rynnäköinti murtosulutteen läpi</td>
                                 <td>14</td>
+                            </tr>
+                            <tr class="special-rule">
+                                <td colspan="2"><strong>Muista:</strong> Jos moraalitestin laukaiseva isku oli
+                                    <strong>Raskas Osuma</strong> (+5 yli puolustuksen), testin DC-arvoon lisätään +2.
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -808,7 +843,8 @@
                     Säde lasketaan myös kulmittaisilla ruuduilla. Esimerkkikuvassa on merkitty punaisella X-merkillä
                     yksikön sijainti ja keltaisella sen ympärillä oleva <span class="glossary-term"
                         data-term="hallintavyöhyke">hallintavyöhyke</span>.
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629055/sade_mrsp3q.png" alt="Säde esimerkki">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629055/sade_mrsp3q.png"
+                        alt="Säde esimerkki">
                 </p>
 
                 <h3><span class="glossary-term" data-term="ansat ja sulutteet">Murtosulutteet</span></h3>
@@ -976,6 +1012,11 @@
                     tiedusteluheitolla, vaan vihollisen on liikuttava sen lähelle (yleensä 5 cm päähän) paljastaakseen
                     sen automaattisesti.
                 </p>
+                <h4>Tiedustelun Peruskantama</h4>
+                <p>
+                    Ellei yksiköllä ole erityistä tiedustelukykyä (kuten lennokki), sen aktiivisen tiedustelun
+                    peruskantama on sama kuin sen perusaseistuksen kantama, jalkaväkiaseilla tyypillisesti <strong>5 cm</strong>.
+                </p>
                 <h4>Havainnon Tasot:</h4>
                 <div class="table-container">
                     <table>
@@ -1132,7 +1173,8 @@
                     <strong>taktisesti merkittävin piirre</strong> kulloisenkin toiminnon kannalta. Seuraa alla olevaa
                     hierarkiaa.
                 </p>
-                <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629054/komentajan_kartta_uvzzkk.png" alt="Komentajan kartta AI" class="kuvituskuva">
+                <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629054/komentajan_kartta_uvzzkk.png"
+                    alt="Komentajan kartta AI" class="kuvituskuva">
 
                 <h3>Vaikutus Liikkumiseen:</h3>
                 <p>Kun yksikkö liikkuu ruudun läpi, sen liikkumisnopeuteen vaikuttaa ruudun nopein mahdollinen reitti
@@ -1323,11 +1365,25 @@
                     </li>
                 </ul>
                 <h3>Korkeuserot</h3>
-                <p>Yksikkö, joka on selkeästi korkeammalla maastonkohdalla kuin kohde (vähintään 4 korkeuskäyrää eroa),
-                    saa <strong>+2
-                        bonuksen</strong> sekä tiedustelu- että hyökkäysheittoihin kyseistä kohdetta vastaan.
-                    Matalammalla oleva yksikkö kärsii vastaavasti <strong>-2 rangaistuksen</strong> korkeammalla olevaa
-                    kohtaan.</p>
+                <p>
+                    Korkeuserot (noin 10 metriä per korkeuskäyrä 1:10 000 kartalla) tuovat merkittäviä taktisia etuja ja
+                    haittoja.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Taktinen etu (väh. 4 käyrän ero):</strong> Yksikkö, joka on vähintään neljä (4)
+                        korkeuskäyrää (n. 40m) kohdettaan ylempänä, saa <strong>+2 bonuksen</strong> kaikkiin hyökkäys-
+                        ja tiedusteluheittoihinsa kyseistä kohdetta vastaan. Matalammalla oleva kärsii vastaavasti
+                        <strong>-2 rangaistuksen</strong> ylöspäin suuntautuviin heittoihinsa. <strong>Huom:</strong>
+                        rangaistusta ei tule, jos tiedusteluun käytetään lennokkia (Kuten jääkäriryhmillä).
+                    </li>
+                    <li>
+                        <strong>Liikkumisen haitta (väh. 6 käyrän ero):</strong> Yksikön, joka liikkuu ylämäkeen
+                        vähintään kuuden (6) korkeuskäyrän (n. 60m) verran yhden vuoron aikana, liikkumiskustannus
+                        kyseisellä matkalla <strong>kaksinkertaistuu</strong>. Alamäkeen liikkuminen ei anna bonusta,
+                        mutta ei myöskään aiheuta haittaa.
+                    </li>
+                </ul>
 
                 <h2>Esimerkkipeli: Operaatio Teräsvalli (Komppaniatason Taistelu)</h2>
                 <p>
@@ -1404,7 +1460,8 @@
                     <li>5x Motorisoitu Jalkaväkiryhmä (MJV)</li>
                     <li>1x Kranaatinheitinryhmä (120mm)</li>
                 </ul>
-                <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629056/valli_bb1cer.png" alt="Teräsvallin puolustus AI" class="kuvituskuva">
+                <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629056/valli_bb1cer.png"
+                    alt="Teräsvallin puolustus AI" class="kuvituskuva">
 
                 <h3>Vuoro 1: Ensimmäinen kontakti</h3>
                 <ul>
@@ -1457,7 +1514,8 @@
                     <li><strong>Tilannevaihe:</strong> Odotus jatkuu.</li>
                 </ul>
                 <figure class="battle-image-container">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629038/komento2_ymzdsb.jpg" alt="Tilannekartta vuoron 2 komentovaiheen jälkeen.">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629038/komento2_ymzdsb.jpg"
+                        alt="Tilannekartta vuoron 2 komentovaiheen jälkeen.">
                     <figcaption>Vuoro 2: Siniset komentavat tulivalmistelun käyntiin.</figcaption>
                 </figure>
 
@@ -1516,7 +1574,8 @@
                     </li>
                 </ul>
                 <figure class="battle-image-container">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629038/komento3_j5vgu8.jpg" alt="Tilannekartta vuoron 3 komentovaiheen jälkeen.">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629038/komento3_j5vgu8.jpg"
+                        alt="Tilannekartta vuoron 3 komentovaiheen jälkeen.">
                     <figcaption>Vuoro 3: Väijytys on lauennut ja tulikomennot annettu.</figcaption>
                 </figure>
                 <h3>Vuoro 4: Uudelleenjärjestäytyminen</h3>
@@ -1567,7 +1626,8 @@
                     </li>
                 </ul>
                 <figure class="battle-image-container">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629038/komento4_pyfqxn.jpg" alt="Tilannekartta vuoron 4 komentovaiheen jälkeen.">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629038/komento4_pyfqxn.jpg"
+                        alt="Tilannekartta vuoron 4 komentovaiheen jälkeen.">
                     <figcaption>Vuoro 4: Taistelun painopiste siirtyy ja molemmat osapuolet antavat uusia tulikomentoja.
                     </figcaption>
                 </figure>
@@ -1627,7 +1687,8 @@
                     </li>
                 </ul>
                 <figure class="battle-image-container">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629038/komento5_lmubeh.jpg" alt="Tilannekartta vuoron 5 komentovaiheen jälkeen.">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629038/komento5_lmubeh.jpg"
+                        alt="Tilannekartta vuoron 5 komentovaiheen jälkeen.">
                     <figcaption>Vuoro 5: T-72 on paljastettu ja uudet tulikomennot jaetaan sekasortoisessa tilanteessa.
                     </figcaption>
                 </figure>
@@ -1736,24 +1797,30 @@
         <div class="scroll-row">
             <div class="scroll-column">
                 <button id="scroll-top" title="Sivun alkuun (Kersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png" alt="Sivun alkuun">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png"
+                        alt="Sivun alkuun">
                 </button>
                 <button id="scroll-h2-up" title="Edellinen pääotsikko (Alikersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png" alt="Edellinen pääotsikko">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png"
+                        alt="Edellinen pääotsikko">
                 </button>
                 <button id="scroll-h3-up" title="Edellinen otsikko (Korpraali)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png" alt="Edellinen otsikko">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png"
+                        alt="Edellinen otsikko">
                 </button>
             </div>
             <div class="scroll-column">
                 <button id="scroll-bottom" title="Sivun loppuun (Kersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png" alt="Sivun loppuun" class="invert-icon">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png"
+                        alt="Sivun loppuun" class="invert-icon">
                 </button>
                 <button id="scroll-h2-down" title="Seuraava pääotsikko (Alikersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png" alt="Seuraava pääotsikko" class="invert-icon">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png"
+                        alt="Seuraava pääotsikko" class="invert-icon">
                 </button>
                 <button id="scroll-h3-down" title="Seuraava otsikko (Korpraali)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png" alt="Seuraava otsikko" class="invert-icon">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png"
+                        alt="Seuraava otsikko" class="invert-icon">
                 </button>
             </div>
         </div>
