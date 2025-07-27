@@ -27,7 +27,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://akselilarikka.github.io/taistelukentta/pelinjohtajan-opas.html">
     <meta property="og:type" content="website">
-    <meta property="article:published_time" content="2025-07-27 T15:42:45">
+    <meta property="article:published_time" content="2025-07-27 T17:48:39">
     <meta property="article:author" content="Akseli Larikka">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Taistelukenttä d20 - Pelinjohtajan opas">
@@ -340,7 +340,8 @@
                     <a href="https://www.figma.com/">Figma.com</a> tai <a href="https://www.miro.com/">Miro.com</a>,
                     soveltuvat tähän erinomaisesti.<br>
                     Tässä esimerkki miten Figmalla asian voisi hoitaa:
-                    <a href="https://www.figma.com/design/muuwrT5CkhpzKRZjVYXleO/terasvalli-1?node-id=0-1&t=6UmOSITrew1GTNQa-1">
+                    <a
+                        href="https://www.figma.com/design/muuwrT5CkhpzKRZjVYXleO/terasvalli-1?node-id=0-1&t=6UmOSITrew1GTNQa-1">
                         Operaatio Teräsvalli
                     </a>
                 </p>
@@ -425,7 +426,8 @@
                 </p>
 
                 <figure class="text-center">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629057/tkdkesken_rxtrwx.png" alt="Työ kesken -kuvake" class="mx-auto my-4 h-48">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629057/tkdkesken_rxtrwx.png"
+                        alt="Työ kesken -kuvake" class="mx-auto my-4 h-48">
                     <figcaption>
                         <strong>Huom:</strong> Vaikka pataljoonapelin perusrakenne on yllä hahmoteltu, sen
                         yksityiskohtaiset säännöt, taktiikat ja joukkuekohtaiset yksikkökortit ovat vielä aktiivisen
@@ -463,6 +465,7 @@
                     <div class="gm-tool-tabs">
                         <button class="gm-tab-button active" data-tab="tab-overview">Yleiskatsaus</button>
                         <button class="gm-tab-button" data-tab="tab-units">Yksiköt</button>
+                        <button class="gm-tab-button" data-tab="tab-abilities">Kyvyt</button>
                         <button class="gm-tab-button" data-tab="tab-strategy">Strategia</button>
                         <button class="gm-tab-button" data-tab="tab-firesupport">Tulituki</button>
                         <button class="gm-tab-button" data-tab="tab-notes">Muistiinpanot</button>
@@ -524,6 +527,39 @@
                             <hr>
                             <h4>Aktiiviset Yksiköt</h4>
                             <div id="active-unit-list"></div>
+                        </div>
+
+                        <div id="tab-abilities" class="gm-tab-pane">
+                            <h3>Punaisten Avainkyvyt</h3>
+                            <p>Tämä on muistilista Punaisen puolen tärkeimmistä passiivisista ja aktiivisista kyvyistä.
+                            </p>
+                            <div class="gm-info-box">
+                                <h4>Motorisoitu Jalkaväkiryhmä</h4>
+                                <ul>
+                                    <li><strong>Aaltohyökkäys (Passiivinen):</strong> Jos vähintään 3 ryhmää hyökkää
+                                        samaan kohteeseen, ne saavat +1 Moraaliin seuraavalla vuorolla.</li>
+                                    <li><strong>Peräänantamaton (Passiivinen):</strong> Ei vaadi ylimääräistä
+                                        moraalitestiä joutuessaan "Vaurioitunut"-tilaan.</li>
+                                </ul>
+                            </div>
+                            <div class="gm-info-box">
+                                <h4>T-72B3</h4>
+                                <ul>
+                                    <li><strong>Pelote (Passiivinen):</strong> Vihollisen jalkaväki 5cm säteellä tekee
+                                        Moraalitestin (DC 10) joka vuoron alussa.</li>
+                                    <li><strong>Raskas Panssari (Passiivinen):</strong> Kaikki vahingot vähenevät 1
+                                        pisteellä (menetetään vaurioituneena).</li>
+                                </ul>
+                            </div>
+                            <div class="gm-info-box">
+                                <h4>Shturmovaya Gruppa</h4>
+                                <ul>
+                                    <li><strong>Tulimuuri (Aktiivinen, 2 KP):</strong> Valitse 5x2cm alue. Kohteet
+                                        kärsivät -2 Hyökkäykseen ja tekevät Moraalitestin (DC 10).</li>
+                                    <li><strong>Termobaarinen raketinheitin:</strong> Ohittaa suojan, +2 vahinkoa
+                                        rakennuksissa oleviin yksikköihin.</li>
+                                </ul>
+                            </div>
                         </div>
 
                         <div id="tab-strategy" class="gm-tab-pane">
@@ -641,24 +677,30 @@
         <div class="scroll-row">
             <div class="scroll-column">
                 <button id="scroll-top" title="Sivun alkuun (Kersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png" alt="Sivun alkuun">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png"
+                        alt="Sivun alkuun">
                 </button>
                 <button id="scroll-h2-up" title="Edellinen pääotsikko (Alikersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png" alt="Edellinen pääotsikko">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png"
+                        alt="Edellinen pääotsikko">
                 </button>
                 <button id="scroll-h3-up" title="Edellinen otsikko (Korpraali)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png" alt="Edellinen otsikko">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png"
+                        alt="Edellinen otsikko">
                 </button>
             </div>
             <div class="scroll-column">
                 <button id="scroll-bottom" title="Sivun loppuun (Kersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png" alt="Sivun loppuun" class="invert-icon">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png"
+                        alt="Sivun loppuun" class="invert-icon">
                 </button>
                 <button id="scroll-h2-down" title="Seuraava pääotsikko (Alikersantti)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png" alt="Seuraava pääotsikko" class="invert-icon">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png"
+                        alt="Seuraava pääotsikko" class="invert-icon">
                 </button>
                 <button id="scroll-h3-down" title="Seuraava otsikko (Korpraali)" class="scroll-button">
-                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png" alt="Seuraava otsikko" class="invert-icon">
+                    <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png"
+                        alt="Seuraava otsikko" class="invert-icon">
                 </button>
             </div>
         </div>
