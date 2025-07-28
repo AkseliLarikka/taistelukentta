@@ -2,6 +2,23 @@
 
 Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -sotapeliin.
 
+## [2025-07-28]
+
+### Lisätty
+
+* **Yksiköiden pistekustannukset:** Yksiköille on lisätty pistekustannukset (`cost`), jotka näytetään nyt yksikkökorteilla. Tämä mahdollistaa tasapainoisempien joukkojen rakentamisen skenaarioissa.
+* **Uusi epäsuoran tulen yksikkö:** Lisätty epäorgaanisen epäsuoran tulen yksikkö MLRS M270 raskas raketinheitin ja sille damage arvot.
+* **Esimerkkikuvat:** Luotu ja lisätty epäsuoran tulen hajontaa kuvastavia esimerkkikuvia.
+
+### Muutettu
+
+* **Dokumentaation päivitys:** Päivitetty kampanjan hallinnan, ydinsääntöjen ja muiden sivujen dokumentaatiota vastaamaan uusimpia muutoksia.
+* **Infrastruktuurin parannukset:** Uudistettu ja korjattu useita taustalla toimivia automaatiotyökaluja, kuten sanaston tägäystä ja sivuston julkaisua.
+
+### Korjattu
+
+* **CI/CD-työnkulku:** Korjattu `deploy.yml`-työnkulun polkuja, jotta automaattiset päivitykset toimivat luotettavasti.
+
 ## [2025-07-27]
 
 ### Muutettu
