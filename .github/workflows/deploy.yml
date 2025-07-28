@@ -25,7 +25,7 @@ jobs:
 
       # --- LISÄTTY UUSI VAIHE TÄHÄN ---
       - name: Run glossary autotagger
-        run: python autotag_glossary.py
+        run: python python_scripts/autotag_glossary.py
 
       # --- TÄTÄ VAIHETTA ON MUOKATTU ---
       - name: Commit and push automated changes
