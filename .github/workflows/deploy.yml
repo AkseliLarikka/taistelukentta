@@ -21,7 +21,7 @@ jobs:
           python-version: "3.10"
 
       - name: Update publication dates
-        run: python update_dates.py
+        run: python python_scripts/update_dates.py
 
       # --- LISÄTTY UUSI VAIHE TÄHÄN ---
       - name: Run glossary autotagger
