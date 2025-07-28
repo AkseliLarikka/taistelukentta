@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 import re
 
 # Hakemisto, josta etsitään HTML-tiedostoja (nykyinen hakemisto)
-root_dir = '.'
+root_dir = '../'
 # Haettava metatagi
 tag_pattern = re.compile(r'(<meta property="article:published_time" content=")(.*?)(".*?>)')
 

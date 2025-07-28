@@ -2,7 +2,7 @@ import os
 import re
 
 # Määritellään kansio, jossa HTML-tiedostot sijaitsevat
-ROOT_DIRECTORY = '.' # Oletetaan, että skripti ajetaan juurihakemistosta
+ROOT_DIRECTORY = '../' # Oletetaan, että skripti ajetaan juurihakemistosta
 
 # ==============================================================================
 # PÄIVITETTY JA LAAJENNETTU SANASTO
