@@ -68,6 +68,7 @@ function renderUnitCards(unitData, containerId) {
             <div class="unit-card-content">
                 <ul>
                     <li><strong>Tyyppi:</strong> ${unit.type}</li>
+                    ${unit.cost > 0 ? `<li><strong>Pistehinta:</strong> ${unit.cost}</li>` : ''}
                     <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> ${unit.stats.tk}</li>
                     <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> ${unit.stats.m}</li>
                     <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> ${unit.stats.s}</li>
