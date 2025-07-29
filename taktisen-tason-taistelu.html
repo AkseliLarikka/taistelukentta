@@ -28,7 +28,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://akselilarikka.github.io/taistelukentta/taktisen-tason-taistelu.html">
     <meta property="og:type" content="website">
-    <meta property="article:published_time" content="2025-07-29 T07:59:40">
+    <meta property="article:published_time" content="2025-07-29 T08:50:20">
     <meta property="article:author" content="Akseli Larikka">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Taistelukenttä d20 - Taktisen tason taistelu">
@@ -273,6 +273,53 @@
                     Asteet -taulukon mukaisesti.
                 </p>
 
+                <h3 style="margin-top: 2em;">Vahinkotyypit ja Kohdetyypit</h3>
+                <p>
+                    Kaikki vahinko ei ole samanarvoista. Pelissä on kaksi vahinkotyyppiä ja kaksi kohdetyyppiä, jotka
+                    määrittävät aseen tehokkuuden eri maaleja vastaan.
+                </p>
+                <ul>
+                    <li><strong>Vahinkotyypit:</strong>
+                        <ul>
+                            <li><strong>SIR (Sirpalevaikutus):</strong> Yleisvahinko jalkaväkiaseista ja räjähdyksistä.
+                                Tehokas pehmeitä maaleja vastaan.</li>
+                            <li><strong>PST (Panssarintorjunta):</strong> Erikoisvahinko panssarinläpäisyyn
+                                suunnitelluista aseista. Tehokas panssaroituja maaleja vastaan. PST vahinko ilmoitetaan
+                                erikseen</li>
+                        </ul>
+                    </li>
+                    <li><strong>Kohdetyypit:</strong>
+                        <ul>
+                            <li><strong>Pehmeä maali:</strong> Kaikki jalkaväkiyksiköt.</li>
+                            <li><strong>Panssaroitu maali:</strong> Kaikki ajoneuvoyksiköt.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Vahinko →</th>
+                                <th>Pehmeä maali (Jalkaväki)</th>
+                                <th>Panssaroitu maali (Ajoneuvo)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>SIR-vahinko</strong></td>
+                                <td>Normaali vahinko</td>
+                                <td><strong>Ei vahinkoa (Immuuni)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>PST-vahinko</strong></td>
+                                <td><strong>Hyökkäys Haitalla, vahinko puolitetaan ja pyöristetään alaspäin</strong>
+                                </td>
+                                <td>Normaali vahinko</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <h3><span class="glossary-term" data-term="moraali">Moraali</span></h3>
                 <p>Yksikön henkinen kestävyys on yhtä tärkeää kuin fyysinen. Kaikilla yksiköillä, myös ajoneuvoilla, on
                     moraaliarvo, joka edustaa miehistön kanttia. Yksikön on tehtävä <strong><span class="glossary-term"
@@ -353,6 +400,162 @@
                         </tbody>
                     </table>
                 </div>
+
+                <h3>Tiedustelu ja Informaatiosota</h3>
+                <p>
+                    Tiedon saaminen on avain voittoon. Tiedustelu on vastakkainen heitto, jossa Suoja-arvon sijaan
+                    käytetään yksikön uutta Häive-arvoa.
+                </p>
+                <p>
+                    <strong>Tiedusteluheitto: Tiedustelija (d20 + TT) vs. Kohde (d12 + H + Maastobonus)</strong>
+                </p>
+                <p>
+                    Kohteen heittämä d12-noppa kuvaa kaikkia niitä satunnaisia tekijöitä, jotka vaikuttavat havaituksi
+                    tulemiseen juuri sillä hetkellä: onnea, hetkellistä valppautta, ympäristön oikkuja tai pientä
+                    virhettä naamioitumisessa. Tämä tekee tiedustelusta dynaamista ja arvaamatonta, korostaen sodan
+                    sumun vaikutusta. Kohde heittää d12-nopan d20 sijasta, että aktiivisen tiedustelun merkitys korostuu
+                    ja pelimekaniikka antaa etulyöntiaseman aloitteen tekevälle osapuolelle passiivisen piilottelijan
+                    sijaan.
+                </p>
+                <p>
+                    Maaston antama suojausbonus on sama kuin taistelussa (esim. metsä +4). Havainnon taso määräytyy sen
+                    mukaan, kuinka paljon tiedustelijan heitto voittaa kohteen heiton.
+                </p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Taso</th>
+                                <th>Ehto (verrattuna vaikeusasteeseen)</th>
+                                <th>Selitys</th>
+                                <th>Esimerkki</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Ei Havaintoa</strong></td>
+                                <td>Epäonnistuu 5+ pisteellä</td>
+                                <td>Vihollinen on täysin piilossa.</td>
+                                <td>Tiedustelija (TT+3) heittää 10 -> Tulos 13. Kohde (H+3) on metsässä (+4) ja heittää
+                                    11 -> Tulos 18. Erotus on 5 pistettä kohteen hyväksi.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Epäily</strong></td>
+                                <td>Epäonnistuu 1-4 pisteellä</td>
+                                <td>Aavistus vihollisesta. Pelinjohtaja merkitsee alueen <code>?</code>-merkillä.</td>
+                                <td>Tiedustelija (TT +3) heittää 12 -> Tulos 15. Kohde (H +3) on metsässä (+4) ja
+                                    heittää
+                                    11 -> Tulos 18. Erotus on 3 pistettä kohteen hyväksi.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tiedossa</strong></td>
+                                <td>Onnistuu 0-4 pisteellä</td>
+                                <td>Yksikön tyyppi ja summittainen sijainti paljastuvat. Mahdollistaa epäsuoran tulen.
+                                </td>
+                                <td>Tiedustelija (TT +3) heittää 17 -> Tulos 20. Kohde (H +3) on metsässä (+4) ja
+                                    heittää
+                                    11 -> Tulos 18. Erotus on 2 pistettä tiedustelijan hyväksi.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Havaittu</strong></td>
+                                <td>Onnistuu 5+ pisteellä</td>
+                                <td>Yksikön tarkka sijainti paljastuu, mikä mahdollistaa suoran tulen.</td>
+                                <td>Tiedustelija (TT +3) heittää 20 -> Tulos 23. Kohde (H +3) on metsässä (+4) ja
+                                    heittää
+                                    11 -> Tulos 18. Erotus on 5 pistettä tiedustelijan hyväksi.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3><span class="glossary-term" data-term="tilaefektit">Tilaefektit</span></h3>
+                <ul>
+                    <li>
+                        <p><strong><span class="glossary-term" data-term="vaurioitunut">Vaurioitunut</span>:</strong>
+                            Yksikkö siirtyy tähän tilaan välittömästi, kun sen
+                            <span class="glossary-term" data-term="taistelukunto">Taistelukunto</span> (<span
+                                class="glossary-term" data-term="taistelukunto">TK</span>) putoaa alle 50 %
+                            maksimiarvostaan. Tila aiheuttaa seuraavat yleiset vaikutukset:
+                        </p>
+                        <ul>
+                            <li><strong><span class="glossary-term" data-term="moraali">Moraalitesti</span>:</strong>
+                                Yksikön on tehtävä välittömästi <span class="glossary-term"
+                                    data-term="moraali">Moraalitesti</span> (<span class="glossary-term"
+                                    data-term="dc">DC</span> 12).
+                            </li>
+                            <li><strong>Liikkeen puolittuminen:</strong> Yksikön <span class="glossary-term"
+                                    data-term="liike">Liike</span>-arvo (L) puolittuu (pyöristä
+                                alaspäin).</li>
+                            <li><strong>Tuli-iskun puolittuminen:</strong> Yksikön perushyökkäyksen Tuli-isku (TI)
+                                -noppa pienenee yhdellä asteikolla (esim. d8 -> d6, d6 -> d4). Minimi on d4.</li>
+                            <li><strong>Kokemuksen väheneminen:</strong> Kampanjapelissä yksikkö ansaitsee
+                                taistelusta vain puolet normaalista kokemuksesta (<span class="glossary-term"
+                                    data-term="xp">XP</span>).</li>
+                        </ul>
+                        <p>Jotkin yksikön erikoiskyvyt voivat myös heikentyä tai muuttua sen ollessa <span
+                                class="glossary-term" data-term="vaurioitunut">Vaurioitunut</span>.
+                            Tällaiset kyvyt on merkitty yksikkökortissa
+                            <strong>(<span class="vaurioitunut-tila">Vaurioitunut</span>)</strong>-tunnisteella.
+                        </p>
+                    </li>
+                    <li>
+                        <strong><span class="glossary-term" data-term="tarahtanyt">Tärähtänyt</span> (Shaken):</strong>
+                        Lievästi epäonnistuneen <span class="glossary-term" data-term="moraali">moraalitestin</span>
+                        seuraus. Yksikkö kärsii -2 rangaistuksen seuraavaan hyökkäysheittoonsa, mutta voi muuten toimia
+                        normaalisti. Tila poistuu yksikön hyökättyä tai vuoron päättyessä.
+                    </li>
+                    <li>
+                        <strong><span class="glossary-term" data-term="lamautunut">Lamautunut</span>
+                            (Suppressed):</strong> Epäonnistuneen
+                        <span class="glossary-term" data-term="moraali">moraalitestin</span> seuraus. Yksikkö ei voi
+                        liikkua tai käyttää toimintoja, kuten hyökätä tai tiedustella. Sitä vastaan tehdyt
+                        hyökkäykset saavat <strong><span class="glossary-term" data-term="etu ja haitta">Edun</span>
+                            (Advantage)</strong>. Tila poistuu
+                        onnistuneella moraalitestillä vuoron lopussa tai
+                        <strong><span class="glossary-term" data-term="moraali">Moraalin Kohotus</span></strong>
+                        -komennolla.
+                    </li>
+                    <li>
+                        <strong><span class="glossary-term" data-term="vetaytyy">Vetäytyy</span>:</strong> Kriittisesti
+                        epäonnistuneen <span class="glossary-term" data-term="moraali">moraalitestin</span> seuraus.
+                        <ul>
+                            <li><strong>Vaikutus:</strong> Yksikkö joutuu pakokauhun valtaan ja liikkuu seuraavalla
+                                vuorollaan
+                                hallitsemattomasti täyden liikkeensä verran irti taistelusta ja lähintä suojaa kohti.
+                                Lisäksi yksikkö kärsii paetessaan kohdan 6 mukaisen rangaistuksen liikkumisesta
+                                vihollisen ZoC:llä.</li>
+                            <li><strong>Tilan poistuminen:</strong> Tila poistuu, kun yksikkö on turvassa tai kun se saa
+                                <span class="glossary-term" data-term="moraali">Moraalin Kohotus</span> -komennon.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Huom:</strong> Ajoneuvoilla voi olla niiden
+                        yksikkökorteissa tarkempia tai poikkeavia sääntöjä
+                        <span class="glossary-term" data-term="vaurioitunut">vaurioitumiselle</span>, jotka korvaavat
+                        tämän yleisen säännön osittain
+                        tai kokonaan.
+                    </li>
+                    <li>
+                        <strong><span class="glossary-term" data-term="piiloutunut">Piiloutunut</span>:</strong> Tämä
+                        tila kuvaa yksikköä, joka on aktiivisesti naamioitunut ja välttelee havaituksi tulemista.
+                        <ul>
+                            <li><strong>Vaikutus:</strong> <span class="glossary-term"
+                                    data-term="piiloutunut">Piiloutunut</span>-tilassa olevaa yksikköä ei voi valita
+                                suoran tai epäsuoran tulen kohteeksi, ellei hyökkääjä ole **2 cm tai lähempänä** sitä.
+                                Tila estää myös joutumasta aluevaikutteisten kykyjen, kuten Lamauttava tuli, kohteeksi.
+                            </li>
+                            <li><strong>Tilaan siirtyminen:</strong> Yksikkö voi siirtyä tähän tilaan ainoastaan
+                                käyttämällä kykyä, joka nimenomaisesti myöntää "<span class="glossary-term"
+                                    data-term="piiloutunut">Piiloutunut</span>"-tilan.</li>
+                            <li><strong>Tilan poistuminen:</strong> Tila poistuu välittömästi, jos yksikkö liikkuu,
+                                hyökkää tai käyttää muuta kuin <span class="glossary-term"
+                                    data-term="piiloutunut">piiloutumiseen</span> liittyvää toimintoa, TAI jos
+                                vihollisyksikkö liikkuu **2 cm etäisyydelle** siitä. Yksikkökortti voi määrittää
+                                poikkeuksia tähän sääntöön.</li>
+                        </ul>
+                    </li>
+                </ul>
 
                 <h3><span class="glossary-term" data-term="hallintavyöhyke">Hallintavyöhyke</span> (Zone of Control,
                     ZoC)</h3>
@@ -529,169 +732,6 @@
                         </tbody>
                     </table>
                 </div>
-
-                <h3>Tiedustelu ja Informaatiosota</h3>
-                <p>
-                    Tiedon saaminen on avain voittoon. Tiedustelu on vastakkainen
-                    heitto.
-                </p>
-                <p>
-                    Tiedustelijan d20 + <span class="glossary-term" data-term="taitotaso">TT</span> vs. Kohteen d20 +
-                    maaston antama suojausbonus
-                </p>
-                <p>
-                    <strong>Huom:</strong> Normaali vastakkainen tiedusteluheitto koskee yksiköitä, jotka ovat
-                    maaston suojassa. <em><span class="glossary-term"
-                            data-term="piiloutunut">Piiloutunut</span></em>-tila on kuitenkin voimakkaampi erikoiskyky,
-                    joka estää
-                    havaitsemisen normaalein keinoin kauempaa kokonaan. Piiloutunutta yksikköä ei voi paljastaa
-                    tiedusteluheitolla, vaan vihollisen on liikuttava sen ZoC:lle (eli 2 cm päähän) paljastaakseen
-                    sen automaattisesti.
-                </p>
-                <h4>Tiedustelun Peruskantama</h4>
-                <p>
-                    Ellei yksiköllä ole erityistä tiedustelukykyä (kuten lennokki), sen aktiivisen tiedustelun
-                    peruskantama on sama kuin sen perusaseistuksen kantama, jalkaväkiaseilla tyypillisesti <strong>5
-                        cm</strong>.
-                </p>
-                <h4>Havainnon Tasot:</h4>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Taso</th>
-                                <th>Ehto (verrattuna vaikeusasteeseen)</th>
-                                <th>Selitys</th>
-                                <th>Esimerkki</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Ei Havaintoa</strong></td>
-                                <td>Epäonnistuu 5+ pisteellä</td>
-                                <td>Vihollinen on täysin piilossa.</td>
-                                <td>Tiedusteluheiton tulos on 8 ja tiedusteltavan yksikön yhdistetty <span
-                                        class="glossary-term" data-term="suoja">suoja</span>-arvo on 14.
-                                    14-8=6, joka on yli 5</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Epäily</strong></td>
-                                <td>Epäonnistuu 1-4 pisteellä</td>
-                                <td>Aavistus vihollisesta. Pelinjohtaja merkitsee alueen <code>?</code>-merkillä.</td>
-                                <td>Tiedusteluheiton tulos on 10 ja tiedusteltavan yksikön yhdistetty <span
-                                        class="glossary-term" data-term="suoja">suoja</span>-arvo on 14.
-                                    14-10=4, joka on alle 5</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tiedossa</strong></td>
-                                <td>Onnistuu 0-4 pisteellä</td>
-                                <td>Yksikön tyyppi ja summittainen sijainti paljastuvat. Mahdollistaa epäsuoran tulen.
-                                </td>
-                                <td>Tiedusteluheiton tulos on 15 ja tiedusteltavan yksikön yhdistetty <span
-                                        class="glossary-term" data-term="suoja">suoja</span>-arvo on 14.
-                                    15-14=1, joka on yli 0</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Havaittu</strong></td>
-                                <td>Onnistuu 5+ pisteellä</td>
-                                <td>Yksikön tarkka sijainti paljastuu, mikä mahdollistaa suoran tulen. Taso saavutetaan
-                                    välittömästi ohittaen aiemmat vaiheet.</td>
-                                <td>Tiedusteluheiton tulos on 19 ja tiedusteltavan yksikön yhdistetty <span
-                                        class="glossary-term" data-term="suoja">suoja</span>-arvo on 14.
-                                    19-14=5, joka on yli 5</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3><span class="glossary-term" data-term="tilaefektit">Tilaefektit</span></h3>
-                <ul>
-                    <li>
-                        <p><strong><span class="glossary-term" data-term="vaurioitunut">Vaurioitunut</span>:</strong>
-                            Yksikkö siirtyy tähän tilaan välittömästi, kun sen
-                            <span class="glossary-term" data-term="taistelukunto">Taistelukunto</span> (<span
-                                class="glossary-term" data-term="taistelukunto">TK</span>) putoaa alle 50 %
-                            maksimiarvostaan. Tila aiheuttaa seuraavat yleiset vaikutukset:
-                        </p>
-                        <ul>
-                            <li><strong><span class="glossary-term" data-term="moraali">Moraalitesti</span>:</strong>
-                                Yksikön on tehtävä välittömästi <span class="glossary-term"
-                                    data-term="moraali">Moraalitesti</span> (<span class="glossary-term"
-                                    data-term="dc">DC</span> 12).
-                            </li>
-                            <li><strong>Liikkeen puolittuminen:</strong> Yksikön <span class="glossary-term"
-                                    data-term="liike">Liike</span>-arvo (L) puolittuu (pyöristä
-                                alaspäin).</li>
-                            <li><strong>Tuli-iskun puolittuminen:</strong> Yksikön perushyökkäyksen Tuli-isku (TI)
-                                -noppa pienenee yhdellä asteikolla (esim. d8 -> d6, d6 -> d4). Minimi on d4.</li>
-                            <li><strong>Kokemuksen väheneminen:</strong> Kampanjapelissä yksikkö ansaitsee
-                                taistelusta vain puolet normaalista kokemuksesta (<span class="glossary-term"
-                                    data-term="xp">XP</span>).</li>
-                        </ul>
-                        <p>Jotkin yksikön erikoiskyvyt voivat myös heikentyä tai muuttua sen ollessa <span
-                                class="glossary-term" data-term="vaurioitunut">Vaurioitunut</span>.
-                            Tällaiset kyvyt on merkitty yksikkökortissa
-                            <strong>(<span class="vaurioitunut-tila">Vaurioitunut</span>)</strong>-tunnisteella.
-                        </p>
-                    </li>
-                    <li>
-                        <strong><span class="glossary-term" data-term="tarahtanyt">Tärähtänyt</span> (Shaken):</strong>
-                        Lievästi epäonnistuneen <span class="glossary-term" data-term="moraali">moraalitestin</span>
-                        seuraus. Yksikkö kärsii -2 rangaistuksen seuraavaan hyökkäysheittoonsa, mutta voi muuten toimia
-                        normaalisti. Tila poistuu yksikön hyökättyä tai vuoron päättyessä.
-                    </li>
-                    <li>
-                        <strong><span class="glossary-term" data-term="lamautunut">Lamautunut</span>
-                            (Suppressed):</strong> Epäonnistuneen
-                        <span class="glossary-term" data-term="moraali">moraalitestin</span> seuraus. Yksikkö ei voi
-                        liikkua tai käyttää toimintoja, kuten hyökätä tai tiedustella. Sitä vastaan tehdyt
-                        hyökkäykset saavat <strong><span class="glossary-term" data-term="etu ja haitta">Edun</span>
-                            (Advantage)</strong>. Tila poistuu
-                        onnistuneella moraalitestillä vuoron lopussa tai
-                        <strong><span class="glossary-term" data-term="moraali">Moraalin Kohotus</span></strong>
-                        -komennolla.
-                    </li>
-                    <li>
-                        <strong><span class="glossary-term" data-term="vetaytyy">Vetäytyy</span>:</strong> Kriittisesti
-                        epäonnistuneen <span class="glossary-term" data-term="moraali">moraalitestin</span> seuraus.
-                        <ul>
-                            <li><strong>Vaikutus:</strong> Yksikkö joutuu pakokauhun valtaan ja liikkuu seuraavalla
-                                vuorollaan
-                                hallitsemattomasti täyden liikkeensä verran irti taistelusta ja lähintä suojaa kohti.
-                                Lisäksi yksikkö kärsii paetessaan kohdan 6 mukaisen rangaistuksen liikkumisesta
-                                vihollisen ZoC:llä.</li>
-                            <li><strong>Tilan poistuminen:</strong> Tila poistuu, kun yksikkö on turvassa tai kun se saa
-                                <span class="glossary-term" data-term="moraali">Moraalin Kohotus</span> -komennon.
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <strong>Huom:</strong> Ajoneuvoilla voi olla niiden
-                        yksikkökorteissa tarkempia tai poikkeavia sääntöjä
-                        <span class="glossary-term" data-term="vaurioitunut">vaurioitumiselle</span>, jotka korvaavat
-                        tämän yleisen säännön osittain
-                        tai kokonaan.
-                    </li>
-                    <li>
-                        <strong><span class="glossary-term" data-term="piiloutunut">Piiloutunut</span>:</strong> Tämä
-                        tila kuvaa yksikköä, joka on aktiivisesti naamioitunut ja välttelee havaituksi tulemista.
-                        <ul>
-                            <li><strong>Vaikutus:</strong> <span class="glossary-term"
-                                    data-term="piiloutunut">Piiloutunut</span>-tilassa olevaa yksikköä ei voi valita
-                                suoran tai epäsuoran tulen kohteeksi, ellei hyökkääjä ole **2 cm tai lähempänä** sitä.
-                                Tila estää myös joutumasta aluevaikutteisten kykyjen, kuten Lamauttava tuli, kohteeksi.
-                            </li>
-                            <li><strong>Tilaan siirtyminen:</strong> Yksikkö voi siirtyä tähän tilaan ainoastaan
-                                käyttämällä kykyä, joka nimenomaisesti myöntää "<span class="glossary-term"
-                                    data-term="piiloutunut">Piiloutunut</span>"-tilan.</li>
-                            <li><strong>Tilan poistuminen:</strong> Tila poistuu välittömästi, jos yksikkö liikkuu,
-                                hyökkää tai käyttää muuta kuin <span class="glossary-term"
-                                    data-term="piiloutunut">piiloutumiseen</span> liittyvää toimintoa, TAI jos
-                                vihollisyksikkö liikkuu **2 cm etäisyydelle** siitä. Yksikkökortti voi määrittää
-                                poikkeuksia tähän sääntöön.</li>
-                        </ul>
-                    </li>
-                </ul>
 
                 <h2>Maaston hierarkia ja vaikutukset liikkeeseen</h2>
                 <p>
@@ -1597,8 +1637,10 @@
                 <p>
                     Skenaario määrittelee aina, kuinka monta tulitukipyyntöä pelaajilla on käytössään. Esimerkiksi
                     "Operaatio Teräsvalli" -skenaariossa pelaajilla on viisi tulitukipyyntöä. <br>
-                    <strong>Huom!</strong> Sen valtavan tuhopotentiaalin vuoksi <strong>Raskaan Raketinheittimen (MLRS) iskun kutsuminen</strong> on poikkeuksellinen
-                    toimenpide ja <strong>kuluttaa kaksi (2)</strong> käytettävissä olevaa tulitukipyyntöä yhden sijaan. <br>
+                    <strong>Huom!</strong> Sen valtavan tuhopotentiaalin vuoksi <strong>Raskaan Raketinheittimen (MLRS)
+                        iskun kutsuminen</strong> on poikkeuksellinen
+                    toimenpide ja <strong>kuluttaa kaksi (2)</strong> käytettävissä olevaa tulitukipyyntöä yhden sijaan.
+                    <br>
                     Jos skenaariossa ei erikseen mainita epäorgaanista tukea, sitä ei ole saatavilla. <br>
                 </p>
                 <ul>

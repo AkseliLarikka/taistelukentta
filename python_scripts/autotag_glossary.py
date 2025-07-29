@@ -26,6 +26,8 @@ GLOSSARY = {
     "XP": "xp",
     "M": "moraali",
     "TI": "tuli-isku",
+    "H": "häive",
+    "L": "liike",
 
     # === Käsitteet A-Ö ===
     "Ansat ja Sulutteet": "ansat ja sulutteet",

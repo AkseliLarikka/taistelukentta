@@ -8,7 +8,7 @@ window.blueUnitData = {
     name: "Jääkäriryhmä",
     type: "Jalkaväki (10 sotilasta)",
     cost: 20,
-    stats: { tk: 10, tt: "+3", s: 11, m: "+3", l: 7 },
+    stats: { tk: 10, tt: "+3", s: 11, h: "+3", m: "+3", l: 7 },
     armament: [
       { name: "Jalkaväkiaseistus", damage: "d6", attack: "+3", notes: "-" },
       {
@@ -44,7 +44,7 @@ window.blueUnitData = {
     name: "Tukiryhmä (KK)",
     type: "Jalkaväki (Raskas konekivääri, 3 sotilasta)",
     cost: 25,
-    stats: { tk: 8, tt: "+1", s: 10, m: "+2", l: 5 },
+    stats: { tk: 8, tt: "+1", s: 10, h: "+4", m: "+2", l: 5 },
     armament: [{ name: "Konekivääri", damage: "d8", attack: "+4", notes: "-" }],
     abilities: [
       {
@@ -64,7 +64,7 @@ window.blueUnitData = {
     name: "PST-ryhmä",
     type: "Jalkaväki (2 sotilasta)",
     cost: 30,
-    stats: { tk: 6, tt: "+1", s: 10, m: "+2", l: 5 },
+    stats: { tk: 6, tt: "+1", s: 10, h: "+4", m: "+2", l: 5 },
     armament: [
       {
         name: "Raskas kertasinko",
@@ -104,7 +104,7 @@ window.blueUnitData = {
     name: "Kranaatinheitin&shy;ryhmä (81mm)",
     type: "Jalkaväki (Kevyt kranaatinheitin, 3 sotilasta)",
     cost: 25,
-    stats: { tk: 8, tt: "+0", s: 9, m: "+2", l: 4 },
+    stats: { tk: 8, tt: "+0", s: 9, h: "+4", m: "+2", l: 4 },
     armament: [
       {
         name: "81mm Kranaatinheitin",
@@ -132,7 +132,7 @@ window.blueUnitData = {
     name: "Lääkintäryhmä",
     type: "Tuki (4 sotilasta)",
     cost: 20,
-    stats: { tk: 8, tt: "+2", s: 9, m: "+1", l: 8 },
+    stats: { tk: 8, tt: "+2", s: 9, h: "+2", m: "+1", l: 8 },
     armament: [
       {
         name: "Henkilökohtainen aseistus",
@@ -160,7 +160,7 @@ window.blueUnitData = {
     name: "Huoltoryhmä",
     type: "Tuki (4 sotilasta)",
     cost: 20,
-    stats: { tk: 8, tt: "+2", s: 9, m: "+1", l: 8 },
+    stats: { tk: 8, tt: "+2", s: 9, h: "+2", m: "+1", l: 8 },
     armament: [
       {
         name: "Henkilökohtainen aseistus",
@@ -193,7 +193,7 @@ window.blueUnitData = {
     name: "Sissi-jääkärit",
     type: "Jalkaväki (Sissi, 7 sotilasta)",
     cost: 45,
-    stats: { tk: 8, tt: "+4", s: 12, m: "+3", l: 8 },
+    stats: { tk: 8, tt: "+4", s: 12, h: "+7", m: "+3", l: 8 },
     armament: [
       { name: "Jääkäriaseistus", damage: "d6", attack: "+3", notes: "-" },
       { name: "Konekivääri", damage: "d8", attack: "+4", notes: "-" },
@@ -228,7 +228,7 @@ window.blueUnitData = {
     name: "Erikoisjääkäri-osasto",
     type: "Jalkaväki (Erikoisjoukko, 5 sotilasta)",
     cost: 40,
-    stats: { tk: 10, tt: "+5", s: 13, m: "+5", l: 8 },
+    stats: { tk: 10, tt: "+5", s: 13, h: "+7", m: "+5", l: 8 },
     armament: [
       {
         name: "Erikoisjoukkojen rynnäkkökivääri",
@@ -261,7 +261,7 @@ window.blueUnitData = {
     name: "Komppanian&shy;päällikkö (KP)",
     type: "Komentoryhmä (3-5 sotilasta)",
     cost: 0, // Ilmainen yksikkö
-    stats: { tk: 8, tt: "+4", s: 10, m: "+5", l: 5 },
+    stats: { tk: 8, tt: "+4", s: 10, h: "+2", m: "+5", l: 5 },
     armament: [
       {
         name: "Henkilökohtainen aseistus",
@@ -294,7 +294,7 @@ window.blueUnitData = {
     name: "Panssarihaupitsi&shy;patteri (K9 155mm)",
     type: "Epäorgaaninen tulituki",
     cost: 0, // Ei ostettavissa
-    stats: { tk: 0, tt: "+0", s: 0, m: "+0", l: 0 },
+    stats: { tk: 0, tt: "+0", s: 0, h: "+0", m: "+0", l: 0 },
     armament: [
       {
         name: "155mm haupitsi",
@@ -321,7 +321,7 @@ window.blueUnitData = {
     name: "Raskas Raketinheitin (MLRS)",
     type: "Epäorgaaninen tulituki",
     cost: 0, // Ei ostettavissa
-    stats: { tk: 0, tt: "+0", s: 0, m: "+0", l: 0 },
+    stats: { tk: 0, tt: "+0", s: 0, h: "+0", m: "+0", l: 0 },
     armament: [
       {
         name: "Raskas Raketinheitin",
@@ -348,7 +348,7 @@ window.blueUnitData = {
     name: "Pioneeriryhmä",
     type: "Jalkaväki (Erikoisryhmä, 8 sotilasta)",
     cost: 30,
-    stats: { tk: 12, tt: "+4", s: 11, m: "+4", l: 6 },
+    stats: { tk: 12, tt: "+4", s: 11, h: "+3", m: "+4", l: 6 },
     armament: [
       { name: "Jalkaväkiaseistus", damage: "d6", attack: "+3", notes: "-" },
       {
@@ -382,7 +382,7 @@ window.blueUnitData = {
     name: "CV9030FIN Rynnäkkö&shy;panssari&shy;vaunu",
     type: "Rynnäkköpanssarivaunu",
     cost: 70,
-    stats: { tk: 35, tt: "+2", s: 18, m: "+3", l: 9 },
+    stats: { tk: 35, tt: "+2", s: 18, h: "+1", m: "+3", l: 9 },
     armament: [
       {
         name: "30mm Konetykki",
@@ -411,7 +411,7 @@ window.blueUnitData = {
     name: "Leopard 2A6 taistelu&shy;panssari&shy;vaunu",
     type: "Panssarivaunu",
     cost: 80,
-    stats: { tk: 50, tt: "+2", s: 22, m: "+4", l: 8 },
+    stats: { tk: 50, tt: "+2", s: 22, h: "+0", m: "+4", l: 8 },
     armament: [
       {
         name: "120mm tykki",
@@ -443,7 +443,7 @@ window.redUnitData = {
   "unit-motorisoitu-jalkavaki": {
     name: "Motorisoitu jalkaväkiryhmä",
     type: "Jalkaväki (9 sotilasta)",
-    stats: { tk: 10, m: "+2", s: 10, l: 7, tt: "+2" },
+    stats: { tk: 10, m: "+2", s: 10, h: "+3", l: 7, tt: "+2" },
     armament: [
       { name: "Jalkaväkiaseistus", attack: "+2", damage: "d6", notes: "-" },
     ],
@@ -465,7 +465,7 @@ window.redUnitData = {
   "unit-pst-ryhma-red": {
     name: "PST-ryhmä (Kornet)",
     type: "Jalkaväki (3 sotilasta)",
-    stats: { tk: 8, m: "+2", s: 10, l: 5, tt: "+2" },
+    stats: { tk: 8, m: "+2", s: 10, h: "+4", l: 5, tt: "+2" },
     armament: [
       {
         name: "Panssarintorjuntaohjus (Kornet)",
@@ -494,7 +494,7 @@ window.redUnitData = {
   "unit-btr-82a": {
     name: "BTR-82A",
     type: "Panssaroitu miehistönkuljetusvaunu",
-    stats: { tk: 30, m: "+2", s: 15, l: "10 cm (Tie: +5 cm)", tt: "+1" },
+    stats: { tk: 30, m: "+2", s: 15, h: "+1", l: "10 cm (Tie: +5 cm)", tt: "+1" },
     armament: [
       {
         name: "30mm Konetykki (2A72)",
@@ -515,7 +515,7 @@ window.redUnitData = {
   "unit-t-72b3": {
     name: "T-72B3",
     type: "Panssarivaunu",
-    stats: { tk: 40, m: "+2", s: 18, l: "7 cm (Tie: +5 cm)", tt: "+0" },
+    stats: { tk: 40, m: "+2", s: 18, h: "+0", l: "7 cm (Tie: +5 cm)", tt: "+0" },
     armament: [
       {
         name: "125mm Kanuuna (2A46M)",
@@ -543,7 +543,7 @@ window.redUnitData = {
   "unit-krh-120mm": {
     name: "Kranaatinheitin&shy;ryhmä (120mm)",
     type: "Jalkaväki (4 sotilasta)",
-    stats: { tk: 10, m: "+1", s: 9, l: 4, tt: "+0" },
+    stats: { tk: 10, m: "+1", s: 9, h: "+4", l: 4, tt: "+0" },
     armament: [
       {
         name: "120mm Kranaatinheitin (2B11)",
@@ -570,7 +570,7 @@ window.redUnitData = {
   "unit-tiedustelu-erikoisryhma": {
     name: "Tiedusteluerikois&shy;ryhmä",
     type: "Jalkaväki (9 sotilasta)",
-    stats: { tk: 10, m: "+2", s: 10, l: 8, tt: "+2" },
+    stats: { tk: 10, m: "+2", s: 10, h: "+7", l: 8, tt: "+2" },
     armament: [
       { name: "Jalkaväkiaseistus", attack: "+2", damage: "d6", notes: "-" },
       {
@@ -599,7 +599,7 @@ window.redUnitData = {
   "unit-shturmovaya-gruppa": {
     name: "Shturmovaya Gruppa",
     type: "Jalkaväki (Rynnäkköryhmä, 9 sotilasta)",
-    stats: { tk: 12, m: "+2", s: 10, l: 5, tt: "+1" },
+    stats: { tk: 12, m: "+2", s: 10, h: "+5", l: 5, tt: "+1" },
     armament: [
       { name: "Rynnäkköaseistus", attack: "+3", damage: "d8", notes: "-" },
       {
@@ -628,7 +628,7 @@ window.redUnitData = {
   "unit-spetsnaz-gru": {
     name: "Spetsnaz GRU:n diversioryhmä",
     type: "Jalkaväki (Erikoisjoukko, 6 sotilasta)",
-    stats: { tk: 7, m: "+4", s: 12, l: 9, tt: "+4" },
+    stats: { tk: 7, m: "+4", s: 12, h: "+7", l: 9, tt: "+4" },
     armament: [
       {
         name: "Vaimennettu erikoiskivääri",
@@ -651,7 +651,7 @@ window.redUnitData = {
   "unit-raketinheitinkeskitys-122mm": {
     name: "Raketinheitin&shy;keskitys (122mm)",
     type: "Epäorgaaninen tulituki",
-    stats: { tk: 0, tt: "+0", s: 0, m: "+0", l: 0 },
+    stats: { tk: 0, tt: "+0", s: 0, h: "+0", m: "+0", l: 0 },
     armament: [
       {
         name: "122mm Raketinheitin",
