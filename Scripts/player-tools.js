@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let playerData = {};
     let unitInstanceCounter = 0;
     let currentPhaseIndex = -1;
+    let hiddenCardHeaders = new Set();
     const commanderTacticalAbilities = ['motti', 'painopiste', 'sitova', 'vetaytyminen'];
     const phases = [
         { name: "Liikevaihe", instructions: "<ul><li>Siirrä omat yksikkösi suunnitelman mukaisesti.</li><li>Huomioi vihollisen hallintavyöhykkeet (ZoC).</li><li>Varmista, että yksiköt päätyvät hyvään suojaan.</li></ul>", advice: "Vahvista suunnitelmasi ja siirrä yksiköt. Muista maaston vaikutus liikkeeseen." },
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Datan tallennus ja lataus
     const savePlayerData = () => {
         playerData.currentPhaseIndex = currentPhaseIndex;
+        playerData.hiddenCardHeaders = Array.from(hiddenCardHeaders);
         localStorage.setItem('tkd20PlayerData', JSON.stringify(playerData));
     };
 
@@ -86,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         unitInstanceCounter = playerData.unitInstanceCounter || 0;
         currentPhaseIndex = playerData.currentPhaseIndex !== undefined ? playerData.currentPhaseIndex : -1;
+        hiddenCardHeaders = new Set(playerData.hiddenCardHeaders || []);
     };
 
     // Yksiköiden hallinta
@@ -151,6 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (newCardElement) {
             setTimeout(() => {
                 newCardElement.classList.add('header-hidden');
+                hiddenCardHeaders.add(newUnit.instanceId);
+                savePlayerData();
             }, 2500); // 2.5 sekunnin viive
         }
 
@@ -168,6 +173,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const cardDiv = document.createElement('div');
             cardDiv.id = `player-card-${unitState.instanceId}`;
             cardDiv.className = 'player-unit-card';
+            if (hiddenCardHeaders.has(unitState.instanceId)) {
+                cardDiv.classList.add('header-hidden');
+            }
             unitDisplayArea.appendChild(cardDiv);
             renderSingleUnit(unitState.instanceId);
         });
