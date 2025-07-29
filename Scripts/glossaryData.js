@@ -28,6 +28,7 @@ const glossaryData = {
     "vastakkainen heitto": "Tilanne, jossa kaksi osapuolta heittää noppaa, ja heittojen tuloksia verrataan toisiinsa.",
     "vp": "Voittopiste. Mittaa taistelun tai kampanjan menestystä.",
     "xp": "Yksikön taistelukokemusta (Experience Points). Lisää yksikön tehokkuutta parantamalla sen Taitotasoa.",
+    "häive": "Yksikön kyky välttää havaituksi tuleminen. Korkeampi arvo vaikeuttaa vihollisen havaitsemista.",
 
     // === Lyhenteet ===
     "jr": "Lyhenne jääkäriryhmälle.",

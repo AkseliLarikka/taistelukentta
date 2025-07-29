@@ -72,6 +72,7 @@ function renderUnitCards(unitData, containerId) {
                     <li><strong><span class="glossary-term" data-term="taistelukunto">TK</span>:</strong> ${unit.stats.tk}</li>
                     <li><strong><span class="glossary-term" data-term="moraali">M</span>:</strong> ${unit.stats.m}</li>
                     <li><strong><span class="glossary-term" data-term="suoja">S</span>:</strong> ${unit.stats.s}</li>
+                    <li><strong><span class="glossary-term" data-term="häive">H</span>:</strong> ${unit.stats.h}</li>
                     <li><strong><span class="glossary-term" data-term="liike">Liike</span>:</strong> ${unit.stats.l}</li>
                     <li><strong><span class="glossary-term" data-term="taitotaso">TT</span>:</strong> ${unit.stats.tt}</li>
                     ${ammoHtml}
