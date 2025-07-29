@@ -2,6 +2,25 @@
 
 Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -sotapeliin.
 
+## [2025-07-29]
+
+### Lisätty
+
+* **Uusi "Häive" (H) -ominaisuus:** Lisätty yksiköille uusi `Häive (H)` -arvo, joka kuvaa niiden kykyä pysyä piilossa. Tämä arvo korvaa `Suoja (S)` -arvon tiedustelua vastaan puolustautuessa, mikä tekee tiedustelusta dynaamisempaa ja realistisempaa.
+* **Armeijan luontiohjeet:** Lisätty `skenaariot.html`-sivulle kattavat ohjeet armeijan luomisesta pisteillä, sisältäen säännöt vahvistusten ostamisesta kesken taistelun.
+
+### Muutettu
+
+* **Sääntöjen rakenneuudistus:** Siirretty useita sääntömekaniikkoja, kuten taistelun ja tiedustelun yksityiskohtaiset säännöt, `ydinsaannot.html`-sivulta `taktisen-tason-taistelu.html`-sivulle. Tämä selkeyttää ydinsääntöjen roolia perusmekaniikkojen esittelyssä.
+* **Sanaston päivitys:** Lisätty uusi termi "häive" sanastoon (`glossaryData.js`).
+* **Yksikkötietojen päivitys:** Päivitetty kaikki yksiköt (`unit-data.js`) sisältämään uuden `Häive (H)` -arvon.
+* **Sääntöjen selkeytys:** Tarkennettu raskaan raketinheittimen (MLRS) tulitukipyynnön kustannuksia `taktisen-tason-taistelu.html`-sivulla.
+
+### Korjattu
+
+* **Pelaajan työkalun ilmoitukset:** Korjattu pelaajan työkalun ilmoitusten toimintaa.
+* **Navigaation parannus:** Lisätty `ydinsaannot.html`-sivulle suora linkki komentopisteitä käsittelevään osioon.
+
 ## [2025-07-28]
 
 ### Lisätty
