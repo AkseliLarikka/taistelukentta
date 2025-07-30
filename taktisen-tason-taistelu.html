@@ -28,7 +28,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://akselilarikka.github.io/taistelukentta/taktisen-tason-taistelu.html">
     <meta property="og:type" content="website">
-    <meta property="article:published_time" content="2025-07-29 T10:15:40">
+    <meta property="article:published_time" content="2025-07-30 T05:41:02">
     <meta property="article:author" content="Akseli Larikka">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Taistelukenttä d20 - Taktisen tason taistelu">
@@ -315,6 +315,62 @@
                                 <td><strong>Hyökkäys Haitalla, vahinko puolitetaan ja pyöristetään alaspäin</strong>
                                 </td>
                                 <td>Normaali vahinko</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="margin-top: 2em;">Taistelukunnon Vaikutukset</h3>
+                <p>
+                    Yksikön taistelukyky heikkenee sen kärsiessä tappioita. Alla oleva taulukko näyttää, mitä
+                    vaikutuksia Taistelukunnon (TK) laskulla on. Vaikutukset ovat kumulatiivisia.
+                </p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>TK Taso</th>
+                                <th>Tila</th>
+                                <th>Vaikutukset</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>100% - 51%</strong></td>
+                                <td>Kunnossa</td>
+                                <td>Ei rangaistuksia.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>50% - 26%</strong></td>
+                                <td><span class="glossary-term" data-term="vaurioitunut">Vaurioitunut</span></td>
+                                <td>
+                                    <ul>
+                                        <li>Pakollinen Moraalitesti (DC 12).</li>
+                                        <li>Liike & Tuli-isku puolitettu.</li>
+                                        <li>Yksikkökortissa mainitut <span
+                                                class="vaurioitunut-tila">(Vaurioitunut)</span>-efektit aktivoituvat.
+                                        </li>
+                                        <li>Ansaitsee vain 50% XP:stä.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>25% - 1%</strong></td>
+                                <td><span class="glossary-term" data-term="lamautunut">Lamautunut</span></td>
+                                <td>
+                                    <ul>
+                                        <li>Kaikki edelliset vaikutukset.</li>
+                                        <li>Yksikkö on automaattisesti <span class="glossary-term"
+                                                data-term="lamautunut">Lamautunut</span>, kunnes sen TK nousee yli 25%.
+                                        </li>
+                                        <li>Ei voi suorittaa toimintoja.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>0%</strong></td>
+                                <td>Tuhottu</td>
+                                <td>Yksikkö poistetaan pelistä.</td>
                             </tr>
                         </tbody>
                     </table>

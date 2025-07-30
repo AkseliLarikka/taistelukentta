@@ -1,6 +1,6 @@
 /**
  * Taistelukenttä d20 -sivuston sanastotietokantaa hallinnoiva skripti.
- * @version 2.1 - Syvälliset, mekaaniset selitykset kaikille avaintermeille.
+ * @version 2.2 - Lisätty taistelun ja kampanjan ydinmekaniikkoja.
  * @author Akseli Larikka
  */
 const glossaryData = {
@@ -51,5 +51,34 @@ const glossaryData = {
     "tarahtanyt": "<strong>Tärähtänyt (Shaken):</strong> Lievästi epäonnistuneen moraalitestin seuraus. Yksikkö kärsii -2 rangaistuksen seuraavaan hyökkäysheittoonsa, mutta voi muuten toimia normaalisti.",
     "lamautunut": "<strong>Lamautunut (Suppressed):</strong> Epäonnistuneen moraalitestin seuraus.<ul><li>Ei voi liikkua tai käyttää toimintoja.</li><li>Sitä vastaan tehdyt hyökkäykset saavat Edun (Advantage).</li><li>Poistuu onnistuneella moraalitestillä tai 'Moraalin Kohotus' -komennolla.</li></ul>",
     "vetaytyy": "<strong>Vetäytyy:</strong> Kriittisesti epäonnistuneen moraalitestin seuraus. Yksikkö pakenee hallitsemattomasti täyden liikkeensä verran poispäin lähimmästä vihollisesta.",
-    "piiloutunut": "<strong>Piiloutunut:</strong> Erityiskyvyllä saavutettu tila.<ul><li>Ei voi valita kohteeksi, ellei vihollinen ole 2 cm tai lähempänä.</li><li>Tila poistuu, jos yksikkö liikkuu, hyökkää tai vihollinen tulee 2 cm päähän.</li></ul>"
+    "piiloutunut": "<strong>Piiloutunut:</strong> Erityiskyvyllä saavutettu tila.<ul><li>Ei voi valita kohteeksi, ellei vihollinen ole 2 cm tai lähempänä.</li><li>Tila poistuu, jos yksikkö liikkuu, hyökkää tai vihollinen tulee 2 cm päähän.</li></ul>",
+    
+    // === TAISTELUN YDINMEKANIIKAT ===
+    "vaikutuksen-asteet": "Taistelun lopputuloksen määrittävä järjestelmä, jossa hyökkäysheiton tulosta verrataan puolustajan suoja-arvoon. Lopputulos voi olla Puhdas Huti, Estotuli, Normaali Osuma tai Raskas Osuma.",
+    "estotuli": "Vaikutuksen aste, joka syntyy, kun hyökkäysheitto alittaa puolustusarvon 1–4 pisteellä. Ei aiheuta vahinkoa, mutta antaa kohteelle **Tärähtänyt**-tilan.",
+    "raskas-osuma": "Vaikutuksen aste, joka syntyy, kun hyökkäysheitto ylittää puolustusarvon vähintään 5 pisteellä. Aiheuttaa normaalin vahingon lisäksi +1d6 lisävahinkoa.",
+    "vahinkotyypit": "Aseiden aiheuttama vahinko jaetaan kahteen tyyppiin: **SIR (Sirpalevaikutus)**, joka on tehokas jalkaväkeä vastaan, ja **PST (Panssarintorjunta)**, joka on tehokas panssaroituja ajoneuvoja vastaan.",
+    "tilaisuusisku": "Ilmainen hyökkäys, jonka yksikkö saa tehdä vihollisyksikköä vastaan, joka yrittää poistua sen hallintavyöhykkeeltä ilman Irtautuminen-komentoa.",
+    "valmius": "Komentopisteellä aktivoitava tila, jossa yksikkö voi keskeyttää vihollisen vuoron ja ampua välittömästi, jos vihollisyksikkö liikkuu sen näköyhteydelle.",
+
+    // === KAMPANJAN HALLINTA ===
+    "tp": "Täydennyspiste. Taisteluista ansaittava resurssi, jota käytetään yksiköiden taistelukunnon (TK) palauttamiseen ja uusien yksiköiden ostamiseen tuhoutuneiden tilalle.",
+    "kasarmi": "Komppanian yksikköpooli ja hallintakeskus, jota edustaa Komppanian Vahvuusluettelo. Kasarmilta valitaan yksiköt kuhunkin skenaarioon.",
+    "strateginen-doktriini": "Ennen kampanjan alkua valittava komppanian yleinen erikoistuminen (esim. Viivytystaistelu), joka antaa pysyviä etuja tietyissä tilanteissa.",
+    "veteraanikyvyt": "Pysyviä erikoiskykyjä, joita yksiköt voivat oppia kerättyään riittävästi kokemusta (XP). Yksikkö voi valita ensimmäisen kykynsä saavutettuaan 20 XP:tä.",
+    
+    // === SÄÄNTÖTEKNISET TARKENNUKSET ===
+    "tulenjohto": "Kyky kutsua ja ohjata epäsuoraa tulta. Pelissä tämä kyky on integroitu Jääkäriryhmiin. Onnistunut tulenjohto vaatii vähintään 'Tiedossa'-tason havainnon kohteesta.",
+    "korkeusero": "Maaston korkeuskäyrien aiheuttama taktinen etu tai haitta. Ylempänä oleva yksikkö saa bonuksia hyökkäys- ja tiedusteluheittoihin.",
+    "hyökkäyskäsky": "Yhden komentopisteen (1 KP) maksava käsky, joka antaa yksikölle luvan suorittaa hyökkäyksen Tulitoimintavaiheessa. Tämä on yleensä tarpeen, jos yksikkö on ensin liikkunut samalla vuorolla.",
+    "irtautuminen": "Kahden komentopisteen (2 KP) arvoinen komento, joka antaa yksikölle luvan vetäytyä hallitusti vihollisen hallintavyöhykkeeltä ilman, että vihollinen saa tehdä siihen tilaisuusiskua.",
+    "tulen-keskittäminen": "Yhden komentopisteen (1 KP) komento, jolla nimetään yksi tai useampi oman joukkueen ryhmä keskittämään tulensa yhteen maaliin. Jokainen käskyn alainen ryhmä saa +1 bonuksen hyökkäysheittoonsa kyseistä maalia vastaan.",
+    "tiedustelutoiminta": "Yhden komentopisteen (1 KP) komento, joka antaa ryhmälle luvan suorittaa aktiivisen tiedusteluheiton piilossa olevien vihollisten tai ansojen havaitsemiseksi.",
+    "taisteluryhmä": "Pelinjohtajan tapa jaotella Punaisen puolen joukkoja (esim. 'Panssarikiila'). Jokainen taisteluryhmä tuottaa oman erillisen KP-poolinsa, ja yhteen taisteluryhmään voi käyttää enintään 4 KP per vuoro.",
+    "order-of-battle": "Skenaarion alussa määritelty lista kummankin osapuolen joukoista, niiden määrästä ja tyypistä.",
+    "resurssipisteet": "Kartalla olevia strategisia kohteita (esim. ammusvarasto), joiden valtaaminen ja hallussapito antaa skenaarion lopussa bonuksia, kuten ylimääräisiä Täydennyspisteitä (TP), kampanjavaiheeseen.",
+    "kohdetyypit": "Yksiköt jaetaan kahteen kohdetyyppiin: **Pehmeä maali** (jalkaväki) ja **Panssaroitu maali** (ajoneuvot). Vahinkotyyppi (SIR/PST) määrittää, kuinka tehokas hyökkäys on eri kohdetyyppejä vastaan.",
+    "kriittiset-tilanteet": "Erityisseuraukset, jotka aktivoituvat d20-heiton tuloksella 1 (katastrofaalinen virhe, esim. asehäiriö) tai 20 (erinomainen suoritus, esim. automaattinen Raskas Osuma osuessaan).",
+    "aaltohyökkäys": "Motorisoitujen jalkaväkiryhmien passiivinen kyky. Jos vähintään kolme tällaista ryhmää hyökkää samaan kohteeseen samalla vuorolla, ne kaikki saavat +1 Moraaliin seuraavalla vuorollaan.",
+    "sisu": "Jääkäriryhmän passiivinen kyky, jonka ansiosta sen Moraali-arvo ei putoa, vaikka yksikkö joutuisi Vaurioitunut-tilaan."
 };
