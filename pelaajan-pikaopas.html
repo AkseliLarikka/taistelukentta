@@ -21,7 +21,8 @@
     <meta property="og:title" content="Taistelukenttä d20 - Pelaajan Työkalu">
     <meta property="og:description"
         content="Interaktiivinen pikaopas ja työkalu pelaajalle. Hallinnoi yksiköitäsi ja seuraa komentopisteitä pelin aikana.">
-    <meta property="og:image" content="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629056/TKD20LOGO_tcsrcz.png">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629056/TKD20LOGO_tcsrcz.png">
     <meta property="og:image:alt" content="Taistelukenttä d20 -logo">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -33,7 +34,8 @@
     <meta name="twitter:title" content="Taistelukenttä d20 - Pelaajan Työkalu">
     <meta name="twitter:description"
         content="Interaktiivinen pikaopas ja työkalu pelaajalle. Hallinnoi yksiköitäsi ja seuraa komentopisteitä pelin aikana.">
-    <meta name="twitter:image" content="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629056/TKD20LOGO_tcsrcz.png">
+    <meta name="twitter:image"
+        content="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629056/TKD20LOGO_tcsrcz.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,9 +135,9 @@
                     <li><strong>Hyökkäysheitto:</strong>
                         <code>d20 + <span class="glossary-term" data-term="taitotaso">Taitotaso</span> (<span class="glossary-term" data-term="taitotaso">TT</span>) + bonukset</code>
                         vs. Vihollisen
-                        <code><span class="glossary-term" data-term="suoja">Suoja</span> (<span class="glossary-term" data-term="suoja">S</span>)</code>.
+                        <code><span class="glossary-term" data-term="suoja">Suoja (S)</span> + Maaston suojabonus</code>.
                         Tulos pitää olla <strong>vähintään yhtä suuri</strong> kuin <span class="glossary-term"
-                            data-term="suoja">Suoja</span>-arvo.
+                            data-term="suoja">Suoja</span>+ Maasto-bonus yhteenlaskettu arvo.
                     </li>
                     <li><strong><span class="glossary-term" data-term="etu ja haitta">Etu</span>
                             (Advantage):</strong>
@@ -304,9 +306,13 @@
                 </div>
 
                 <h3 style="margin-top: 2em;">Maaston Vaikutukset Pelaajalle</h3>
+                <p>
+                    Yksikön Liike-arvo (L) kertoo sen liikkumispotentiaalin senttimetreinä. Eri
+                    maastotyypit kuluttavat tätä potentiaalia eri tavoin. Jos laskuissa ilmenee desimaaleja, ne
+                    pyöristetään aina ylöspäin seuraavaan kokonaiseen senttimetriin pelaajan eduksi.
+                </p>
                 <div class="table-container">
                     <table>
-                        <caption>Maaston vaikutukset</caption>
                         <thead>
                             <tr>
                                 <th>Maastotyyppi</th>
@@ -321,42 +327,53 @@
                                 <td><strong>Tie</strong></td>
                                 <td>x 0.5</td>
                                 <td>+0</td>
-                                <td>Ei estä</td>
+                                <td>Näkyvyys enintään 10 cm päähän.</td>
                             </tr>
                             <tr>
                                 <td><strong>Pelto / Aukea</strong></td>
                                 <td>x 1</td>
                                 <td>+1</td>
-                                <td>Ei estä</td>
+                                <td>Näkyvyys enintään 10 cm päähän.</td>
                             </tr>
                             <tr>
                                 <td><strong>Metsä / Suo</strong></td>
                                 <td>x 2</td>
-                                <td>+4</td>
-                                <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span> yli 5 cm
-                                    päähän</td>
+                                <td>+3</td>
+                                <td>Näkyvyys enintään 5 cm päähän.</td>
                             </tr>
                             <tr>
-                                <td><strong>Tiheä metsä</strong></td>
+                                <td><strong>Tiheikkö</strong></td>
                                 <td>x 3</td>
-                                <td>+6</td>
-                                <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span> yli 2 cm
-                                    päähän</td>
+                                <td>+4</td>
+                                <td>Näkyvyys enintään 2 cm päähän (ZoC).</td>
                             </tr>
                             <tr>
                                 <td><strong>Rakennus / Asema</strong></td>
-                                <td>Ei läpikulkua</td>
-                                <td>+6</td>
-                                <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span> kokonaan</td>
+                                <td>x 2</td>
+                                <td>+4</td>
+                                <td>Näkyvyys enintään 2 cm päähän (ZoC).</td>
                             </tr>
-                            <tr class="special-rule">
-                                <td><strong>Korkea maasto</strong></td>
-                                <td colspan="3">Yksiköt saavat +2 bonuksen hyökkäys- ja tiedusteluheittoihin alempana
-                                    olevaa kohdetta vastaan.</td>
+                            <tr>
+                                <td><strong>Korkeuserot</strong></td>
+                                <td colspan="3">
+                                    <strong>Taktinen etu (≥4 käyrää ylempänä):</strong> Yksikkö saa +2 bonuksen
+                                    hyökkäys- ja
+                                    tiedusteluheittoihin alempana olevaa kohdetta vastaan.<br>
+                                    <strong>Liikkumisen haitta (≥6 käyrää ylämäkeen):</strong> Liikkumiskustannus
+                                    kyseisellä matkalla
+                                    kaksinkertaistuu.
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
+                <p style="margin-top: 1em;">
+                    Lisäksi, jos <span class="glossary-term" data-term="los">näköyhteys</span> on olemassa, mutta se
+                    kulkee näkyvyyttä heikentävän maaston (kuten metsän) läpi sallitun etäisyyden sisällä, kohteena
+                    oleva yksikkö saa aina kyseisen maaston antaman suojabonuksen puolustukseensa.
+                </p>
+
             </section>
             <h2>Pelaajan Työkalupakki</h2>
             <p>Tämä interaktiivinen työkalu on suunniteltu sinua, pelaajaa varten. Sen avulla voit helposti
