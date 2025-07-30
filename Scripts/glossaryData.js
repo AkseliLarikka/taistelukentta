@@ -1,6 +1,6 @@
 /**
  * Taistelukenttä d20 -sivuston sanastotietokantaa hallinnoiva skripti.
- * @version 2.2 - Lisätty taistelun ja kampanjan ydinmekaniikkoja.
+ * @version 2.3 - Lisätty vahinkotyypit SIR ja PST.
  * @author Akseli Larikka
  */
 const glossaryData = {
@@ -29,6 +29,8 @@ const glossaryData = {
     "vp": "Voittopiste. Mittaa taistelun tai kampanjan menestystä.",
     "xp": "Yksikön taistelukokemusta (Experience Points). Lisää yksikön tehokkuutta parantamalla sen Taitotasoa.",
     "häive": "Yksikön kyky välttää havaituksi tuleminen. Korkeampi arvo vaikeuttaa vihollisen havaitsemista.",
+    "vahinkotyyppi-sir": "<strong>SIR (Sirpalevaikutus):</strong> Yleisvahinko jalkaväkiaseista ja räjähdyksistä. Tehokas pehmeitä maaleja (jalkaväkeä) vastaan, mutta tehoton panssaroituja ajoneuvoja vastaan.",
+    "vahinkotyyppi-pst": "<strong>PST (Panssarintorjunta):</strong> Erikoisvahinko panssarinläpäisyyn suunnitelluista aseista. Tehokas panssaroituja maaleja vastaan, mutta tehoton pehmeitä maaleja (jalkaväkeä) vastaan.",
 
     // === Lyhenteet ===
     "jr": "Lyhenne jääkäriryhmälle.",
@@ -55,9 +57,9 @@ const glossaryData = {
     
     // === TAISTELUN YDINMEKANIIKAT ===
     "vaikutuksen-asteet": "Taistelun lopputuloksen määrittävä järjestelmä, jossa hyökkäysheiton tulosta verrataan puolustajan suoja-arvoon. Lopputulos voi olla Puhdas Huti, Estotuli, Normaali Osuma tai Raskas Osuma.",
-    "estotuli": "Vaikutuksen aste, joka syntyy, kun hyökkäysheitto alittaa puolustusarvon 1–4 pisteellä. Ei aiheuta vahinkoa, mutta antaa kohteelle **Tärähtänyt**-tilan.",
+    "estotuli": "Vaikutuksen aste, joka syntyy, kun hyökkäysheitto alittaa puolustusarvon 1–4 pisteellä. Ei aiheuta vahinkoa, mutta antaa kohteelle <strong>Tärähtänyt</strong>-tilan.",
     "raskas-osuma": "Vaikutuksen aste, joka syntyy, kun hyökkäysheitto ylittää puolustusarvon vähintään 5 pisteellä. Aiheuttaa normaalin vahingon lisäksi +1d6 lisävahinkoa.",
-    "vahinkotyypit": "Aseiden aiheuttama vahinko jaetaan kahteen tyyppiin: **SIR (Sirpalevaikutus)**, joka on tehokas jalkaväkeä vastaan, ja **PST (Panssarintorjunta)**, joka on tehokas panssaroituja ajoneuvoja vastaan.",
+    "vahinkotyypit": "Aseiden aiheuttama vahinko jaetaan kahteen tyyppiin: <strong>SIR (Sirpalevaikutus)</strong>, joka on tehokas jalkaväkeä vastaan, ja <strong>PST (Panssarintorjunta)</strong>, joka on tehokas panssaroituja ajoneuvoja vastaan.",
     "tilaisuusisku": "Ilmainen hyökkäys, jonka yksikkö saa tehdä vihollisyksikköä vastaan, joka yrittää poistua sen hallintavyöhykkeeltä ilman Irtautuminen-komentoa.",
     "valmius": "Komentopisteellä aktivoitava tila, jossa yksikkö voi keskeyttää vihollisen vuoron ja ampua välittömästi, jos vihollisyksikkö liikkuu sen näköyhteydelle.",
 
@@ -77,7 +79,7 @@ const glossaryData = {
     "taisteluryhmä": "Pelinjohtajan tapa jaotella Punaisen puolen joukkoja (esim. 'Panssarikiila'). Jokainen taisteluryhmä tuottaa oman erillisen KP-poolinsa, ja yhteen taisteluryhmään voi käyttää enintään 4 KP per vuoro.",
     "order-of-battle": "Skenaarion alussa määritelty lista kummankin osapuolen joukoista, niiden määrästä ja tyypistä.",
     "resurssipisteet": "Kartalla olevia strategisia kohteita (esim. ammusvarasto), joiden valtaaminen ja hallussapito antaa skenaarion lopussa bonuksia, kuten ylimääräisiä Täydennyspisteitä (TP), kampanjavaiheeseen.",
-    "kohdetyypit": "Yksiköt jaetaan kahteen kohdetyyppiin: **Pehmeä maali** (jalkaväki) ja **Panssaroitu maali** (ajoneuvot). Vahinkotyyppi (SIR/PST) määrittää, kuinka tehokas hyökkäys on eri kohdetyyppejä vastaan.",
+    "kohdetyypit": "Yksiköt jaetaan kahteen kohdetyyppiin: <strong>Pehmeä maali</strong> (jalkaväki) ja <strong>Panssaroitu maali</strong> (ajoneuvot). Vahinkotyyppi (SIR/PST) määrittää, kuinka tehokas hyökkäys on eri kohdetyyppejä vastaan.",
     "kriittiset-tilanteet": "Erityisseuraukset, jotka aktivoituvat d20-heiton tuloksella 1 (katastrofaalinen virhe, esim. asehäiriö) tai 20 (erinomainen suoritus, esim. automaattinen Raskas Osuma osuessaan).",
     "aaltohyökkäys": "Motorisoitujen jalkaväkiryhmien passiivinen kyky. Jos vähintään kolme tällaista ryhmää hyökkää samaan kohteeseen samalla vuorolla, ne kaikki saavat +1 Moraaliin seuraavalla vuorollaan.",
     "sisu": "Jääkäriryhmän passiivinen kyky, jonka ansiosta sen Moraali-arvo ei putoa, vaikka yksikkö joutuisi Vaurioitunut-tilaan."
