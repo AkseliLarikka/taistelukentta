@@ -320,6 +320,62 @@
                     </table>
                 </div>
 
+                <h3 style="margin-top: 2em;">Taistelukunnon Vaikutukset</h3>
+                <p>
+                    Yksikön taistelukyky heikkenee sen kärsiessä tappioita. Alla oleva taulukko näyttää, mitä
+                    vaikutuksia Taistelukunnon (TK) laskulla on. Vaikutukset ovat kumulatiivisia.
+                </p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>TK Taso</th>
+                                <th>Tila</th>
+                                <th>Vaikutukset</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>100% - 51%</strong></td>
+                                <td>Kunnossa</td>
+                                <td>Ei rangaistuksia.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>50% - 26%</strong></td>
+                                <td><span class="glossary-term" data-term="vaurioitunut">Vaurioitunut</span></td>
+                                <td>
+                                    <ul>
+                                        <li>Pakollinen Moraalitesti (DC 12).</li>
+                                        <li>Liike & Tuli-isku puolitettu.</li>
+                                        <li>Yksikkökortissa mainitut <span
+                                                class="vaurioitunut-tila">(Vaurioitunut)</span>-efektit aktivoituvat.
+                                        </li>
+                                        <li>Ansaitsee vain 50% XP:stä.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>25% - 1%</strong></td>
+                                <td><span class="glossary-term" data-term="lamautunut">Lamautunut</span></td>
+                                <td>
+                                    <ul>
+                                        <li>Kaikki edelliset vaikutukset.</li>
+                                        <li>Yksikkö on automaattisesti <span class="glossary-term"
+                                                data-term="lamautunut">Lamautunut</span>, kunnes sen TK nousee yli 25%.
+                                        </li>
+                                        <li>Ei voi suorittaa toimintoja.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>0%</strong></td>
+                                <td>Tuhottu</td>
+                                <td>Yksikkö poistetaan pelistä.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <h3><span class="glossary-term" data-term="moraali">Moraali</span></h3>
                 <p>Yksikön henkinen kestävyys on yhtä tärkeää kuin fyysinen. Kaikilla yksiköillä, myös ajoneuvoilla, on
                     moraaliarvo, joka edustaa miehistön kanttia. Yksikön on tehtävä <strong><span class="glossary-term"

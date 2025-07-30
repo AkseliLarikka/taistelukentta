@@ -1,10 +1,9 @@
 /**
  * Taistelukenttä d20 - Pelaajan työkalupakki
- * Versio 4.3 - Lisätty automaattinen ilmoitus saapuvista tulitukitehtävistä.
+ * Versio 5.1 - Dynaaminen stattien päivitys, tilanhallinta, parannetut ilmoitukset ja toimiva välilehtinavigaatio.
  */
 document.addEventListener('DOMContentLoaded', () => {
     // Varmistetaan, että pääelementti on olemassa ennen kuin jatketaan.
-    // Tämä estää virheet sivuilla, joilla työkalua ei ole.
     const playerToolContainer = document.getElementById('player-tool-container');
     if (!playerToolContainer) return;
 
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextPhaseBtn = document.getElementById('player-next-phase-button');
     const prevPhaseBtn = document.getElementById('player-prev-phase-button');
     const tacticalAdviceEl = document.getElementById('player-tactical-advice');
-    const turnCounterDisplay = document.getElementById('player-turn-counter'); // Lisätty viittaus
+    const turnCounterDisplay = document.getElementById('player-turn-counter');
 
     // Reset-modaalin elementit
     const resetToolBtn = document.getElementById('player-reset-tool-button');
@@ -52,14 +51,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- KESKEISET FUNKTIOT ---
 
-    // Ilmoitusten näyttäminen
-    const showNotification = (message, type = 'info', duration = 6000) => {
-        if (!notificationsEl) return;
-        const notif = document.createElement('div');
-        notif.className = `player-notification is-${type}`;
-        notif.innerHTML = message;
-        notificationsEl.insertBefore(notif, notificationsEl.firstChild);
-        setTimeout(() => { notif.style.opacity = '0'; setTimeout(() => notif.remove(), 500); }, duration);
+    /**
+     * Näyttää ilmoituksen joko pääsisällössä tai yläpalkin header-tyylisenä.
+     * @param {string} message - Näytettävä viesti.
+     * @param {string} type - Ilmoituksen tyyppi ('info', 'warning', 'success').
+     * @param {boolean} isHeader - Onko kyseessä yläpalkin ilmoitus.
+     * @param {number} duration - Kauanko ilmoitus näkyy (ms).
+     */
+    const showNotification = (message, type = 'info', isHeader = false, duration = 6000) => {
+        if (isHeader) {
+            const headerNotif = document.createElement('div');
+            headerNotif.className = `header-notification is-${type}`;
+            headerNotif.innerHTML = message;
+            document.body.appendChild(headerNotif);
+            // Animaatio sisään
+            setTimeout(() => headerNotif.classList.add('is-visible'), 10);
+            // Animaatio ulos ja poisto
+            setTimeout(() => {
+                headerNotif.classList.remove('is-visible');
+                setTimeout(() => headerNotif.remove(), 500);
+            }, duration);
+        } else {
+            if (!notificationsEl) return;
+            const notif = document.createElement('div');
+            notif.className = `player-notification is-${type}`;
+            notif.innerHTML = message;
+            notificationsEl.insertBefore(notif, notificationsEl.firstChild);
+            setTimeout(() => { notif.style.opacity = '0'; setTimeout(() => notif.remove(), 500); }, duration);
+        }
     };
 
     // Datan tallennus ja lataus
@@ -78,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             savedData = null;
         }
 
-        playerData = savedData || {
+        const defaultData = {
             roles: { joukkueenjohtaja: true, komppanianpaallikko: false },
             kp: { joukkueenjohtaja: 3, komppanianpaallikko: 5 },
             activeUnits: [], notes: '', usedTacticalAbility: null,
@@ -86,12 +105,309 @@ document.addEventListener('DOMContentLoaded', () => {
             unitInstanceCounter: 0, turn: 1, currentPhaseIndex: -1
         };
 
+        playerData = savedData || defaultData;
+
+        // **TÄRKEÄ KORJAUS**: Hydratoidaan vanhat yksiköt ja varmistetaan datan eheys
+        if (playerData.activeUnits && Array.isArray(playerData.activeUnits)) {
+            playerData.activeUnits.forEach(unit => {
+                const template = window.blueUnitData[unit.typeId];
+                if (template) {
+                    if (!unit.abilities) unit.abilities = template.abilities;
+                    if (!unit.armament) unit.armament = template.armament;
+                    if (!unit.maxTk) unit.maxTk = template.stats.tk;
+
+                    // Muunnetaan vanha string-muotoinen status uuteen array-muotoon
+                    if (typeof unit.status === 'string') {
+                        unit.status = [unit.status];
+                    }
+                    // Varmistetaan, että status on aina taulukko
+                    if (!Array.isArray(unit.status)) {
+                        unit.status = ['Kunnossa'];
+                    }
+                }
+            });
+        }
+
         unitInstanceCounter = playerData.unitInstanceCounter || 0;
         currentPhaseIndex = playerData.currentPhaseIndex !== undefined ? playerData.currentPhaseIndex : -1;
         hiddenCardHeaders = new Set(playerData.hiddenCardHeaders || []);
     };
 
-    // Yksiköiden hallinta
+
+
+    /**
+     * Laskee yksikön modifioidut taisteluarvot sen nykyisen tilan ja kykyjen perusteella.
+     * @param {object} unitState - Yksikön tilaobjekti.
+     * @returns {object} Objekti, joka sisältää lasketut arvot.
+     */
+    const calculateModifiedStats = (unitState) => {
+        const baseUnit = window.blueUnitData[unitState.typeId];
+        if (!baseUnit) return { liike: 0, tuliIsku: '-', moraali: unitState.m };
+
+        const baseStats = baseUnit.stats;
+        let modified = {
+            liike: baseStats.l,
+            tuliIsku: baseUnit.armament.find(w => w.name.toLowerCase().includes('aseistus'))?.damage || '-',
+            moraali: baseStats.m
+        };
+
+        const activeStatuses = unitState.status || [];
+
+        // Käydään kaikki aktiiviset statukset läpi
+        if (activeStatuses.includes('Vaurioitunut')) {
+            modified.liike = Math.floor(baseStats.l / 2);
+            const diceMap = { 'd12': 'd10', 'd10': 'd8', 'd8': 'd6', 'd6': 'd4', 'd4': 'd4' };
+            modified.tuliIsku = diceMap[modified.tuliIsku] || modified.tuliIsku;
+
+            const hasSisu = unitState.abilities && unitState.abilities.some(a => a.name.toLowerCase().includes("sisu"));
+            if (!hasSisu) {
+                // Säännöissä ei määritellä suoraa moraalirangaistusta vaurioitumisesta,
+                // mutta tämä olisi paikka lisätä se tarvittaessa.
+            }
+        }
+
+        if (activeStatuses.includes('Lamautunut') || activeStatuses.includes('Tuhottu') || activeStatuses.includes('Vetäytyy')) {
+            modified.liike = 0;
+            modified.tuliIsku = '-';
+        }
+
+        return modified;
+    };
+
+
+    /**
+     * Päivittää yksikön tilaa ja laskee sen arvot uudelleen.
+     * @param {string} instanceId - Yksikön uniikki ID.
+     * @param {object} updates - Päivitettävät arvot.
+     */
+    const updateUnitState = (instanceId, updates) => {
+        const unit = playerData.activeUnits.find(u => u.instanceId === instanceId);
+        if (!unit) return;
+
+        // Otetaan kopiot vanhoista arvoista vertailua varten
+        const oldTk = unit.tk;
+        const oldStatusesJSON = JSON.stringify([...unit.status].sort());
+
+        // Yhdistetään päivitykset (esim. tk tai status muuttuu)
+        Object.assign(unit, updates);
+
+        // Varmistetaan, että TK on rajojen sisällä
+        unit.tk = Math.max(0, Math.min(unit.tk, unit.maxTk));
+
+        // --- Automaattinen tilan päivitys TK:n perusteella ---
+        // Ajetaan vain, jos päivitys EI tullut manuaalisesti status-valintaruuduista
+        if (updates.tk !== undefined && updates.status === undefined) {
+            const tkBasedStatuses = ['Kunnossa', 'Vaurioitunut', 'Lamautunut', 'Tuhottu'];
+
+            // 1. Poistetaan vanhat TK-pohjaiset tilat, mutta säilytetään manuaaliset (kuten Tärähtänyt)
+            let newStatusArray = unit.status.filter(s => !tkBasedStatuses.includes(s));
+
+            // 2. Määritetään uusi TK-pohjainen tila sääntötaulukon mukaan
+            const percentage = (unit.tk / unit.maxTk) * 100;
+            let newTkStatus = 'Kunnossa';
+            if (unit.tk <= 0) {
+                newTkStatus = "Tuhottu";
+            } else if (percentage <= 25) {
+                newTkStatus = "Lamautunut";
+            } else if (percentage <= 50) {
+                newTkStatus = "Vaurioitunut";
+            }
+
+            // 3. Lisätään uusi TK-pohjainen tila listaan, jos se ei ole jo siellä
+            if (!newStatusArray.includes(newTkStatus)) {
+                newStatusArray.push(newTkStatus);
+            }
+
+            // 4. Siivotaan lista: jos 'Kunnossa' on muiden tilojen kanssa, poistetaan se.
+            if (newStatusArray.length > 1) {
+                newStatusArray = newStatusArray.filter(s => s !== 'Kunnossa');
+            }
+
+            unit.status = newStatusArray;
+        }
+
+        // --- Ilmoitusten ja renderöinnin käsittely ---
+        const newStatusesJSON = JSON.stringify([...unit.status].sort());
+
+        // Näytetään ilmoitus vain, jos tilojen lista on oikeasti muuttunut
+        if (newStatusesJSON !== oldStatusesJSON) {
+            const statusEffectDescriptions = {
+                'Tärähtänyt': 'Kärsii -2 rangaistuksen seuraavaan hyökkäykseen.',
+                'Vaurioitunut': 'Liike & Tuli-isku puolitettu.',
+                'Lamautunut': 'Ei voi toimia. Vastaan hyökätessä saa Edun.',
+                'Vetäytyy': 'Pakenee hallitsemattomasti.',
+                'Tuhottu': 'Poistettu pelistä.'
+            };
+            const activeEffects = unit.status.filter(s => statusEffectDescriptions[s]).map(s => `<strong>${s}</strong>`);
+
+            showNotification(`<strong>${unit.name}</strong> tila muuttui: ${activeEffects.join(' & ')}`, 'warning', true);
+        }
+
+        // Ensimmäisen osuman ilmoitus
+        if (unit.tk < oldTk && unit.tookFirstHit === false && unit.tk < unit.maxTk) {
+            showNotification(`<strong>${unit.name}</strong> kärsi ensivahingon! Moraalitesti vaaditaan (DC 10).`, 'warning', true);
+            unit.tookFirstHit = true;
+        }
+
+        // Päivitetään aina UI ja tallennetaan data
+        renderSingleUnit(instanceId);
+        savePlayerData();
+    };
+
+
+    /**
+     * Renderöi yksittäisen yksikkökortin näkyviin.
+     * @param {string} instanceId - Renderöitävän yksikön uniikki ID.
+     */
+    const renderSingleUnit = (instanceId) => {
+        const unit = playerData.activeUnits.find(u => u.instanceId === instanceId);
+        const card = document.getElementById(`player-card-${instanceId}`);
+        if (!unit || !card) return;
+
+        if (!Array.isArray(unit.status)) {
+            unit.status = ['Kunnossa'];
+        }
+
+        const modifiedStats = calculateModifiedStats(unit);
+
+        const statusEffectDescriptions = {
+            'Tärähtänyt': 'Kärsii -2 rangaistuksen seuraavaan hyökkäykseen.',
+            'Vaurioitunut': 'Liike & Tuli-isku puolitettu. Pakollinen moraalitesti (DC 12).',
+            'Lamautunut': 'Ei voi toimia. Vastaan hyökätessä saa Edun.',
+            'Vetäytyy': 'Pakenee hallitsemattomasti.',
+            'Tuhottu': 'Poistettu pelistä.'
+        };
+
+        const armamentHtml = unit.armament.map(w => {
+            const isPrimaryWeapon = w.name.toLowerCase().includes('aseistus');
+            const displayDamage = isPrimaryWeapon ? modifiedStats.tuliIsku : w.damage;
+            return `<tr><td>${w.name}</td><td>${w.attack}</td><td>${displayDamage}</td><td>${w.notes}</td></tr>`;
+        }).join('');
+        const armamentTable = `<div class="table-container"><table class="armament-table"><thead><tr><th>Ase</th><th>Hyökkäys</th><th>Vahinko (TI)</th><th>Huom.</th></tr></thead><tbody>${armamentHtml}</tbody></table></div>`;
+
+        const abilitiesHtml = unit.abilities ? unit.abilities.map(a => `<li><strong>${a.name}:</strong> ${a.description}</li>`).join('') : '';
+
+        const allStatuses = ['Kunnossa', 'Tärähtänyt', 'Vaurioitunut', 'Lamautunut', 'Vetäytyy', 'Tuhottu'];
+        const statusCheckboxesHtml = `
+            <div class="status-checkbox-group">
+                ${allStatuses.map(s => `
+                    <label>
+                        <input type="checkbox" class="status-checkbox" value="${s}" ${unit.status.includes(s) ? 'checked' : ''}>
+                        <span>${s}</span>
+                    </label>
+                `).join('')}
+            </div>
+        `;
+
+        const activeEffectsHtml = `
+            <ul class="active-effects-list">
+                ${unit.status
+                .filter(s => statusEffectDescriptions[s])
+                .map(s => `<li><strong>${s}:</strong> ${statusEffectDescriptions[s]}</li>`)
+                .join('')}
+            </ul>
+        `;
+
+        card.innerHTML = `
+            <div class="unit-card-header">
+                <h4>${unit.name} <span class="unit-type-display">(${unit.typeName})</span></h4>
+            </div>
+            <div class="unit-card-body">
+                <div class="unit-stat-grid">
+                    <div class="unit-stat tk-tracker"><div class="label">Taistelukunto</div><div class="unit-tracker"><button class="tk-btn tk-minus">-</button><span class="value tk-current">${unit.tk} / ${unit.maxTk}</span><button class="tk-btn tk-plus">+</button></div></div>
+                    <div class="unit-stat"><div class="label">Suoja</div><div class="value">${unit.s}</div></div>
+                    <div class="unit-stat"><div class="label">Moraali</div><div class="value">${modifiedStats.moraali}</div></div>
+                    <div class="unit-stat"><div class="label">Taitotaso</div><div class="value">${unit.tt}</div></div>
+                    <div class="unit-stat"><div class="label">Liike</div><div class="value">${modifiedStats.liike} cm</div></div>
+                </div>
+                
+                <h5>Tilaefektit</h5>
+                ${statusCheckboxesHtml}
+                ${activeEffectsHtml}
+                
+                <div class="unit-ammo-trackers"></div>
+                <h5>Aseistus</h5>${armamentTable}
+                <h5>Kyvyt</h5><ul class="abilities-list">${abilitiesHtml}</ul>
+                <button class="remove-unit-btn danger-button">Poista Yksikkö</button>
+            </div>`;
+
+        const ammoContainer = card.querySelector('.unit-ammo-trackers');
+        if (unit.ammo && Object.keys(unit.ammo).length > 0) {
+            // Lisätään otsikko vain jos ammuksia on
+            const ammoHeader = document.createElement('h5');
+            ammoHeader.textContent = 'Ammukset';
+            ammoContainer.before(ammoHeader);
+
+            Object.keys(unit.ammo).forEach(weapon => {
+                const ammoTrackerEl = document.createElement('div');
+                ammoTrackerEl.className = 'ammo-tracker';
+                // LISÄTTY "Ammu"-nappi
+                ammoTrackerEl.innerHTML = `
+                    <span class="ammo-label">${weapon.replace(/<[^>]*>/g, '')}:</span>
+                    <div class="unit-tracker">
+                        <button class="ammo-btn ammo-minus" data-weapon="${weapon}">-</button>
+                        <span class="value ammo-count">${unit.ammo[weapon]}</span>
+                        <button class="ammo-btn ammo-plus" data-weapon="${weapon}">+</button>
+                    </div>
+                    <button class="fire-ammo-btn" data-weapon="${weapon}" ${unit.ammo[weapon] <= 0 ? 'disabled' : ''}>Ammu</button>
+                `;
+                ammoContainer.appendChild(ammoTrackerEl);
+            });
+        }
+
+        // Tapahtumankuuntelijat
+        card.querySelector('.tk-minus').addEventListener('click', () => updateUnitState(instanceId, { tk: unit.tk - 1 }));
+        card.querySelector('.tk-plus').addEventListener('click', () => updateUnitState(instanceId, { tk: unit.tk + 1 }));
+        card.querySelector('.remove-unit-btn').addEventListener('click', () => { playerData.activeUnits = playerData.activeUnits.filter(u => u.instanceId !== instanceId); renderActiveUnits(); savePlayerData(); });
+
+        card.querySelectorAll('.status-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const selectedStatuses = Array.from(card.querySelectorAll('.status-checkbox:checked')).map(cb => cb.value);
+                if (selectedStatuses.length === 0) {
+                    selectedStatuses.push('Kunnossa');
+                }
+                if (selectedStatuses.length > 1 && selectedStatuses.includes('Kunnossa')) {
+                    const index = selectedStatuses.indexOf('Kunnossa');
+                    selectedStatuses.splice(index, 1);
+                }
+                updateUnitState(instanceId, { status: selectedStatuses });
+            });
+        });
+
+        card.querySelectorAll('.ammo-minus').forEach(btn => btn.addEventListener('click', () => { const weapon = btn.dataset.weapon; const newAmmo = { ...unit.ammo }; if (newAmmo[weapon] > 0) { newAmmo[weapon]--; updateUnitState(instanceId, { ammo: newAmmo }); } }));
+        card.querySelectorAll('.ammo-plus').forEach(btn => btn.addEventListener('click', () => { const weapon = btn.dataset.weapon; const newAmmo = { ...unit.ammo }; newAmmo[weapon]++; updateUnitState(instanceId, { ammo: newAmmo }); }));
+
+        // LISÄTTY "Ammu"-napin tapahtumankuuntelija
+        card.querySelectorAll('.fire-ammo-btn').forEach(btn => btn.addEventListener('click', () => {
+            const weapon = btn.dataset.weapon;
+            const newAmmo = { ...unit.ammo };
+            if (newAmmo[weapon] > 0) {
+                newAmmo[weapon]--;
+                showNotification(`<strong>${unit.name}</strong> ampui aseella: <strong>${weapon.replace(/<[^>]*>/g, '')}</strong>`, 'info', true);
+                updateUnitState(instanceId, { ammo: newAmmo });
+            }
+        }));
+    };
+
+    const renderActiveUnits = () => {
+        if (!unitDisplayArea) return;
+        unitDisplayArea.innerHTML = '';
+        if (!playerData.activeUnits || playerData.activeUnits.length === 0) {
+            unitDisplayArea.innerHTML = '<p>Ei aktiivisia yksiköitä.</p>';
+            return;
+        }
+        playerData.activeUnits.forEach(unitState => {
+            const cardDiv = document.createElement('div');
+            cardDiv.id = `player-card-${unitState.instanceId}`;
+            cardDiv.className = 'player-unit-card';
+            if (hiddenCardHeaders.has(unitState.instanceId)) {
+                cardDiv.classList.add('header-hidden');
+            }
+            unitDisplayArea.appendChild(cardDiv);
+            renderSingleUnit(unitState.instanceId);
+        });
+    };
+
     const populatePlayerUnitTemplates = () => {
         if (!unitTemplatesContainer) return;
         unitTemplatesContainer.innerHTML = '';
@@ -108,7 +424,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="template-add-btn" data-type-id="${typeId}">Lisää</button>`;
             unitTemplatesContainer.appendChild(templateDiv);
         }
-        // Lisätään tapahtumankuuntelijat vasta kun kaikki elementit ovat DOM:ssa
         unitTemplatesContainer.querySelectorAll('.template-add-btn').forEach(btn => {
             btn.addEventListener('click', addPlayerUnit);
         });
@@ -123,12 +438,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const customName = customNameInput.value.trim();
 
         if (!customName) {
-            showNotification('Anna yksikölle nimi ennen lisäämistä.', 'warning');
+            showNotification('Anna yksikölle nimi ennen lisäämistä.', 'warning', true);
             customNameInput.focus();
             return;
         }
         if (playerData.activeUnits.some(unit => unit.name.toLowerCase() === customName.toLowerCase())) {
-            showNotification(`Yksikkö nimellä "${customName}" on jo olemassa.`, 'warning');
+            showNotification(`Yksikkö nimellä "${customName}" on jo olemassa.`, 'warning', true);
             customNameInput.focus();
             return;
         }
@@ -145,99 +460,14 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         playerData.activeUnits.push(newUnit);
         playerData.unitInstanceCounter = unitInstanceCounter;
-        showNotification(`Yksikkö "${customName}" lisätty.`);
+        showNotification(`Yksikkö "${customName}" lisätty.`, 'success', true);
         customNameInput.value = '';
         renderActiveUnits();
-
-        // Haetaan juuri luotu kortti ja ajastetaan sen headerin häivytys
-        const newCardElement = document.getElementById(`player-card-${newUnit.instanceId}`);
-        if (newCardElement) {
-            setTimeout(() => {
-                newCardElement.classList.add('header-hidden');
-                hiddenCardHeaders.add(newUnit.instanceId);
-                savePlayerData();
-            }, 2500); // 2.5 sekunnin viive
-        }
 
         savePlayerData();
     };
 
-    const renderActiveUnits = () => {
-        if (!unitDisplayArea) return;
-        unitDisplayArea.innerHTML = '';
-        if (playerData.activeUnits.length === 0) {
-            unitDisplayArea.innerHTML = '<p>Ei aktiivisia yksiköitä.</p>';
-            return;
-        }
-        playerData.activeUnits.forEach(unitState => {
-            const cardDiv = document.createElement('div');
-            cardDiv.id = `player-card-${unitState.instanceId}`;
-            cardDiv.className = 'player-unit-card';
-            if (hiddenCardHeaders.has(unitState.instanceId)) {
-                cardDiv.classList.add('header-hidden');
-            }
-            unitDisplayArea.appendChild(cardDiv);
-            renderSingleUnit(unitState.instanceId);
-        });
-    };
-
-    const renderSingleUnit = (instanceId) => {
-        const unit = playerData.activeUnits.find(u => u.instanceId === instanceId);
-        const card = document.getElementById(`player-card-${instanceId}`);
-        if (!unit || !card) return;
-
-        const armamentHtml = unit.armament.map(w => `<tr><td>${w.name}</td><td>${w.attack}</td><td>${w.damage}</td><td>${w.notes}</td></tr>`).join('');
-        const armamentTable = `
-            <div class="table-container">
-                <table class="armament-table">
-                    <thead><tr><th>Ase</th><th>Hyökkäys</th><th>Vahinko (TI)</th><th>Huom.</th></tr></thead>
-                    <tbody>${armamentHtml}</tbody>
-                </table>
-            </div>
-        `;
-        const abilitiesHtml = unit.abilities.map(a => `<li><strong>${a.name}:</strong> ${a.description}</li>`).join('');
-
-        card.innerHTML = `
-            <header>Yksikkö "${unit.name}" <span class="unit-type-display">(${unit.typeName})</span> lisätty onnistuneesti!</header>
-            <div class="unit-card-header">
-            <h4>${unit.name} <span class="unit-type-display">(${unit.typeName})</span></h4><span class="status-indicator status-${unit.status.toLowerCase().replace(/\s+/g, '-')}">${unit.status}</span>
-            </div>
-            <div class="unit-card-body">
-                <div class="unit-stat-grid">
-                    <div class="unit-stat tk-tracker"><div class="label">Taistelukunto</div><div class="unit-tracker"><button class="tk-btn tk-minus">-</button><span class="value tk-current">${unit.tk}</span><button class="tk-btn tk-plus">+</button></div></div>
-                    <div class="unit-stat"><div class="label">Suoja</div><div class="value">${unit.s}</div></div>
-                    <div class="unit-stat"><div class="label">Moraali</div><div class="value">${unit.m}</div></div>
-                    <div class="unit-stat"><div class="label">Taitotaso</div><div class="value">${unit.tt}</div></div>
-                    <div class="unit-stat"><div class="label">Liike</div><div class="value">${unit.l} cm</div></div>
-                </div>
-                <div class="unit-ammo-trackers"></div>
-                <h5>Aseistus</h5>
-                ${armamentTable}
-                <h5>Kyvyt</h5>
-                <ul class="abilities-list">${abilitiesHtml}</ul>
-                <button class="remove-unit-btn danger-button">Poista Yksikkö</button>
-            </div>
-        `;
-
-        const ammoContainer = card.querySelector('.unit-ammo-trackers');
-        if (unit.ammo && Object.keys(unit.ammo).length > 0) {
-            Object.keys(unit.ammo).forEach(weapon => {
-                const ammoTrackerEl = document.createElement('div');
-                ammoTrackerEl.className = 'ammo-tracker unit-tracker';
-                ammoTrackerEl.innerHTML = `<span>${weapon.replace(/<[^>]*>/g, '')}: <strong class="ammo-count" data-weapon="${weapon}">${unit.ammo[weapon]}</strong></span><button class="use-ammo-btn" data-weapon="${weapon}">Käytä</button>`;
-                ammoContainer.appendChild(ammoTrackerEl);
-            });
-        }
-
-        card.querySelector('.tk-minus').addEventListener('click', () => updateUnitState(instanceId, unit.tk - 1, unit.maxTk));
-        card.querySelector('.tk-plus').addEventListener('click', () => updateUnitState(instanceId, unit.tk + 1, unit.maxTk));
-        card.querySelector('.remove-unit-btn').addEventListener('click', () => { playerData.activeUnits = playerData.activeUnits.filter(u => u.instanceId !== instanceId); renderActiveUnits(); savePlayerData(); });
-        card.querySelectorAll('.use-ammo-btn').forEach(btn => btn.addEventListener('click', () => useAmmo(instanceId, btn.dataset.weapon)));
-    };
-
-    // KORJAUS: Tässä on uusi funktio tulituen tarkistamiseen
     const checkFireSupportArrival = () => {
-        // Ajetaan vain jos on tulitoimintavaihe (indeksi 3)
         if (currentPhaseIndex !== 3) {
             return;
         }
@@ -251,17 +481,12 @@ document.addEventListener('DOMContentLoaded', () => {
             arrivingMissions.forEach(mission => {
                 showNotification(
                     `<strong>TULITUKI SAAPUU:</strong> "${mission.type}" kohteeseen "${mission.target}"!`,
-                    'warning', // Käytetään varoitusväriä tärkeälle ilmoitukselle
-                    10000 // Pidennetty näkyvyysaika
+                    'warning', true, 10000
                 );
             });
-
-            // Poistetaan saapuneet tehtävät listalta
             playerData.fireSupportMissions = playerData.fireSupportMissions.filter(
                 mission => parseInt(mission.arrivalTurn, 10) !== currentTurn
             );
-
-            // Päivitetään tehtävälista käyttöliittymässä ja tallennetaan muutokset
             renderFireSupportMissions();
             savePlayerData();
         }
@@ -285,18 +510,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (tacticalAdviceEl) tacticalAdviceEl.textContent = phase.advice;
             phaseCounterEl.textContent = `Vaihe ${currentPhaseIndex + 1}/${phases.length}`;
             prevPhaseBtn.disabled = (currentPhaseIndex === 0 && playerData.turn === 1);
-
-            // KORJAUS: Kutsutaan uutta funktiota tässä
             checkFireSupportArrival();
         }
         savePlayerData();
     };
 
     const updateUIFromLoadedData = () => {
-        roleCheckboxes.forEach(c => { c.checked = !!playerData.roles[c.value] });
+        roleCheckboxes.forEach(c => { c.checked = !!(playerData.roles && playerData.roles[c.value]) });
         const notesEl = document.getElementById('player-notes');
         if (notesEl) notesEl.value = playerData.notes || '';
-        if (turnCounterDisplay) turnCounterDisplay.textContent = playerData.turn;
+        if (turnCounterDisplay) turnCounterDisplay.textContent = playerData.turn || 1;
 
         updateRole(true);
         renderActiveUnits();
@@ -305,30 +528,38 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateRole = (isInitialLoad = false) => {
+        if (!playerData.roles) playerData.roles = {};
+        if (!playerData.kp) playerData.kp = {};
+
         const oldRoles = { ...playerData.roles };
         roleCheckboxes.forEach(checkbox => { playerData.roles[checkbox.value] = checkbox.checked; });
+
         if (playerData.roles.joukkueenjohtaja && !oldRoles.joukkueenjohtaja) playerData.kp.joukkueenjohtaja = 3;
         if (playerData.roles.komppanianpaallikko && !oldRoles.komppanianpaallikko) playerData.kp.komppanianpaallikko = 5;
+
         if (isInitialLoad) {
             if (playerData.roles.joukkueenjohtaja) playerData.kp.joukkueenjohtaja = playerData.kp.joukkueenjohtaja !== undefined ? playerData.kp.joukkueenjohtaja : 3;
             if (playerData.roles.komppanianpaallikko) playerData.kp.komppanianpaallikko = playerData.kp.komppanianpaallikko !== undefined ? playerData.kp.komppanianpaallikko : 5;
         }
         kpTrackerJJ.container.style.display = playerData.roles.joukkueenjohtaja ? 'flex' : 'none';
-        kpTrackerJJ.display.textContent = playerData.kp.joukkueenjohtaja || 0;
+        if (kpTrackerJJ.display) kpTrackerJJ.display.textContent = playerData.kp.joukkueenjohtaja || 0;
+
         const isCommander = playerData.roles.komppanianpaallikko;
         kpTrackerKP.container.style.display = isCommander ? 'flex' : 'none';
-        commandListCommander.style.display = isCommander ? 'block' : 'none';
-        kpTrackerKP.display.textContent = playerData.kp.komppanianpaallikko || 0;
+        if (commandListCommander) commandListCommander.style.display = isCommander ? 'block' : 'none';
+        if (kpTrackerKP.display) kpTrackerKP.display.textContent = playerData.kp.komppanianpaallikko || 0;
+
         const fireSupportTab = document.querySelector('[data-tab="tab-firesupport-player"]');
         if (fireSupportTab) fireSupportTab.style.display = isCommander ? 'inline-flex' : 'none';
+
         savePlayerData();
     };
 
     const resetKpPools = () => {
         if (playerData.roles.joukkueenjohtaja) playerData.kp.joukkueenjohtaja = 3;
         if (playerData.roles.komppanianpaallikko) playerData.kp.komppanianpaallikko = 5;
-        kpTrackerJJ.display.textContent = playerData.kp.joukkueenjohtaja || 0;
-        kpTrackerKP.display.textContent = playerData.kp.komppanianpaallikko || 0;
+        if (kpTrackerJJ.display) kpTrackerJJ.display.textContent = playerData.kp.joukkueenjohtaja || 0;
+        if (kpTrackerKP.display) kpTrackerKP.display.textContent = playerData.kp.komppanianpaallikko || 0;
     };
 
     const handleKpSpending = (pool, cost) => {
@@ -345,48 +576,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 savePlayerData(); return true;
             }
         }
-        showNotification(`Ei riittävästi komentopisteitä!`, 'warning');
+        showNotification(`Ei riittävästi komentopisteitä!`, 'warning', true);
         return false;
-    };
-
-    const updateUnitState = (instanceId, newTk, maxTk) => {
-        const unit = playerData.activeUnits.find(u => u.instanceId === instanceId);
-        if (!unit) return;
-
-        unit.tk = Math.max(0, Math.min(newTk, maxTk));
-
-        const oldStatus = unit.status;
-        const percentage = (unit.tk / maxTk) * 100;
-
-        let newStatus = "Kunnossa";
-        if (unit.tk <= 0) newStatus = "Tuhottu";
-        else if (percentage <= 25) newStatus = "Lamautunut";
-        else if (percentage <= 50) newStatus = "Vaurioitunut";
-
-        unit.status = newStatus;
-
-        if (newStatus !== oldStatus) {
-            let effectText = '';
-            if (newStatus === 'Vaurioitunut') effectText = 'Liike & Tuli-isku puolitettu.';
-            if (newStatus === 'Lamautunut') effectText = 'Ei toimintoja, hyökkäykset saavat Edun.';
-            showNotification(`<strong>${unit.name}</strong> tila muuttui: <strong>${newStatus}</strong>. ${effectText}`, 'warning');
-        }
-        if (unit.tk < maxTk && unit.tookFirstHit === false) {
-            showNotification(`<strong>${unit.name}</strong> kärsi ensivahingon! Moraalitesti vaaditaan (DC 10).`, 'warning');
-            unit.tookFirstHit = true;
-        }
-        renderSingleUnit(instanceId);
-        savePlayerData();
-    };
-
-    const useAmmo = (instanceId, weaponName) => {
-        const unit = playerData.activeUnits.find(u => u.instanceId === instanceId);
-        if (unit && unit.ammo[weaponName] > 0) {
-            unit.ammo[weaponName]--;
-            showNotification(`Ammus käytetty: <strong>${unit.name} / ${weaponName.replace(/<[^>]*>/g, '')}</strong>. Jäljellä: ${unit.ammo[weaponName]}`, 'info');
-            renderSingleUnit(instanceId);
-            savePlayerData();
-        }
     };
 
     const updateCommanderAbilityButtons = () => {
@@ -440,11 +631,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 playerData.fireSupportMissions.push({ type, target, arrivalTurn });
                 renderFireSupportMissions();
                 const message = `Käytetty ${cost} KP ${poolName} komentoon "${commandName}".`;
-                showNotification(message, 'success');
+                showNotification(message, 'success', true);
                 savePlayerData();
                 document.getElementById('add-mission-form').reset();
             } else {
-                showNotification('Täytä kaikki tulitukitehtävän tiedot!', 'warning');
+                showNotification('Täytä kaikki tulitukitehtävän tiedot!', 'warning', true);
                 playerData.kp.komppanianpaallikko += cost;
                 kpTrackerKP.display.textContent = playerData.kp.komppanianpaallikko;
             }
@@ -452,28 +643,32 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- ALUSTUS JA TAPAHTUMANKUUNTELIJAT ---
-    loadPlayerData();
-    populatePlayerUnitTemplates();
-    updateUIFromLoadedData();
-
     const tabs = document.querySelectorAll('.player-tab-button');
+    const tabPanes = document.querySelectorAll('.player-tab-pane');
     if (tabs.length > 0) {
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                const targetPaneId = tab.dataset.tab;
-                const targetPane = document.getElementById(targetPaneId);
-                document.querySelector('.player-tab-pane.active')?.classList.remove('active');
-                document.querySelector('.player-tab-button.active')?.classList.remove('active');
-                targetPane.classList.add('active');
+                tabs.forEach(t => t.classList.remove('active'));
+                tabPanes.forEach(p => p.classList.remove('active'));
                 tab.classList.add('active');
+                const targetPane = document.getElementById(tab.dataset.tab);
+                if (targetPane) targetPane.classList.add('active');
             });
         });
         const initialActiveTab = document.querySelector('.player-tab-button.active');
-        if (initialActiveTab) {
-            const initialPane = document.getElementById(initialActiveTab.dataset.tab);
-            if (initialPane) initialPane.classList.add('active');
+        if (!initialActiveTab && tabs.length > 0) {
+            tabs[0].classList.add('active');
+            const firstPane = document.getElementById(tabs[0].dataset.tab);
+            if (firstPane) firstPane.classList.add('active');
+        } else if (initialActiveTab) {
+            const activePane = document.getElementById(initialActiveTab.dataset.tab);
+            if (activePane) activePane.classList.add('active');
         }
     }
+
+    loadPlayerData();
+    populatePlayerUnitTemplates();
+    updateUIFromLoadedData();
 
     roleCheckboxes.forEach(checkbox => checkbox.addEventListener('change', () => updateRole(false)));
     kpTrackerJJ.decBtn?.addEventListener('click', () => { if (playerData.kp.joukkueenjohtaja > 0) { playerData.kp.joukkueenjohtaja--; kpTrackerJJ.display.textContent = playerData.kp.joukkueenjohtaja; savePlayerData(); } });
@@ -493,7 +688,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const poolName = pool === 'jj' ? 'joukkueenjohtajan' : 'komppanianpäällikön';
             if (handleKpSpending(pool, cost)) {
                 const message = `Käytetty ${cost} KP ${poolName} komentoon "${commandName}".`;
-                showNotification(message, 'success');
+                showNotification(message, 'success', true);
             }
         }
     });
@@ -509,25 +704,25 @@ document.addEventListener('DOMContentLoaded', () => {
             const poolName = 'komppanianpäällikön';
             if (abilityType === 'tactical') {
                 if (playerData.usedTacticalAbility) {
-                    showNotification('Voit käyttää vain yhden taktisen erikoiskyvyn per vuoro.', 'warning'); return;
+                    showNotification('Voit käyttää vain yhden taktisen erikoiskyvyn per vuoro.', 'warning', true); return;
                 }
                 if (handleKpSpending(pool, cost)) {
                     playerData.usedTacticalAbility = abilityId;
                     updateCommanderAbilityButtons();
-                    showNotification(`Käytetty ${cost} KP ${poolName} taktiseen kykyyn "${commandName}".`, 'success');
+                    showNotification(`Käytetty ${cost} KP ${poolName} taktiseen kykyyn "${commandName}".`, 'success', true);
                 }
             } else if (abilityType === 'game') {
                 if (playerData.usedGameAbilities.includes(abilityId)) {
-                    showNotification('Tämä kyky on jo käytetty tässä pelissä.', 'warning'); return;
+                    showNotification('Tämä kyky on jo käytetty tässä pelissä.', 'warning', true); return;
                 }
                 if (handleKpSpending(pool, cost)) {
                     playerData.usedGameAbilities.push(abilityId);
                     updateCommanderAbilityButtons();
-                    showNotification(`Käytetty ${cost} KP ${poolName} erikoiskykyyn "${commandName}".`, 'success');
+                    showNotification(`Käytetty ${cost} KP ${poolName} erikoiskykyyn "${commandName}".`, 'success', true);
                 }
             } else {
                 if (handleKpSpending(pool, cost)) {
-                    showNotification(`Käytetty ${cost} KP ${poolName} komentoon "${commandName}".`, 'success');
+                    showNotification(`Käytetty ${cost} KP ${poolName} komentoon "${commandName}".`, 'success', true);
                 }
             }
         }
@@ -537,18 +732,18 @@ document.addEventListener('DOMContentLoaded', () => {
         currentPhaseIndex++;
         if (currentPhaseIndex >= phases.length) {
             currentPhaseIndex = 0;
-            playerData.turn++;
+            playerData.turn = (playerData.turn || 1) + 1;
             if (turnCounterDisplay) turnCounterDisplay.textContent = playerData.turn;
             playerData.usedTacticalAbility = null;
             updateCommanderAbilityButtons();
             resetKpPools();
-            showNotification(`Vuoro ${playerData.turn} alkoi! Taktiset kyvyt ja KP:t nollattu.`, 'success');
+            showNotification(`Vuoro ${playerData.turn} alkoi! Taktiset kyvyt ja KP:t nollattu.`, 'success', true);
         }
         updatePhaseView();
     });
 
     prevPhaseBtn?.addEventListener('click', () => {
-        if (currentPhaseIndex === 0 && playerData.turn > 1) {
+        if (currentPhaseIndex === 0 && (playerData.turn || 1) > 1) {
             currentPhaseIndex = phases.length - 1;
             playerData.turn--;
             if (turnCounterDisplay) turnCounterDisplay.textContent = playerData.turn;
@@ -562,11 +757,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (newTurnBtn) {
         newTurnBtn.addEventListener('click', () => {
             playerData.usedTacticalAbility = null;
-            playerData.turn++;
+            playerData.turn = (playerData.turn || 1) + 1;
             if (turnCounterDisplay) turnCounterDisplay.textContent = playerData.turn;
             updateCommanderAbilityButtons();
             resetKpPools();
-            showNotification(`Vuoro ${playerData.turn} alkoi! Taktiset kyvyt ja KP:t nollattu.`, 'success');
+            showNotification(`Vuoro ${playerData.turn} alkoi! Taktiset kyvyt ja KP:t nollattu.`, 'success', true);
             savePlayerData();
         });
     }
@@ -576,14 +771,21 @@ document.addEventListener('DOMContentLoaded', () => {
         addMissionForm.addEventListener('submit', handleAddMission);
     }
 
-    const distCalcBtn = document.getElementById('calculate-distance-player');
-    if (distCalcBtn) {
-        distCalcBtn.addEventListener('click', () => { const input = document.getElementById('distance-input-player').value; const output = document.getElementById('distance-output-player'); if (input && !isNaN(input)) { const meters = input * 100; output.innerHTML = `<strong>${input} cm = ${meters} metriä.</strong>`; } else output.textContent = 'Syötä kelvollinen numero.'; });
-    }
-
     const liikeCalcBtn = document.getElementById('calculate-liike-player');
     if (liikeCalcBtn) {
-        liikeCalcBtn.addEventListener('click', () => { const liike = parseFloat(document.getElementById('liike-arvo-player').value) || 0; const tie = parseFloat(document.getElementById('matka-tie-player').value) || 0; const pelto = parseFloat(document.getElementById('matka-pelto-player').value) || 0; const metsa = parseFloat(document.getElementById('matka-metsa-player').value) || 0; const tihea = parseFloat(document.getElementById('matka-tihea-metsa-player').value) || 0; const output = document.getElementById('liike-output-player'); if (liike <= 0) { output.textContent = 'Syötä liike-arvo.'; return; } const cost = (tie * 0.5) + (pelto * 1) + (metsa * 2) + (tihea * 3); const remaining = liike - cost; output.innerHTML = `Reitin kustannus: <strong>${cost.toFixed(1)}</strong>. Jäljelle jää: <strong>${remaining.toFixed(1)}</strong>.`; output.style.color = remaining >= 0 ? 'green' : 'red'; });
+        liikeCalcBtn.addEventListener('click', () => {
+            const liike = parseFloat(document.getElementById('liike-arvo-player').value) || 0;
+            const tie = parseFloat(document.getElementById('matka-tie-player').value) || 0;
+            const pelto = parseFloat(document.getElementById('matka-pelto-player').value) || 0;
+            const metsa = parseFloat(document.getElementById('matka-metsa-player').value) || 0;
+            const tihea = parseFloat(document.getElementById('matka-tihea-metsa-player').value) || 0;
+            const output = document.getElementById('liike-output-player');
+            if (liike <= 0) { output.textContent = 'Syötä liike-arvo.'; return; }
+            const cost = (tie * 0.5) + (pelto * 1) + (metsa * 2) + (tihea * 3);
+            const remaining = liike - cost;
+            output.innerHTML = `Reitin kustannus: <strong>${cost.toFixed(1)}</strong>. Jäljelle jää: <strong>${remaining.toFixed(1)}</strong>.`;
+            output.style.color = remaining >= 0 ? 'green' : 'red';
+        });
     }
 
     const hideModal = () => { modalOverlay.classList.remove('is-visible'); modalContainer.classList.remove('is-visible'); resetConfirmInput.value = ''; resetConfirmBtn.disabled = true; };

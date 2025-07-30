@@ -337,7 +337,8 @@
     justify-content: center;
     align-items: center;
     color: white;
-    max-height: 100px; /* Asetetaan riittävä aloituskorkeus animaatiolle */
+    max-height: 100px;
+    /* Asetetaan riittävä aloituskorkeus animaatiolle */
 }
 
 .player-unit-card header h4 {
@@ -931,4 +932,239 @@
 
 .armament-table th {
     background-color: #f5f5f4;
+}
+
+/* ==================================================================== */
+/* PELAAJAN TYÖKALUPAKIN UUDET JA PÄIVITETYT TYYLIT                   */
+/* ==================================================================== */
+
+/* Status-valitsimen säiliö ja tyylit */
+.status-selector-container {
+    position: relative;
+}
+
+.unit-status-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #e7e5e4;
+    /* stone-200 */
+    border: 1px solid #d6d3d1;
+    /* stone-300 */
+    border-radius: 99px;
+    /* rounded-full */
+    padding: 0.35rem 2rem 0.35rem 1rem;
+    font-weight: bold;
+    color: #44403C;
+    /* stone-700 */
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    transition: all 0.2s ease-in-out;
+}
+
+.unit-status-select:hover {
+    background-color: #d6d3d1;
+    /* stone-300 */
+    border-color: #a8a29e;
+    /* stone-400 */
+}
+
+/* Yksikön TK-arvon selkeytys */
+.tk-current {
+    font-size: 1.1em;
+    min-width: 60px;
+    /* Varmistaa, että asettelu ei hajoa */
+}
+
+/* Ammusten seurannan tyylit */
+.unit-ammo-trackers {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ammo-tracker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f4;
+    /* stone-100 */
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.ammo-label {
+    font-weight: bold;
+}
+
+.ammo-btn {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #556B2F;
+    background: white;
+    border: 1px solid #d6d3d1;
+    border-radius: 99px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Yläpalkin ilmoitukset */
+.header-notification {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -120%);
+    /* Aloittaa näytön ulkopuolelta */
+    padding: 1rem 2rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    font-weight: bold;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease-in-out;
+    max-width: 90%;
+    text-align: center;
+}
+
+.header-notification.is-visible {
+    transform: translate(-50%, 0);
+    /* Liukuu näkyviin */
+}
+
+.header-notification.is-warning {
+    background-color: #f97316;
+    /* oranssi */
+}
+
+.header-notification.is-info {
+    background-color: #3b82f6;
+    /* sininen */
+}
+
+.header-notification.is-success {
+    background-color: #22c55e;
+    /* vihreä */
+}
+
+/* ==================================================================== */
+/* Tilaefektien valintaruutujen ja listojen tyylit                    */
+/* ==================================================================== */
+
+.status-checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background-color: #fafaf9;
+    /* stone-50 */
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    border: 1px solid #e7e5e4;
+    /* stone-200 */
+}
+
+.status-checkbox-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.35rem 0.75rem;
+    border-radius: 99px;
+    /* rounded-full */
+    border: 1px solid #d6d3d1;
+    /* stone-300 */
+    background-color: white;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.status-checkbox-group label:hover {
+    background-color: #f5f5f4;
+    /* stone-100 */
+    border-color: #a8a29e;
+    /* stone-400 */
+}
+
+.status-checkbox-group input[type="checkbox"] {
+    margin-right: 0.5rem;
+    width: 1em;
+    height: 1em;
+}
+
+/* Tyyli valitulle checkboxille */
+.status-checkbox-group label:has(input:checked) {
+    background-color: #556B2F;
+    /* Teeman pääväri */
+    color: white;
+    border-color: #4A5D23;
+}
+
+.status-checkbox-group label:has(input:checked) span {
+    font-weight: bold;
+}
+
+/* Aktiivisten efektien listan tyylit */
+.active-effects-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    font-size: 0.9em;
+}
+
+.active-effects-list li {
+    background-color: #fefce8;
+    /* yellow-50 */
+    color: #854d0e;
+    /* yellow-800 */
+    padding: 0.5rem 1rem;
+    border-left: 4px solid #facc15;
+    /* yellow-400 */
+    margin-bottom: 0.5rem;
+    border-radius: 0 4px 4px 0;
+}
+
+/* ==================================================================== */
+/* Ammusnappien lisätyylit                                            */
+/* ==================================================================== */
+
+.ammo-tracker {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    /* Label | Tracker | Fire Button */
+    gap: 1rem;
+    align-items: center;
+}
+
+.fire-ammo-btn {
+    background-color: #C2B280;
+    /* Hiekan/kullan väri */
+    color: #2F361F;
+    /* Tumma oliivi */
+    border: 1px solid #A89C74;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.fire-ammo-btn:hover:not(:disabled) {
+    background-color: #B5A670;
+    border-color: #556B2F;
+}
+
+.fire-ammo-btn:disabled {
+    background-color: #e7e5e4;
+    /* stone-200 */
+    color: #a8a29e;
+    /* stone-400 */
+    cursor: not-allowed;
+    border-color: #d6d3d1;
 }
