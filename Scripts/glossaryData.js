@@ -21,7 +21,7 @@ const glossaryData = {
     "moraali": "Moraalitestiin lisättävä bonus. Korkeampi arvo tarkoittaa parempaa henkistä kestävyyttä ja taistelutahtoa.",
     "orgaaninen tulituki": "Pelaajan suoraan ohjaama tulitukiyksikkö, joka on fyysisesti pelilaudalla, kuten komppanian oma kranaatinheitinryhmä.",
     "sodan sumu": "Pelin keskeinen teema, joka simuloi epätäydellistä tietoa vihollisen sijainnista ja vahvuudesta. Tiedustelu on avain sen hälventämiseen.",
-    "suoja": "Vastaa panssaroinnin ja suojautumisen tasoa. Kuinka vaikea yksikköön on osua (vrt. Armor Class).",
+    "suoja": "Vastaa panssaroinnin ja suojautumisen tasoa. Kuinka vaikea yksikköön on osua.",
     "tuli-isku": "Vahinkoarvo (TI), jota käytetään onnistuneiden osumien jälkeen. Ilmaistaan yleensä noppana (esim. d6, 2d12).",
     "taistelukunto": "Yksikön elinvoima (TK). Vahingot vähentävät tätä arvoa.",
     "taitotaso": "Yksikön yleinen osaaminen ja tehokkuus (TT). Lasketaan kaavalla: Koulutus + Kokemus. Lisätään hyökkäys- ja tiedusteluheittoihin.",

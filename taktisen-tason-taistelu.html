@@ -28,7 +28,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://akselilarikka.github.io/taistelukentta/taktisen-tason-taistelu.html">
     <meta property="og:type" content="website">
-    <meta property="article:published_time" content="2025-07-30 T05:41:02">
+    <meta property="article:published_time" content="2025-07-30 T08:02:26">
     <meta property="article:author" content="Akseli Larikka">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Taistelukenttä d20 - Taktisen tason taistelu">
@@ -813,20 +813,17 @@
                         hidastuu maastotyypin mukaisesti (-50% tai -75%).</li>
                 </ol>
                 <p>
-                    Jokaisella yksiköllä on <strong><span class="glossary-term" data-term="liike">Liike</span>-arvo
-                        (L)</strong>, joka kertoo sen liikkumispotentiaalin
-                    senttimetreinä. Eri maastotyypit kuluttavat tätä potentiaalia eri tavoin. Järjestelmä on suunniteltu
-                    niin, että vältetään desimaaleja ja murtolukuja.
-                </p>
-                <p>
+                    Jokaisella yksiköllä on Liike-arvo (L), joka kertoo sen liikkumispotentiaalin senttimetreinä. Eri
+                    maastotyypit kuluttavat tätä potentiaalia eri tavoin. Järjestelmä on suunniteltu niin, että
+                    vältetään desimaaleja ja murtolukuja.
+                    <br>
                     Laskeaksesi, kuinka pitkälle yksikkö pääsee, kerro kussakin maastossa liikuttu matka sen
-                    <strong>kustannuskertoimella</strong>. Jos reitti kulkee usean maastotyypin läpi, laske kustannukset
-                    yhteen. Pelaajan pikaoppaan työkalupakista löytyy myös laskin tätä varten.
+                    kustannuskertoimella. Jos reitti kulkee usean maastotyypin läpi, laske kustannukset yhteen. Pelaajan
+                    pikaoppaan työkalupakin "Apuohjelmat"-alasivulta löytyy myös laskin tätä varten.
                 </p>
 
                 <div class="table-container">
                     <table>
-                        <caption>Maaston vaikutukset</caption>
                         <thead>
                             <tr>
                                 <th>Maastotyyppi</th>
@@ -841,38 +838,42 @@
                                 <td><strong>Tie</strong></td>
                                 <td>x 0.5</td>
                                 <td>+0</td>
-                                <td>Ei estä</td>
+                                <td>Näkyvyys enintään 10 cm päähän.</td>
                             </tr>
                             <tr>
                                 <td><strong>Pelto / Aukea</strong></td>
                                 <td>x 1</td>
                                 <td>+1</td>
-                                <td>Ei estä</td>
+                                <td>Näkyvyys enintään 10 cm päähän.</td>
                             </tr>
                             <tr>
                                 <td><strong>Metsä / Suo</strong></td>
                                 <td>x 2</td>
-                                <td>+4</td>
-                                <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span> yli 5 cm
-                                    päähän</td>
+                                <td>+3</td>
+                                <td>Näkyvyys enintään 5 cm päähän.</td>
                             </tr>
                             <tr>
                                 <td><strong>Tiheikkö</strong></td>
                                 <td>x 3</td>
-                                <td>+6</td>
-                                <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span> yli 2 cm
-                                    päähän</td>
+                                <td>+4</td>
+                                <td>Näkyvyys enintään 2 cm päähän (ZoC).</td>
                             </tr>
                             <tr>
                                 <td><strong>Rakennus / Asema</strong></td>
                                 <td>x 2</td>
-                                <td>+6</td>
-                                <td>Estää <span class="glossary-term" data-term="los">näköyhteyden</span> kokonaan</td>
+                                <td>+4</td>
+                                <td>Näkyvyys enintään 2 cm päähän (ZoC).</td>
                             </tr>
-                            <tr class="special-rule">
-                                <td><strong>Korkea maasto</strong></td>
-                                <td colspan="3">Yksiköt saavat +2 bonuksen hyökkäys- ja tiedusteluheittoihin alempana
-                                    olevaa kohdetta vastaan.</td>
+                            <tr>
+                                <td><strong>Korkeuserot</strong></td>
+                                <td colspan="3">
+                                    <strong>Taktinen etu (≥4 käyrää ylempänä):</strong> Yksikkö saa +2 bonuksen
+                                    hyökkäys- ja
+                                    tiedusteluheittoihin alempana olevaa kohdetta vastaan.<br>
+                                    <strong>Liikkumisen haitta (≥6 käyrää ylämäkeen):</strong> Liikkumiskustannus
+                                    kyseisellä matkalla
+                                    kaksinkertaistuu.
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -922,11 +923,11 @@
                     seuraavassa etusijajärjestyksessä:</p>
                 <ol>
                     <li><strong>Rakennus/Asema:</strong> Jos ruudussa on rakennus, yksikkö saa aina rakennuksen
-                        suojabonuksen (+6). Oletus on, että yksikkö käyttää rakennusta hyväkseen.</li>
-                    <li><strong>Tiheä metsä:</strong> Jos rakennusta ei ole, mutta ruudussa on tiheää metsää, se antaa
-                        suojabonuksen (+6).</li>
+                        suojabonuksen (+4). Oletus on, että yksikkö käyttää rakennusta hyväkseen.</li>
+                    <li><strong>Tiheikkö:</strong> Jos rakennusta ei ole, mutta ruudussa on tiheikköä, se antaa
+                        suojabonuksen (+4).</li>
                     <li><strong>Metsä/Suo:</strong> Jos parempaa suojaa ei ole, normaali metsä tai suo antaa oman
-                        suojabonuksensa (+4 tai +2).</li>
+                        suojabonuksensa (+3).</li>
                     <li><strong>Pelto:</strong> Jos ruudussa on vain peltoa, se antaa matalan suojan (+1).</li>
                     <li><strong>Aukea/Tie:</strong> Jos yksikkö on tiellä keskellä aukeaa, se ei saa maastosta lainkaan
                         suojabonusta (+0).</li>
@@ -942,13 +943,13 @@
                 <ul>
                     <li>
                         <strong>Rakennus / Asema:</strong> Estää <span class="glossary-term"
-                            data-term="los">näköyhteyden</span> <strong>kokonaan</strong>. Jos yksiköiden välinen viiva
-                        osuu tähän maastoon, ne eivät näe toisiaan.
+                            data-term="los">näköyhteyden</span> <strong>yli 2 cm etäisyydelle</strong>. Yksiköt voivat
+                        nähdä toisensa maaston läpi vain, jos niiden välinen etäisyys on enintään 2 cm.
                     </li>
                     <li>
-                        <strong>Tiheä metsä:</strong> Estää <span class="glossary-term"
-                            data-term="los">näköyhteyden</span> <strong>yli 2 cm etäisyydelle</strong>. Yksiköt voivat
-                        nähdä toisensa tiheän metsän läpi vain, jos niiden välinen etäisyys on enintään 2 cm.
+                        <strong>Tiheikkö:</strong> Estää <span class="glossary-term" data-term="los">näköyhteyden</span>
+                        <strong>yli 2 cm etäisyydelle</strong>. Yksiköt voivat
+                        nähdä toisensa tiheikön läpi vain, jos niiden välinen etäisyys on enintään 2 cm.
                     </li>
                     <li>
                         <strong>Metsä / Suo:</strong> Estää <span class="glossary-term"
@@ -957,7 +958,8 @@
                     </li>
                     <li>
                         <strong>Avoin maasto (Tie, Pelto):</strong> Ei estä <span class="glossary-term"
-                            data-term="los">näköyhteyttä</span>.
+                            data-term="los">näköyhteyttä</span>, mutta näkyvyys on rajoitettu <strong>enintään 10 cm
+                            etäisyydelle</strong>.
                     </li>
                 </ul>
                 <p>
@@ -972,37 +974,37 @@
                 </p>
                 <ul>
                     <li>
-                        <strong>Liikkuminen:</strong> Koska ruudussa on tie, voit liikkua sen läpi ja saada <strong>tien
-                            liikebonuksen (+50%)</strong>.
+                        <strong>Liikkuminen:</strong> Koska ruudussa on tie, voit liikkua sen läpi ja hyödyntää sen
+                        liikkumiskustannusta (kerroin x0.5).
                     </li>
                     <li>
                         <strong><span class="glossary-term" data-term="suoja">Suoja</span>:</strong> Jos vihollinen
                         ampuu yksikköäsi, saat parhaan mahdollisen suojan. Koska
-                        ruudussa on rakennus, saat <strong>rakennuksen suojabonuksen (+6 <span class="glossary-term"
+                        ruudussa on rakennus, saat <strong>rakennuksen suojabonuksen (+4 <span class="glossary-term"
                                 data-term="suoja">S</span>)</strong>.
                     </li>
                     <li>
                         <strong>Näkyvyys:</strong> Jos vihollinen yrittää tähdätä sinuun tämän ruudun läpi, <span
                             class="glossary-term" data-term="los">näköyhteys</span> on
-                        <strong>täysin estynyt</strong>, koska ruudussa on rakennus.
+                        <strong>estynyt yli 2 cm etäisyydeltä</strong>, koska ruudussa on rakennus.
                     </li>
                 </ul>
                 <h3>Korkeuserot</h3>
                 <p>
-                    Korkeuserot (noin 10 metriä per korkeuskäyrä 1:10 000 kartalla) tuovat merkittäviä taktisia etuja ja
+                    Korkeuserot (noin 5 metriä per korkeuskäyrä 1:10 000 kartalla) tuovat merkittäviä taktisia etuja ja
                     haittoja.
                 </p>
                 <ul>
                     <li>
                         <strong>Taktinen etu (väh. 4 käyrän ero):</strong> Yksikkö, joka on vähintään neljä (4)
-                        korkeuskäyrää (n. 40m) kohdettaan ylempänä, saa <strong>+2 bonuksen</strong> kaikkiin hyökkäys-
+                        korkeuskäyrää (n. 20m) kohdettaan ylempänä, saa <strong>+2 bonuksen</strong> kaikkiin hyökkäys-
                         ja tiedusteluheittoihinsa kyseistä kohdetta vastaan. Matalammalla oleva kärsii vastaavasti
                         <strong>-2 rangaistuksen</strong> ylöspäin suuntautuviin heittoihinsa. <strong>Huom:</strong>
                         rangaistusta ei tule, jos tiedusteluun käytetään lennokkia (Kuten jääkäriryhmillä).
                     </li>
                     <li>
                         <strong>Liikkumisen haitta (väh. 6 käyrän ero):</strong> Yksikön, joka liikkuu ylämäkeen
-                        vähintään kuuden (6) korkeuskäyrän (n. 60m) verran yhden vuoron aikana, liikkumiskustannus
+                        vähintään kuuden (6) korkeuskäyrän (n. 30m) verran yhden vuoron aikana, liikkumiskustannus
                         kyseisellä matkalla <strong>kaksinkertaistuu</strong>. Alamäkeen liikkuminen ei anna bonusta,
                         mutta ei myöskään aiheuta haittaa.
                     </li>
