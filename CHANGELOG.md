@@ -2,6 +2,23 @@
 
 Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -sotapeliin.
 
+## [2025-07-31]
+
+### Muutettu
+
+* **Merkittävä sääntömuutos komentoyhteyteen:** Komentoyhteyden kantama on puolitettu (60cm -> 30cm) ja tiettyjen komentotoimintojen etäisyyttä on lyhennetty (30cm -> 20cm), mikä tekee komentorakenteen ylläpidosta haastavampaa ja taktisesti merkityksellisempää.
+* **Sanaston ja UKK:n päivitys:** Päivitetty sanastoa ja Usein Kysytyt Kysymykset -osiota vastaamaan uusimpia sääntömuutoksia ja termejä.
+
+### Lisätty
+
+* **Pelinjohtajan varoitus:** Lisätty sivuille modaali-ikkuna, joka varoittaa pelaajia heidän siirtyessään vain pelinjohtajalle tarkoitettuun sisältöön.
+
+## [2025-07-30]
+
+### Muutettu
+
+* **Pelaajan työkalujen ja sanaston parannukset:** Uudistettu pelaajan työkalujen käyttöliittymää ja parannettu sanaston toiminnallisuutta. Muutokset sisältävät määritelmien tarkennuksia ja automaattisen linkityksen parannuksia, jotka tekevät sääntöjen lukemisesta sujuvampaa.
+
 ## [2025-07-29]
 
 ### Lisätty
