@@ -71,10 +71,10 @@
                         <li><a href="ydinsaannot.html" class="nav-link-top">Ydinsäännöt</a></li>
                         <li><a href="taktisen-tason-taistelu.html" class="nav-link-top">Taktisen tason taistelu</a></li>
                         <li><a href="pelaajan-pikaopas.html" class="nav-link-top">Pelaajan pikaopas</a></li>
-                        <li><a href="siniset-yksiköt.html" class="nav-link-top">Siniset yksiköt</a></li>
-                        <li><a href="punaiset-yksiköt.html" class="nav-link-top">Punaiset yksiköt</a></li>
                         <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
                         <li><a href="skenaariot.html" class="nav-link-top">Skenaariot</a></li>
+                        <li><a href="siniset-yksiköt.html" class="nav-link-top">Siniset yksiköt</a></li>
+                        <li><a href="punaiset-yksiköt.html" class="nav-link-top">Punaiset yksiköt</a></li>
                         <li><a href="pelinjohtajan-opas.html" class="nav-link-top">Pelinjohtajan opas</a></li>
                         <li><a href="sanasto-ja-ukk.html" class="nav-link-top">Sanasto ja UKK</a></li>
                         <li><a href="tietoja.html" class="nav-link-top">Tietoa & Muutoshistoria</a></li>
@@ -133,8 +133,8 @@
                 </div>
             </div>
 
-            <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629052/leopardi_patria_mo8gdh.png"
-                alt="Panssaivaunuja liikkeellä AI" class="kuvituskuva">
+            <img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753848830/olemus_ban87y.png"
+                alt="Taisteluosasto AI" class="kuvituskuva">
 
             <h3>Avainominaisuudet</h3>
             <ul>
@@ -426,6 +426,26 @@
             </div>
         </div>
     </div>
+
+    <div id="gm-warning-overlay" class="modal-overlay"></div>
+    <div id="gm-warning-modal" class="modal-container">
+        <h3>Vain pelinjohtajan tietoja</h3>
+        <p>Olet siirtymässä sivulle <strong id="gm-warning-page-name"></strong> ja sen sisältö on tarkoitettu ainoastaan
+            pelinjohtajalle. Pelaajana tietojen tarkasteleminen voi heikentää omaa ja muiden pelikokemusta rikkomalla
+            pelin keskeisen periaatteen sodan sumusta.</p>
+        <p><strong>Oletko varma, että haluat jatkaa?</strong></p>
+        <div class="modal-options">
+            <label>
+                <input type="checkbox" id="gm-warning-dont-show-again">
+                <span>Älä näytä tätä viestiä uudelleen (vanhenee 24h)</span>
+            </label>
+        </div>
+        <div class="modal-buttons">
+            <button id="gm-warning-cancel-button">Palaa takaisin</button>
+            <button id="gm-warning-confirm-button" class="confirm-button">Jatka sivulle</button>
+        </div>
+    </div>
+
     <script src="Scripts/rules.js"></script>
     <script src="Scripts/glossaryData.js"></script>
     <script src="Scripts/popup.js"></script>
