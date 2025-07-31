@@ -989,6 +989,10 @@ header {
     transition: background-color 0.2s ease-in-out;
 }
 
+#ukk p {
+    padding-bottom: 0.25rem;
+}
+
 #ukk summary {
     cursor: pointer;
     padding: 1rem;
