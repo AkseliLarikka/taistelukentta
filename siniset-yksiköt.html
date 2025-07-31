@@ -28,7 +28,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://akselilarikka.github.io/taistelukentta/siniset-yksikot.html">
     <meta property="og:type" content="website">
-    <meta property="article:published_time" content="2025-07-30 T11:34:48">
+    <meta property="article:published_time" content="2025-07-31 T07:35:50">
     <meta property="article:author" content="Akseli Larikka">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Taistelukenttä d20 - Siniset yksiköt">
@@ -69,11 +69,11 @@
                         <li><a href="ydinsaannot.html" class="nav-link-top">Ydinsäännöt</a></li>
                         <li><a href="taktisen-tason-taistelu.html" class="nav-link-top">Taktisen tason taistelu</a></li>
                         <li><a href="pelaajan-pikaopas.html" class="nav-link-top">Pelaajan pikaopas</a></li>
+                        <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
+                        <li><a href="skenaariot.html" class="nav-link-top">Skenaariot</a></li>
                         <li><a href="siniset-yksiköt.html" class="nav-link-top" style="color:#C2B280;">Siniset
                                 yksiköt</a></li>
                         <li><a href="punaiset-yksiköt.html" class="nav-link-top">Punaiset yksiköt</a></li>
-                        <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
-                        <li><a href="skenaariot.html" class="nav-link-top">Skenaariot</a></li>
                         <li><a href="pelinjohtajan-opas.html" class="nav-link-top">Pelinjohtajan opas</a></li>
                         <li><a href="sanasto-ja-ukk.html" class="nav-link-top">Sanasto ja UKK</a></li>
                         <li><a href="tietoja.html" class="nav-link-top">Tietoa & Muutoshistoria</a></li>
@@ -165,6 +165,25 @@
                         alt="Seuraava otsikko" class="invert-icon">
                 </button>
             </div>
+        </div>
+    </div>
+
+    <div id="gm-warning-overlay" class="modal-overlay"></div>
+    <div id="gm-warning-modal" class="modal-container">
+        <h3>Vain pelinjohtajan tietoja</h3>
+        <p>Olet siirtymässä sivulle <strong id="gm-warning-page-name"></strong> ja sen sisältö on tarkoitettu ainoastaan
+            pelinjohtajalle. Pelaajana tietojen tarkasteleminen voi heikentää omaa ja muiden pelikokemusta rikkomalla
+            pelin keskeisen periaatteen sodan sumusta.</p>
+        <p><strong>Oletko varma, että haluat jatkaa?</strong></p>
+        <div class="modal-options">
+            <label>
+                <input type="checkbox" id="gm-warning-dont-show-again">
+                <span>Älä näytä tätä viestiä uudelleen (vanhenee 24h)</span>
+            </label>
+        </div>
+        <div class="modal-buttons">
+            <button id="gm-warning-cancel-button">Palaa takaisin</button>
+            <button id="gm-warning-confirm-button" class="confirm-button">Jatka sivulle</button>
         </div>
     </div>
 
