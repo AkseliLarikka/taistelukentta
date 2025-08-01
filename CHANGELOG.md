@@ -2,6 +2,13 @@
 
 Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -sotapeliin.
 
+## [2025-08-01] - Käyttöliittymän parannuksia ja sisältöpäivityksiä
+
+### Muutettu
+
+* **Bannerin ja modaalien ulkoasu:** Uudistettu sivuston bannerin toiminnallisuutta ja tyyliä. Banneri valitsee nyt dynaamisesti taustakuvan, ja modaali-ikkunoiden ulkoasua on yhtenäistetty ja parannettu.
+* **Dokumentaation selkeytys:** Päivitetty ja selkeytetty sanaston termejä, Usein Kysytyt Kysymykset -osiota sekä tietosuoja- ja lisenssitietoja. Myös projektin kehityspolkua (Roadmap) on päivitetty `README.md`-tiedostoon vastaamaan paremmin nykytilannetta.
+
 ## [2025-07-31]
 
 ### Muutettu
