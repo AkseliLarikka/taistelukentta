@@ -4,6 +4,47 @@
  * @author Akseli Larikka
  */
 
+/**
+ * Vaihtaa .main-banner elementin taustakuvan satunnaisesti, mutta ei samaa kuvaa peräkkäin.
+ * Tämä skripti suoritetaan, kun DOM on latautunut.
+ */
+document.addEventListener('DOMContentLoaded', () => {
+  // Haetaan bannerielementti DOM:sta
+  const banner = document.querySelector('.main-banner');
+
+  // Varmistetaan, että bannerielementti on olemassa sivulla ennen jatkamista
+  if (banner) {
+    // Määritellään lista mahdollisista bannerikuvien URL-osoitteista
+    const bannerImages = [
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1754040738/IMG_5076_cguykf.jpg',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1754040737/IMG_5078_zywgt1.jpg',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1754040737/IMG_5077_pptugn.jpg',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1754040736/IMG_5079_qqolvs.jpg',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1754040735/IMG_5080_nyd8g0.jpg',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1754040734/IMG_5081_yd5dpw.jpg'
+    ];
+
+    // Haetaan viimeksi käytetyn kuvan indeksi istuntomuistista
+    let lastIndex = sessionStorage.getItem('lastBannerIndex');
+    let randomIndex;
+
+    // Arvotaan uusi indeksi, kunnes se on eri kuin edellinen
+    // do...while-rakenne on tähän täydellinen, koska se suoritetaan vähintään kerran
+    do {
+      randomIndex = Math.floor(Math.random() * bannerImages.length);
+    } while (bannerImages.length > 1 && randomIndex.toString() === lastIndex);
+
+    // Tallennetaan uusi indeksi istuntomuistiin seuraavaa sivunlatausta varten
+    sessionStorage.setItem('lastBannerIndex', randomIndex.toString());
+
+    // Muodostetaan URL-merkkijono valitulle kuvalle
+    const randomImage = `url('${bannerImages[randomIndex]}')`;
+
+    // Asetetaan valittu kuva bannerin taustakuvaksi
+    banner.style.backgroundImage = randomImage;
+  }
+});
+
 // Globaali ajastin scroll-tapahtuman "kuristamiseen" (throttling)
 let scrollTimeout;
 
@@ -59,7 +100,8 @@ function initializeGmWarningModal() {
       event.preventDefault();
       targetUrlForClick = targetHref;
       const pageName = link.textContent.trim();
-      showModal(pageName);
+      pageNameElement.textContent = `"${pageName}"`;
+      showModal(); // Funktio kutsutaan nyt ilman tarpeetonta argumenttia.
     }
   });
 
