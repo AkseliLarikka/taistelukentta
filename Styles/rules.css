@@ -920,10 +920,6 @@ header {
     /* */
     background-color: rgba(47, 54, 31, 0.75);
     /* */
-    -webkit-backdrop-filter: blur(10px);
-    /* */
-    backdrop-filter: blur(10px);
-    /* */
     border: 1px solid rgba(143, 151, 121, 0.3);
     /* */
     border-radius: 0.5rem;
@@ -940,7 +936,6 @@ header {
     /* */
     border-bottom: 1px solid rgba(143, 151, 121, 0.3) !important;
     /* */
-    font-size: 2.25rem;
     text-align: center;
 }
 
@@ -1551,17 +1546,23 @@ a:has(> .lisenssi-kuvake-yksi):hover {
         display: block;
     }
 
-    /* Muuttaa bannerin otsikon tyyliä (poistaa turhat koristelut). */
     .banner-title {
-        background-color: transparent;
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
-        border: none;
-        box-shadow: none;
-        padding: 0.2em;
+        font-family: 'Black Ops One', sans-serif;
+        display: inline-block;
+        padding: 0.5em 1.5em;
+        margin: 0 1.5em;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        background-color: rgba(47, 54, 31, 0.75);
+        border: 1px solid rgba(143, 151, 121, 0.3);
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
         text-decoration: none !important;
-        border-bottom: 1px solid rgba(143, 151, 121, 0) !important;
+        isolation: isolate;
+        will-change: transform;
         transform: translateZ(0);
+        border-bottom: 1px solid rgba(143, 151, 121, 0.3) !important;
+        text-align: center;
+        width: 22rem;
     }
 
     /* --- Mobiilin vieritysnapit: monimutkainen ruudukkoasettelu --- */
@@ -1653,22 +1654,6 @@ a:has(> .lisenssi-kuvake-yksi):hover {
 }
 
 
-/* --- PIENET MOBIILILAITTEET (max-width: 459px) --- */
-@media (max-width: 459px) {
-
-    /* Poistetaan bannerin tausta ja tehosteet kokonaan pienimmillä näytöillä, */
-    /* jotta teksti on luettavampi ja ulkoasu siistimpi. */
-    .banner-title {
-        background-color: transparent;
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
-        border: none;
-        box-shadow: none;
-        padding: 0.2em;
-        text-decoration: none !important;
-        border-bottom: 1px solid rgba(143, 151, 121, 0) !important;
-    }
-}
 
 /* ==================================================================== */
 /* 7. LINKKIEN TYYLIT                                                   */
@@ -1756,19 +1741,6 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     width: 100%;
     max-width: 600px;
     margin: 1em auto 1em 0;
-}
-
-/* Bannerin taustakuva, joka suosii WebP-formaattia */
-.main-banner {
-    background-image: url('https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629036/bannertkd_ocvjff.jpg');
-    /* Varakuva vanhoille selaimille */
-}
-
-@supports (background-image: url('https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629036/bannertkd_uc8meh.webp')) {
-    .main-banner {
-        background-image: url('https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629036/bannertkd_uc8meh.webp');
-        /* Uudempi, tehokkaampi kuva */
-    }
 }
 
 /* -------------------------------------------------------------------- */

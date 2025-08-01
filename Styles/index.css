@@ -931,10 +931,6 @@ header {
     /* */
     background-color: rgba(47, 54, 31, 0.75);
     /* */
-    -webkit-backdrop-filter: blur(10px);
-    /* */
-    backdrop-filter: blur(10px);
-    /* */
     border: 1px solid rgba(143, 151, 121, 0.3);
     /* */
     border-radius: 0.5rem;
@@ -1671,24 +1667,23 @@ a:has(> .lisenssi-kuvake-yksi):hover {
         display: block;
     }
 
-    /* Muuttaa bannerin otsikon tyyliä (poistaa turhat koristelut). */
     .banner-title {
-        background-color: transparent;
-        /* */
-        -webkit-backdrop-filter: none;
-        /* */
-        backdrop-filter: none;
-        /* */
-        border: none;
-        /* */
-        box-shadow: none;
-        /* */
-        padding: 0.2em;
-        /* */
+        font-family: 'Black Ops One', sans-serif;
+        display: inline-block;
+        padding: 0.5em 1.5em;
+        margin: 0 1.5em;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        background-color: rgba(47, 54, 31, 0.75);
+        border: 1px solid rgba(143, 151, 121, 0.3);
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
         text-decoration: none !important;
-        /* */
-        border-bottom: 1px solid rgba(143, 151, 121, 0) !important;
-        /* */
+        isolation: isolate;
+        will-change: transform;
+        transform: translateZ(0);
+        border-bottom: 1px solid rgba(143, 151, 121, 0.3) !important;
+        text-align: center;
+        width: 22rem;
     }
 
     /* --- Mobiilin vieritysnapit: monimutkainen ruudukkoasettelu --- */
@@ -1843,32 +1838,6 @@ a:has(> .lisenssi-kuvake-yksi):hover {
         left: -50%;
         color: #E5E7EB;
         background-color: rgba(30, 27, 47, 0.9);
-    }
-}
-
-
-/* --- PIENET MOBIILILAITTEET (max-width: 459px) --- */
-@media (max-width: 459px) {
-
-    /* Poistetaan bannerin tausta ja tehosteet kokonaan pienimmillä näytöillä, */
-    /* jotta teksti on luettavampi ja ulkoasu siistimpi. */
-    .banner-title {
-        background-color: transparent;
-        /* */
-        -webkit-backdrop-filter: none;
-        /* */
-        backdrop-filter: none;
-        /* */
-        border: none;
-        /* */
-        box-shadow: none;
-        /* */
-        padding: 0.2em;
-        /* */
-        text-decoration: none !important;
-        /* */
-        border-bottom: 1px solid rgba(143, 151, 121, 0) !important;
-        /* */
     }
 }
 
@@ -2317,4 +2286,118 @@ a:has(> .lisenssi-kuvake-yksi):hover {
     width: 100%;
     max-width: 600px;
     margin: 1em auto 1em 0;
+}
+
+/* ==================================================================== */
+/* MODAL / PONNAHDUSIKKUNA TYYLIT                                       */
+/* ==================================================================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    /* Lisätty sumennus taustalle */
+    -webkit-backdrop-filter: blur(4px);
+    /* Tuki Safari-selaimelle */
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    width: 90%;
+    max-width: 500px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-container.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-container h3 {
+    margin-top: 0;
+    color: #556B2F;
+    /* Teeman pääväri */
+}
+
+.modal-options {
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    background-color: #f5f5f4;
+    /* stone-100 */
+    border-radius: 4px;
+}
+
+.modal-options label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #44403C;
+    /* stone-700 */
+}
+
+.modal-options input[type="checkbox"] {
+    margin-right: 0.75rem;
+    width: 1em;
+    height: 1em;
+}
+
+.modal-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.modal-buttons button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    border: 1px solid #d6d3d1;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-buttons button:not(.confirm-button) {
+    background-color: #f5f5f4;
+}
+
+.modal-buttons .confirm-button {
+    background-color: #dc2626;
+    /* red-600 */
+    color: white;
+    border-color: #dc2626;
+}
+
+.modal-buttons .confirm-button:hover {
+    background-color: #b91c1c;
+    /* red-700 */
+}
+
+/* UUSI SÄÄNTÖ: Estetään vuorovaikutus taustan kanssa, kun modaali on auki */
+body.modal-open>*:not(.modal-overlay):not(.modal-container) {
+    pointer-events: none;
 }
