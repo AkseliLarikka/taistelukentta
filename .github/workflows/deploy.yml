@@ -23,11 +23,9 @@ jobs:
       - name: Update publication dates
         run: python python_scripts/update_dates.py
 
-      # --- LISÄTTY UUSI VAIHE TÄHÄN ---
       - name: Run glossary autotagger
         run: python python_scripts/autotag_glossary.py
 
-      # --- TÄTÄ VAIHETTA ON MUOKATTU ---
       - name: Commit and push automated changes
         run: |
           git config --local user.email "action@github.com"
