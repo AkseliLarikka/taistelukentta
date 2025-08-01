@@ -4,7 +4,7 @@
 
 Taistelukenttä d20 ei ole peli yksinäisille kenraaleille. Se on moderniin sodankäyntiin keskittyvä strategiapeli, jossa sinä ja ystäväsi muodostatte toimivan komentoketjun. Peli ammentaa inspiraatiota sotapelien "isästä" – [Kriegsspiel](https://fi.wikipedia.org/wiki/Kriegsspiel)-sotapelistä ja pyrkii tuomaan [ammattimaisen sotapelaamisen](https://en.wikipedia.org/wiki/Professional_wargaming) periaatteet, kuten sodan sumun ja komentoketjun haasteet, kaikkien harrastajien ulottuville helpommin lähestyttävässä muodossa.
 
-Yksi pelaaja ottaa komppanianpäällikön strategisen roolin, kun taas muut johtavat omia joukkueitaan etulinjassa. Menestys ei riipu vain omista siirroistasi, vaan kyvystäsi kommunikoida, koordinoida ja tehdä vaikeita päätöksiä yhdessä ryhmänä – jatkuvan sodan sumun ja paineen alla.
+Yksi pelaaja ottaa joukkueenjohtajuuden lisäksi komppanianpäällikön strategisemman roolin, kun taas muut johtavat omia joukkueitaan etulinjassa. Menestys ei riipu vain omista siirroistasi, vaan kyvystäsi kommunikoida, koordinoida ja tehdä vaikeita päätöksiä yhdessä ryhmänä – jatkuvan sodan sumun ja paineen alla.
 
 ### Avainominaisuudet
 
@@ -44,111 +44,82 @@ Projekti kehittyy jatkuvasti. Voit seurata yksityiskohtaista muutoshistoriaa [CH
 
 ---
 
-# Taistelukenttä d20: Kehitysroadmap
+# Taistelukenttä d20: Kehityspolku
 
 > **Päämäärä:** Luoda monitasoinen sotapelikokemus, jossa pelaajat voivat osallistua konfliktiin niin yksittäisen joukkueen johtajana, operatiivisena komentajana kuin strategisena sodanjohtajanakin.
 
 ---
 
-## Vaihe 1: "Vakaa Perusta" – Taktisen Tason Viimeistely ja Laajennus
+## Vaihe 1: "Taktinen Taso" – Viimeistely ja Pelattavuus
 
-*Tavoite: Varmistaa, että pelin ydin – taktinen taistelu – on mahdollisimman viimeistelty, monipuolinen ja nautittava ennen uusien tasojen lisäämistä.*
+* **Nykyinen tila:** Pelin ydin, eli taktinen taistelu joukkue- ja komppaniatasolla, on toiminnallisesti valmis. Seuraavat askeleet keskittyvät sen hiomiseen ja pelikokemuksen parantamiseen.
+* **Tavoitteet:**
+    1. **Arvojen tasapainotus:** Aktiivinen pelitestaus on avainasemassa yksiköiden arvojen, kykyjen ja kustannusten tasapainottamiseksi.
+    2. **Fyysisten pelimerkkien kehitys:** Pelin hallinnoinnin helpottamiseksi suunnitellaan ja otetaan käyttöön värikoodattu pelimerkkijärjestelmä, joka tekee pelitilanteen seuraamisesta intuitiivisempaa.
 
-* **Kehitysaskel 1.1: Sääntöjen Vahvistaminen**
-  * **Kuvaus:** Nykyisten d20-perussääntöjen (liike, tuli, suoja, moraali) viimeistely kerätyn palautteen pohjalta. Tavoitteena on selkeä ja johdonmukainen sääntökirja (versio 1.0).
-  * **Lopputulos:** Lukittu sääntöversio, joka toimii perustana kaikelle tulevalle kehitykselle.
+### Värikoodijärjestelmä (ehdotus)
 
-* **Kehitysaskel 1.2: Yksikkölaajennus**
-  * **Kuvaus:** Uusien, taktista syvyyttä tuovien yksiköiden lisääminen peliin. Esimerkiksi konekivääriryhmät, panssarintorjuntayksiköt, tarkka-ampujat, pioneerit ja lääkintämiehet.
-  * **Lopputulos:** Monipuolisemmat joukkuekoostumukset ja taktiset vaihtoehdot.
-
-* **Kehitysaskel 1.3: Skenaariopankki**
-  * **Kuvaus:** Laaditaan 5–10 erilaista taktista perusskenaariota, jotka menevät perinteistä "tuhoa kaikki" -asetelmaa pidemmälle: puolustus, vetäytyminen, väijytys, tiedustelu, kohteensuojaus.
-  * **Lopputulos:** Korkea uudelleenpelattavuus ja valmiit peli-illat pelinjohtajille.
-
-* **Kehitysaskel 1.4: Ympäristön Vaikutukset**
-  * **Kuvaus:** Selkeiden sääntöjen luominen maastolle (metsä, rakennukset, korkeuserot) ja ympäristölle (sää, yön pimeys).
-  * **Lopputulos:** Taistelukenttä tuntuu elävämmältä ja pakottaa pelaajat sopeutumaan olosuhteisiin.
+| Väri | Käyttötarkoitus | Selite ja käyttötapa |
+| :--- | :--- | :--- |
+| **Osapuolten tunnistus** | | |
+| Sininen | Suomalainen yksikkö | Perusmerkki, joka tunnistaa yksikön siniseen osapuoleen kuuluvaksi. |
+| Punainen | Venäläinen yksikkö | Perusmerkki, joka tunnistaa yksikön punaiseen osapuoleen kuuluvaksi. |
+| Vaaleanvihreä| Siviili | Merkitsee kartalla siviili-elementtejä, joiden suojeleminen on **aina** osa tehtävää. |
+| **Tiedustelu ja informaatio** | | |
+| Keltainen | Tiedustelutaso: Epäily | Asetetaan kartalle "?-merkiksi" kuvaamaan epämääräistä havaintoa. |
+| Oranssi | Tiedustelutaso: Tiedossa | Korvaa keltaisen merkin, kun yksikön tyyppi on tunnistettu. Mahdollistaa epäsuoran tulen. |
+| **Yksikön tilat** | | |
+| Valkoinen | Tilaefekti: Lamautunut | Asetetaan yksikölle, kun se on epäonnistunut moraalitestissä ja on toimintakyvytön. |
+| Tummanruskea| Tilaefekti: Vaurioitunut| Merkitsee, että yksikön taistelukunto on alle 50 % ja sen suorituskyky on heikentynyt. |
+| Tumma oranssi| Tilaefekti: Vetäytyy | Kuvaa hallitsematonta pakoa, erottaen sen hallitusta lamaantumisesta (oranssi). |
+| Kulta | Tilaefekti: Tärähtänyt | Asetetaan yksikölle, kun se on hetkellisesti häiriintynyt, esimerkiksi estotulen seurauksena. |
+| Luonnonväri | Tilaefekti: Piiloutunut | Merkitsee, että yksikkö on onnistuneesti naamioitunut erikoiskykynsä avulla. |
+| Tummansininen| Tila: Valmius (Overwatch)| Asetetaan yksikölle, kun se on saanut `Valmius`-käskyn, ja se toimii varoituksena vastustajalle. |
+| **Resurssit ja komennot** | | |
+| Musta | Ammukset | Seuraa erikoisammusten (esim. PST-laukaukset) määrää. Asetetaan yleensä yksikkökortille. |
+| Harmaa | Joukkueenjohtajan KP | Kuvaa Joukkueenjohtajan käytössä olevia taktisia komentopisteitä (oletuksena 3 kpl/vuoro). |
+| Violetti | Komppanianpäällikön KP| Kuvaa Komppanianpäällikön strategisia komentopisteitä (oletuksena 5 kpl/vuoro), erottaen ne selvästi Joukkueenjohtajan pisteistä. |
 
 ---
 
-## Vaihe 2: "Operatiivinen Askel" – Komppanian ja Pataljoonan Komentaminen
+## Vaihe 2: "Operatiivinen Askel" – Pataljoonan Komentaminen
 
-*Tavoite: Tuoda peliin operatiivinen taso, jossa pelaajat johtavat useita taktisia yksiköitä ja tekevät päätöksiä, jotka vaikuttavat laajempaan taistelukenttään.*
+* **Visio:** Pelin painopiste siirtyy yksittäisistä ryhmistä laajempiin operaatioihin. Pelaajat johtavat komppanioita ja pataljoonia, ja taistelut ratkaistaan abstraktimmin. Huollon, tiedustelun ja resurssienhallinnan merkitys kasvaa. Kartan mittakaava on 1:50 000 – 1:100 000.
+* **Tavoitteet:**
+    1. **Nopeutettu pelimekaniikka:** Yksittäiset taistelut ratkaistaan nopeasti muutamalla nopanheitolla sen sijaan, että pelattaisiin läpi kokonainen taktinen skenaario. Tämä pitää pelin temmon yllä. (Toki jos haluaa, niin taistelut saa suorittaa taktisen tason kautta.)
+    2. **Huollon ja logistiikan mallintaminen:** Otetaan käyttöön huoltopisteet (HP), jotka kuvaavat polttoainetta, ammuksia ja muonaa. Yksiköiden toimintakyky on riippuvainen toimivista huoltoyhteyksistä.
+    3. **Dynaaminen tiedustelu:** Tiedustelutiedot ovat epätarkkoja ja vanhenevat nopeasti, mikä pakottaa komentajat tekemään päätöksiä epävarmuuden alla.
 
-* **Kehitysaskel 2.1: Komentoketjun Mekaniikat**
-  * **Kuvaus:** Luodaan säännöt komppanianpäällikön ja pataljoonan komentajan rooleille. Miten he jakavat komento- ja resurssipisteitä alaisilleen (pelaajille)? Miten käskyt välitetään?
-  * **Lopputulos:** Toimiva komentorakenne, jossa ylemmillä pelaajilla on selkeä ja merkityksellinen rooli.
+### Operatiivisen tason pelisilmukka (ehdotus)
 
-* **Kehitysaskel 2.2: Sodan Sumu ja Kommunikaatio**
-  * **Kuvaus:** Kehitetään järjestelmä, joka simuloi epätäydellistä tietoa. Yksiköt raportoivat havainnoistaan, mutta tieto voi olla viivästynyttä tai epätarkkaa. Radion käyttö, viestinviejät.
-  * **Lopputulos:** Operatiivisesta johtamisesta tulee haastavaa ja realistisemman tuntuista.
-
-* **Kehitysaskel 2.3: Tukielementit**
-  * **Kuvaus:** Lisätään peliin operatiivisen komentajan hallitsemia tukielementtejä: tykistökeskitykset, kranaatinheitintuki, savuammunnat ja perustason huolto (esim. ammustäydennykset).
-  * **Lopputulos:** Komentajilla on käytössään voimakkaita työkaluja, joiden oikea-aikainen käyttö voi ratkaista taistelun.
-
-* **Kehitysaskel 2.4: Yhdistetyt Skenaariot (Minikampanjat)**
-  * **Kuvaus:** Luodaan 2–3 skenaarion mittaisia minikampanjoita, joissa edellisen taistelun lopputulos (esim. kärsityt tappiot, saavutettu maasto) vaikuttaa suoraan seuraavan taistelun lähtöasetelmaan.
-  * **Lopputulos:** Pelaajat kokevat, että heidän tekonsa rakentavat suurempaa tarinaa.
+1. **Direktiivivaihe:** Ylempi johto (strateginen taso tai pelinjohtaja) antaa operatiiviselle komentajalle (pelaaja) tavoitteen (esim. "Vallatkaa tie X", "Viivyttäkää vihollista Y:n alueella 24 tuntia").
+2. **Suunnitteluvaihe:** Pelaaja allokoi joukkojaan (komppanioita) ja resurssejaan (huoltopisteitä, tiedustelua) tehtävään. Hän laatii karkean suunnitelman.
+3. **Toteutusvaihe:** Pelivuorot etenevät (esim. 1 vuoro = 4 tuntia). Pelaaja liikuttaa yksiköitään kartalla. Kun viholliskontakti syntyy:
+    * **Konfliktin ratkaisu:** Taistelu ratkaistaan yhdellä vastakkaisella heitolla, johon vaikuttavat joukkojen vahvuus, tyyppi, maasto ja komentajan taktinen päätös (esim. "Hidas hyökkäys", "Raju rynnäkkö", "Viivytys").
+    * **Tulos:** Taistelun tulos määrittää tappiot, resurssien kulutuksen ja uuden tilanteen kartalla. Vain erityisen kriittiset taistelut voidaan "zoomata sisään" ja pelata erillisinä taktisina skenaarioina.
+4. **Raportointivaihe:** Vuoron lopussa pelaaja raportoi tilanteesta ylemmälle johdolle. Huoltotilanne päivitetään ja uudet tiedustelutiedot saapuvat.
 
 ---
 
 ## Vaihe 3: "Strateginen Perspektiivi" – Sodan Johtaminen
 
-*Tavoite: Luoda ylätason strategiapeli, jossa pelaajat tekevät koko rintamaa koskevia päätöksiä resursseista, joukkojen keskityksistä ja kampanjan päämääristä.*
+* **Visio:** Ylin abstraktiotaso, jossa pelaajat johtavat prikaateja ja armeijakuntia koko Suomen kartalla. Pelissä keskitytään kansalliseen resurssienhallintaan, joukkojen keskittämiseen ja pitkän aikavälin strategiaan.
+* **Tavoitteet:**
+    1. **Kansallinen resurssienhallinta:** Pelaajat hallinnoivat valtakunnallisia resursseja, kuten tuotantoa, täydennysjoukkoja ja ulkopoliittista tukea.
+    2. **Pitkän aikavälin suunnittelu:** Pelivuorot kuvaavat viikkoja tai kuukausia. Päätökset joukkojen sijoittelusta ja suurhyökkäysten ajoituksesta ovat keskiössä.
+    3. **Integraatio operatiiviseen tasoon:** Strategisen tason päätökset luovat direktiivejä ja resurssipuitteet operatiivisen tason pelaajille.
 
-* **Kehitysaskel 3.1: Strateginen Kartta ja Liike**
-  * **Kuvaus:** Kehitetään abstrakti strateginen kartta, jossa prikaatien ja pataljoonien kokoisia yksiköitä liikutellaan. Liikkuminen kestää vuoroja ja kuluttaa resursseja.
-  * **Lopputulos:** Pelin "aivot", jossa sodan suuret linjat päätetään.
+### Strategisen tason pelisilmukka (ehdotus)
 
-* **Kehitysaskel 3.2: Resurssienhallinta**
-  * **Kuvaus:** Luodaan järjestelmä strategisten resurssien hallintaan: täydennysjoukot, huolto (polttoaine, ammukset), strategiset tukielementit (ilmavoimat, kaukopartiot).
-  * **Lopputulos:** Strategisista päätöksistä tulee tasapainottelua eri tarpeiden ja niukkojen resurssien välillä.
-
-* **Kehitysaskel 3.3: Kampanjan Hallintajärjestelmä**
-  * **Kuvaus:** Säännöt pitkäkestoiselle kampanjalle. Miten yksiköt saavat kokemusta? Miten tappiot korvataan? Miten teknologia kehittyy? Mitkä ovat sodan voittamiseen vaadittavat ehdot?
-  * **Lopputulos:** Runko, joka mahdollistaa eeppisten, useita peli-iltoja kestävien sotien pelaamisen.
-
-* **Kehitysaskel 3.4: Direktiivijärjestelmä**
-  * **Kuvaus:** Miten strateginen pelaaja antaa käskyjä operatiivisille pelaajille? Luodaan järjestelmä, jossa strateginen johto asettaa tavoitteita (esim. "Vallatkaa kaupunki X kahdessa viikossa"), ja operatiiviset komentajat suunnittelevat, miten tavoite saavutetaan taktisella tasolla.
-  * **Lopputulos:** Selkeä yhteys strategisen suunnitelman ja operatiivisen toteutuksen välillä.
+1. **Tilannekuvavaihe:** Pelaajat saavat tiedusteluraportit ja yleiskuvan rintamatilanteesta.
+2. **Resurssivaihe:** Uudet resurssit (tuotanto, täydennykset) tulevat käyttöön.
+3. **Strateginen suunnitteluvaihe:** Pelaajat antavat yleisluontoisia käskyjä (direktiivejä) armeijakunnilleen, kuten "Aloittakaa hyökkäys Karjalassa" tai "Vahvistakaa puolustusta Lapissa".
+4. **Operatiivinen toteutus:** Nämä direktiivit annetaan operatiivisen tason pelaajille, jotka toteuttavat ne omilla pelilaudoillaan. Strateginen peli taukoaa, kunnes operatiiviset tehtävät on suoritettu.
+5. **Lopputulosvaihe:** Operatiivisten pelien tulokset (aluevaltaukset, tappiot) päivitetään strategiseen karttaan, mikä luo uuden lähtötilanteen seuraavalle strategiselle vuorolle.
 
 ---
 
 ## Vaihe 4: "Yhtenäinen Kokonaisuus" – Integraatio ja Elävä Peli
 
-*Tavoite: Sitouttaa kaikki tasot yhteen saumattomaksi kokonaisuudeksi ja tukea peliä sen julkaisun jälkeen.*
-
-* **Kehitysaskel 4.1: Täysi Integraatio**
-  * **Kuvaus:** Varmistetaan, että tiedonkulku ja seuraamukset toimivat kaikkien tasojen välillä. Strateginen päätös johtaa operatiiviseen tehtävään, jonka tulos ratkaistaan taktisilla taisteluilla. Taktisen taistelun lopputulos (tappiot, resurssien kulutus) raportoidaan takaisin strategiselle tasolle.
-  * **Lopputulos:** Dynaaminen pelikokemus, jossa jokaisen pelaajan rooli on aidosti merkityksellinen koko sodan kannalta.
-
-* **Kehitysaskel 4.2: Yhteisötyökalut ja Sisältö**
-  * **Kuvaus:** Luodaan työkaluja ja ohjeita, joiden avulla yhteisö voi luoda omia yksiköitään, skenaarioitaan ja jopa kampanjoitaan.
-  * **Lopputulos:** Peli elää ja kasvaa yhteisön luoman sisällön kautta.
-
-* **Kehitysaskel 4.3: Jatkuva Kehitys**
-  * **Kuvaus:** Säännölliset päivitykset, jotka voivat sisältää uusia historiallisia aikakausia, kuvitteellisia konflikteja, yksiköitä tai sääntötarkennuksia palautteen mukaan.
-  * **Lopputulos:** "Taistelukenttä d20" on elävä järjestelmä, ei staattinen tuote.
-
----
-
-## Tulevaisuuden Selainpohjaiset Työkalut (Kehitysideoita)
-
-*Tavoite: Helpottaa pelaamista ja vähentää manuaalista kirjanpitoa tarjoamalla yksinkertaisia, selaimessa toimivia työkaluja, jotka eivät vaadi palvelinta tai tietokantaa.*
-
-* **Interaktiivinen Kampanjan Vahvuusluettelo:**
-  * **Mitä se tekee:** Web-sivu, joka korvaa paperisen "Komppanian Vahvuusluettelon". Pelaajat voivat lisätä yksiköitä, muokata niiden XP- ja TK-arvoja, lisätä muistiinpanoja ja merkitä veteraanikykyjä.
-  * **Miten se toimii:** Kaikki tiedot tallennetaan käyttäjän selaimen `localStorage`-muistiin. Sivu voisi myös sisältää "Vie/Tuo"-toiminnon, jolla kampanjan tilan voi tallentaa tekstitiedostona ja jakaa muille pelaajille.
-
-* **Yksikönluontityökalu (Unit Creator):**
-  * **Mitä se tekee:** Yksinkertainen lomake, johon syötetään yksikön arvot (nimi, TK, Moraali, aseistus, kyvyt jne.). Lomakkeen täyttämisen jälkeen työkalu generoi siistin, tulostusvalmiin HTML-muotoisen yksikkökortin, joka noudattaa sivuston visuaalista ilmettä.
-  * **Miten se toimii:** Puhtaasti JavaScriptillä toteutettu käyttöliittymä, joka luo dynaamisesti HTML-elementtejä syötettyjen tietojen perusteella.
-
-* **Skenaariogeneraattori:**
-  * **Mitä se tekee:** Yksinkertainen työkalu, joka arpoo satunnaisen tehtävän nopeita "one-shot"-pelejä varten. Se voisi arpoa esimerkiksi:<br>
-        1. **Tehtävän tyypin:** (Puolustus, Hyökkäys, Viivytys, Kohteen tuhoaminen)<br>
-        2. **Osapuolet:** (Arpoo yksiköt pistearvojen perusteella)<br>
-        3. **Erityissäännön:** (Esim. "Yötaistelu: Näkyvyys rajoitettu", "Ammuspula: PST-ammuksia vain 2 kpl")
-  * **Miten se toimii:** JavaScript-taulukoita täynnä vaihtoehtoja, joista arvotaan satunnaisesti ja esitetään käyttäjälle selkeänä listana.
+* **Tavoite:** Sitouttaa kaikki kolme tasoa yhteen saumattomaksi kokonaisuudeksi. Strateginen päätös johtaa operatiiviseen tehtävään, jonka kriittisimmät hetket ratkaistaan taktisilla taisteluilla. Taktisen taistelun lopputulos (tappiot, resurssien kulutus) raportoidaan takaisin ylöspäin, vaikuttaen sekä operatiiviseen että strategiseen tilanteeseen.
+* **Lopputulos:** Dynaaminen ja elävä pelikokemus, jossa jokaisen pelaajan rooli on aidosti merkityksellinen koko sodan kannalta.

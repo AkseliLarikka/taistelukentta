@@ -189,13 +189,6 @@
                     projektista. Mitä enemmän pelaajia, sitä enemmän palautetta ja kehitysideoita!</li>
             </ul>
 
-            <h3>Viimeisimmät päivitykset</h3>
-            <p>Projekti kehittyy jatkuvasti. Voit seurata yksityiskohtaista muutoshistoriaa <a
-                    href="tietoja.html">Tietoa & Muutoshistoria -sivulta</a> tai <a
-                    href="https://github.com/AkseliLarikka/taistelukentta" target="_blank"
-                    rel="noopener noreferrer">projektin GitHub-sivulla</a>.</p>
-            <hr>
-
             <h2>Taistelukenttä d20: Kehityspolku</h2>
             <blockquote>
                 <p><strong>Päämäärä:</strong> Luoda monitasoinen sotapelikokemus, jossa pelaajat voivat osallistua
@@ -203,152 +196,61 @@
                     sodanjohtajanakin.</p>
             </blockquote>
 
-            <h3>Vaihe 1: "Hyvät lähtökohdat" – Taktisen tason viimeistely ja laajennus</h3>
-            <p><em>Tavoite: Varmistaa, että pelin ydin (taktinen taistelu) on mahdollisimman pitkälle hiottu,
-                    monipuolinen ja nautittava ennen uusien tasojen lisäämistä.</em></p>
+            <h3>Vaihe 1: "Taktinen Taso" – Viimeistely ja Pelattavuus</h3>
+            <p><em>Nykyinen tila: Pelin ydin, eli taktinen taistelu joukkue- ja komppaniatasolla, on toiminnallisesti
+                    valmis. Seuraavat askeleet keskittyvät sen hiomiseen ja pelikokemuksen parantamiseen.</em></p>
             <ul>
-                <li>
-                    <h4>Kehitysaskel 1.1: Sääntöjen Vahvistaminen</h4>
-                    <p><strong>Kuvaus:</strong> Nykyisten d20-perussääntöjen (<span class="glossary-term"
-                            data-term="liike">liike</span>, <span class="glossary-term" data-term="tuli-isku">TI</span>,
-                        <span class="glossary-term" data-term="suoja">suoja</span>, <span class="glossary-term"
-                            data-term="moraali">moraali</span>) viimeistely
-                        kerätyn palautteen pohjalta. Tavoitteena on selkeä ja johdonmukainen sääntökirja (versio 1.0).
-                    </p>
-                    <p><strong>Lopputulos:</strong> Lukittu sääntöversio, joka toimii perustana kaikelle tulevalle
-                        kehitykselle.</p>
-                </li>
-                <li>
-                    <h4>Kehitysaskel 1.2: Yksikkölaajennus</h4>
-                    <p><strong>Kuvaus:</strong> Uusien, taktista syvyyttä tuovien yksiköiden lisääminen peliin.
-                        Esimerkiksi panssaroidut joukot, tarkka-ampujat ja pioneerit.</p>
-                    <p><strong>Lopputulos:</strong> Monipuolisemmat joukkuekoostumukset ja taktiset vaihtoehdot.</p>
-                </li>
-                <li>
-                    <h4>Kehitysaskel 1.3: Skenaariopankki</h4>
-                    <p><strong>Kuvaus:</strong> Laaditaan 5-10 erilaista taktista perusskenaariota, jotka menevät
-                        perinteistä "tuhoa kaikki" -asetelmaa pidemmälle: puolustus, vetäytyminen, väijytys, tiedustelu,
-                        kohteensuojaus.</p>
-                    <p><strong>Lopputulos:</strong> Hyvä uudelleenpelattavuus ja valmiit peli-illat pelinjohtajille.
-                    </p>
-                </li>
-                <li>
-                    <h4>Kehitysaskel 1.4: Ympäristön Vaikutukset</h4>
-                    <p><strong>Kuvaus:</strong> Selkeiden sääntöjen luominen maastolle (metsä, rakennukset, korkeuserot)
-                        ja ympäristölle (sää, valoisuus).</p>
-                    <p><strong>Lopputulos:</strong> Taistelukenttä tuntuu elävämmältä ja pakottaa pelaajat sopeutumaan
-                        olosuhteisiin.</p>
-                </li>
+                <li><strong>Arvojen tasapainotus:</strong> Aktiivinen pelitestaus on avainasemassa yksiköiden arvojen,
+                    kykyjen ja kustannusten tasapainottamiseksi.</li>
+                <li><strong>Fyysisten pelimerkkien kehitys:</strong> Pelin hallinnoinnin helpottamiseksi suunnitellaan
+                    ja otetaan käyttöön värikoodattu pelimerkkijärjestelmä, joka tekee pelitilanteen seuraamisesta
+                    intuitiivisempaa. Tähän kuuluu merkit siviileille, tiedustelun eri tasoille, tilaefekteille ja
+                    resursseille.</li>
             </ul>
 
             <hr>
 
-            <h3>Vaihe 2: "Operatiivinen Askel" – Komppanian ja Pataljoonan Komentaminen</h3>
-            <p><em>Tavoite: Tuoda peliin operatiivinen taso, jossa pelaajat johtavat useita taktisia yksiköitä ja
-                    tekevät päätöksiä, jotka vaikuttavat laajempaan taistelukenttään.</em></p>
+            <h3>Vaihe 2: "Operatiivinen Askel" – Pataljoonan Komentaminen</h3>
+            <p><em>Visio: Pelin painopiste siirtyy yksittäisistä ryhmistä laajempiin operaatioihin. Pelaajat johtavat
+                    komppanioita ja pataljoonia, ja taistelut ratkaistaan abstraktimmin. Huollon, tiedustelun ja
+                    resurssienhallinnan merkitys kasvaa. Kartan mittakaava on 1:50 000 – 1:100 000.</em></p>
             <ul>
-                <li>
-                    <h4>Kehitysaskel 2.1: Komentoketjun Mekaniikat</h4>
-                    <p><strong>Kuvaus:</strong> Luodaan säännöt komppanianpäällikön ja pataljoonan komentajan rooleille.
-                        Miten he jakavat komento- ja resurssipisteitä alaisilleen (pelaajille)? Miten käskyt välitetään?
-                    </p>
-                    <p><strong>Lopputulos:</strong> Toimiva komentorakenne, jossa ylemmillä pelaajilla on selkeä ja
-                        merkityksellinen rooli.</p>
-                </li>
-                <li>
-                    <h4>Kehitysaskel 2.2: <span class="glossary-term" data-term="sodan sumu">Sodan Sumu</span> ja
-                        Kommunikaatio</h4>
-                    <p><strong>Kuvaus:</strong> Kehitetään järjestelmä, joka simuloi epätäydellistä tietoa. Yksiköt
-                        raportoivat havainnoistaan, mutta tieto voi olla viivästynyttä tai epätarkkaa. Radion käyttö,
-                        viestinviejät.</p>
-                    <p><strong>Lopputulos:</strong> Operatiivisesta johtamisesta tulee haastavaa ja realistisemman
-                        tuntuista.</p>
-                </li>
-                <li>
-                    <h4>Kehitysaskel 2.3: Tukielementit</h4>
-                    <p><strong>Kuvaus:</strong> Lisätään peliin operatiivisen komentajan hallitsemia tukielementtejä:
-                        tykistökeskitykset, kranaatinheitintuki, savuammunnat ja perustason huolto (esim.
-                        ammustäydennykset).</p>
-                    <p><strong>Lopputulos:</strong> Komentajilla on käytössään voimakkaita työkaluja, joiden
-                        oikea-aikainen käyttö voi ratkaista taistelun.</p>
-                </li>
-                <li>
-                    <h4>Kehitysaskel 2.4: Yhdistetyt Skenaariot (Minikampanjat)</h4>
-                    <p><strong>Kuvaus:</strong> Luodaan 2–3 skenaarion mittaisia minikampanjoita, joissa edellisen
-                        taistelun lopputulos (esim. kärsityt tappiot, saavutettu maasto) vaikuttaa suoraan seuraavan
-                        taistelun lähtöasetelmaan.</p>
-                    <p><strong>Lopputulos:</strong> Pelaajat kokevat, että heidän tekonsa rakentavat suurempaa tarinaa.
-                    </p>
-                </li>
+                <li><strong>Nopeutettu pelimekaniikka:</strong> Yksittäiset taistelut ratkaistaan nopeasti muutamalla
+                    nopanheitolla, jotka ottavat huomioon joukkojen vahvuuden, maaston ja komentajan taktiset päätökset.
+                    Tämä pitää pelin temmon yllä. Vain kriittisimmät taistelut "zoomataan sisään" ja pelataan
+                    täysimittaisina taktisina skenaarioina.</li>
+                <li><strong>Huolto ja logistiikka:</strong> Otetaan käyttöön huoltopisteet (HP), jotka kuvaavat
+                    polttoainetta, ammuksia ja muonaa. Yksiköiden toimintakyky on riippuvainen toimivista
+                    huoltoyhteyksistä.</li>
+                <li><strong>Dynaaminen tiedustelu:</strong> Tiedustelutiedot ovat epätarkkoja ja vanhenevat nopeasti,
+                    mikä pakottaa komentajat tekemään päätöksiä epävarmuuden alla.</li>
             </ul>
 
             <hr>
 
             <h3>Vaihe 3: "Strateginen Perspektiivi" – Sodan Johtaminen</h3>
-            <p><em>Tavoite: Luoda ylätason strategiapeli, jossa pelaajat tekevät koko rintamaa koskevia päätöksiä
-                    resursseista, joukkojen keskityksistä ja kampanjan päämääristä.</em></p>
+            <p><em>Visio: Ylin abstraktiotaso, jossa pelaajat johtavat prikaateja ja armeijakuntia koko Suomen kartalla.
+                    Pelissä keskitytään kansalliseen resurssienhallintaan, joukkojen keskittämiseen ja pitkän aikavälin
+                    strategiaan.</em></p>
             <ul>
-                <li>
-                    <h4>Kehitysaskel 3.1: Strateginen Kartta ja <span class="glossary-term"
-                            data-term="liike">Liike</span></h4>
-                    <p><strong>Kuvaus:</strong> Kehitetään abstrakti strateginen kartta, jossa prikaatien ja
-                        pataljoonien kokoisia yksiköitä liikutellaan. Liikkuminen kestää vuoroja ja kuluttaa resursseja.
-                    </p>
-                    <p><strong>Lopputulos:</strong> Pelin "aivot", jossa sodan suuret linjat päätetään.</p>
-                </li>
-                <li>
-                    <h4>Kehitysaskel 3.2: Resurssienhallinta</h4>
-                    <p><strong>Kuvaus:</strong> Luodaan järjestelmä strategisten resurssien hallintaan: täydennysjoukot,
-                        huolto (polttoaine, ammukset), strategiset tukielementit (ilmavoimat, kaukopartiot).</p>
-                    <p><strong>Lopputulos:</strong> Strategisista päätöksistä tulee tasapainottelua eri tarpeiden ja
-                        niukkojen resurssien välillä.</p>
-                </li>
-                <li>
-                    <h4>Kehitysaskel 3.3: Kampanjan Hallintajärjestelmä</h4>
-                    <p><strong>Kuvaus:</strong> Säännöt pitkäkestoiselle kampanjalle. Miten yksiköt saavat kokemusta?
-                        Miten tappiot korvataan? Miten teknologia kehittyy? Mitkä ovat sodan voittamiseen vaadittavat
-                        ehdot?</p>
-                    <p><strong>Lopputulos:</strong> Runko, joka mahdollistaa eeppisten, useita peli-iltoja kestävien
-                        sotien pelaamisen.</p>
-                </li>
-                <li>
-                    <h4>Kehitysaskel 3.4: Direktiivijärjestelmä</h4>
-                    <p><strong>Kuvaus:</strong> Miten strateginen pelaaja antaa käskyjä operatiivisille pelaajille?
-                        Luodaan järjestelmä, jossa strateginen johto asettaa tavoitteita (esim. "Vallatkaa kaupunki X
-                        kahdessa viikossa"), ja operatiiviset komentajat suunnittelevat, miten tavoite saavutetaan
-                        taktisella tasolla.</p>
-                    <p><strong>Lopputulos:</strong> Selkeä yhteys strategisen suunnitelman ja operatiivisen toteutuksen
-                        välillä.</p>
-                </li>
+                <li><strong>Kansallinen resurssienhallinta:</strong> Pelaajat hallinnoivat valtakunnallisia resursseja,
+                    kuten tuotantoa, täydennysjoukkoja ja ulkopoliittista tukea.</li>
+                <li><strong>Pitkän aikavälin suunnittelu:</strong> Pelivuorot kuvaavat viikkoja tai kuukausia. Päätökset
+                    joukkojen sijoittelusta ja suurhyökkäysten ajoituksesta ovat keskiössä.</li>
+                <li><strong>Integraatio operatiiviseen tasoon:</strong> Strategisen tason päätökset (esim. "Aloittakaa
+                    hyökkäys Karjalassa") luovat direktiivejä ja resurssipuitteet operatiivisen tason pelaajille.</li>
             </ul>
 
             <hr>
 
             <h3>Vaihe 4: "Yhtenäinen Kokonaisuus" – Integraatio ja Elävä Peli</h3>
-            <p><em>Tavoite: Sitouttaa kaikki tasot yhteen saumattomaksi kokonaisuudeksi ja tukea peliä sen julkaisun
-                    jälkeen.</em></p>
+            <p><em>Tavoite: Sitouttaa kaikki kolme tasoa yhteen saumattomaksi kokonaisuudeksi. Strateginen päätös johtaa
+                    operatiiviseen tehtävään, jonka kriittisimmät hetket ratkaistaan taktisilla taisteluilla. Taktisen
+                    taistelun lopputulos (tappiot, resurssien kulutus) raportoidaan takaisin ylöspäin, vaikuttaen sekä
+                    operatiiviseen että strategiseen tilanteeseen.</em></p>
             <ul>
-                <li>
-                    <h4>Kehitysaskel 4.1: Täysi Integraatio</h4>
-                    <p><strong>Kuvaus:</strong> Varmistetaan, että tiedonkulku ja seuraamukset toimivat kaikkien tasojen
-                        välillä. Strateginen päätös johtaa operatiiviseen tehtävään, jonka tulos ratkaistaan taktisilla
-                        taisteluilla. Taktisen taistelun lopputulos (tappiot, resurssien kulutus) raportoidaan takaisin
-                        strategiselle tasolle.</p>
-                    <p><strong>Lopputulos:</strong> Dynaaminen pelikokemus, jossa jokaisen pelaajan rooli on aidosti
-                        merkityksellinen koko sodan kannalta.</p>
-                </li>
-                <li>
-                    <h4>Kehitysaskel 4.2: Yhteisötyökalut ja Sisältö</h4>
-                    <p><strong>Kuvaus:</strong> Luodaan työkaluja ja ohjeita, joiden avulla yhteisö voi luoda omia
-                        yksiköitään, skenaarioitaan ja jopa kampanjoitaan.</p>
-                    <p><strong>Lopputulos:</strong> Peli elää ja kasvaa yhteisön luoman sisällön kautta.</p>
-                </li>
-                <li>
-                    <h4>Kehitysaskel 4.3: Jatkuva Kehitys</h4>
-                    <p><strong>Kuvaus:</strong> Säännölliset päivitykset, jotka voivat sisältää uusia historiallisia
-                        aikakausia, kuvitteellisia konflikteja, yksiköitä tai sääntötarkennuksia palautteen mukaan.</p>
-                    <p><strong>Lopputulos:</strong> "Taistelukenttä d20" on elävä järjestelmä, ei staattinen tuote.</p>
-                </li>
+                <li><strong>Dynaaminen kampanja:</strong> Luodaan pelikokemus, jossa jokaisen pelaajan rooli ja
+                    päätökset kaikilla tasoilla ovat aidosti merkityksellisiä koko sodan lopputuloksen kannalta.</li>
             </ul>
         </div>
     </main>
