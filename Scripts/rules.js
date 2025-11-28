@@ -21,7 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
       'https://res.cloudinary.com/dtd8emlzk/image/upload/v1754040737/IMG_5077_pptugn.jpg',
       'https://res.cloudinary.com/dtd8emlzk/image/upload/v1754040736/IMG_5079_qqolvs.jpg',
       'https://res.cloudinary.com/dtd8emlzk/image/upload/v1754040735/IMG_5080_nyd8g0.jpg',
-      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1754040734/IMG_5081_yd5dpw.jpg'
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1754040734/IMG_5081_yd5dpw.jpg',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1764342759/tulikaste_lf8bmp.png',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629049/j%C3%A4%C3%A4k%C3%A4rit_mets%C3%A4ss%C3%A4_ygwrbx.png',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629052/leopardi_patria_mo8gdh.png'
     ];
 
     // Haetaan viimeksi käytetyn kuvan indeksi istuntomuistista
