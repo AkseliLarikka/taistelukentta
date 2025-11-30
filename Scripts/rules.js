@@ -24,7 +24,17 @@ document.addEventListener('DOMContentLoaded', () => {
       'https://res.cloudinary.com/dtd8emlzk/image/upload/v1754040734/IMG_5081_yd5dpw.jpg',
       'https://res.cloudinary.com/dtd8emlzk/image/upload/v1764342759/tulikaste_lf8bmp.png',
       'https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629049/j%C3%A4%C3%A4k%C3%A4rit_mets%C3%A4ss%C3%A4_ygwrbx.png',
-      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629052/leopardi_patria_mo8gdh.png'
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629052/leopardi_patria_mo8gdh.png',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1764520245/jkl_nuke_u3cxn3.png',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1764520218/f35_maassa_pai8g0.png',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1764520215/helsinki_nuke_spjmhz.png',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1764520214/korvetti_bjegx9.png',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1764520206/heko_cvlosk.png',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1764520190/f35_ilmassa_ouyszt.png',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1764520188/dismount_tayjwf.png',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1764520187/Leopard_2a6_e427xh.png',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1764520187/f35_shahed_qvpuib.png',
+      'https://res.cloudinary.com/dtd8emlzk/image/upload/v1764520171/sotilas_wvdevm.png'
     ];
 
     // Haetaan viimeksi käytetyn kuvan indeksi istuntomuistista
