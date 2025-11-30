@@ -186,7 +186,7 @@ window.buildSidebar = function () {
     const level = parseInt(header.tagName.substring(1));
     let headerText = header.textContent.trim();
 
-    if (!isIndexPage && !/^\d+\./.test(headerText)) {
+    if (!isIndexPage && !/^\d+\./.test(headerText) && !header.classList.contains('no-numbering')) {
       if (level === 2) {
         counters.h2++;
         counters.h3 = 0;
