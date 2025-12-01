@@ -6,56 +6,131 @@ PROJECT_ROOT = 'taistelukentta/'
 
 # ==============================================================================
 # SANASTO
-# Varmistetaan, että pidemmät ja tarkemmat termit ovat listassa.
 # ==============================================================================
 GLOSSARY = {
-    # === Lyhenteet ===
-    "DC": "dc", "GM": "gm", "JR": "jr", "KK": "kk", "KP": "kp", "KRH": "krh",
-    "LoS": "los", "PST": "pst", "S": "suoja", "TK": "taistelukunto", "TR": "tr",
-    "TT": "taitotaso", "VP": "vp", "XP": "xp", "M": "moraali", "TI": "tuli-isku",
-    "H": "häive", "L": "liike", "TP": "tp",
-
-    # === Vahinkotyypit (tarkat muodot) ===
-    "SIR-vahinko": "vahinkotyyppi-sir", "SIR vahinko": "vahinkotyyppi-sir",
-    "PST-vahinko": "vahinkotyyppi-pst", "PST vahinko": "vahinkotyyppi-pst",
-
-    # === Käsitteet A-Ö ===
-    "Aaltohyökkäys": "aaltohyökkäys", "Ansat ja Sulutteet": "ansat ja sulutteet",
-    "d20-järjestelmä": "d20-järjestelmä", "d20-järjestelmää": "d20-järjestelmä",
-    "epäorgaaninen tulituki": "epäorgaaninen tulituki", "epäorgaanista tukea": "epäorgaaninen tulituki",
-    "Estotuli": "estotuli", "Etu": "etu ja haitta", "Edun": "etu ja haitta",
-    "Haitta": "etu ja haitta", "Haitan": "etu ja haitta", "Hallintavyöhyke": "hallintavyöhyke",
-    "Hallintavyöhykkeellä": "hallintavyöhyke", "Hallintavyöhykkeeltä": "hallintavyöhyke",
-    "Hyökkäyskäsky": "hyökkäyskäsky", "Irtautuminen": "irtautuminen",
-    "Järjestäytynyt Vetäytyminen": "jarjestaytynyt-vetaytyminen", "Kasarmi": "kasarmi",
-    "Kohdetyypit": "kohdetyypit", "Komentopiste": "kp", "Komentopisteen": "kp",
+    # === Lyhenteet ja Resurssit (Sis. taivutukset) ===
+    "DC": "dc", 
+    "GM": "gm", 
+    "JR": "jr", 
+    "KK": "kk", 
+    "KRH": "krh",
+    "LoS": "los", 
+    "PST": "pst", 
+    "TR": "tr",
+    
+    # Komentopisteet
+    "KP": "kp", "Komentopiste": "kp", "Komentopisteen": "kp",
     "Komentopisteet": "kp", "Komentopisteitä": "kp", "Komentopisteiden": "kp",
-    "Komentopisteitänsä": "kp", "Komentoyhteys": "komentoyhteys",
-    "Komppaniatason taktiikat": "komppaniatason taktiikat", "Korkeusero": "korkeusero",
-    "Koulutus": "koulutus", "Kriittiset Tilanteet": "kriittiset-tilanteet",
-    "Liike": "liike", "liikehidasteen": "liike", "Linnoittautuminen": "linnoittautuminen",
-    "Moraali": "moraali", "Moraalibonus": "moraali", "Moraalitesti": "moraali",
-    "Moraalitestin": "moraali", "Moraalitesteihin": "moraali", "Moraalin Kohotus": "moraali",
-    "Mottitaktiikka": "mottitaktiikka", "Näköyhteys": "los", "näköyhteyden": "los",
-    "Order of Battle": "order-of-battle", "orgaaninen tulituki": "orgaaninen tulituki",
-    "Orgaaninen Tulituki": "orgaaninen tulituki", "orgaanista tulta": "orgaaninen tulituki",
-    "Painopisteen Muodostaminen": "painopisteen-muodostaminen", "Raskas Osuma": "raskas-osuma",
-    "Resurssipisteet": "resurssipisteet", "Sisu": "sisu", "Sitova Tuli": "sitova-tuli",
-    "sodan sumu": "sodan sumu", "Sodan Sumu": "sodan sumu", "Strateginen Doktriini": "strateginen-doktriini",
-    "Suoja": "suoja", "suojabonus": "suoja", "suoja-arvoa": "suoja",
-    "Taisteluryhmä": "taisteluryhmä", "Taistelukunto": "taistelukunto", "Taistelukuntoa": "taistelukunto",
-    "Taitotaso": "taitotaso", "Taitotason": "taitotaso", "Tiedustelutoiminta": "tiedustelutoiminta",
-    "Tilaisuusisku": "tilaisuusisku", "Tulenjohto": "tulenjohto", "Tulen keskittäminen": "tulen-keskittäminen",
-    "Tuli-isku": "tuli-isku", "Tulitukipyyntö": "epäorgaaninen tulituki", "Täydennyspisteet": "tp",
-    "Vahinkotyypit": "vahinkotyypit", "Vaikutuksen Asteet": "vaikutuksen-asteet",
-    "Valmius": "valmius", "Vahvistettu Maali": "vahvistettu-maali", "Vastakkainen heitto": "vastakkainen heitto",
+    "Komentopisteitänsä": "kp",
+    
+    # Voittopisteet
+    "VP": "vp", "Voittopiste": "vp", "Voittopisteet": "vp", 
+    "Voittopisteitä": "vp", "Voittopisteiden": "vp",
+    
+    # Kokemuspisteet
+    "XP": "xp", "Kokemus": "xp", "Kokemuspisteet": "xp", 
+    "Kokemuspisteitä": "xp", "Kokemuspisteiden": "xp",
+    
+    # Täydennyspisteet
+    "TP": "tp", "Täydennyspisteet": "tp", "Täydennyspisteitä": "tp",
+
+    # === Yksikön arvot ja ominaisuudet ===
+    "S": "suoja", "Suoja": "suoja", "suojabonus": "suoja", "suoja-arvoa": "suoja", 
+    "Suoja-arvo": "suoja", "Suoja-arvon": "suoja",
+    
+    "TK": "taistelukunto", "Taistelukunto": "taistelukunto", "Taistelukuntoa": "taistelukunto", 
+    "Taistelukunnon": "taistelukunto",
+    
+    "TT": "taitotaso", "Taitotaso": "taitotaso", "Taitotason": "taitotaso",
+    
+    "M": "moraali", "Moraali": "moraali", "Moraalibonus": "moraali", 
+    "Moraalitesti": "moraali", "Moraalitestin": "moraali", "Moraalitesteihin": "moraali", 
+    "Moraalin Kohotus": "moraali", "Moraaliarvo": "moraali", "Moraalitestit": "moraali", 
+    "Moraalitestissä": "moraali",
+    
+    "TI": "tuli-isku", "Tuli-isku": "tuli-isku",
+    
+    "H": "häive", "Häive": "häive", "Häive-arvo": "häive", "Häive-arvon": "häive",
+    
+    "L": "liike", "Liike": "liike", "liikehidasteen": "liike",
+    
+    "Koulutus": "koulutus",
+    "Sisu": "sisu",
+    "Aaltohyökkäys": "aaltohyökkäys",
     "Veteraanikyvyt": "veteraanikyvyt",
 
+    # === Vahinkotyypit ja Kohteet ===
+    "Vahinkotyypit": "vahinkotyypit",
+    "SIR-vahinko": "vahinkotyyppi-sir", "SIR vahinko": "vahinkotyyppi-sir", "Sirpalevaikutus": "vahinkotyyppi-sir",
+    "PST-vahinko": "vahinkotyyppi-pst", "PST vahinko": "vahinkotyyppi-pst", "Panssarintorjunta": "vahinkotyyppi-pst",
+    
+    "Kohdetyypit": "kohdetyypit",
+    "Pehmeä maali": "kohdetyypit", "Pehmeät maalit": "kohdetyypit",
+    "Panssaroitu maali": "kohdetyypit", "Panssaroidut maalit": "kohdetyypit",
+    "Ajoneuvomaali": "kohdetyypit",
+
+    # === Taistelu ja Toiminnot ===
+    "d20-järjestelmä": "d20-järjestelmä", "d20-järjestelmää": "d20-järjestelmä",
+    "Vaikutuksen Asteet": "vaikutuksen-asteet",
+    "Estotuli": "estotuli",
+    "Raskas Osuma": "raskas-osuma",
+    "Tilaisuusisku": "tilaisuusisku",
+    "Valmius": "valmius",
+    "Vastakkainen heitto": "vastakkainen heitto",
+    "Kriittiset Tilanteet": "kriittiset-tilanteet",
+    
+    "Etu": "etu ja haitta", "Edun": "etu ja haitta",
+    "Haitta": "etu ja haitta", "Haitan": "etu ja haitta",
+    
+    "Hyökkäyskäsky": "hyökkäyskäsky",
+    "Irtautuminen": "irtautuminen",
+    "Linnoittautuminen": "linnoittautuminen",
+    "Tulen keskittäminen": "tulen-keskittäminen",
+    
+    # === Tiedustelu ja Näkyvyys ===
+    "sodan sumu": "sodan sumu", "Sodan Sumu": "sodan sumu",
+    "Näköyhteys": "los", "näköyhteyden": "los",
+    "Tiedustelutoiminta": "tiedustelutoiminta", "Tiedusteluheitto": "tiedustelutoiminta", 
+    "Tiedusteluheitot": "tiedustelutoiminta", "Tiedustelutieto": "sodan sumu",
+
+    # === Tulituki ja Komentaminen ===
+    "Tulenjohto": "tulenjohto", "Tulenjohtaja": "tulenjohto", "Tulenjohtajana": "tulenjohto",
+    "orgaaninen tulituki": "orgaaninen tulituki", "Orgaaninen Tulituki": "orgaaninen tulituki", 
+    "orgaanista tulta": "orgaaninen tulituki",
+    
+    "epäorgaaninen tulituki": "epäorgaaninen tulituki", "epäorgaanista tukea": "epäorgaaninen tulituki",
+    "Tulitukipyyntö": "epäorgaaninen tulituki", "Keskitys": "epäorgaaninen tulituki", 
+    "Tykistökeskitys": "epäorgaaninen tulituki",
+    
+    "Komentoyhteys": "komentoyhteys",
+    "Komppaniatason taktiikat": "komppaniatason taktiikat",
+    "Mottitaktiikka": "mottitaktiikka",
+    "Painopisteen Muodostaminen": "painopisteen-muodostaminen",
+    "Sitova Tuli": "sitova-tuli",
+    "Järjestäytynyt Vetäytyminen": "jarjestaytynyt-vetaytyminen",
+    "Vahvistettu Maali": "vahvistettu-maali",
+
+    # === Maasto ja Kartta ===
+    "Hallintavyöhyke": "hallintavyöhyke", "Hallintavyöhykkeellä": "hallintavyöhyke", 
+    "Hallintavyöhykkeeltä": "hallintavyöhyke",
+    "Korkeusero": "korkeusero",
+    "Resurssipisteet": "resurssipisteet",
+    "Kasarmi": "kasarmi",
+    "Order of Battle": "order-of-battle",
+    "Strateginen Doktriini": "strateginen-doktriini",
+    
+    "Ansat ja Sulutteet": "ansat ja sulutteet", "Murtosulute": "ansat ja sulutteet", 
+    "Murtosulutteet": "ansat ja sulutteet", "Miinoite": "ansat ja sulutteet", 
+    "Miinoitteet": "ansat ja sulutteet", "Miinakenttä": "ansat ja sulutteet",
+
     # === Tilaefektit ===
-    "Tilaefektit": "tilaefektit", "Vaurioitunut": "vaurioitunut", "Vaurioitunut-tilassa": "vaurioitunut",
-    "vaurioitumiselle": "vaurioitunut", "Tärähtänyt": "tarahtanyt", "Lamautunut": "lamautunut",
-    "Lamautunut-tilassa": "lamautunut", "Vetäytyy": "vetaytyy", "Piiloutunut": "piiloutunut",
-    "Piiloutunut-tilan": "piiloutunut", "Piiloutunut-tilassa": "piiloutunut", "piiloutumiseen": "piiloutunut"
+    "Tilaefektit": "tilaefektit",
+    "Vaurioitunut": "vaurioitunut", "Vaurioitunut-tilassa": "vaurioitunut", "vaurioitumiselle": "vaurioitunut",
+    "Tärähtänyt": "tarahtanyt",
+    "Lamautunut": "lamautunut", "Lamautunut-tilassa": "lamautunut",
+    "Vetäytyy": "vetaytyy",
+    "Piiloutunut": "piiloutunut", "Piiloutunut-tilan": "piiloutunut", 
+    "Piiloutunut-tilassa": "piiloutunut", "piiloutumiseen": "piiloutunut"
 }
 
 
