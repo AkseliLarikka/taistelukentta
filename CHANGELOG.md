@@ -9,10 +9,15 @@ Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Tai
 * **Hakutoiminto:** Lisätty sivustonlaajuinen hakukenttä sivupalkkiin (sisällysluettelon yläpuolelle). Haku on toteutettu **Fuse.js**-kirjastolla, mikä mahdollistaa "sumean haun" (fuzzy search) – käyttäjä löytää etsimänsä, vaikka hakusana sisältäisi pieniä kirjoitusvirheitä.
 * **Hakudata:** Lisätty `Scripts/searchData.js`, joka indeksoi sivuston keskeiset säännöt, yksiköt, kampanjamekaniikat ja skenaariot hakua varten.
 * **Hakulogiikka:** Lisätty `Scripts/search.js`, joka hallinnoi hakukentän toimintaa ja tulosten näyttämistä dynaamisesti ilman sivun uudelleenlatausta.
+   **Uusi Skenaario:** Lisätty laaja skenaario **"Operaatio Murtumispiste"**. Skenaario kuvaa epätoivoista viivytystaistelua Jyväskylän edustalla ja tuo mukanaan uusia mekaniikkoja, kuten tiedustelupimennon ("Pimeä Taivas ja Mykkä Verkko") sekä vaiheittain vapautuvat reservit.
+* **Karttamateriaali:** Lisätty ladattava ja selaimessa katseltava kartta (PDF) Operaatio Murtumispisteelle.
+* **Kuvitus:** Lisätty tunnelmaa luovia kuvituskuvia skenaariosivulle.
 
 ### Muutettu
 
 * **Ulkoasu:** Päivitetty CSS-tyylejä tukemaan hakukentän ja hakutulosten asettelua sivupalkissa.
+* **Skenaariosivu:** Päivitetty `skenaariot.html` sisältämään uuden operaation tiedot, taustat, osapuolet ja erityissäännöt.
+* **Yksikködata:** Pieniä päivityksiä yksikkötietoihin (`unit-data.js`) tukemaan uuden skenaarion vaatimuksia.
 
 ### Lisätty
 
