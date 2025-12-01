@@ -2,6 +2,42 @@
 
 Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Taistelukenttä d20 -sotapeliin.
 
+## [2025-12-01]
+
+### Lisätty
+
+* **Uusi Tutorial-sivu:** Lisätty sivustolle `tutorial.html`, joka toimii opastuksena uusille pelaajille.
+* **Sivuston alatunniste:** Lisätty yhtenäinen alatunniste (footer) `pohja.html`-tiedostoon ja muille sivuille.
+
+### Muutettu
+
+* **Skenaariokartat:** Päivitetty "Operaatio Tulikaste" -karttaa (venäläisten lähtöalue).
+
+## [2025-11-30]
+
+### Muutettu
+
+* **Brändäys ja Lore:** Lisätty "Routa OS Initiative" -alatunnisteet kaikille sivuille ja päivitetty `tietoja.html`-sivua ensimmäisillä lore-tiedoilla.
+* **Bannerit:** Lisätty uusia bannerikuvia ja parannettu niiden toiminnallisuutta.
+
+## [2025-11-28]
+
+### Lisätty
+
+* **Uusi kartta:** Lisätty "Operaatio Tulikaste" -skenaarion kartta PDF-muodossa.
+
+### Muutettu
+
+* **Tietoja-sivu:** Päivitetty tekoälykuvitukseen liittyviä merkintöjä ja tietoja.
+* **Lisenssitiedot:** Pieniä päivityksiä `LICENSE.txt`-tiedostoon.
+
+## [2025-09-15]
+
+### Muutettu
+
+* **Etusivun päivitys:** Poistettu "Alpha"-merkintä ja selkeytetty kuvausta pelin lautapeliluonteesta etusivulla (`index.html`).
+* **Sääntötarkennus:** Tarkennettu miinoitteisiin liittyviä sanamuotoja `taktisen-tason-taistelu.html`-sivulla.
+
 ## [2025-08-01] - Käyttöliittymän parannuksia ja sisältöpäivityksiä
 
 ### Muutettu
