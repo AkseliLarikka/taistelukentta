@@ -845,84 +845,92 @@ header {
 
 /* --- SIVUPALKIN HAKU --- */
 .sidebar-search-container {
-  padding: 0 0.5rem 1rem 0.5rem;
-  position: relative;
-  border-bottom: 1px solid #e5e7eb;
-  margin-bottom: 1rem;
+    padding: 0.5rem 0.5rem 1rem 0.5rem;
+    position: relative;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 1rem;
+    background-color: white; /* Varmistetaan tausta */
 }
 
 #sidebar-search-input {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #d6d3d1;
-  border-radius: 0.375rem;
-  font-size: 0.9rem;
-  transition: border-color 0.2s;
-  background-color: #ffffff;
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #d6d3d1;
+    border-radius: 0.375rem;
+    font-size: 1rem; /* Isompi fontti mobiilille estää zoomauksen */
+    transition: border-color 0.2s;
+    background-color: #ffffff;
+    color: #1C1917;
 }
 
 #sidebar-search-input:focus {
-  outline: none;
-  border-color: #556b2f;
-  box-shadow: 0 0 0 2px rgba(85, 107, 47, 0.2);
+    outline: none;
+    border-color: #556B2F;
+    box-shadow: 0 0 0 2px rgba(85, 107, 47, 0.2);
 }
 
 #sidebar-search-results {
-  position: absolute;
-  top: 100%;
-  left: 0.5rem;
-  right: 0.5rem;
-  background-color: white;
-  border: 1px solid #d6d3d1;
-  border-radius: 0.375rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  z-index: 50;
-  max-height: 300px;
-  overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #d6d3d1;
+    border-top: none;
+    border-radius: 0 0 0.375rem 0.375rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Korkeampi kuin muu sisältö */
+    max-height: 60vh; /* Estetään menemästä liian pitkäksi mobiilissa */
+    overflow-y: auto;
+    margin: 0 0.5rem; /* Kohdistus inputin kanssa */
 }
 
 #sidebar-search-results.hidden {
-  display: none;
+    display: none;
 }
 
 .search-result-item {
-  display: block;
-  padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid #f3f4f6;
-  text-decoration: none !important;
-  cursor: pointer;
-  transition: background-color 0.1s;
+    display: block;
+    padding: 0.75rem;
+    border-bottom: 1px solid #f3f4f6;
+    text-decoration: none !important;
+    cursor: pointer;
+    transition: background-color 0.1s;
 }
 
 .search-result-item:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .search-result-item:hover {
-  background-color: #f5f5f4;
+    background-color: #f5f5f4;
+}
+
+.result-content {
+    display: flex;
+    flex-direction: column;
 }
 
 .result-title {
-  display: block;
-  font-weight: bold;
-  color: #1c1917;
-  font-size: 0.9rem;
+    font-weight: bold;
+    color: #1C1917;
+    font-size: 0.95rem;
 }
 
 .result-category {
-  display: block;
-  font-size: 0.75rem;
-  color: #556b2f;
-  text-transform: uppercase;
-  margin-top: 2px;
+    font-size: 0.75rem;
+    color: #556B2F;
+    text-transform: uppercase;
+    margin-top: 2px;
+    font-weight: 600;
 }
 
 .search-no-results {
-  padding: 0.75rem;
-  color: #78716c;
-  font-style: italic;
-  text-align: center;
-  font-size: 0.9rem;
+    padding: 1rem;
+    color: #78716c;
+    font-style: italic;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
 /* Mobiilinäkymän oletusarvo: piilotettu */
