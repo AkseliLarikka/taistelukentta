@@ -280,7 +280,7 @@ window.blueUnitData = {
       {
         name: "Komentajan Aura (Passiivinen)",
         description:
-          "Ystävälliset yksiköt 60cm säteellä saavat +1 Moraalitesteihin.",
+          "Ystävälliset yksiköt 30cm säteellä saavat +1 Moraalitesteihin.",
         isDamagedEffect: true,
       },
       {
