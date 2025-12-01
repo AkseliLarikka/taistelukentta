@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, noimageindex, noarchive">
+
+    <title>Taistelukenttä d20 - Operaatio Tulikaste</title>
+    <meta name="description"
+        content="Opi Taistelukenttä d20 -pelin mekaniikat pelaamalla. Operaatio Tulikaste on aloittelijaystävällinen skenaario kahdelle pelaajalle.">
+    <meta name="author" content="Akseli Larikka">
+    <link rel="canonical" href="https://akselilarikka.github.io/taistelukentta/tutorial.html">
+    <meta name="keywords" lang="fi"
+        content="tutorial, opetus, aloittelija, skenaario, Operaatio Tulikaste, Taistelukenttä d20, säännöt, simulaattori, d20 system">
+    <meta name="keywords" lang="en"
+        content="tutorial, beginner, scenario, Operation Baptism of Fire, Taistelukenttä d20, rules, simulator, d20 system">
+
+    <link rel="icon" href="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629056/tkd20ikoni.png">
+
+    <meta property="og:title" content="Taistelukenttä d20 - Operaatio Tulikaste">
+    <meta property="og:description"
+        content="Opi pelin mekaniikat helposti. Sisältää interaktiivisen taistelusimulaattorin ja tulostettavan kartan.">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629056/TKD20LOGO_tcsrcz.png">
+    <meta property="og:image:alt" content="Taistelukenttä d20 -logo">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://akselilarikka.github.io/taistelukentta/tutorial.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Styles/rules.css">
+
+    <style>
+        /* Tämän sivun erikoistyylit simulaattorille */
+        .simulator-box {
+            background-color: #f5f5f4;
+            border: 1px solid #d6d3d1;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .sim-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 600px) {
+            .sim-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .sim-option-group {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            border: 1px solid #e7e5e4;
+        }
+
+        .sim-option-group h4 {
+            margin-top: 0;
+            font-size: 1rem;
+            color: #556B2F;
+            border-bottom: 1px solid #e7e5e4;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sim-radio-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .sim-radio-label input {
+            margin-right: 0.5rem;
+            width: 1.2em;
+            height: 1.2em;
+        }
+
+        .sim-button {
+            width: 100%;
+            background-color: #dc2626;
+            /* Punainen "Fire" väri */
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 1rem;
+        }
+
+        .sim-button:hover:not(:disabled) {
+            background-color: #b91c1c;
+        }
+
+        .sim-button:disabled {
+            background-color: #fca5a5;
+            cursor: not-allowed;
+        }
+
+        #sim-result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            min-height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        /* Animaatio heiton ajaksi */
+        @keyframes pulse-gray {
+            0% { background-color: #e5e7eb; transform: scale(1); }
+            50% { background-color: #d1d5db; transform: scale(0.98); }
+            100% { background-color: #e5e7eb; transform: scale(1); }
+        }
+
+        .result-rolling {
+            animation: pulse-gray 0.8s infinite;
+            color: #4b5563;
+            border-color: #d1d5db !important;
+        }
+
+        .result-hit {
+            background-color: #dcfce7;
+            color: #166534;
+            border-color: #22c55e !important;
+        }
+
+        .result-suppress {
+            background-color: #fefce8;
+            color: #854d0e;
+            border-color: #eab308 !important;
+        }
+
+        .result-miss {
+            background-color: #f3f4f6;
+            color: #4b5563;
+            border-color: #9ca3af !important;
+        }
+
+        .step-card {
+            border-left: 4px solid #556B2F;
+            padding-left: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="main-navbar">
+        <div class="container">
+            <div class="header-left-spacer"></div>
+            <div id="navbar-dropdown-container">
+                <a href="#" id="current-page-name" class="home-link">Operaatio Tulikaste</a>
+                <nav id="main-navbar-content">
+                    <ul class="top-nav-list">
+                        <li><a href="index.html" class="nav-link-top">Etusivu</a></li>
+                        <li><a href="ydinsaannot.html" class="nav-link-top">Ydinsäännöt</a></li>
+                        <li><a href="taktisen-tason-taistelu.html" class="nav-link-top">Taktisen tason taistelu</a></li>
+                        <li><a href="pelaajan-pikaopas.html" class="nav-link-top">Pelaajan pikaopas</a></li>
+                        <li><a href="kampanjan-hallinta.html" class="nav-link-top">Kampanjan hallinta</a></li>
+                        <li><a href="skenaariot.html" class="nav-link-top">Skenaariot</a></li>
+                        <li><a href="tutorial.html" class="nav-link-top" style="color:#C2B280;">Tutoriaali</a></li>
+                        <li><a href="siniset-yksiköt.html" class="nav-link-top">Siniset yksiköt</a></li>
+                        <li><a href="punaiset-yksiköt.html" class="nav-link-top">Punaiset yksiköt</a></li>
+                        <li><a href="pelinjohtajan-opas.html" class="nav-link-top">Pelinjohtajan opas</a></li>
+                        <li><a href="sanasto-ja-ukk.html" class="nav-link-top">Sanasto ja UKK</a></li>
+                        <li><a href="tietoja.html" class="nav-link-top">Tietoa & Muutoshistoria</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right-spacer"></div>
+        </div>
+    </header>
+
+    <div id="sidebar" class="sidebar-hidden">
+        <h1 class="sidebar-title">Sisällysluettelo</h1>
+        <nav id="nav-menu"></nav>
+    </div>
+
+    <button id="menu-toggle" aria-label="Avaa Sisällysluettelo">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <main id="main-content">
+        <div class="prose">
+            <div class="main-banner"
+                style="background-image: url('https://res.cloudinary.com/dtd8emlzk/image/upload/v1764342759/tulikaste_lf8bmp.png');">
+                <div>
+                    <h1 class="banner-title">
+                        Operaatio Tulikaste – Tutoriaali
+                    </h1>
+                </div>
+            </div>
+
+            <section id="johdanto">
+                <h2>Opi pelin mekaniikat pelaamalla</h2>
+                <p>
+                    <strong>Operaatio Tulikaste</strong> on suunniteltu kahdelle pelaajalle (Suomi vs. Venäjä),
+                    eikä se vaadi aiempaa kokemusta sotapeleistä. Skenaario "Kilpajuoksu Sahilaan" on nopea,
+                    noin 30 minuutin mittainen taistelu, joka opettaa liikkumisen, suojautumisen ja taistelun
+                    perusteet.
+                </p>
+
+                <div class="info-box">
+                    <h3>Tehtävän tiedot</h3>
+                    <ul>
+                        <li><strong>Tehtävä:</strong> Kilpajuoksu Sahilaan.</li>
+                        <li><strong>Tilanne:</strong> Kaksi tiedustelupartiota kohtaa ei-kenenkään-maalla.</li>
+                        <li><strong>Tavoite:</strong> Ota kartan keskellä oleva Sahilan tila haltuun TAI tuhoa
+                            vihollinen.</li>
+                        <li><strong>Asetelma:</strong> Suomi lähestyy etelästä metsän suojassa, Venäjä pohjoisesta tietä
+                            pitkin.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="valmistelu">
+                <h2>1. Valmistelu</h2>
+                <p>
+                    Tämän tutoriaalin pelaamiseen tarvitset vain yhden d20-nopan (tai alla olevan simulaattorin)
+                    sekä neljä pelimerkkiä. Lataa ja tulosta pelipaketti, joka sisältää kartan ja tiivistetyt säännöt.
+                </p>
+
+                <div class="cta-box">
+                    <a href="pdf/tulikaste.pdf" target="_blank" class="cta-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="display:inline; margin-right:8px;">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Lataa Tulikaste-paketti (PDF)
+                    </a>
+                </div>
+            </section>
+
+            <section id="vaihe-1-liike">
+                <div class="step-card">
+                    <h2>Vaihe 1: Liike ja Maasto</h2>
+                    <p>
+                        Kaikki maasto ei ole samanarvoista. Yksiköilläsi on rajallinen määrä <span class="glossary-term"
+                            data-term="liike">Liikepisteitä (LP)</span>.
+                        Sinun on joka vuoro valittava nopeuden ja turvallisuuden välillä.
+                    </p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Maastotyyppi</th>
+                                    <th>Hinta (LP)</th>
+                                    <th>Suoja</th>
+                                    <th>Taktinen vaikutus</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Tie / Pelto</strong></td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>Nopea edetä, mutta olet helppo maalitaulu.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Metsä</strong></td>
+                                    <td>2</td>
+                                    <td>+2</td>
+                                    <td>Hidas ja vaivalloinen, mutta antaa hyvän suojan.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rakennus</strong></td>
+                                    <td>1</td>
+                                    <td>+4</td>
+                                    <td>Linnake. Paras paikka puolustaa, mutta sinne on päästävä ensin.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><strong>Pro-vinkki:</strong> Jos ruudussa on sekä tie ETTÄ metsä, saat molempien edut:
+                        liikut tietä pitkin (1 LP) mutta pysyt puiden suojassa (+2 Suoja).</p>
+                </div>
+            </section>
+
+            <section id="vaihe-2-kontakti">
+                <div class="step-card">
+                    <h2>Vaihe 2: Kontakti ja Vaikutusalue</h2>
+                    <p>
+                        Sota ei ole ohi juoksemista. Kun kohtaat vihollisen, liike pysähtyy.
+                    </p>
+                    <ul>
+                        <li><strong>Pysähtyminen:</strong> Kun astut ruutuun, joka on vihollisen vieressä (mikä tahansa
+                            8 ympäröivästä ruudusta), liikkeesi päättyy välittömästi. Olet astunut vihollisen
+                            <span class="glossary-term" data-term="hallintavyöhyke">Hallintavyöhykkeelle (ZoC)</span>.
+                        </li>
+                        <li><strong>Tilaisuusisku:</strong> Jos yrität poistua vihollisen vierestä ilman
+                            <em>Irtautuminen</em>-komentoa (maksaa 2 KP), vihollinen saa lyödä ilmaisen iskun
+                            selkääsi.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="vaihe-3-taistelu">
+                <div class="step-card">
+                    <h2>Vaihe 3: Taistelu ja Vauriot</h2>
+                    <p>
+                        Taistelu ratkaistaan d20-nopalla. Tulos riippuu siitä, kuinka hyvin hyökkäysvoimasi
+                        murtaa vihollisen suojan. Voit testata mekaniikkaa alla olevalla simulaattorilla ilman oikeita
+                        noppia.
+                    </p>
+
+                    <div class="simulator-box">
+                        <h3 style="text-align: center; margin-top:0;">Taistelusimulaattori</h3>
+                        <div class="sim-grid">
+                            <div class="sim-option-group">
+                                <h4>1. Valitse Hyökkääjä</h4>
+                                <label class="sim-radio-label">
+                                    <input type="radio" name="sim-attacker" value="fi" checked>
+                                    <span style="margin-left:8px;">🇫🇮 Suomi (Hyökkäys +4)</span>
+                                </label>
+                                <label class="sim-radio-label">
+                                    <input type="radio" name="sim-attacker" value="ru">
+                                    <span style="margin-left:8px;">🇷🇺 Venäjä (Hyökkäys +3)</span>
+                                </label>
+                            </div>
+
+                            <div class="sim-option-group">
+                                <h4>2. Valitse Kohteen Maasto</h4>
+                                <label class="sim-radio-label">
+                                    <input type="radio" name="sim-terrain" value="0" checked>
+                                    <span style="margin-left:8px;">Tie / Aukea (Suoja +0)</span>
+                                </label>
+                                <label class="sim-radio-label">
+                                    <input type="radio" name="sim-terrain" value="2">
+                                    <span style="margin-left:8px;">Metsä (Suoja +2)</span>
+                                </label>
+                                <label class="sim-radio-label">
+                                    <input type="radio" name="sim-terrain" value="4">
+                                    <span style="margin-left:8px;">Rakennus (Suoja +4)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button id="sim-shoot-btn" class="sim-button">LAUKAUS!</button>
+
+                        <div id="sim-result">Valitse asetukset ja ammu.</div>
+                        <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                            <em>Simulaattori laskee: d20 + Hyökkäys vs. Kohteen Suoja + Maasto</em>
+                        </p>
+                    </div>
+                    <h3>Tuloksen tulkinta</h3>
+                    <ul>
+                        <li><strong>OSUMA:</strong> Heitto on yhtä suuri tai suurempi kuin puolustus. Kohde menettää 1
+                            Kestävyyspisteen.</li>
+                        <li><strong><span class="glossary-term" data-term="estotuli">ESTOTULI</span>:</strong> Heitto on
+                            1-4 pistettä alle puolustuksen. Ei vauriota, mutta kohde on
+                            <span class="glossary-term" data-term="lamautunut">Lamautunut</span> eikä voi toimia ensi
+                            vuorolla (ellei
+                            käytä KP:tä).
+                        </li>
+                        <li><strong>HUTI:</strong> Heitto on 5 tai enemmän alle puolustuksen. Ei vaikutusta.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="yhteenveto">
+                <h2>Seuraavat askeleet</h2>
+                <p>
+                    Nyt hallitset perusteet. Lataa PDF, tulosta kartta ja haasta kaveri taisteluun Sahilasta!
+                    Kun olet valmis syvempään strategiaan, tutustu täysiin sääntöihin.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2rem;">
+                    <a href="ydinsaannot.html" class="cta-button" style="background-color: #2F361F;">Lue
+                        Ydinsäännöt</a>
+                    <a href="pelinjohtajan-opas.html" class="cta-button"
+                        style="background-color: #44403C;">Pelinjohtajan Opas</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <div id="scroll-buttons-container" class="scroll-buttons">
+        <div id="scroll-legend" class="scroll-legend-panel">
+            <p class="font-bold mb-2">Nappien selitteet:</p>
+            <ul>
+                <li><img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png"
+                        alt="Kersantin hihalaatta" class="legend-icon"> Sivun alkuun / Loppuun</li>
+                <li><img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png"
+                        alt="Alikersantin hihalaatta" class="legend-icon"> Edellinen / Seuraava pääotsikko</li>
+                <li><img src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png"
+                        alt="Korpraalin hihalaatta" class="legend-icon"> Edellinen / Seuraava otsikko</li>
+            </ul>
+        </div>
+        <div class="scroll-row">
+            <button id="scroll-info-toggle" title="Näytä ohjeet" class="scroll-button info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                </svg>
+            </button>
+        </div>
+        <div class="scroll-row">
+            <div class="scroll-column">
+                <button id="scroll-top" class="scroll-button"><img
+                        src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png"
+                        alt="Ylös"></button>
+                <button id="scroll-h2-up" class="scroll-button"><img
+                        src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png"
+                        alt="H2 Ylös"></button>
+                <button id="scroll-h3-up" class="scroll-button"><img
+                        src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png"
+                        alt="H3 Ylös"></button>
+            </div>
+            <div class="scroll-column">
+                <button id="scroll-bottom" class="scroll-button"><img
+                        src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629045/Kersantti_hihalaatta.svg_moun5e.png"
+                        class="invert-icon" alt="Alas"></button>
+                <button id="scroll-h2-down" class="scroll-button"><img
+                        src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629035/Alikersantti_hihalaatta.svg_d1c14f.png"
+                        class="invert-icon" alt="H2 Alas"></button>
+                <button id="scroll-h3-down" class="scroll-button"><img
+                        src="https://res.cloudinary.com/dtd8emlzk/image/upload/v1753629046/Korpraali_hihalaatta.svg_pmryeq.png"
+                        class="invert-icon" alt="H3 Alas"></button>
+            </div>
+        </div>
+    </div>
+    <div id="gm-warning-overlay" class="modal-overlay"></div>
+    <div id="gm-warning-modal" class="modal-container">
+        <h3>Vain pelinjohtajan tietoja</h3>
+        <p>Olet siirtymässä sivulle <strong id="gm-warning-page-name"></strong> ja sen sisältö on tarkoitettu ainoastaan
+            pelinjohtajalle. Pelaajana tietojen tarkasteleminen voi heikentää omaa ja muiden pelikokemusta rikkomalla
+            pelin keskeisen periaatteen sodan sumusta.</p>
+        <p><strong>Oletko varma, että haluat jatkaa?</strong></p>
+        <div class="modal-options">
+            <label>
+                <input type="checkbox" id="gm-warning-dont-show-again">
+                <span>Älä näytä tätä viestiä uudelleen (vanhenee 24h)</span>
+            </label>
+        </div>
+        <div class="modal-buttons">
+            <button id="gm-warning-cancel-button">Palaa takaisin</button>
+            <button id="gm-warning-confirm-button" class="confirm-button">Jatka sivulle</button>
+        </div>
+    </div>
+    <!--
+    ===================================================================
+    FOOTER
+    ===================================================================
+    -->
+    <footer
+        style="background-color: #e7e5e4; border-top: 4px solid #556B2F; padding: 3rem 1rem; margin-top: 4rem; color: #44403C; font-family: 'Inter', sans-serif;">
+        <div
+            style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 2rem;">
+
+            <div style="flex: 1; min-width: 250px;">
+                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        stroke="#556B2F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M50 5 L95 27.5 L95 72.5 L50 95 L5 72.5 L5 27.5 Z" />
+                        <path d="M35 30 L35 70 M35 50 L65 50 M65 50 L80 70 M65 50 L65 30 L35 30" stroke="#2F361F"
+                            stroke-width="8" />
+                    </svg>
+                    <div style="margin-left: 1rem;">
+                        <span
+                            style="font-family: 'Black Ops One', sans-serif; font-size: 1.4rem; color: #2F361F; letter-spacing: 2px; line-height: 1;">ROUTA</span>
+                        <span
+                            style="display: block; font-size: 0.7rem; color: #556B2F; font-weight: bold; letter-spacing: 1px;">TACTICAL
+                            SYSTEMS</span>
+                    </div>
+                </div>
+                <p style="font-size: 0.85rem; line-height: 1.5; margin: 0; opacity: 0.8;">
+                    Kehittynyt taktinen simulaatioympäristö operatiivisen tason johtamiskoulutukseen.
+                    <br>
+                    <strong>Versio:</strong> 1.0 (Public Release)
+                </p>
+            </div>
+
+            <div style="flex: 1; min-width: 200px;">
+                <h4
+                    style="margin: 0 0 1rem 0; color: #2F361F; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; border-bottom: 1px solid #556B2F; display: inline-block; padding-bottom: 4px;">
+                    Järjestelmä
+                </h4>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem;">
+                    <li style="margin-bottom: 0.5rem;">
+                        <a href="https://github.com/AkseliLarikka/taistelukentta" target="_blank"
+                            style="text-decoration: none; color: #44403C; display: flex; align-items: center; gap: 8px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="#556B2F" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                            <span style="border-bottom: 1px dotted #999;">Lähdekoodi / Blueprints</span>
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">
+                        <a href="https://forms.gle/V7YuqPGC9oaX87RG6" target="_blank"
+                            style="text-decoration: none; color: #44403C; display: flex; align-items: center; gap: 8px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="#556B2F" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            <span style="border-bottom: 1px dotted #999;">Lähetä kenttäraportti (Palaute)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tietoja.html"
+                            style="text-decoration: none; color: #44403C; display: flex; align-items: center; gap: 8px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="#556B2F" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            <span style="border-bottom: 1px dotted #999;">Järjestelmän tiedot & Lisenssi</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div style="flex: 1; min-width: 200px;">
+                <h4
+                    style="margin: 0 0 1rem 0; color: #2F361F; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; border-bottom: 1px solid #556B2F; display: inline-block; padding-bottom: 4px;">
+                    Organisaatio
+                </h4>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem;">
+                    <li style="margin-bottom: 0.5rem;">
+                        <a href="https://akselilarikka.github.io/" target="_blank"
+                            style="text-decoration: none; color: #44403C; display: flex; align-items: center; gap: 8px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="#556B2F" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                </path>
+                            </svg>
+                            <span style="font-weight: bold;">Routa Global HQ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/akseli-larikka" target="_blank"
+                            style="text-decoration: none; color: #44403C; display: flex; align-items: center; gap: 8px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="#556B2F" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span style="border-bottom: 1px dotted #999;">Operatiivinen johto (Personnel File)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div
+            style="text-align: center; margin-top: 3rem; font-size: 0.75rem; color: #666; border-top: 1px solid #d6d3d1; padding-top: 1rem;">
+            © <span id="copyright-year">2025</span> Akseli Larikka & Routa Global. All rights reserved. <br>
+            <span style="opacity: 0.7;">Authorized for civilian training use under CC BY-NC-ND 4.0.</span>
+        </div>
+    </footer>
+    <!--
+    ====================================================================
+    JAVASCRIPT-TIEDOSTOT
+    ====================================================================
+    -->
+
+    <script src="Scripts/rules.js"></script>
+    <script src="Scripts/glossaryData.js"></script>
+    <script src="Scripts/popup.js"></script>
+    <script src="Scripts/scroll-buttons.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('sim-shoot-btn');
+            const resultBox = document.getElementById('sim-result');
+
+            btn.addEventListener('click', () => {
+                // 1. Visuaalinen "heitto" alkaa
+                btn.disabled = true;
+                btn.textContent = "LASKETAAN...";
+                resultBox.className = ""; // Nollaa aiemmat luokat
+                resultBox.classList.add("result-rolling");
+                resultBox.innerHTML = "Heitetään noppaa... 🎲";
+
+                // 2. Viive (1500ms)
+                setTimeout(() => {
+                    // Hae valinnat
+                    const attackerKey = document.querySelector('input[name="sim-attacker"]:checked').value;
+                    const terrainBonus = parseInt(document.querySelector('input[name="sim-terrain"]:checked').value);
+
+                    // Määritä arvot
+                    const units = {
+                        fi: { atk: 4, def: 13, name: "Suomi" },
+                        ru: { atk: 3, def: 12, name: "Venäjä" }
+                    };
+
+                    const shooter = units[attackerKey];
+                    const target = attackerKey === 'fi' ? units.ru : units.fi;
+
+                    // Heitä noppaa ja laske
+                    const d20 = Math.floor(Math.random() * 20) + 1;
+                    const totalAttack = d20 + shooter.atk;
+                    const totalDefense = target.def + terrainBonus;
+                    const diff = totalAttack - totalDefense;
+
+                    // Määritä tulos
+                    let message = "";
+                    let cssClass = "";
+                    let log = `(Heitto: ${d20} + ${shooter.atk} = <strong>${totalAttack}</strong>) vs (Puolustus: ${target.def} + ${terrainBonus} = <strong>${totalDefense}</strong>)`;
+
+                    if (diff >= 0) {
+                        message = "🟢 OSUMA! Kohde menettää kestävyyttä.";
+                        cssClass = "result-hit";
+                    } else if (diff >= -4) {
+                        message = "🟡 ESTOTULI! Kohde on Lamautunut.";
+                        cssClass = "result-suppress";
+                    } else {
+                        message = "🔴 HUTI. Ei vaikutusta.";
+                        cssClass = "result-miss";
+                    }
+
+                    // Päivitä käyttöliittymä tuloksella
+                    resultBox.innerHTML = `<div>${message}<div style="font-weight:normal; font-size:0.9rem; margin-top:5px;">${log}</div></div>`;
+                    resultBox.className = ""; // Poista rolling-luokka
+                    resultBox.classList.add(cssClass); // Lisää tulosluokka
+
+                    // Palauta nappi käyttöön
+                    btn.disabled = false;
+                    btn.textContent = "LAUKAUS!";
+
+                }, 1500); // 1.5 sekunnin viive
+            });
+        });
+    </script>
+</body>
+
+</html>
