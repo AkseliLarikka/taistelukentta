@@ -6,6 +6,16 @@ Tämä dokumentti sisältää kaikki merkittävät muutokset ja päivitykset Tai
 
 ### Lisätty
 
+* **Hakutoiminto:** Lisätty sivustonlaajuinen hakukenttä sivupalkkiin (sisällysluettelon yläpuolelle). Haku on toteutettu **Fuse.js**-kirjastolla, mikä mahdollistaa "sumean haun" (fuzzy search) – käyttäjä löytää etsimänsä, vaikka hakusana sisältäisi pieniä kirjoitusvirheitä.
+* **Hakudata:** Lisätty `Scripts/searchData.js`, joka indeksoi sivuston keskeiset säännöt, yksiköt, kampanjamekaniikat ja skenaariot hakua varten.
+* **Hakulogiikka:** Lisätty `Scripts/search.js`, joka hallinnoi hakukentän toimintaa ja tulosten näyttämistä dynaamisesti ilman sivun uudelleenlatausta.
+
+### Muutettu
+
+* **Ulkoasu:** Päivitetty CSS-tyylejä tukemaan hakukentän ja hakutulosten asettelua sivupalkissa.
+
+### Lisätty
+
 * **Uusi Tutorial-sivu:** Lisätty sivustolle `tutorial.html`, joka toimii opastuksena uusille pelaajille.
 * **Sivuston alatunniste:** Lisätty yhtenäinen alatunniste (footer) `pohja.html`-tiedostoon ja muille sivuille.
 
